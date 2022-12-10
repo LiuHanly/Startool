@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Star Tool</string>
+    <string name="language">中</string>
+    <string name="select">选择要测试的类别</string>
+    <string name='General'>一般的功能</string>
+    <string name="Model">具体的模型</string>
+    <string name='Addon'>插件模块</string>
+    <string name='Aging'>老化测试</string>
+    <string name="Enter">进入</string>
+    <string name='General_masg'>在所有设备上测试通用功能。该测试能够发现内部 API 是否正常工作.</string>
+    <string name='Model_masg'>T在特定模型上测试特定组件。该测试能够查明这些组件是否正常运行.</string>
+    <string name='Addon_masg'>在特定设备上测试插件模块。该测试能够查明模块是否正确设置.</string>
+    <string name='Aging_masg'>老化条件下测试器件工作状态</string>
+    <string name="Back">返回</string>
+    <string name="through">逐一检查下面的所有测试</string>
+    <string name="performace">或可选地执行任何特定的测试</string>
+
+    <string name="preaging">Pre-aging test</string>
+    <string name="postagingtest">Post-aging test</string>
+</resources>

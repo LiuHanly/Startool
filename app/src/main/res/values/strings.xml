@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Star Tool</string>
+    <string name="language">EN</string>
+    <string name="select">Select a category to test</string>
+    <string name='General'>General functionalities</string>
+    <string name="Model">Model specific</string>
+    <string name='Addon'>Addon modules</string>
+    <string name='Aging'>Aging tests</string>
+    <string name="Enter">Enter</string>
+    <string name='General_masg'>Test common features on all devices. This test is able to find out whether internal APIs are working properly.</string>
+    <string name='Model_masg'>Test specific components on particular model. This test is able to find out whether those components function correctly.</string>
+    <string name='Addon_masg'>Test addon modules on particular device. This test is able to find out whether a module is correctly setup.</string>
+    <string name='Aging_masg'>Test device working status under aging condition</string>
+    <string name="Back">Back</string>
+    <string name="through"> Go through all tests below one by one,</string>
+    <string name="performace"> or performace any specific test optionally</string>
+
+    <string name="preaging">Pre-aging test</string>
+    <string name="postagingtest">Post-aging test</string>
+
+
 </resources>

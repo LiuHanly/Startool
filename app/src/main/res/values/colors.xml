@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- 主色调  -->
+    <color name="colorMain">#1D2D4B</color>
+    <!-- 主色调浅色  -->
+    <color name="colorMainLight">#405071</color>
+
+
+    <!-- 字体颜色  -->
+    <color name="colorFont">#9DACC8</color>
+    <color name="translatedColor">#9DACC8</color>
+    <color name="color_shop_sg">#FFFFFF</color>
+
 </resources>

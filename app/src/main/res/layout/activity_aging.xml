@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="116mm" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tile_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="207dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tile_view">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/through"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/performace"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingLeft="60mm"
+        android:paddingRight="60mm"
+        android:paddingBottom="180mm">
+
+        <RelativeLayout
+            style="@style/linear_aging"
+            android:layout_marginRight="48mm">
+
+            <ImageView
+                android:layout_width="146mm"
+                android:layout_height="146mm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="36mm"
+                android:src="@mipmap/testbefore" />
+            <TextView
+                android:text="@string/preaging"
+                android:textColor="@color/white"
+                android:textSize="37mm"
+                android:layout_marginBottom="36mm"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            style="@style/linear_aging"
+            android:layout_marginRight="48mm">
+            <ImageView
+                android:layout_width="146mm"
+                android:layout_height="146mm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="36mm"
+                android:src="@mipmap/testxxxhdpi" />
+            <TextView
+                android:text="@string/Aging"
+                android:textColor="@color/white"
+                android:textSize="37mm"
+                android:layout_marginBottom="36mm"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/linear_aging">
+            <ImageView
+                android:layout_width="146mm"
+                android:layout_height="146mm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="36mm"
+                android:src="@mipmap/testafter" />
+            <TextView
+                android:text="@string/Aging"
+                android:textColor="@color/white"
+                android:textSize="37mm"
+                android:layout_marginBottom="36mm"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
