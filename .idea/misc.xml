@@ -3,14 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/check_style.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/ic_esc.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/ic_info.xml" value="0.4825" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/ic_selected_true.xml" value="0.48875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selected.xml" value="0.48875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selected_false.xml" value="0.20364583333333333" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selector_button_bg.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selector_mode_bg.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_addon.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_aging.xml" value="0.25" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_genera.xml" value="0.4689655172413793" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_message.xml" value="0.41158059467918623" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_model.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/ageing_fro_imet.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/pre_aging_tests_activity.xml" value="0.22" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/titlekt_view.xml" value="0.9" />
       </map>
     </option>

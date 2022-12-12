@@ -18,4 +18,34 @@
 
     <string name="preaging">Pre-aging test</string>
     <string name="postagingtest">Post-aging test</string>
+
+    <string name="preaging_masg_one">选择要测试的任何特定元素。然后按“开始”键。</string>
+    <string name="preaging_masg_tow">所选测试将逐一进行。</string>
+
+    <string name="wifi_name">WIFI</string>
+    <string name="network_name">网络</string>
+    <string name="bluetooth_name">蓝牙</string>
+    <string name="hdmi_name">HDMI</string>
+    <string name="usb_name">USB</string>
+    <string name="sdport_name">SD 卡</string>
+    <string name="screen_display_name">屏幕显示</string>
+    <string name="touch_name">触摸</string>
+    <string name="speaker_name">扬声器</string>
+    <string name="gyroscope_name">陀螺仪</string>
+    <string name="buttons_name">按钮</string>
+    <string name="photo_recording_name">相机 &amp; 录音</string>
+
+    <string name="Start_test">开始测试</string>
+    <string name="Select_all">选择所有</string>
+    <string name="device_infor">设备信息</string>
+
+    <string name="Screen_number">串号</string>
+    <string name="Model_name">型号</string>
+    <string name="Android_version">安卓版本</string>
+    <string name="Build_version">固件版本 </string>
+    <string name="MAC">物理地址</string>
+    <string name="DDR">DDR</string>
+    <string name="Menory">Menory</string>
+
+
 </resources>

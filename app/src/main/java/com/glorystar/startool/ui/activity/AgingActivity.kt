@@ -1,14 +1,20 @@
 package com.glorystar.startool.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.RelativeLayout
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.ui.view.TitleKtView
 
 class AgingActivity : BaseActivity() {
     lateinit var tile_view: TitleKtView
+
+    lateinit var preaging_relat: RelativeLayout
+    lateinit var aging_relat: RelativeLayout
+    lateinit var test_post: RelativeLayout
 
     /**
      * 设置布局
@@ -22,22 +28,15 @@ class AgingActivity : BaseActivity() {
      */
     override fun initView(savedInstanceState: Bundle?) {
         tile_view = findViewById(R.id.tile_view)
+        tile_view.action = this
         tile_view.title.text = getString(R.string.Aging)
-        tile_view.setonLetterTouchedChangeListener(object :
-            TitleKtView.OnLetterTouchedChangeListener {
-            @SuppressLint("LogNotTimber")
-            override fun onTouchedLetterChange(id: Int) {
-                Log.e("AgingActivity","---->"+id)
-                when (id) {
-                    R.id.back_linear -> {
-                        finish()
-                    }
-                }
 
+        preaging_relat = findViewById(R.id.preaging_relat)
+        aging_relat = findViewById(R.id.aging_relat)
+        test_post = findViewById(R.id.text_post)
 
-            }
-
-        })
-
+        preaging_relat.setOnClickListener {
+            startActivity(Intent(this, PreAgingTests::class.java))
+        }
     }
 }

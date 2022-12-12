@@ -2,6 +2,7 @@ package com.glorystar.startool.utils.tool;
 
 import com.glorystar.startool.config.constant.Constant;
 
+
 public class IntentJumpUtils {
 
 

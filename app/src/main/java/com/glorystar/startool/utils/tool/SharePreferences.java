@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import com.glorystar.startool.config.base.MyApplication;
 import com.glorystar.startool.config.constant.Constant;
+import com.glorystar.startool.config.constant.Constantdtas;
 
 
 public class SharePreferences {

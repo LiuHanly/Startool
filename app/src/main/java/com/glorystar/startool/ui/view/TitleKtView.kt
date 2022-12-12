@@ -1,5 +1,6 @@
 package com.glorystar.startool.ui.view
 
+import android.app.Activity
 import android.content.Context
 import android.graphics.Bitmap
 import android.util.AttributeSet
@@ -9,16 +10,18 @@ import android.widget.LinearLayout
 
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.glorystar.startool.R
 
 class TitleKtView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = 0,
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     lateinit var back_linear: LinearLayout
     lateinit var title: TextView
+    lateinit var action: AppCompatActivity
 
     var onLetterTouchedChangeListener: OnLetterTouchedChangeListener? = null
 
@@ -36,7 +39,7 @@ class TitleKtView @JvmOverloads constructor(
         back_linear = findViewById(R.id.back_linear)
         title = findViewById(R.id.title)
         back_linear.setOnClickListener {
-            onLetterTouchedChangeListener?.onTouchedLetterChange(it.id)
+            action.finish()
         }
 
     }

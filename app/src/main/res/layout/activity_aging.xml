@@ -17,11 +17,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tile_view"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="207dp"
+        android:layout_marginTop="207mm"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/tile_view">
 
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -47,6 +48,7 @@
         android:paddingBottom="180mm">
 
         <RelativeLayout
+            android:id="@+id/preaging_relat"
             style="@style/linear_aging"
             android:layout_marginRight="48mm">
 
@@ -56,56 +58,64 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="36mm"
                 android:src="@mipmap/testbefore" />
+
             <TextView
-                android:text="@string/preaging"
-                android:textColor="@color/white"
-                android:textSize="37mm"
-                android:layout_marginBottom="36mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_marginBottom="36mm"
+                android:text="@string/preaging"
+                android:textColor="@color/white"
+                android:textSize="37mm" />
 
 
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/aging_relat"
             style="@style/linear_aging"
             android:layout_marginRight="48mm">
+
             <ImageView
                 android:layout_width="146mm"
                 android:layout_height="146mm"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="36mm"
                 android:src="@mipmap/testxxxhdpi" />
+
             <TextView
-                android:text="@string/Aging"
-                android:textColor="@color/white"
-                android:textSize="37mm"
-                android:layout_marginBottom="36mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_marginBottom="36mm"
+                android:text="@string/Aging"
+                android:textColor="@color/white"
+                android:textSize="37mm" />
 
         </RelativeLayout>
 
-        <RelativeLayout style="@style/linear_aging">
+        <RelativeLayout
+            android:id="@+id/text_post"
+            style="@style/linear_aging">
+
             <ImageView
                 android:layout_width="146mm"
                 android:layout_height="146mm"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="36mm"
                 android:src="@mipmap/testafter" />
+
             <TextView
-                android:text="@string/Aging"
-                android:textColor="@color/white"
-                android:textSize="37mm"
-                android:layout_marginBottom="36mm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_marginBottom="36mm"
+                android:text="@string/Aging"
+                android:textColor="@color/white"
+                android:textSize="37mm" />
         </RelativeLayout>
 
     </LinearLayout>

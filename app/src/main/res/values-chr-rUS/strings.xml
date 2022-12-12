@@ -17,4 +17,33 @@
     <string name="performace"> or performace any specific test optionally</string>
     <string name="preaging">Pre-aging test</string>
     <string name="postagingtest">Post-aging test</string>
+
+    <string name="preaging_masg_one">Select any specific element that you want to test. Then press “Start”.</string>
+    <string name="preaging_masg_tow">Selected test will proceed one by one.</string>
+
+    <string name="wifi_name">WIFI</string>
+    <string name="network_name">Network</string>
+    <string name="bluetooth_name">Bluetooth</string>
+    <string name="hdmi_name">HDMI</string>
+    <string name="usb_name">USB</string>
+    <string name="sdport_name">SD port</string>
+    <string name="screen_display_name">Screen display</string>
+    <string name="touch_name">Touch</string>
+    <string name="speaker_name">Speaker</string>
+    <string name="gyroscope_name">Gyroscope</string>
+    <string name="buttons_name">Buttons</string>
+    <string name="photo_recording_name">Photo &amp; recording</string>
+
+    <string name="Start_test">Start test</string>
+    <string name="Select_all">Select all</string>
+    <string name="device_infor">Device information</string>
+
+    <string name="Screen_number">Serial number</string>
+    <string name="Model_name">Model</string>
+    <string name="Android_version">Android version</string>
+    <string name="Build_version">Build version</string>
+    <string name="MAC">MAC</string>
+    <string name="DDR">DDR</string>
+    <string name="Menory">Menory</string>
+
 </resources>

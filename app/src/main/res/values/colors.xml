@@ -12,10 +12,13 @@
     <!-- 主色调浅色  -->
     <color name="colorMainLight">#405071</color>
 
+    <!-- 按钮主色调  -->
+    <color name="colorMainButton">#0091FF</color>
 
     <!-- 字体颜色  -->
     <color name="colorFont">#9DACC8</color>
     <color name="translatedColor">#9DACC8</color>
     <color name="color_shop_sg">#FFFFFF</color>
+
 
 </resources>
