@@ -6,10 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.glorystar.systemtest.utlis.db.Ageing
-import com.glorystar.systemtest.utlis.db.AgeingDao
-import com.glorystar.systemtest.utlis.db.Teacher
-import com.glorystar.systemtest.utlis.db.TeacherDao
 
 @Database(entities = [Student::class, Teacher::class, Ageing::class], version = 3, exportSchema = false)
 abstract class AppDataBase : RoomDatabase() {

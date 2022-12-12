@@ -1,4 +1,4 @@
-package com.glorystar.systemtest.utlis.db
+package com.glorystar.startool.utils.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

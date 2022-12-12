@@ -1,10 +1,11 @@
-package com.glorystar.systemtest.utlis.db
+package com.glorystar.startool.utils.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.glorystar.startool.config.base.BaseDao
+import com.glorystar.startool.utils.db.Ageing
 
 
 @Dao
