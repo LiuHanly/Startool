@@ -4,21 +4,47 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/check_style.xml" value="0.5671875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/ic_checkcircle__.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/ic_esc.xml" value="0.5671875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/ic_gantanhao.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/ic_info.xml" value="0.4825" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/ic_selected_true.xml" value="0.48875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/r_button_bg.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selected.xml" value="0.48875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selected_false.xml" value="0.20364583333333333" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selector_button_bg.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selector_mode_bg.xml" value="0.5671875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/acticity_sd_interface.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_addon.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_aging.xml" value="0.25" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_bluetooth.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_button.xml" value="0.4719424460431655" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_camera.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_genera.xml" value="0.4689655172413793" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_gyroscope.xml" value="0.33" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_hdmi.xml" value="0.2626984126984127" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_message.xml" value="0.41158059467918623" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_model.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_rj45.xml" value="0.5" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_screen.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_screen_show.xml" value="0.47459252157238735" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_show_view_noe.xml" value="0.3911792905081496" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_show_view_three.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_show_view_two.xml" value="0.67" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_test_report.xml" value="0.33" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_trumpet.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_usb_interface.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_wifi.xml" value="0.25" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/ageing_fro_imet.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/device_item.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/headset_plug.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/mydonut_progress.xml" value="0.5" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/pre_aging_tests_activity.xml" value="0.22" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/screen_view_noe.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/screen_view_three.xml" value="0.54296875" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/screen_view_tow.xml" value="0.33" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/terdao_imet.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/titlekt_view.xml" value="0.9" />
       </map>
     </option>

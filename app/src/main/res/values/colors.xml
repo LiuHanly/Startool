@@ -20,5 +20,8 @@
     <color name="translatedColor">#9DACC8</color>
     <color name="color_shop_sg">#FFFFFF</color>
 
+    <color name="colorAccent">#56F21F</color>
+    <color name="colorAccentLight">#9DACC8</color>
+
 
 </resources>

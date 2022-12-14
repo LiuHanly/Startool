@@ -26,15 +26,15 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
 
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:layout_constraintVertical_bias="0.149">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
 
         <RelativeLayout style="@style/device_relative">
 
@@ -55,9 +55,8 @@
                 android:text="@string/Model_name" />
 
             <TextView
-                style="@style/text_style_right"
                 android:id="@+id/Model"
-                />
+                style="@style/text_style_right" />
         </RelativeLayout>
 
         <RelativeLayout style="@style/device_relative">
@@ -67,8 +66,8 @@
                 android:text="@string/Android_version" />
 
             <TextView
-                style="@style/text_style_right"
-                android:id="@+id/Android_version"/>
+                android:id="@+id/Android_version"
+                style="@style/text_style_right" />
         </RelativeLayout>
 
         <RelativeLayout style="@style/device_relative">
@@ -77,9 +76,9 @@
                 style="@style/text_style"
                 android:text="@string/Build_version" />
 
-            <TextView style="@style/text_style_right"
+            <TextView
                 android:id="@+id/Build_number"
-                />
+                style="@style/text_style_right" />
         </RelativeLayout>
 
         <RelativeLayout style="@style/device_relative">
@@ -88,9 +87,9 @@
                 style="@style/text_style"
                 android:text="@string/MAC" />
 
-            <TextView style="@style/text_style_right"
+            <TextView
                 android:id="@+id/IP_address"
-                />
+                style="@style/text_style_right" />
         </RelativeLayout>
 
         <RelativeLayout style="@style/device_relative">
@@ -99,9 +98,9 @@
                 style="@style/text_style"
                 android:text="@string/DDR" />
 
-            <TextView style="@style/text_style_right"
+            <TextView
                 android:id="@+id/Inter_shared_storage"
-                />
+                style="@style/text_style_right" />
         </RelativeLayout>
 
         <RelativeLayout style="@style/device_relative">
@@ -110,12 +109,56 @@
                 style="@style/text_style"
                 android:text="@string/Menory" />
 
-            <TextView style="@style/text_style_right"
+            <TextView
                 android:id="@+id/Inter_storage"
-                />
+                style="@style/text_style_right" />
         </RelativeLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_title_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60mm"
+        android:text="@string/expected_Passed"
+        android:textColor="@color/white"
+        android:textSize="25mm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <RelativeLayout
+        android:layout_width="870mm"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40mm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_name"
+        tools:ignore="InOrMmUsage">
+
+        <Button
+            android:layout_width="121mm"
+            android:layout_height="55mm"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/Failed"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="21mm"
+            tools:ignore="InOrMmUsage" />
+
+        <Button
+            android:layout_width="121mm"
+            android:layout_height="55mm"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/Passed"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="21mm"
+            tools:ignore="InOrMmUsage" />
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

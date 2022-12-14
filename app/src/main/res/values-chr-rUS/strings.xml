@@ -45,5 +45,34 @@
     <string name="MAC">MAC</string>
     <string name="DDR">DDR</string>
     <string name="Menory">Menory</string>
+    <string name="expected_Passed">If the result is expected, click “Passed”, otherwise click “Failed”</string>
+    <string name="Failed">Failed</string>
+    <string name="Passed">Passed</string>
 
+    <string name="buttons_tilename">Buttons test</string>
+    <string name="tile_masg">Press each of the following buttons on the device</string>
+
+    <string name="KEYCODE_POWER">Screen button:</string>
+    <string name="KEYCODE_VOLUME_DOWN">Volume +</string>
+    <string name="KEYCODE_VOLUME_UP">Volume -</string>
+
+    <string name="Restart">Restart</string>
+    <string name="Photo_test">Photo and recording test</string>
+
+    <string name="Below_camera"> Below is the image received from the camera </string>
+    <string name="hdmi_cable"> Connect your screen with a HDMI cable </string>
+    <string name="screen_colors">Tab on the screen to change color</string>
+    <string name="DATE">Date</string>
+
+    <string name="Ap">Access point</string>
+    <string name="Status">Status</string>
+    <string name="Serial_number">Serial number</string>
+    <string name="TIME">Time</string>
+    <string name="Build_number">Build number</string>
+    <string name="INTERSHAREDSTORAGE">Build number</string>
+    <string name="play">播放</string>
+    <string name="The_play">是否有声音输出(男声左， 女声右)?</string>
+
+    <string name="Headset_plug">请插入耳机进行测试 </string>
+    <string name="NEXTBUTTON">下一步</string>
 </resources>

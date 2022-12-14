@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorMain">
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="116mm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/network_name"
+            android:textColor="@color/white"
+            android:textSize="37mm" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:id="@+id/image_name"
+        android:layout_width="1080mm"
+        android:layout_height="610mm"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+        tools:ignore="MissingConstraints">
+
+        <WebView
+            android:id="@+id/full_webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layerType="hardware" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60mm"
+            android:text="@string/expected_Passed"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+        <RelativeLayout
+            android:layout_width="870mm"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48mm"
+            tools:ignore="MissingConstraints">
+
+
+            <Button
+                android:id="@+id/failure_bu"
+                android:layout_width="121mm"
+                android:layout_height="55mm"
+                android:background="@drawable/r_button_bg"
+                android:text="@string/Failed"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm"
+                tools:ignore="InOrMmUsage" />
+
+
+            <Button
+                android:id="@+id/through_bu"
+                android:layout_width="121mm"
+                android:layout_height="55mm"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/r_button_bg"
+                android:text="@string/Passed"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm"
+                tools:ignore="InOrMmUsage" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

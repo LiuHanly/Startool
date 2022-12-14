@@ -6,6 +6,7 @@
     <!-- 连网权限 -->
     <!-- 获取网络状态，根据网络状态切换进行数据请求网络转换 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 检测网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 检测wifi状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 为了获取用户手机的IMEI，用来唯一的标识用户。 -->
@@ -121,6 +122,58 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/NoTitle" />
+
+        <activity android:name=".ui.activity.BluetoothActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle" />
+        <activity android:name=".ui.activity.GyroscopeActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle"
+            />
+
+        <activity android:name=".ui.activity.RJ45Activity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle"
+            />
+
+        <activity android:name=".ui.activity.ScreenActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle"
+            />
+        <activity android:name=".ui.activity.SdInterfaceActicity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle"
+            />
+
+        <activity android:name=".ui.activity.HDMIActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle"
+            />
+         <activity android:name=".ui.activity.WifiActivity"
+             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+             android:launchMode="singleTask"
+             android:screenOrientation="landscape"
+             android:theme="@style/NoTitle"
+             />
+        <activity android:name=".ui.activity.TrumpetActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle"
+            />
+
 
 
     </application>

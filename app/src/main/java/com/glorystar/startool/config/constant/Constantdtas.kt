@@ -1,11 +1,14 @@
 package com.glorystar.startool.config.constant
 
+import android.app.Activity
+import android.content.res.AssetManager
 import android.os.Build
 import android.os.Environment
 import android.util.Log
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.AgingBean
+import com.glorystar.startool.ui.activity.*
 import com.glorystar.startool.utils.tool.DateUtil
 import com.glorystar.startool.utils.tool.ToastUtil
 import java.io.*
@@ -28,43 +31,73 @@ object Constantdtas {
             ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.network_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.internet, it, false) }?.let { minItemBean.add(it) }
 
 
         MyApplication.context?.resources?.getString(R.string.bluetooth_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.bluetooth, it, false) }?.let { minItemBean.add(it) }
 
 
         MyApplication.context?.resources?.getString(R.string.hdmi_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.hdmi, it, false) }?.let { minItemBean.add(it) }
 
 
         MyApplication.context?.resources?.getString(R.string.usb_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.usb, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.sdport_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.sdcard, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.screen_display_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.screendisplay, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.touch_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.touch, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.speaker_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.speaker, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.gyroscope_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.orientation, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.buttons_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.button, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.photo_recording_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(0, R.mipmap.camera, it, false) }?.let { minItemBean.add(it) }
 
         return minItemBean
     }
+
+
+
+
+    fun getInString(context: Activity): List<String> {
+
+        val mAssetManger: AssetManager = context.assets
+        val bufferedReader1 =
+            BufferedReader(InputStreamReader(mAssetManger.open("liucheng.txt"), "utf-8"))
+        val lines1 = bufferedReader1.readLines()
+        return  lines1
+    }
+
+    fun geiActivity(context: Activity, position: String) {
+        when (position) {
+            "屏幕显示" -> ScreenShowActivity.toStartActivity(context)
+            "触摸" -> ScreenActivity.toStartActivity(context)
+            "无线网络" -> WifiActivity.toStartActivity(context)
+            "蓝牙" -> BluetoothActivity.toStartActivity(context)
+            "相机微米" -> CameraActivity.toStartActivity(context)
+            "网络" -> RJ45Activity.toStartActivity(context)
+            "SD卡" -> SdInterfaceActicity.toStartActivity(context)
+            "USB" -> USBInterfaceActivity.toStartActivity(context)
+            "HDMI" -> HDMIActivity.toStartActivity(context)
+            "扬声器" -> TrumpetActivity.toStartActivity(context)
+            "陀螺仪" -> GyroscopeActivity.toStartActivity(context)
+            "按钮" -> ButtonActivity.toStartActivity(context)
+        }
+    }
+
 
 
     /**
