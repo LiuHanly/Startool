@@ -35,7 +35,7 @@ class ScreenShowActivity : BaseActivity() {
     private lateinit var nextButton: Button
 
     lateinit var failure_bu: Button
-    lateinit var redo_bu: Button
+    lateinit var redo_bu: TextView
     lateinit var through_bu: Button
 
     lateinit var text_name: TextView

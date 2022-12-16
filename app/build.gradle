@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.glorystar.startool"
         minSdk 21
-        targetSdk 31
+        targetSdk 21
         versionCode 1
         versionName "1.0"
 
@@ -85,6 +85,8 @@ dependencies {
 
 
     implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
 
     //Logger
     implementation 'com.orhanobut:logger:2.2.0'

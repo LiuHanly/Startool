@@ -12,6 +12,6 @@
     <size android:height="4mm"/>
     <!-- 圆角的幅度 -->
     <corners
-        android:radius="7mm"/>
+        android:radius="7dp"/>
 
 </shape>

@@ -138,6 +138,7 @@
         tools:ignore="InOrMmUsage">
 
         <Button
+            android:id="@+id/failure_bu"
             android:layout_width="121mm"
             android:layout_height="55mm"
             android:background="@drawable/r_button_bg"
@@ -148,6 +149,7 @@
             tools:ignore="InOrMmUsage" />
 
         <Button
+            android:id="@+id/through_bu"
             android:layout_width="121mm"
             android:layout_height="55mm"
             android:layout_alignParentEnd="true"

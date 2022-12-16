@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.PagerAdapter
 import com.glorystar.startool.R
@@ -36,12 +37,12 @@ class TrumpetActivity : BaseActivity() {
     lateinit var badge_view: RTextView
     lateinit var through_bu: Button
     lateinit var failure_bu: Button
-    lateinit var redo_bu: Button
+    lateinit var redo_bu: TextView
 
 
     lateinit var through_bu2: Button
     lateinit var failure_bu2: Button
-    lateinit var redo_bu2: Button
+    lateinit var redo_bu2: TextView
 
     var countdowntimer: CountDownTimer? = null
 

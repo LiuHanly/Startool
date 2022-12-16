@@ -9,9 +9,14 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.os.StatFs
+import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
+import com.glorystar.startool.config.constant.IntenAcitivity
+import com.glorystar.startool.config.constant.StudentDataBase
+import com.glorystar.startool.utils.db.Student
 import com.glorystar.startool.utils.tool.NetworkUtil.getMacAddressTextView
 import java.math.BigDecimal
 
@@ -25,6 +30,10 @@ class MessageActivity : BaseActivity() {
     var IP_address: TextView? = null
     var Inter_shared_storage: TextView? = null
     var Inter_storage: TextView? = null
+
+    lateinit var failure_bu: Button
+
+    lateinit var through_bu: Button
 
     private var mAm: ActivityManager? = null
     var initData = 2
@@ -41,12 +50,14 @@ class MessageActivity : BaseActivity() {
     /**
      * 设置布局
      */
-    override fun getLayoutId(): Int  =  R.layout.activity_message
+    override fun getLayoutId(): Int = R.layout.activity_message
 
     /**
      * 初始化视图
      */
     override fun initView(savedInstanceState: Bundle?) {
+        failure_bu = findViewById(R.id.failure_bu)
+        through_bu = findViewById(R.id.through_bu)
 
         mAm = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val systemMemInfo = ActivityManager.MemoryInfo()
@@ -58,10 +69,8 @@ class MessageActivity : BaseActivity() {
         val totalCounts = statFs.blockCountLong //总共的block数
         val size = statFs.blockSizeLong //每格所占的大小，一般是4KB==
         val totalROMSize = totalCounts * size //内部存储总大小
-        val euntotalBytes = totalROMSize?.div(1024)?.div(1024)?.div(1024.00)?.let { BigDecimal(it) }
-        val suntotalBytes = euntotalBytes?.setScale(2, BigDecimal.ROUND_HALF_DOWN)
-
-
+        val euntotalBytes = totalROMSize.div(1024).div(1024).div(1024.00).let { BigDecimal(it) }
+        val suntotalBytes = euntotalBytes.setScale(2, BigDecimal.ROUND_HALF_DOWN)
 
 
         Serial_number = findViewById(R.id.Serial_number)
@@ -79,7 +88,7 @@ class MessageActivity : BaseActivity() {
         } else {
             Build.SERIAL
         }
-        if (Serial.contains("GS" ,true) && Serial.toCharArray().size == 14) {
+        if (Serial.contains("GS", true) && Serial.toCharArray().size == 14) {
             Serial.toCharArray().forEach {
                 if (!it.isLetterOrDigit()) {
                     Serial_number?.setTextColor(Color.RED)
@@ -87,13 +96,6 @@ class MessageActivity : BaseActivity() {
                 }
             }
 
-//        if (Serial.toCharArray().size == 13) {
-//            Serial.toCharArray().forEach {
-//                if (!it.isDigit()) {
-//                    Serial_number?.setTextColor(Color.RED)
-//                    initData = 1
-//                }
-//            }
         } else {
             Serial_number?.setTextColor(Color.RED)
             initData = 1
@@ -111,6 +113,17 @@ class MessageActivity : BaseActivity() {
             getMacAddressTextView(IP_address)
         } catch (e: Exception) {
         }
+        failure_bu?.setOnClickListener {
+            IntenAcitivity.getIntenAcitivity(this@MessageActivity, 0, 1)
+
+        }
+        through_bu?.setOnClickListener {
+
+            IntenAcitivity.getIntenAcitivity(this@MessageActivity, 0, initData)
+
+        }
 
     }
+
+
 }

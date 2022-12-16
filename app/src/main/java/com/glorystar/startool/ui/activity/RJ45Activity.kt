@@ -80,7 +80,7 @@ class RJ45Activity : BaseActivity() {
         through_bu = findViewById(R.id.through_bu)
 
         mHandler.sendEmptyMessage(0)
-        //  WebViewLayout.loadUrl("http://www.apple.com.cn")
+       // full_webView.loadUrl("http://www.apple.com.cn")
 
         full_webView.webChromeClient = WebChromeClient()
         full_webView.webViewClient = object : WebViewClient() {

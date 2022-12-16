@@ -95,7 +95,6 @@ class ButtonActivity : BaseActivity() {
         }
         through_bu?.setOnClickListener {
 
-
             if (VOLUME_DOWN == 2 && VOLUME_UP == 2 && VODE_POWER == 2) {
                 IntenAcitivity.getIntenAcitivity(this@ButtonActivity, 2)
             } else {

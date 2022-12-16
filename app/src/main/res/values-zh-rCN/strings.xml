@@ -75,4 +75,13 @@
     <string name="The_play">是否有声音输出(男声左， 女声右)?</string>
     <string name="Headset_plug">请插入耳机进行测试 </string>
     <string name="NEXTBUTTON">下一步</string>
+
+    <string name="Weaker">暗</string>
+    <string name="Stronger">亮</string>
+
+    <string name="Below_testing">Below is a default webpage for testing</string>
+    <string name="Preaging_report">Pre-aging test report</string>
+    <string name="Finish_leave">Finish and leave</string>
+    <string name="SD_card_ports">Plug a SD card into SD card ports</string>
+
 </resources>

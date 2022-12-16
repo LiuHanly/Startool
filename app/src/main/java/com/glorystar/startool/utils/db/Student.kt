@@ -9,6 +9,10 @@ import androidx.room.PrimaryKey
 data class Student(
     @PrimaryKey(autoGenerate = true)
     var StudentID: Int?,
+
+    @ColumnInfo(name = "a_id")
+    var appinfoID: Int?,
+
     @ColumnInfo(name = "s_name")
     var StudentName: String?,
     @ColumnInfo(name = "s_type")

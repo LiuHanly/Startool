@@ -28,48 +28,46 @@ object Constantdtas {
         var minItemBean: MutableList<AgingBean> = ArrayList<AgingBean>()
 
         MyApplication.context?.resources?.getString(R.string.wifi_name)
-            ?.let { AgingBean(0, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(3, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.network_name)
-            ?.let { AgingBean(0, R.mipmap.internet, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(6, R.mipmap.internet, it, false) }?.let { minItemBean.add(it) }
 
 
         MyApplication.context?.resources?.getString(R.string.bluetooth_name)
-            ?.let { AgingBean(0, R.mipmap.bluetooth, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(4, R.mipmap.bluetooth, it, false) }?.let { minItemBean.add(it) }
 
 
         MyApplication.context?.resources?.getString(R.string.hdmi_name)
-            ?.let { AgingBean(0, R.mipmap.hdmi, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(9, R.mipmap.hdmi, it, false) }?.let { minItemBean.add(it) }
 
 
         MyApplication.context?.resources?.getString(R.string.usb_name)
-            ?.let { AgingBean(0, R.mipmap.usb, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(8, R.mipmap.usb, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.sdport_name)
-            ?.let { AgingBean(0, R.mipmap.sdcard, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(7, R.mipmap.sdcard, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.screen_display_name)
-            ?.let { AgingBean(0, R.mipmap.screendisplay, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(1, R.mipmap.screendisplay, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.touch_name)
-            ?.let { AgingBean(0, R.mipmap.touch, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(2, R.mipmap.touch, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.speaker_name)
-            ?.let { AgingBean(0, R.mipmap.speaker, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(10, R.mipmap.speaker, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.gyroscope_name)
-            ?.let { AgingBean(0, R.mipmap.orientation, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(12, R.mipmap.orientation, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.buttons_name)
-            ?.let { AgingBean(0, R.mipmap.button, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(13, R.mipmap.button, it, false) }?.let { minItemBean.add(it) }
 
         MyApplication.context?.resources?.getString(R.string.photo_recording_name)
-            ?.let { AgingBean(0, R.mipmap.camera, it, false) }?.let { minItemBean.add(it) }
+            ?.let { AgingBean(5, R.mipmap.camera, it, false) }?.let { minItemBean.add(it) }
 
         return minItemBean
     }
-
-
 
 
     fun getInString(context: Activity): List<String> {
@@ -78,26 +76,25 @@ object Constantdtas {
         val bufferedReader1 =
             BufferedReader(InputStreamReader(mAssetManger.open("liucheng.txt"), "utf-8"))
         val lines1 = bufferedReader1.readLines()
-        return  lines1
+        return lines1
     }
 
-    fun geiActivity(context: Activity, position: String) {
+    fun geiActivity(context: Activity, position: Int) {
         when (position) {
-            "屏幕显示" -> ScreenShowActivity.toStartActivity(context)
-            "触摸" -> ScreenActivity.toStartActivity(context)
-            "无线网络" -> WifiActivity.toStartActivity(context)
-            "蓝牙" -> BluetoothActivity.toStartActivity(context)
-            "相机微米" -> CameraActivity.toStartActivity(context)
-            "网络" -> RJ45Activity.toStartActivity(context)
-            "SD卡" -> SdInterfaceActicity.toStartActivity(context)
-            "USB" -> USBInterfaceActivity.toStartActivity(context)
-            "HDMI" -> HDMIActivity.toStartActivity(context)
-            "扬声器" -> TrumpetActivity.toStartActivity(context)
-            "陀螺仪" -> GyroscopeActivity.toStartActivity(context)
-            "按钮" -> ButtonActivity.toStartActivity(context)
+            1 -> ScreenShowActivity.toStartActivity(context)
+            2 -> ScreenActivity.toStartActivity(context)
+            3 -> WifiActivity.toStartActivity(context)
+            4 -> BluetoothActivity.toStartActivity(context)
+            5 -> CameraActivity.toStartActivity(context)
+            6 -> RJ45Activity.toStartActivity(context)
+            7 -> SdInterfaceActicity.toStartActivity(context)
+            8 -> USBInterfaceActivity.toStartActivity(context)
+            9 -> HDMIActivity.toStartActivity(context)
+            10 -> TrumpetActivity.toStartActivity(context)
+            12 -> GyroscopeActivity.toStartActivity(context)
+            13 -> ButtonActivity.toStartActivity(context)
         }
     }
-
 
 
     /**

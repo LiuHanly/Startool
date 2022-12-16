@@ -37,7 +37,7 @@ class ScreenActivity : BaseActivity() {
     var mytouchview: MyTouchView? = null
 
     var failure_bu: Button? = null
-    var redo_bu: Button? = null
+    var redo_bu: TextView? = null
     var through_bu: Button? = null
     var textView3: TextView? = null
 

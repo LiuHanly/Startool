@@ -1,7 +1,10 @@
 package com.glorystar.startool.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.PeriodicSync
+import android.content.res.AssetManager
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
@@ -11,10 +14,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.config.bean.AgingBean
+import com.glorystar.startool.config.bean.liuchenData
 import com.glorystar.startool.config.constant.Constantdtas
+import com.glorystar.startool.config.constant.StudentDataBase
 import com.glorystar.startool.ui.adapter.BaseRecyclerAdapter
 import com.glorystar.startool.ui.adapter.BaseRecyclerHolder
 import com.glorystar.startool.ui.view.TitleKtView
+import com.glorystar.startool.utils.db.Student
+import com.glorystar.startool.utils.tool.JsonHelper
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 class PreAgingTests : BaseActivity() {
     lateinit var tile_view: TitleKtView
@@ -44,6 +53,10 @@ class PreAgingTests : BaseActivity() {
         ageing_fro_recy = findViewById(R.id.ageing_fro_recy)
         all_select = findViewById(R.id.all_select)
         start_button = findViewById(R.id.start_button)
+        val mAssetManger: AssetManager = getAssets()
+        val bufferedReader1 =
+            BufferedReader(InputStreamReader(mAssetManger.open("liucheng.txt"), "utf-8"))
+        val lines1 = bufferedReader1.readLines()
 
         minItemBean.addAll(Constantdtas.getGreAgingDate())
         ageing_fro_recy.layoutManager = GridLayoutManager(this, 3)
@@ -92,8 +105,56 @@ class PreAgingTests : BaseActivity() {
 
         start_button.setOnClickListener {
             MessageActivity.toStartActivity(this@PreAgingTests)
+            PeriodicSync(lines1)
+
         }
 
 
+    }
+
+    @SuppressLint("LogNotTimber")
+    fun PeriodicSync(lines1: List<String>) {
+        val alils: MutableList<Student> = arrayListOf()
+        var id = 0
+        StudentDataBase(this).studentDao.deleteAll()
+        Thread(Runnable {
+            lines1.forEach { StrngIt ->
+                Log.e("PeriodicSync->", StrngIt)
+                val itJson = JsonHelper.newfromJson(StrngIt, liuchenData::class.java)
+                minItemBean.forEach { appinfoIt ->
+
+                    Log.e(
+                        "PeriodicSync",
+                        "StrngIt-->" + itJson.id + "appinfoIt.appName--->" + appinfoIt.id + "---" + appinfoIt.AdingName + "---" + appinfoIt.selected
+
+                    )
+                    if (itJson.id == appinfoIt.id) {
+                        alils.add(
+                            Student(
+                                id,
+                                appinfoIt.id,
+                                appinfoIt.AdingName,
+                                appinfoIt.selected
+                            )
+                        )
+                    } else if (itJson.id === 11) {
+                        alils.add(Student(id, appinfoIt.id, appinfoIt.AdingName, false))
+                    }
+
+
+                }
+                /**    minItemBean.forEach { appinfoIt ->
+                if (StrngIt.equals(appinfoIt.appName.toString())) {
+                Log.e("PeriodicSync","StrngIt-->"+StrngIt +"appinfoIt.appName--->"+appinfoIt.appName+"appinfoIt.icselect--->"+appinfoIt.icselect)
+                alils.add(Student(id, appinfoIt.appName.toString(), appinfoIt.icselect))
+                }else if(StrngIt.equals("耳机")){
+                alils.add(Student(id, "耳机", false))
+                }
+                }*/
+                id++
+            }
+            StudentDataBase(this).studentDao?.insertAll(alils)
+
+        }).start()
     }
 }

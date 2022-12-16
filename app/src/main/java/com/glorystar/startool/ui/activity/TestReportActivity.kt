@@ -11,6 +11,7 @@ import android.os.Environment
 import android.os.StatFs
 import android.os.storage.StorageManager
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -43,7 +44,9 @@ class TestReportActivity : BaseActivity() {
     var mstoragemanager: StorageManager? = null
     private var mAm: ActivityManager? = null
     lateinit var Serial_number4: TextView
-    lateinit var textView2: TextView
+
+    // lateinit var textView2: TextView
+    lateinit var finish_buton: Button
     lateinit var recyclerView: RecyclerView
     lateinit var Serial_number6: TextView
     lateinit var Serial_number7: TextView
@@ -73,7 +76,7 @@ class TestReportActivity : BaseActivity() {
 
     @SuppressLint("LogNotTimber")
     override fun initView(savedInstanceState: Bundle?) {
-        textView2 = findViewById(R.id.textView2)
+        //  textView2 = findViewById(R.id.textView2)
         recyclerView = findViewById(R.id.recyclerView)
         Serial_number6 = findViewById(R.id.Serial_number6)
         Serial_number7 = findViewById(R.id.Serial_number7)
@@ -82,9 +85,10 @@ class TestReportActivity : BaseActivity() {
         Serial_number2 = findViewById(R.id.Serial_number2)
         Serial_number3 = findViewById(R.id.Serial_number3)
         Serial_number5 = findViewById(R.id.Serial_number5)
+        finish_buton = findViewById(R.id.finish_buton)
         Inter_shared_storage = findViewById(R.id.Inter_shared_storage)
 
-        textView2.text = MyApplication.Testname
+        // textView2.text = MyApplication.Testname
         mstoragemanager = getSystemService(STORAGE_SERVICE) as StorageManager
         TerDao = AppDataBase.getDatabase(this@TestReportActivity).getTeacherDao()
 
@@ -95,6 +99,9 @@ class TestReportActivity : BaseActivity() {
         Serial_number4 = findViewById(R.id.Serial_number4)
 
 
+        finish_buton.setOnClickListener {
+            finish()
+        }
 
         baserecycleradapter = object : BaseRecyclerAdapter<Teacher>(
             this@TestReportActivity,
