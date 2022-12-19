@@ -199,20 +199,37 @@
             android:screenOrientation="landscape"
             android:theme="@style/NoTitle" />
 
-        <activity android:name=".ui.activity.TestReportActivity"
+        <activity
+            android:name=".ui.activity.TestReportActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/NoTitle" />
 
-        <activity android:name=".ui.activity.ButtonActivity"
+        <activity
+            android:name=".ui.activity.ButtonActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle" />
+
+        <activity
+            android:name=".ui.activity.AgeingKtActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/NoTitle" />
+
+        <activity
+            android:name=".ui.activity.AgeingTestReportActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/NoTitle" />
 
 
-        <service android:name=".ui.service.WIFIAutoConnectionService"/>
+
+        <service android:name=".ui.service.WIFIAutoConnectionService" />
 
         <receiver
             android:name=".ui.broadcast.WIFIStateReceiver"

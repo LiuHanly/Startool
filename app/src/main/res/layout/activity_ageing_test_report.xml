@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    tools:context=".ui.activity.AgeingTestReportActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68mm"
+        android:layout_marginTop="68mm"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/Ageing"
+        android:textColor="@color/white"
+        android:textSize="35mm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/recyclerView2"
+        android:layout_width="800mm"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32mm"
+        android:layout_marginTop="64mm"
+        android:background="@drawable/selector_mode_bg"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <RelativeLayout
+            android:layout_marginTop="25mm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25mm">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="50mm"
+                android:text="@string/AGEINGTESTDATE"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <TextView
+                android:id="@+id/Serial_number6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="50mm"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5mm"
+            android:layout_marginLeft="25mm"
+            android:layout_marginTop="15mm"
+            android:layout_marginRight="50mm"
+            android:layout_marginBottom="15mm"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25mm">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="50mm"
+                android:text="@string/AGEINGTESSTARTTIME"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <TextView
+                android:id="@+id/Serial_number7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="50mm"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5mm"
+            android:layout_marginLeft="25mm"
+            android:layout_marginTop="15mm"
+            android:layout_marginRight="50mm"
+            android:layout_marginBottom="15mm"
+            android:background="@color/white" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25mm">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="-1mm"
+                android:layout_marginRight="50mm"
+                android:text="@string/AGEINGTESSTOPTTIME"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <TextView
+                android:id="@+id/Serial_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="50mm"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5mm"
+            android:layout_marginLeft="25mm"
+            android:layout_marginTop="15mm"
+            android:layout_marginRight="50mm"
+            android:layout_marginBottom="15mm"
+            android:background="@color/white" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:padding="15mm"
+            android:id="@+id/recyclerview_vido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

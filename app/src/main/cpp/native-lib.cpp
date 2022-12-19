@@ -59,3 +59,42 @@ Java_com_glorystar_systemtest_utlis_tool_MemOpUtils_bluetooth(JNIEnv *env, jclas
 
 
 }
+extern "C"
+JNIEXPORT jint JNICALL
+Java_com_glorystar_startool_utils_tool_MemOpUtils_malloc(JNIEnv *env, jclass clazz, jint size) {
+    if (count < MAX_SIZE) {
+        p[count] = (int *) malloc(256 * 1024 * size * sizeof(int));
+        if (p[count]) {
+            memset(p[count], 2, 256 * 1024 * size * sizeof(int));
+            count++;
+            LOGI("memfill, malloc memory size is %d", size);
+            return size;
+        } else {
+            LOGI("memfill, malloc memory error");
+        }
+    } else {
+        LOGE("memfill, count is MAX_SIZE");
+    }
+    return 0;
+}
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_glorystar_startool_utils_tool_MemOpUtils_free(JNIEnv *env, jclass clazz) {
+    for (int i = 0; i < MAX_SIZE; i++) {
+        if (NULL != p[i]) {
+            free(p[i]);
+            p[i] = NULL;
+        }
+    }
+    count = 0;
+    LOGI("memfree, free memory");
+    return;
+
+}
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_glorystar_startool_utils_tool_MemOpUtils_bluetooth(JNIEnv *env, jclass clazz) {
+
+
+
+}

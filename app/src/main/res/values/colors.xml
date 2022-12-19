@@ -14,6 +14,8 @@
 
     <!-- 按钮主色调  -->
     <color name="colorMainButton">#0091FF</color>
+    <!-- 透明  -->
+    <color name="colorEmpty">#40ffffff</color>
 
     <!-- 字体颜色  -->
     <color name="colorFont">#9DACC8</color>
@@ -22,6 +24,18 @@
 
     <color name="colorAccent">#56F21F</color>
     <color name="colorAccentLight">#9DACC8</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="yellow">#1FA79F</color>
+    <color name="green">#8180C5</color>
+    <color name="green_50">#803d9909</color>
+    <color name="orange">#fffa9d3e</color>
+    <color name="gray">#ffc6c6c6</color>
+    <color name="gray_50">#80c6c6c6</color>
+    <color name="red">#ffff0000</color>
+    <color name="red_50">#80ff0000</color>
+    <color name="orange_red">#ffe6615c</color>
+    <color name="orange_red_50">#FF70DF</color>
 
 
 </resources>

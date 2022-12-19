@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/selector_mode_bg">
+
+        <RelativeLayout
+            android:id="@+id/save_image_matrix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35mm"
+                android:layout_marginTop="25mm"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="@string/DDRTest"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <TextView
+                android:id="@+id/time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="25mm"
+                android:textColor="@color/colorAccent"
+                android:fontFamily="@font/montserrat_semibold"
+                android:layout_marginRight="55mm"
+                android:textSize="35mm" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_marginLeft="15mm"
+            android:layout_below="@id/save_image_matrix"
+            android:id="@+id/container_content"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5mm">
+
+            <TextView
+                android:id="@+id/tv_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_log"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/container_content"
+            android:layout_marginStart="15mm"
+            android:layout_marginTop="15mm"
+            android:layout_marginEnd="15mm"
+            android:layout_marginBottom="15mm"
+            android:text="@string/ddr_test_intro"
+            android:textColor="@color/white"
+            android:textSize="15mm" />
+
+    </RelativeLayout>
+</RelativeLayout>

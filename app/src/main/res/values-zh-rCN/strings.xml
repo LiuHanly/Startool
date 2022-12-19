@@ -84,4 +84,36 @@
     <string name="Finish_leave">Finish and leave</string>
     <string name="SD_card_ports">Plug a SD card into SD card ports</string>
 
+    <string name="CPU">CPU Test</string>
+    <string name="sec">秒</string>
+    <string name="exit">退出</string>
+    <string name="exit_test_tips">确定要退出测试吗？</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="stop">停止</string>
+    <string name="start">开始</string>
+    <string name="exit_app_tips">还有正在进行的测试，请先结束这些测试项！</string>
+    <string name="at_least_one_test_case">至少选择一种测试方案</string>
+    <string name="set_time_tips">请设置测试次数（单位：次）</string>
+    <string name="set_duration_tips">请设置测试时长（单位：小时）</string>
+    <string name="stop_test_tips">确定要停止测试吗？</string>
+    <string name="DDRTest">DDR Test</string>
+    <string name="cpu_test_cur_freq" />
+    <string name="VideoTest">Video Test</string>
+    <string name="EMMCTest">EMMC Test</string>
+
+    <!--DDR Test-->
+    <string name="ddr_test_intro">It tries to maximize randomized traffic to memory from processor and I/O, with the intent of creating a realistic high load situation in order to test the existing hardware devices in a computer.</string>
+    <string name="ddr_test_install_error">The stressapptest installation is abnormal and the test cannot be run!</string>
+    <string name="CPU_usage">CPU usage</string>
+    <string name="Current_freq">Current frequency</string>
+    <string name="Free_Memory">Free Memory</string>
+    <string name="Video_Test">Video Test</string>
+    <string name="Manual_connection">手动连接</string>
+
+    <string name="AGEINGTESTDATE">日期:</string>
+    <string name="AGEINGTESSTARTTIME">开始老化时间:</string>
+    <string name="AGEINGTESSTOPTTIME">结束老化时间:</string>
+    <string name="Ageing">老化测试</string>
+
 </resources>

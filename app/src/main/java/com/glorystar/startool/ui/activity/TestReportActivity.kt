@@ -102,10 +102,14 @@ class TestReportActivity : BaseActivity() {
         finish_buton.setOnClickListener {
             finish()
         }
+        Log.e(
+            "TestReportActivity",
+            "---->" + TeacherDataBase.getInstance(this).teacherDao.getAllTeachers().size
+        )
 
         baserecycleradapter = object : BaseRecyclerAdapter<Teacher>(
             this@TestReportActivity,
-            TeacherDataBase.getInstance(this).teacherDao.getAllTeachers(),
+           null,
             R.layout.terdao_imet
         ) {
             override fun convert(
@@ -126,6 +130,7 @@ class TestReportActivity : BaseActivity() {
             }
         }
         recyclerView.adapter = baserecycleradapter
+        baserecycleradapter.setNewData(TeacherDataBase.getInstance(this).teacherDao.getAllTeachers())
         setLinst()
 
         val statFs = StatFs(Environment.getDataDirectory().path)

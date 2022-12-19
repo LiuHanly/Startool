@@ -28,6 +28,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:paddingRight="60mm"
         android:layout_marginTop="24mm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -366,12 +367,15 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
-            android:layout_width="700mm"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_marginBottom="30mm"
             android:layout_marginStart="36mm"
             android:layout_toRightOf="@+id/recyclerView2"
             android:background="@drawable/selector_mode_bg"
-            android:padding="15mm" />
+            android:padding="15mm"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </RelativeLayout>
 </LinearLayout>

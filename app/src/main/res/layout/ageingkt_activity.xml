@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+
+        <fragment
+            android:id="@+id/cpuframe"
+            android:name="com.glorystar.startool.ui.fragment.CPUKtTestFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="35mm"
+            android:layout_marginTop="35mm"
+            android:layout_marginRight="15mm"
+            android:layout_marginBottom="15mm"
+            android:layout_weight="1" />
+
+        <fragment
+            android:id="@+id/emmcFrame"
+            android:name="com.glorystar.startool.ui.fragment.MemoryTestKtFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15mm"
+            android:layout_marginTop="35mm"
+            android:layout_marginRight="35mm"
+            android:layout_marginBottom="15mm"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+
+        <fragment
+            android:id="@+id/ddrFrame"
+            android:name="com.glorystar.startool.ui.fragment.DDRTestKtFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="35mm"
+            android:layout_marginTop="15mm"
+            android:layout_marginRight="15mm"
+            android:layout_marginBottom="35mm"
+            android:layout_weight="1" />
+
+        <fragment
+            android:id="@+id/videoFrame"
+            android:name="com.glorystar.startool.ui.fragment.VideoTestKtFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15mm"
+            android:layout_marginTop="15mm"
+            android:layout_marginRight="35mm"
+            android:layout_marginBottom="35mm"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>
