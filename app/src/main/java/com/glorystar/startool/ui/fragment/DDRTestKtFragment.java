@@ -166,8 +166,6 @@ public class DDRTestKtFragment extends BaseFragemt {
                 } else if (name[0].contains("stop")) {
                     time_text.setText("完成");
                 }
-
-
             }
         });
     }

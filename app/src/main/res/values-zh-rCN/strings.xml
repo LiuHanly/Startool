@@ -59,10 +59,10 @@
 
     <string name="Restart">重新启动</string>
 
-    <string name="Photo_test">Photo and recording test</string>
-    <string name="Below_camera"> Below is the image received from the camera </string>
+    <string name="Photo_test">拍照和录音测试</string>
+    <string name="Below_camera"> 下面是从相机接收到的图像 </string>
 
-    <string name="hdmi_cable"> Connect your screen with a HDMI cable </string>
+    <string name="hdmi_cable"> 用HDMI线连接屏幕 </string>
     <string name="screen_colors">按一下转换屏幕颜色</string>
     <string name="DATE">日期</string>
     <string name="Ap">Access point</string>
@@ -79,10 +79,10 @@
     <string name="Weaker">暗</string>
     <string name="Stronger">亮</string>
 
-    <string name="Below_testing">Below is a default webpage for testing</string>
+    <string name="Below_testing">下面是一个默认的测试网页</string>
     <string name="Preaging_report">Pre-aging test report</string>
     <string name="Finish_leave">Finish and leave</string>
-    <string name="SD_card_ports">Plug a SD card into SD card ports</string>
+    <string name="SD_card_ports">将SD卡插入SD卡接口</string>
 
     <string name="CPU">CPU Test</string>
     <string name="sec">秒</string>
@@ -103,8 +103,8 @@
     <string name="EMMCTest">EMMC Test</string>
 
     <!--DDR Test-->
-    <string name="ddr_test_intro">It tries to maximize randomized traffic to memory from processor and I/O, with the intent of creating a realistic high load situation in order to test the existing hardware devices in a computer.</string>
-    <string name="ddr_test_install_error">The stressapptest installation is abnormal and the test cannot be run!</string>
+    <string name="ddr_test_intro">它试图最大化从处理器和I/O到内存的随机流量 创建一个真实的高负载环境的目的是为了测试计算机中现有的硬件设备。</string>
+    <string name="ddr_test_install_error">stressapptest安装异常，测试无法运行!</string>
     <string name="CPU_usage">CPU usage</string>
     <string name="Current_freq">Current frequency</string>
     <string name="Free_Memory">Free Memory</string>

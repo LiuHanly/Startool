@@ -30,9 +30,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="25mm"
-                android:textColor="@color/colorAccent"
-                android:fontFamily="@font/montserrat_semibold"
                 android:layout_marginRight="55mm"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="@color/colorMainButton"
                 android:textSize="35mm" />
 
         </RelativeLayout>

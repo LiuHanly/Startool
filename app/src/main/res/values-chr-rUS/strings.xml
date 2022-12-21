@@ -70,12 +70,12 @@
     <string name="TIME">Time</string>
     <string name="Build_number">Build number</string>
     <string name="INTERSHAREDSTORAGE">Build number</string>
-    <string name="play">播放</string>
-    <string name="The_play">是否有声音输出(男声左， 女声右)?</string>
+    <string name="play">play</string>
+    <string name="The_play">Is there any sound output (male left, female right)?</string>
     <string name="Weaker">Weaker</string>
     <string name="Stronger">Stronger</string>
 
-    <string name="Headset_plug">请插入耳机进行测试 </string>
+    <string name="Headset_plug">Please plug in the headset for testing </string>
     <string name="NEXTBUTTON">Next</string>
     <string name="Below_testing">Below is a default webpage for testing</string>
     <string name="Preaging_report">Pre-aging test report</string>
@@ -90,7 +90,7 @@
     <string name="ok">确定</string>
     <string name="stop">停止</string>
     <string name="start">开始</string>
-    <string name="exit_app_tips">还有正在进行的测试，请先结束这些测试项！</string>
+    <string name="exit_app_tips">There are still tests in progress, please finish these tests first!</string>
     <string name="at_least_one_test_case">至少选择一种测试方案</string>
     <string name="set_time_tips">请设置测试次数（单位：次）</string>
     <string name="set_duration_tips">请设置测试时长（单位：小时）</string>
@@ -109,10 +109,10 @@
     <string name="Video_Test">Video Test</string>
     <string name="Manual_connection">手动连接</string>
 
-    <string name="AGEINGTESTDATE">日期:</string>
-    <string name="AGEINGTESSTARTTIME">开始老化时间:</string>
-    <string name="AGEINGTESSTOPTTIME">结束老化时间:</string>
-    <string name="Ageing">老化测试</string>
+    <string name="AGEINGTESTDATE">date :</string>
+    <string name="AGEINGTESSTARTTIME">Starting aging time:</string>
+    <string name="AGEINGTESSTOPTTIME">End aging time:</string>
+    <string name="Ageing">Aging test</string>
 
 
 </resources>

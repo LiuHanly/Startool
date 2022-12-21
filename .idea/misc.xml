@@ -15,6 +15,7 @@
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selector_button_bg.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/selector_mode_bg.xml" value="0.5671875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/slectr_ageing_bg.xml" value="0.39010416666666664" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/drawable/slectr_ageing_bg22.xml" value="0.4375" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/acticity_sd_interface.xml" value="0.33" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_addon.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_ageing_test_report.xml" value="0.3064373897707231" />
@@ -22,10 +23,10 @@
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_bluetooth.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_button.xml" value="0.4719424460431655" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_camera.xml" value="0.54296875" />
-        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_genera.xml" value="0.4689655172413793" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_genera.xml" value="0.33" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_gyroscope.xml" value="0.33" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_hdmi.xml" value="0.2626984126984127" />
-        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_message.xml" value="0.22" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_model.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_rj45.xml" value="0.2" />
@@ -40,8 +41,10 @@
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/activity_wifi.xml" value="0.25" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/ageing_fro_imet.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/ageingkt_activity.xml" value="0.4144634525660964" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/attaserved_simple_item.xml" value="0.3064373897707231" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/attaserved_view.xml" value="0.3064373897707231" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/cpu_fragment.xml" value="0.5" />
-        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/ddrtest_fragment.xml" value="0.3064373897707231" />
+        <entry key="..\:/Porject/StarTool/app/src/main/res/layout/ddrtest_fragment.xml" value="0.33" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/device_item.xml" value="0.54296875" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/emmctest_fragment.xml" value="0.6375" />
         <entry key="..\:/Porject/StarTool/app/src/main/res/layout/headset_plug.xml" value="0.54296875" />

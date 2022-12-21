@@ -3,10 +3,17 @@ package com.glorystar.startool.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.app.ActivityCompat
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
+import com.glorystar.startool.config.base.BasePoup
+import com.glorystar.startool.config.constant.Constantdtas
+import com.glorystar.startool.utils.tool.IntentJumpUtils
+import com.glorystar.startool.utils.tool.LiveDataBus
+import com.lxj.xpopup.enums.PopupPosition
 
 class MainActivity : BaseActivity() {
 
@@ -19,6 +26,9 @@ class MainActivity : BaseActivity() {
     lateinit var Aging_Relative: RelativeLayout
 
     private lateinit var language_text: TextView
+
+    lateinit var title_linear: LinearLayout
+    lateinit var textlanguage: TextView
 
     /**
      * 设置布局
@@ -36,6 +46,8 @@ class MainActivity : BaseActivity() {
         Addon_Relative = findViewById(R.id.Enter_Addon)
         Aging_Relative = findViewById(R.id.Enter_Aging)
         language_text = findViewById(R.id.textlanguage)
+        title_linear = findViewById(R.id.title_linear)
+
 
 
         General_Relative.setOnClickListener {
@@ -45,6 +57,23 @@ class MainActivity : BaseActivity() {
         Aging_Relative.setOnClickListener {
 
             this.startActivity(Intent(application, AgingActivity::class.java))
+        }
+        title_linear.setOnClickListener {
+            BasePoup.Builder(this)
+                .hasShadowBg(false)
+                .atView(it)
+                .popupPosition(PopupPosition.Bottom)
+                .asAttaServedView(Constantdtas.AttaServedName){ position, text ->
+                    language_text.text = text
+                    IntentJumpUtils.setLanguage(position)
+                    LiveDataBus.get().with("Language").postValue("refresh_language")
+                    this.run {
+                        this?.run {
+                            ActivityCompat.recreate(this)
+                        }
+                    }
+                }.show()
+
         }
 
 

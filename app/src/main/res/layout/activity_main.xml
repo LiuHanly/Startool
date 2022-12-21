@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMain"
+    android:orientation="vertical"
+
     tools:context=".ui.activity.MainActivity"
     tools:ignore="InOrMmUsage">
 
@@ -49,18 +51,20 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140mm"
+        android:layout_marginTop="24mm"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/logo_startoo"
             android:layout_width="686mm"
             android:layout_height="369mm"
-            android:background="@color/colorMainLight"
+
             android:contentDescription="TODO"
+            android:src="@mipmap/startoolslogo"
             tools:ignore="InOrMmUsage,NotSibling" />
 
         <TextView
@@ -76,6 +80,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_marginTop="20mm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -341,4 +346,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
