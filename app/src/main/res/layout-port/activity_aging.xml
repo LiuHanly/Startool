@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    android:orientation="vertical">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="116mm" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tile_view"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="30mm"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tile_view">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/through"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/performace"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20mm"
+        android:orientation="vertical"
+        android:paddingLeft="30mm"
+        android:paddingRight="30mm">
+
+        <RelativeLayout
+            android:id="@+id/preaging_relat"
+            style="@style/linear_aging_port">
+
+            <ImageView
+                android:layout_width="146mm"
+                android:layout_height="146mm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="36mm"
+                android:src="@mipmap/testbefore" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="36mm"
+                android:text="@string/preaging"
+                android:textColor="@color/white"
+                android:textSize="37mm" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/aging_relat"
+            style="@style/linear_aging_port">
+
+            <ImageView
+                android:layout_width="146mm"
+                android:layout_height="146mm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="36mm"
+                android:src="@mipmap/testxxxhdpi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="36mm"
+                android:text="@string/Aging"
+                android:textColor="@color/white"
+                android:textSize="37mm" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_post"
+            style="@style/linear_aging_port">
+
+            <ImageView
+                android:layout_width="146mm"
+                android:layout_height="146mm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="36mm"
+                android:src="@mipmap/testafter" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="36mm"
+                android:text="@string/Aging"
+                android:textColor="@color/white"
+                android:textSize="37mm" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

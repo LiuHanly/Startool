@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44mm"
+        android:text="十点触摸"
+        android:textColor="@color/white"
+        android:textSize="35mm" />
+
+    <FrameLayout
+        android:id="@+id/myontouchview"
+        android:layout_width="match_parent"
+        android:layout_height="800mm"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="200mm"
+        android:layout_marginRight="200mm"
+
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="300mm"
+        android:layout_marginTop="50mm"
+        android:layout_marginRight="300mm">
+
+        <Button
+            android:id="@+id/failure_bu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/Failed"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="15mm" />
+
+        <TextView
+            android:id="@+id/redo_bu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/Restart"
+            android:textColor="@color/colorMainButton"
+            android:textSize="21mm" />
+
+        <Button
+            android:textAllCaps="false"
+            android:id="@+id/through_bu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/Passed"
+            android:textColor="@color/white"
+            android:textSize="15mm" />
+    </RelativeLayout>
+
+</RelativeLayout>

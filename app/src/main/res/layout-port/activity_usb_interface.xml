@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50mm"
+        android:text="@string/usb_name"
+        android:textColor="@color/white"
+        android:textSize="25mm" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rct_progr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rct_progr"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="300mm"
+        android:layout_marginTop="50mm"
+        android:layout_marginRight="300mm">
+
+
+        <Button
+            android:id="@+id/failure_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/Failed"
+            android:textColor="@color/white"
+            android:textSize="15mm" />
+
+        <Button
+            android:textColor="@color/white"
+            android:textSize="15mm"
+            android:id="@+id/through_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/Passed" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <FrameLayout
+        android:layout_margin="50mm"
+        android:layout_width="200mm"
+        android:layout_height="200mm">
+
+        <com.github.lzyzsd.circleprogress.DonutProgress
+            android:id="@+id/pgr_percent"
+            app:donut_background_color="#1D2D4B"
+            app:donut_finished_color="@color/colorAccent"
+            app:donut_finished_stroke_width="4mm"
+            app:donut_progress="10"
+            app:donut_show_text="false"
+            app:donut_unfinished_color="@color/colorAccentLight"
+            app:donut_unfinished_stroke_width="4mm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <LinearLayout
+                 android:gravity="center"
+                 android:orientation="vertical"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent">
+                 <ImageView
+                     android:id="@+id/imageview"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintHorizontal_bias="0.2"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toTopOf="parent"
+                     android:layout_width="31mm"
+                     android:layout_height="31mm"
+                     android:src="@mipmap/sdcard" />
+
+                 <TextView
+                     android:id="@+id/textView"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintHorizontal_bias="0.208"
+                     app:layout_constraintStart_toEndOf="@+id/imageview"
+                     app:layout_constraintTop_toTopOf="@+id/imageview"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="4mm"
+                     android:text="USB"
+                     android:textColor="@color/white"
+                     android:textSize="20mm" />
+                 <TextView
+                     android:id="@+id/textMina"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintHorizontal_bias="0.584"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toBottomOf="@+id/textView"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="7.2 GB / 14.4 GB"
+                     android:textColor="@color/colorFont"
+                     android:textSize="20mm" />
+             </LinearLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</RelativeLayout>

@@ -23,6 +23,7 @@ object Constantdtas {
     const val DDRTESTKTFRAGMENT = "600000"    //DDR测试时间   "600000"
     const val VIDEOTESTKTFRAGMENT = "28800000" //视屏测试     "28800000"
     val AttaServedName = arrayOf("ENG", "中文" )
+    const val STAROS_ORIENTATION ="STARTOOL_CONFIG"
 
 
     fun getGreAgingDate(): MutableList<AgingBean> {

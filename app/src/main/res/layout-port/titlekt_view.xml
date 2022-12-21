@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="116mm"
+    android:background="@color/colorMain"
+    tools:ignore="InOrMmUsage">
+
+    <LinearLayout
+        android:id="@+id/back_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="76mm"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="12mm"
+            android:layout_height="22mm"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_esc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20mm"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:text="@string/Back"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:textSize="25mm" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="60px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20mm"
+            android:gravity="center"
+            android:text="@string/language"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+    </LinearLayout>
+
+</RelativeLayout>

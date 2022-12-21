@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="116mm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/buttons_tilename"
+            android:textColor="@color/white"
+            android:textSize="37mm" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+        <TextView
+            style="@style/text_style"
+            android:layout_marginBottom="10mm"
+            android:text="@string/tile_masg"
+            tools:ignore="InOrMmUsage" />
+
+        <RelativeLayout style="@style/device_relative">
+
+            <TextView
+
+                style="@style/text_style"
+                android:text="@string/Screen_number" />
+
+            <ImageView
+                android:id="@+id/KEYCODE_POWER"
+                android:layout_width="50mm"
+                android:layout_height="50mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="50mm"
+                android:src="@drawable/ic_gantanhao"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/device_relative">
+
+            <TextView
+                style="@style/text_style"
+                android:text="@string/Model_name" />
+
+            <ImageView
+                android:id="@+id/KEYCODE_VOLUME_DOWN"
+                android:layout_width="50mm"
+                android:layout_height="50mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="50mm"
+                android:src="@drawable/ic_gantanhao" />
+
+        </RelativeLayout>
+
+        <RelativeLayout style="@style/device_relative">
+
+            <TextView
+                style="@style/text_style"
+                android:text="@string/Android_version" />
+
+            <ImageView
+                android:id="@+id/KEYCODE_VOLUME_UP"
+                android:layout_width="50mm"
+                android:layout_height="50mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="50mm"
+                android:src="@drawable/ic_gantanhao"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/text_style"
+            android:layout_marginTop="60mm"
+            android:layout_marginBottom="48mm"
+            android:text="@string/expected_Passed" />
+
+
+        <RelativeLayout
+            android:layout_width="870mm"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:id="@+id/failure_bu"
+                android:layout_width="121mm"
+                android:layout_height="55mm"
+                android:background="@drawable/r_button_bg"
+                android:text="@string/Failed"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm"
+                tools:ignore="InOrMmUsage" />
+
+            <TextView
+                android:id="@+id/redo_bu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/Restart"
+                android:textColor="@color/colorMainButton"
+                android:textSize="21mm" />
+
+
+            <Button
+                android:id="@+id/through_bu"
+                android:layout_width="121mm"
+                android:layout_height="55mm"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/r_button_bg"
+                android:text="@string/Passed"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm"
+                tools:ignore="InOrMmUsage" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

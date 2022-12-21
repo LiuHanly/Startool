@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="300mm"
+        android:layout_marginRight="300mm"
+        android:background="@drawable/selector_mode_bg"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500mm">
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_width="200mm"
+                android:layout_height="200mm"
+                android:layout_margin="50mm"
+                android:rotation="180"
+                android:src="@mipmap/speakerxxxhdpi" />
+
+            <com.glorystar.startool.ui.view.RTextView
+                android:id="@+id/badge_view"
+                android:layout_width="150mm"
+                android:layout_height="150mm"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/play"
+                android:textColor="@color/white"
+                android:textSize="30mm"
+                app:background_normal="@color/colorAccent"
+                app:corner_radius="100mm" />
+
+            <ImageView
+                android:layout_centerVertical="true"
+                android:layout_width="200mm"
+                android:layout_height="200mm"
+                android:layout_alignParentRight="true"
+                android:layout_margin="50mm"
+                android:src="@mipmap/speakerxxxhdpi" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="50mm"
+                android:text="@string/The_play"
+                android:textColor="@color/white"
+                android:textSize="25mm"
+                tools:ignore="InOrMmUsage" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300mm"
+        android:layout_marginTop="50mm"
+        android:layout_marginRight="300mm"
+
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:textSize="15mm"
+            android:id="@+id/failure_bu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/Failed"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:textSize="15mm"
+            android:id="@+id/redo_bu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Restart"
+            android:textColor="@color/white" />
+
+        <Button
+            android:textSize="15mm"
+            android:id="@+id/through_bu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/Passed"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

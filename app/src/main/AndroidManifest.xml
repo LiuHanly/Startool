@@ -78,7 +78,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:screenOrientation="landscape"
+
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
 
@@ -96,137 +96,135 @@
             android:name=".ui.activity.GeneralActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.ModelActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.AddonActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.AgingActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.PreAgingTests"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.MessageActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
 
         <activity
             android:name=".ui.activity.BluetoothActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.GyroscopeActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
 
         <activity
             android:name=".ui.activity.RJ45Activity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
 
         <activity
             android:name=".ui.activity.ScreenActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.SdInterfaceActicity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
 
         <activity
             android:name=".ui.activity.HDMIActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.WifiActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.TrumpetActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.ScreenShowActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.CameraActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.USBInterfaceActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
 
         <activity
             android:name=".ui.activity.TestReportActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
 
         <activity
             android:name=".ui.activity.ButtonActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
 
         <activity
             android:name=".ui.activity.AgeingKtActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
+
             android:theme="@style/NoTitle" />
 
         <activity
             android:name=".ui.activity.AgeingTestReportActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"
-            android:theme="@style/NoTitle" />
 
+            android:theme="@style/NoTitle" />
 
 
         <service android:name=".ui.service.WIFIAutoConnectionService" />
