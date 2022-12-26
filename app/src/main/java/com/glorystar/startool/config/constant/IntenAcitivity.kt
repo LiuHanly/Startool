@@ -35,7 +35,7 @@ object IntenAcitivity {
             teacherDao.update(
                 Teacher(
                     java.lang.Long.valueOf(testID.toLong()),
-                    lisn[testID],
+                    ListStudent[testID].StudentName,
                     statrDate,
                     statrDate,
                     transit
@@ -45,7 +45,7 @@ object IntenAcitivity {
             teacherDao.insert(
                 Teacher(
                     java.lang.Long.valueOf(testID.toLong()),
-                    lisn[testID],
+                    ListStudent[testID].StudentName,
                     statrDate,
                     statrDate,
                     transit
@@ -74,24 +74,17 @@ object IntenAcitivity {
         val teacherDao = TeacherDataBase(context).teacherDao
         val ListStudent: List<Student> = StudentDataBase(context).studentDao.getAllStudents()
         val statrDate = stampToTime(timeStamp_L.toString() + "")
-        Log.e("getIntenAcitivity", lisn[lisn.size - 1])
-        Log.e("getIntenAcitivity", "" + teacherDao.getTeacherID(13))
+
         if (teacherDao.getTeacherID(14) != null) {
 
             teacherDao.update(Teacher(14L, lisn[lisn.size - 1], statrDate, statrDate, transit));
             teacherDao.getAllTeachers().forEach {
-                Log.e("getIntenAcitivity", "--->" + it.teacherName + "--->" + it.TeacherID+"----"+it.TeacherType)
             }
 
         } else {
             teacherDao.getAllTeachers()
-            Log.e("getIntenAcitivity", "--->" + teacherDao.getAllTeachers().size)
-
-            //  new Teacher(14L, lisn.get(lisn.size() - 1), statrDate, statrDate, transit).
             teacherDao.insert(Teacher(14L, lisn[lisn.size - 1], statrDate, statrDate, transit));
-
             teacherDao.getAllTeachers().forEach {
-                Log.e("getIntenAcitivity", "--->" + it.teacherName + "--->" + it.TeacherID+"----"+it.TeacherType)
             }
 
         }

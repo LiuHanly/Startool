@@ -126,15 +126,11 @@ class TestReportActivity : BaseActivity() {
                 name_text?.text = data?.teacherName
                 if (data?.TeacherType == 1) {
                     image_name?.setImageResource(R.drawable.ic_extension)
-                    if (masg_text != null) {
-                        masg_text!!.setTextColor(Color.parseColor("#FF3A3A"))
-                    }
+                    masg_text?.setTextColor(Color.parseColor("#FF3A3A"))
                     masg_text?.text = application.getText(R.string.Failed)
                 } else {
                     image_name?.setImageResource(R.drawable.ic_checkcircle__)
-                    if (masg_text != null) {
-                        masg_text!!.setTextColor(Color.parseColor("#56F21F"))
-                    }
+                    masg_text?.setTextColor(Color.parseColor("#56F21F"))
                     masg_text?.text = application.getText(R.string.Passed)
                 }
             }
