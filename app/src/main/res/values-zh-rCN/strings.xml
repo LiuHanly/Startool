@@ -115,5 +115,5 @@
     <string name="AGEINGTESSTARTTIME">开始老化时间:</string>
     <string name="AGEINGTESSTOPTTIME">结束老化时间:</string>
     <string name="Ageing">老化测试</string>
-
+    <string name="Back_light">背光强度</string>
 </resources>

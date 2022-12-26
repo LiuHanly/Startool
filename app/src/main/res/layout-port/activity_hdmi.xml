@@ -24,7 +24,9 @@
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="1080mm"
+        android:layout_marginLeft="48mm"
+        android:layout_marginRight="48mm"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -36,8 +38,8 @@
 
         <VideoView
             android:id="@+id/RecyclerLayout"
-            android:layout_width="1080mm"
-            android:layout_height="610mm" />
+            android:layout_width="match_parent"
+            android:layout_height="1080mm" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,7 +50,7 @@
             android:textSize="25mm" />
 
         <RelativeLayout
-            android:layout_width="870mm"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48mm"
             tools:ignore="MissingConstraints">
@@ -67,10 +69,10 @@
 
 
             <Button
+                android:layout_marginLeft="300mm"
                 android:id="@+id/through_bu"
                 android:layout_width="121mm"
                 android:layout_height="55mm"
-                android:layout_alignParentEnd="true"
                 android:background="@drawable/r_button_bg"
                 android:text="@string/Passed"
                 android:textAllCaps="false"

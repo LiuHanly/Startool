@@ -28,22 +28,20 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:paddingRight="60mm"
-        android:layout_marginTop="24mm"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="48mm"
+        android:paddingRight="48mm">
 
         <LinearLayout
             android:id="@+id/recyclerView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
-
-                android:layout_width="900mm"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32mm"
                 android:background="@drawable/selector_mode_bg"
                 android:orientation="vertical">
 
@@ -351,7 +349,17 @@
 
             </LinearLayout>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="691mm"
+                android:layout_marginTop="24mm"
+                android:background="@drawable/selector_mode_bg"
+                android:padding="15mm"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
             <Button
+                android:layout_gravity="right"
                 android:id="@+id/finish_buton"
                 android:layout_width="223mm"
                 android:layout_height="55mm"
@@ -364,18 +372,6 @@
                 android:textSize="25mm" />
         </LinearLayout>
 
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:layout_marginBottom="30mm"
-            android:layout_marginStart="36mm"
-            android:layout_toRightOf="@+id/recyclerView2"
-            android:background="@drawable/selector_mode_bg"
-            android:padding="15mm"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </RelativeLayout>
 </LinearLayout>

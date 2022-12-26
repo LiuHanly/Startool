@@ -53,17 +53,16 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/Relative"
         android:layout_below="@+id/linearLayout"
-        android:paddingLeft="60mm"
-        android:paddingRight="60mm" />
+        android:paddingLeft="48mm"
+        android:paddingRight="48mm" />
 
     <RelativeLayout
-        android:layout_marginTop="43mm"
         android:id="@+id/Relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-         android:layout_marginBottom="48mm"
-        >
+        android:layout_marginTop="43mm"
+        android:layout_marginBottom="48mm">
 
         <TextView
             android:id="@+id/all_select"
@@ -79,8 +78,8 @@
             android:id="@+id/start_button"
             android:layout_width="200mm"
             android:layout_height="79mm"
-            android:layout_marginRight="24mm"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="48mm"
             android:background="@drawable/r_button_bg"
             android:text="@string/Start_test"
             android:textAllCaps="false"

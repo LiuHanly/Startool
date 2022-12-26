@@ -27,8 +27,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="48mm"
+        android:layout_marginRight="48mm"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
 
         <fragment
@@ -36,10 +38,6 @@
             android:name="com.glorystar.startool.ui.fragment.CPUKtTestFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="35mm"
-            android:layout_marginTop="35mm"
-            android:layout_marginRight="15mm"
-            android:layout_marginBottom="15mm"
             android:layout_weight="1" />
 
         <fragment
@@ -47,17 +45,18 @@
             android:name="com.glorystar.startool.ui.fragment.MemoryTestKtFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15mm"
-            android:layout_marginTop="35mm"
-            android:layout_marginRight="35mm"
-            android:layout_marginBottom="15mm"
+            android:layout_marginTop="24mm"
             android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_marginLeft="48mm"
+        android:layout_marginRight="48mm"
+        android:layout_marginBottom="48mm"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
 
         <fragment
@@ -65,10 +64,7 @@
             android:name="com.glorystar.startool.ui.fragment.DDRTestKtFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="35mm"
-            android:layout_marginTop="15mm"
-            android:layout_marginRight="15mm"
-            android:layout_marginBottom="35mm"
+            android:layout_marginTop="24mm"
             android:layout_weight="1" />
 
         <fragment
@@ -76,10 +72,7 @@
             android:name="com.glorystar.startool.ui.fragment.VideoTestKtFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15mm"
-            android:layout_marginTop="15mm"
-            android:layout_marginRight="35mm"
-            android:layout_marginBottom="35mm"
+            android:layout_marginTop="24mm"
             android:layout_weight="1" />
     </LinearLayout>
 

@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -121,11 +122,20 @@ class TestReportActivity : BaseActivity() {
             ) {
                 val image_name = holder?.getView<ImageView>(R.id.image_name)
                 val name_text = holder?.getView<TextView>(R.id.name_text)
+                val masg_text = holder?.getView<TextView>(R.id.masg_text)
                 name_text?.text = data?.teacherName
                 if (data?.TeacherType == 1) {
-                    image_name?.setImageResource(R.drawable.ic_gantanhao)
+                    image_name?.setImageResource(R.drawable.ic_extension)
+                    if (masg_text != null) {
+                        masg_text!!.setTextColor(Color.parseColor("#FF3A3A"))
+                    }
+                    masg_text?.text = application.getText(R.string.Failed)
                 } else {
                     image_name?.setImageResource(R.drawable.ic_checkcircle__)
+                    if (masg_text != null) {
+                        masg_text!!.setTextColor(Color.parseColor("#56F21F"))
+                    }
+                    masg_text?.text = application.getText(R.string.Passed)
                 }
             }
         }

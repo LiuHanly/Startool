@@ -83,10 +83,10 @@
     <string name="SD_card_ports">Plug a SD card into SD card ports</string>
 
     <string name="CPU">CPU Test</string>
-    <string name="sec">秒</string>
-    <string name="exit">退出</string>
-    <string name="exit_test_tips">确定要退出测试吗？</string>
-    <string name="cancel">取消</string>
+    <string name="sec">Seconds</string>
+    <string name="exit">Exit</string>
+    <string name="exit_test_tips">Are you sure you want to exit the test?</string>
+    <string name="cancel">Cancel</string>
     <string name="ok">确定</string>
     <string name="stop">停止</string>
     <string name="start">开始</string>
@@ -113,6 +113,6 @@
     <string name="AGEINGTESSTARTTIME">Starting aging time:</string>
     <string name="AGEINGTESSTOPTTIME">End aging time:</string>
     <string name="Ageing">Aging test</string>
-
+    <string name="Back_light">Back light intensity</string>
 
 </resources>
