@@ -3,16 +3,16 @@ package com.glorystar.startool.ui.activity
 import android.annotation.SuppressLint
 import android.content.PeriodicSync
 import android.content.res.AssetManager
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
+import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.AgingBean
 import com.glorystar.startool.config.bean.liuchenData
 import com.glorystar.startool.config.constant.Constantdtas
@@ -59,7 +59,15 @@ class PreAgingTests : BaseActivity() {
         val lines1 = bufferedReader1.readLines()
 
         minItemBean.addAll(Constantdtas.getGreAgingDate())
-        ageing_fro_recy.layoutManager = GridLayoutManager(this, 3)
+
+        if (MyApplication.mConfiguration?.orientation == Configuration.ORIENTATION_PORTRAIT){
+            ageing_fro_recy.layoutManager = LinearLayoutManager(this)
+        }else{
+            ageing_fro_recy.layoutManager = GridLayoutManager(this, 3)
+        }
+
+
+
         baserecycleradapter =
             object : BaseRecyclerAdapter<AgingBean>(this, null, R.layout.ageing_fro_imet) {
                 /**

@@ -109,7 +109,7 @@ class MyApplication : Application() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(mConfiguration!!)
-        val item =  IntentJumpUtils.getLanguage()
+        val item = IntentJumpUtils.getLanguage()
         LanguageUtil.changLang(this, item)
         if (MyApplication.rotate) {
             switchResolution(false)

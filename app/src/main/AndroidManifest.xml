@@ -145,7 +145,6 @@
             android:name=".ui.activity.RJ45Activity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
-
             android:theme="@style/NoTitle" />
 
         <activity

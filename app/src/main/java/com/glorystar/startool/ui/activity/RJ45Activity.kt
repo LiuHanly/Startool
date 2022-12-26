@@ -23,6 +23,8 @@ import com.glorystar.startool.utils.tool.NetworkUtils
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import me.jessyan.autosize.AutoSizeCompat
+import me.jessyan.autosize.AutoSizeConfig
 
 
 /**
@@ -75,12 +77,15 @@ class RJ45Activity : BaseActivity() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
+
+        //AutoSizeCompat.autoConvertDensityOfGlobal(resources)
+
         full_webView = findViewById(R.id.full_webView)
         failure_bu = findViewById(R.id.failure_bu)
         through_bu = findViewById(R.id.through_bu)
 
         mHandler.sendEmptyMessage(0)
-       // full_webView.loadUrl("http://www.apple.com.cn")
+        // full_webView.loadUrl("http://www.apple.com.cn")
 
         full_webView.webChromeClient = WebChromeClient()
         full_webView.webViewClient = object : WebViewClient() {
