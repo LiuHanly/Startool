@@ -35,6 +35,7 @@
     <string name="buttons_name">Buttons</string>
     <string name="photo_recording_name">Photo &amp; recording</string>
 
+
     <string name="Start_test">Start test</string>
     <string name="Select_all">Select all</string>
 
@@ -90,7 +91,7 @@
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
     <string name="stop">停止</string>
-    <string name="start">开始</string>
+    <string name="start">Start</string>
     <string name="exit_app_tips">There are still tests in progress. Please finish these tests first！</string>
     <string name="at_least_one_test_case">Choose at least one test scenario</string>
     <string name="set_time_tips">Please set the number of tests (unit: times)</string>
@@ -117,6 +118,16 @@
     <string name="Ageing">Aging test</string>
 
     <string name="Back_light">Back light intensity</string>
+
+    <string name="touch_name_tile">Touch test </string>
+
+    <string name="touch_name_masg_one"> In this test, tab on the screen and hold.</string>
+    <string name="touch_name_masg_tow"> Follow the white lines to finish the path.</string>
+    <string name="touch_name_masg_three"> Result will be automatically determined.</string>
+    <string name="go_back">Go back</string>
+
+    <string name="touch_view_masg_one">Touch and cross line at ten</string>
+    <string name="touch_view_masg_tow">(To complete the test, please click the title 4 times consecutively to enter the next step)</string>
 
 
 

@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44mm"
-        android:text="十点触摸"
+        android:text="@string/touch_name_tile"
         android:textColor="@color/white"
         android:textSize="35mm" />
 

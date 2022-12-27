@@ -77,7 +77,6 @@ class AgeingTestReportActivity : BaseActivity() {
                     val image_name = holder?.getView<ImageView>(R.id.image_name)
                     val name_text = holder?.getView<TextView>(R.id.name_text)
 
-
                     name_text?.text = when (data?.AgeingName) {
                         "CPUKtTestFragment" -> "CPU Test"
                         "MemoryTestKtFragment" -> "EMMC Test:"

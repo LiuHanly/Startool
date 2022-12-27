@@ -116,4 +116,12 @@
     <string name="AGEINGTESSTOPTTIME">结束老化时间:</string>
     <string name="Ageing">老化测试</string>
     <string name="Back_light">背光强度</string>
+    <string name="touch_name_tile">触摸测试 </string>
+
+    <string name="touch_name_masg_one"> 在这个测试中，在屏幕上按tab键并按住.</string>
+    <string name="touch_name_masg_tow"> 沿着白线完成路径.</string>
+    <string name="touch_name_masg_three">结果将自动确定.</string>
+    <string name="go_back">Go back</string>
+    <string name="touch_view_masg_one">十点触摸、交叉划线</string>
+    <string name="touch_view_masg_tow">（完成测试请连续点击标题4次进入下一步）</string>
 </resources>

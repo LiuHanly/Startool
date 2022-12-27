@@ -12,6 +12,7 @@ import com.glorystar.startool.ui.activity.TestReportActivity.Companion.toStartAc
 import kotlin.jvm.Synchronized
 import android.app.Activity
 import android.util.Log
+import com.glorystar.startool.config.bean.liuchenData
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.utils.db.TeacherDao
 import com.glorystar.startool.config.constant.TeacherDataBase
@@ -20,6 +21,7 @@ import com.glorystar.startool.config.constant.StudentDataBase
 import com.glorystar.startool.utils.tool.DateUtil
 import com.glorystar.startool.utils.db.Teacher
 import com.glorystar.startool.ui.activity.TestReportActivity
+import com.glorystar.startool.utils.tool.JsonHelper
 
 object IntenAcitivity {
     @Synchronized
@@ -29,13 +31,16 @@ object IntenAcitivity {
         val lisn = getInString(context!!)
         val teacherDao = TeacherDataBase(context).teacherDao
         val ListStudent: List<Student> = StudentDataBase(context).studentDao.getAllStudents()
+      //  val itJson = JsonHelper.newfromJson(StrngIt, liuchenData::class.java)
         val statrDate = stampToTime(timeStamp_L.toString() + "")
+
         Log.e("PeriodicSync", "--lisn.get(testID)-->" + lisn[testID])
+
         if (teacherDao.getTeacherID(testID.toLong()) != null) {
             teacherDao.update(
                 Teacher(
                     java.lang.Long.valueOf(testID.toLong()),
-                    ListStudent[testID].StudentName,
+                    JsonHelper.newfromJson(lisn[testID], liuchenData::class.java).name,
                     statrDate,
                     statrDate,
                     transit
@@ -45,7 +50,7 @@ object IntenAcitivity {
             teacherDao.insert(
                 Teacher(
                     java.lang.Long.valueOf(testID.toLong()),
-                    ListStudent[testID].StudentName,
+                    JsonHelper.newfromJson(lisn[testID], liuchenData::class.java).name   ,
                     statrDate,
                     statrDate,
                     transit
@@ -56,6 +61,7 @@ object IntenAcitivity {
             return
         }
         while (ID < ListStudent.size) {
+            Log.e("PeriodicSync","--PeriodicSync--->"+ ListStudent[ID].toString())
             if (ListStudent[ID].StudentType) {
                 Log.e("PeriodicSync", ListStudent[ID].toString())
                 geiActivity(context, ListStudent[ID].appinfoID!!)

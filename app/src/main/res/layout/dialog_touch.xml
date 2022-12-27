@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="389mm"
+    android:background="@drawable/selector_mode_bg">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30mm"
+        android:layout_marginTop="38mm"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="27mm"
+            android:layout_height="27mm"
+            android:src="@mipmap/touch" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10mm"
+            android:text="@string/touch_name_tile"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/touch_name_masg_one"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/touch_name_masg_tow"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/touch_name_masg_three"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingRight="12mm"
+        android:paddingBottom="30mm">
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="113mm"
+            android:layout_height="55mm"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/start"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="21mm" />
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

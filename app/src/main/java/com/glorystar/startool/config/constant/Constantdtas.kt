@@ -18,10 +18,10 @@ object Constantdtas {
     const val WIFI_SSID = "GSCNAPK"
     const val WIFI_PASS = "12062106"
 
-    const val CPUKTTESTFRAGMENT = "180" //CPU老化时间    180000
-    const val MEMORYTESTKTFRAGMENT = "600"//低内存测试时间 "600000"
-    const val DDRTESTKTFRAGMENT = "600"    //DDR测试时间   "600000"
-    const val VIDEOTESTKTFRAGMENT = "288" //视屏测试     "28800000"
+    const val CPUKTTESTFRAGMENT = "180000" //CPU老化时间    180000
+    const val MEMORYTESTKTFRAGMENT = "600000"//低内存测试时间 "600000"
+    const val DDRTESTKTFRAGMENT = "600000"    //DDR测试时间   "600000"
+    const val VIDEOTESTKTFRAGMENT = "28800000" //视屏测试     "28800000"
     val AttaServedName = arrayOf("ENG", "中文" )
     const val STAROS_ORIENTATION ="STARTOOL_CONFIG"
 

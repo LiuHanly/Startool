@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18dp"
-        android:text="（完成测试请连续点击标题4次进入下一步）"
+        android:text="@string/touch_view_masg_tow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="十点触摸、交叉划线"
+        android:text="@string/touch_view_masg_one"
         android:textColor="@color/black"
         android:textSize="50mm"
         app:layout_constraintEnd_toEndOf="parent"

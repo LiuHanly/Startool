@@ -13,6 +13,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.config.constant.IntenAcitivity
+import com.glorystar.startool.ui.dialog.TouchDialog
 import com.glorystar.startool.ui.view.*
 import com.glorystar.startool.utils.tool.LiveDataBus
 import com.glorystar.startool.utils.tool.OnDoubleClickListener
@@ -103,7 +104,7 @@ class ScreenActivity : BaseActivity() {
         viewList.add(view2)
         viewList.add(view3)
         dawsme?.addView(DrawingView(this@ScreenActivity))
-
+        TouchDialog.newInstance()?.show(this.supportFragmentManager ,"")
         FrameLayoutDragImage?.addView(mytouchview)
 
 
@@ -157,18 +158,21 @@ class ScreenActivity : BaseActivity() {
 
             FrameLayoutDragImage?.addView(mytouchview)
             noscrollviewpager?.currentItem = 0
+
         }
         through_bu?.setOnClickListener {
 
             IntenAcitivity.getIntenAcitivity(this@ScreenActivity, 2, 2)
         }
- //
-        textView3?.setOnTouchListener(OnDoubleClickListener(@SuppressLint("ClickableViewAccessibility")
-        object : OnDoubleClickListener.DoubleClickCallback{
-            override fun onDoubleClick() {
-                LiveDataBus.get().with("DrawingView").postValue(true)
-            }
-        }))
+        //
+        textView3?.setOnTouchListener(
+            OnDoubleClickListener(@SuppressLint("ClickableViewAccessibility")
+            object : OnDoubleClickListener.DoubleClickCallback {
+                override fun onDoubleClick() {
+                    LiveDataBus.get().with("DrawingView").postValue(true)
+                }
+            })
+        )
     }
 
     override fun onDestroy() {

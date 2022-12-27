@@ -153,10 +153,10 @@ class DrawingView : View {
     //绘制背景
     fun TrigonPain(canvas: Canvas?) {
         val p = Paint()
-        p.color = Color.BLUE
+        p.color =  Color.parseColor("#1D2D4B")
         p.isAntiAlias = true
         val p2 = Paint()
-        p2.color = Color.BLACK
+        p2.color = Color.parseColor("#0091FF")
         p2.isAntiAlias = true
 
         //实例化路径

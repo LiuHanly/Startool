@@ -25,7 +25,7 @@ abstract class BaseDialogFramene :  DialogFragment() {
             // lp.alpha = 0.8f;//设置dialog窗口的透明度
             //设置dialog窗口的宽
             lp.width = ((DimenUtil.screenWidth * 0.8).toInt())
-            lp.height =(DimenUtil.screenHeight *0.65).toInt() // LinearLayout.LayoutParams.WRAP_CONTENT *0.75 设置dialog窗口的高
+            lp.height =(DimenUtil.screenHeight *0.35).toInt() // LinearLayout.LayoutParams.WRAP_CONTENT *0.75 设置dialog窗口的高
             dialog.window!!.attributes = lp
             dialog.setCancelable(true)
 
