@@ -92,7 +92,8 @@ class CameraActivity : BaseActivity() {
             // intent.action = MediaStore.ACTION_IMAGE_CAPTURE
             startActivityForResult(intent, 1)
         } else {
-            Toast.makeText(this@CameraActivity, "该设备没有摄像头！", Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(this@CameraActivity, this.getString(R.string.camerasupp), Toast.LENGTH_SHORT).show()
         }
 
     }

@@ -57,7 +57,6 @@ class USBInterfaceActivity : BaseActivity() {
 
     override fun getLayoutId(): Int = R.layout.activity_usb_interface
 
-
     override fun initView(savedInstanceState: Bundle?) {
         rct_progr = findViewById(R.id.rct_progr)
         failure_button = findViewById(R.id.failure_button)
@@ -118,7 +117,7 @@ class USBInterfaceActivity : BaseActivity() {
         })
     }
 
-    @SuppressLint("NewApi")
+    @SuppressLint("NewApi", "LogNotTimber")
     fun setLinst() {
         listGridItem = arrayListOf();
         if (Build.VERSION.SDK_INT < 23) {

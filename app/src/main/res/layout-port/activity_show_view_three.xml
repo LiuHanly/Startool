@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44mm"
-        android:text="十点触摸"
+        android:text="@string/touch_name_tile"
         android:textColor="@color/white"
         android:textSize="35mm" />
 
@@ -27,9 +27,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="300mm"
+        android:layout_marginLeft="48mm"
         android:layout_marginTop="50mm"
-        android:layout_marginRight="300mm">
+        android:layout_marginRight="48mm">
 
         <Button
             android:id="@+id/failure_bu"

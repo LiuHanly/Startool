@@ -1,14 +1,14 @@
-{id:0,name:"信息"}
-{id:1,name:"屏幕显示"}
-{id:2,name:"触摸"}
-{id:3,name:"无线网络"}
-{id:4,name:"蓝牙"}
-{id:5,name:"相机微米"}
-{id:6,name:"网络"}
-{id:7,name:"SD卡"}
+{id:0,name:"Information"}
+{id:1,name:"Screen display"}
+{id:2,name:"Touch"}
+{id:3,name:"WIFI"}
+{id:4,name:"Bluetooth"}
+{id:5,name:"Photo & recording"}
+{id:6,name:"Network"}
+{id:7,name:"SD port"}
 {id:8,name:"USB"}
 {id:9,name:"HDMI"}
-{id:10,name:"扬声器"}
-{id:11,name:"耳机"}
-{id:12,name:"陀螺仪"}
-{id:13,name:"按钮"}
+{id:10,name:"Speaker"}
+{id:11,name:"Earphone"}
+{id:12,name:"Gyroscope"}
+{id:13,name:"Buttons"}

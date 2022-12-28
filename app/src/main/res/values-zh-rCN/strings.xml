@@ -83,6 +83,7 @@
     <string name="Preaging_report">Pre-aging test report</string>
     <string name="Finish_leave">Finish and leave</string>
     <string name="SD_card_ports">将SD卡插入SD卡接口</string>
+    <string name="usb_ports">将usb设备插入usb端口</string>
 
     <string name="CPU">CPU Test</string>
     <string name="sec">秒</string>
@@ -124,4 +125,6 @@
     <string name="go_back">Go back</string>
     <string name="touch_view_masg_one">十点触摸、交叉划线</string>
     <string name="touch_view_masg_tow">（完成测试请连续点击标题4次进入下一步）</string>
+    <string name="camerasupp">该设备没有摄像头</string>
+    <string name="speaker_masg">点击下面的图标播放声音。检查 \n 左声道-男声 \n 右声道-女声</string>
 </resources>

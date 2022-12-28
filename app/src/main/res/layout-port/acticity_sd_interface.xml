@@ -58,9 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rct_progr"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="300mm"
+        android:layout_marginLeft="48mm"
         android:layout_marginTop="50mm"
-        android:layout_marginRight="300mm">
+        android:layout_marginRight="48mm">
 
 
         <Button

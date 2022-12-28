@@ -81,6 +81,7 @@
     <string name="Preaging_report">Pre-aging test report</string>
     <string name="Finish_leave">Finish and leave</string>
     <string name="SD_card_ports">Plug a SD card into SD card ports</string>
+    <string name="usb_ports">Plug usb devices into usb ports</string>
 
     <string name="CPU">CPU Test</string>
     <string name="sec">Seconds</string>
@@ -121,4 +122,7 @@
     <string name="go_back">Go back</string>
     <string name="touch_view_masg_one">Touch and cross line at ten</string>
     <string name="touch_view_masg_tow">(To complete the test, please click the title 4 times consecutively to enter the next step)</string>
+    <string name="camerasupp">The device does not have a camera</string>
+    <string name="speaker_masg">Click the icon below to play the sound. Check if \n Left channel - Male voice \n Right channel - Female voice</string>
+
 </resources>

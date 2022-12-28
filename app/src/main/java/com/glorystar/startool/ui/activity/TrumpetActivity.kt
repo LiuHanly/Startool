@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.PagerAdapter
@@ -34,7 +35,7 @@ class TrumpetActivity : BaseActivity() {
     var mChannelRightPlayer: PlayThread? = null
     var noscroll_Viewpager_ScreenShow: NoScrollViewPager? = null
     private var viewList = arrayListOf<View>()
-    lateinit var badge_view: RTextView
+    lateinit var badge_view: ImageView
     lateinit var through_bu: Button
     lateinit var failure_bu: Button
     lateinit var redo_bu: TextView
@@ -197,7 +198,7 @@ class TrumpetActivity : BaseActivity() {
         mChannelLeftPlayer?.start()
         countdowntimer = object : CountDownTimer(7 * 1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                badge_view.text = "播放中"
+             //  badge_view.text = "播放中"
                 badge_view?.isClickable = false
                 Log.e("CountDownTimer", "" + millisUntilFinished.div(1000).toInt())
                 var Timer = millisUntilFinished.div(1000).toInt()
@@ -211,7 +212,7 @@ class TrumpetActivity : BaseActivity() {
             }
 
             override fun onFinish() {
-                badge_view.text = "播放"
+               // badge_view.text = "播放"
                 badge_view?.isClickable = true
 
                 mChannelLeftPlayer?.stopp()
