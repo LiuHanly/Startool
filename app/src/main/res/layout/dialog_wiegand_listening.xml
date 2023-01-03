@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/selector_mode_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="36dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:src="@drawable/ic_chips"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:text="@string/wiegand_listening"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_input_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:text="@string/wiegand_listening_detail"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/colorFont"
+            android:textSize="23dp"
+            android:text="@string/retrieved_value"/>
+
+        <TextView
+            android:id="@+id/retrieve_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/white"
+            android:textSize="37dp" />
+
+        <TextView
+            android:id="@+id/stop_listening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="42dp"
+            android:layout_marginBottom="45dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/stop_listening"
+            android:textColor="@color/colorMainButton"
+            android:textSize="21dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/relative_help"
+        android:layout_width="930dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="@drawable/selector_mode_bg">
+
+        <ImageView
+            android:id="@+id/iv_help"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/ic_help" />
+
+        <TextView
+            android:id="@+id/tv_input_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_help"
+            android:textSize="23dp"
+            android:text="@string/wiegand_input_tip"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+</RelativeLayout>
