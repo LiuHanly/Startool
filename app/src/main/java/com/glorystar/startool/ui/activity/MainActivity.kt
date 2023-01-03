@@ -1,10 +1,8 @@
 package com.glorystar.startool.ui.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import com.glorystar.startool.R
@@ -13,22 +11,20 @@ import com.glorystar.startool.config.base.BasePoup
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.utils.tool.IntentJumpUtils
 import com.glorystar.startool.utils.tool.LiveDataBus
+import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 import com.lxj.xpopup.enums.PopupPosition
 
 class MainActivity : BaseActivity() {
 
-    private lateinit var General_Relative: RelativeLayout
+    private lateinit var linear_general: LinearLayout
 
-    private lateinit var Model_Relative: RelativeLayout
+    private lateinit var linear_model: LinearLayout
 
-    private lateinit var Addon_Relative: RelativeLayout
+    private lateinit var linear_addon: LinearLayout
 
-    lateinit var Aging_Relative: RelativeLayout
+    lateinit var linear_aging: LinearLayout
 
     private lateinit var language_text: TextView
-
-    lateinit var title_linear: LinearLayout
-    lateinit var textlanguage: TextView
 
     /**
      * 设置布局
@@ -41,24 +37,27 @@ class MainActivity : BaseActivity() {
      * 初始化视图
      */
     override fun initView(savedInstanceState: Bundle?) {
-        General_Relative = findViewById(R.id.Enter_General)
-        Model_Relative = findViewById(R.id.Enter_Model)
-        Addon_Relative = findViewById(R.id.Enter_Addon)
-        Aging_Relative = findViewById(R.id.Enter_Aging)
+        linear_general = findViewById(R.id.linear_general)
+        linear_model = findViewById(R.id.linear_model)
+        linear_addon = findViewById(R.id.linear_addon)
+        linear_aging = findViewById(R.id.linear_aging)
         language_text = findViewById(R.id.textlanguage)
-        title_linear = findViewById(R.id.title_linear)
 
+        StatusNaviBarUitl.hide(application)
 
-
-        General_Relative.setOnClickListener {
+        linear_general.setOnClickListener {
             this.startActivity(Intent(application, GeneralActivity::class.java))
         }
 
-        Aging_Relative.setOnClickListener {
+        linear_model.setOnClickListener {
+            startActivity(Intent(application, ModelActivity::class.java))
+        }
+
+        linear_aging.setOnClickListener {
 
             this.startActivity(Intent(application, AgingActivity::class.java))
         }
-        title_linear.setOnClickListener {
+        language_text.setOnClickListener {
             BasePoup.Builder(this)
                 .hasShadowBg(false)
                 .atView(it)
@@ -75,7 +74,5 @@ class MainActivity : BaseActivity() {
                 }.show()
 
         }
-
-
     }
 }

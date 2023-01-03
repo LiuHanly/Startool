@@ -281,4 +281,26 @@ public class NetworkUtil {
 
         view.setText(text.toLowerCase());
     }
+
+    //获取以太网网口MAC地址
+    public static String getEthernetMac(){
+        String ethernetMac = null;
+        try {
+            NetworkInterface NIC = NetworkInterface.getByName("eth0");
+            byte[] buf = NIC.getHardwareAddress();
+            StringBuffer buffer = new StringBuffer();
+            for (int i = 0; i < buf.length; i++) {
+                if (i != 0) {
+                    buffer.append('-');
+                }
+
+                String str = Integer.toHexString(buf[i] & 0xFF);
+                buffer.append(str.length() == 1 ? 0 + str : str);
+            }
+            ethernetMac = buffer.toString().toUpperCase();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        return ethernetMac;
+    }
 }

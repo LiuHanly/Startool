@@ -37,7 +37,7 @@
 
     <string name="Start_test">开始测试</string>
     <string name="Select_all">选择所有</string>
-    <string name="device_infor">设备信息</string>
+    <string name="device_info">设备信息</string>
 
     <string name="Screen_number">串号</string>
     <string name="Model_name">型号</string>

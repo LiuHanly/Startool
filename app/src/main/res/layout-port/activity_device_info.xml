@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    android:orientation="vertical"
+    tools:context=".ui.activity.DeviceInfoActivity">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104mm"
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20mm">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="12mm"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_1"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device_info" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_1"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/Serial_number"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_serial_get"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_2"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device_info" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_2"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/Android_version"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_android_get"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_3"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device_info" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_3"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/firmware_version"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_firmware_get"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_4"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device_info" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_4"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/ethernet_mac_address"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_ethernet_get"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_5"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device_info" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_5"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/wifi_mac_addres"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_wifi_mac"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_6"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device_info" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_6"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/internal_storage"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_storage"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_7"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device_info" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_7"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/ram"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_ram"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

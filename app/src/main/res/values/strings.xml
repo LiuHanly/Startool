@@ -39,7 +39,7 @@
     <string name="Start_test">Start test</string>
     <string name="Select_all">Select all</string>
 
-    <string name="device_infor">Device information</string>
+    <string name="device_info">Device information</string>
 
     <string name="Screen_number">Serial number</string>
     <string name="Model_name">Model</string>
@@ -103,6 +103,106 @@
     <string name="VideoTest">Video Test</string>
     <string name="EMMCTest">EMMC Test</string>
 
+    <string name="ota_update">OTA update</string>
+    <string name="screen_brightness">Screen brightness</string>
+    <string name="volume">Volume</string>
+    <string name="orientation">Orientation</string>
+    <string name="screenshot">Screenshot</string>
+    <string name="reboot_device">Reboot device</string>
+    <string name="set">Set</string>
+    <string name="get">Get</string>
+    <string name="take">Take</string>
+    <string name="reboot">Reboot</string>
+    <string name="firmware_version">Firmware version</string>
+    <string name="ethernet_mac_address">Ethernet MAC address</string>
+    <string name="wifi_mac_addres">WIFI MAC address</string>
+    <string name="internal_storage">Internal storage</string>
+    <string name="ram">RAM</string>
+    <string name="landscape">Landscape</string>
+    <string name="portrait">Portrait</string>
+    <string name="wifi_tip">Please make sure WIFI is connected</string>
+    <string name="go_setting">Go settings</string>
+    <string name="confirm">Confirm</string>
+    <string name="brightness_tip">Enter a value (1-100)</string>
+    <string name="reboot_tip">This device is going to restart. You may need to relaunch this app.</string>
+    <string name="select_orientatin">Please select</string>
+    <string name="ota_input_tip">url to download OTA package</string>
+    <string name="ota_download">Download package</string>
+    <string name="ota_clear">Clear input</string>
+    <string name="download_fail">Download failed</string>
+    <string name="download_fail_tip">Please make sure network is connected and the url is correct.</string>
+    <string name="downloading_package">Downloading package</string>
+    <string name="package_downloaded">Package downloaded</string>
+    <string name="install_package">Install package</string>
+    <string name="verify_package">Verify package</string>
+    <string name="verifying_package">Verifying package</string>
+    <string name="package_verified">Package verified</string>
+    <string name="verify_success">Verification succeed.</string>
+    <string name="verify_fail">Verification failed</string>
+    <string name="verify_fail_tip">Unknown error occured. Please try again or start again from downloading package.</string>
+    <string name="model_neb101">Model specific (NEB 101)</string>
+    <string name="gpio">GPIO</string>
+    <string name="wiegand_interface">Wiegand interface</string>
+    <string name="uart">UART</string>
+    <string name="open_port">Open port</string>
+    <string name="sensors">Sensors</string>
+    <string name="test">Test</string>
+    <string name="buttons">Buttons</string>
+    <string name="close_go_back">Close and go back</string>
+    <string name="uart_port">UART port opening</string>
+    <string name="uart_tip">A testing kit is required for this test</string>
+    <string name="proximity_output">Proximity sensor output</string>
+    <string name="ambient_output">Ambient sensor output</string>
+    <string name="sensor_tip">Value will keep refreshing if sensors function properly</string>
+    <string name="buttons_tip">Press any button on the device</string>
+    <string name="gpio_open">Open</string>
+    <string name="gpio_close">Close</string>
+    <string name="gpio_tip">A testing kit is required for these tests</string>
+    <string name="kit_input_title">Input port test with testing kit</string>
+    <string name="kit_input_detail">Test wiegand input port with an external testing kit</string>
+    <string name="start_test">Start test</string>
+    <string name="wiegand_input_title">Input &amp; output port test with an associate device</string>
+    <string name="wiegand_input_detail">By connecting to another wiegand device, test both\n\nOutput port of sender device, and\nInput port of receiver device</string>
+    <string name="sender">This is sender</string>
+    <string name="receiver">This is receiver</string>
+    <string name="wiegand_listening">Wiegand input port is listening</string>
+    <string name="wiegand_listening_detail">Hover a card in the area labelled “Wiegand test” on the testing kit.\nData retrieved will be displayed below.</string>
+    <string name="retrieved_value">Retrieved value</string>
+    <string name="stop_listening">Stop listening</string>
+    <string name="wiegand_input_tip">Make sure that the wiegand format is selected correctly</string>
+    <string name="receiver_input_detail">Send both HID &amp; PID from sender device. Data retrived will be displayed below.</string>
+    <string name="receiver_input_tip">Make sure that both devices are connected correctly</string>
+    <string name="sender_output_title">Send data via wiegand output port</string>
+    <string name="sender_output_detail">Enter both HID &amp; PID value and send to receiver device via wiegand output port.</string>
+    <string name="sender_hid_tip">HID (0-255, 8-digits)</string>
+    <string name="sender_pid_tip">PID (0-65535, 8-digits)</string>
+    <string name="send_now">Send now</string>
+    <string name="sender_output_tip">Make sure that both devices are connected correctly</string>
+    <string name="sender_processing">Data has been sent. Please check the receiver device.</string>
+    <string name="model_neb156">Model specific (NEB 156 &amp; NEB 215)</string>
+    <string name="model_vega">Model specific (VEGA)</string>
+    <string name="relay">Relay</string>
+    <string name="rs485">RS485</string>
+    <string name="rs485_port">RS485 port opening</string>
+    <string name="input_prot">Input port 1&amp;2</string>
+    <string name="camera">Camera</string>
+    <string name="rfid">RFID</string>
+    <string name="input_port_tip">Refer to the manual of testing kit for instructions</string>
+    <string name="port_1">Port 1</string>
+    <string name="port_2">Port 2</string>
+    <string name="ready">Ready</string>
+    <string name="success">Success</string>
+    <string name="turn_on">Turn on</string>
+    <string name="turn_off">Turn off</string>
+    <string name="read_card">Read card</string>
+    <string name="read_card_detail">Hover a RFID card on the reading area. Data retrieved will be displayed below.</string>
+    <string name="rfid_value">Retrieved card value</string>
+    <string name="rfid_support">Supported transponders</string>
+    <string name="rfid_7941d3">RFID 7941D3</string>
+    <string name="content_7941d3">ISO14443A: LEGIC Advant(UID only), MIFARE Classic EV1, MIFARE Classic, MIFARE Mini, MIFARE DESFire EV1, MIFARE DESFire EV2, MIFARE Plus S, X, MIFARE Pro X, MIFARE Smart MX, MIFARE Ultralight, MIFARE Ultralight C, MIFARE Ultralight EV1, NTAG2xx, SLE44R35, SLE66Rxx (my-d move), Topaz
+\n\nISO14443B: Calypso, Calypso Innovatron protocol, CEPAS, HID iCLASS(UID only), Moneo, Pico Pass(UID only), SRI4K, SRIX4K, SRI512, SRT512
+\n\n125 kHz, 134.2 kHz: AWID, Cardax, CASI-RUSCO, Deister6), EM4100, 4102, 42007), EM4050, 4150, 4450, 4550, EM43058), FDX-B, EM4105, HITAG 19), HITAG 29), HITAG S9), ICT8), IDTECK, Isonas8), Keri, Miro, Nedap6), PAC, Pyramid, Q5, T5557, T5567, T5577, TIRIS/HDX, TITAN (EM4050), UNIQUE, ZODIAC, Cotag, G-Prox6)</string>
+
 
     <!--DDR Test-->
     <string name="ddr_test_intro">It tries to maximize randomized traffic to memory from processor and I/O, with the intent of creating a realistic high load situation in order to test the existing hardware devices in a computer.</string>
@@ -131,5 +231,6 @@
     <string name="touch_view_masg_tow">(To complete the test, please click the title 4 times consecutively to enter the next step)</string>
     <string name="camerasupp">The device does not have a camera</string>
     <string name="speaker_masg">Click the icon below to play the sound. Check if \n Left channel - Male voice \n Right channel - Female voice</string>
-
+    <string name="model_test">Model specific test</string>
+    <string name="model_detail">Please selecte your device model from below.\nOnly devices in the list are supported for this test.</string>
 </resources>

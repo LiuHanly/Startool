@@ -1,74 +1,358 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorMain">
+    android:background="@color/colorMain"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="104mm" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/General"
-            android:textColor="@color/white"
-            android:textSize="37mm" />
-
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
+        android:layout_marginBottom="20mm">
 
-        <RelativeLayout style="@style/relative_general">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative_device_info"
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="12mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm">
 
-        <RelativeLayout style="@style/relative_general">
+                <ImageView
+                    android:id="@+id/iv_1"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device_info" />
 
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_1"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/device_info"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
 
-        <RelativeLayout style="@style/relative_general">
+                <ImageView
+                    android:layout_width="51mm"
+                    android:layout_height="51mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow" />
+            </RelativeLayout>
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative_ota"
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm">
 
-        <RelativeLayout style="@style/relative_general">
+                <ImageView
+                    android:id="@+id/iv_2"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_ota" />
 
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_2"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/ota_update"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
 
-        <RelativeLayout style="@style/relative_general">
+                <ImageView
+                    android:layout_width="51mm"
+                    android:layout_height="51mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow" />
+            </RelativeLayout>
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative_brightness"
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm">
 
-        <RelativeLayout style="@style/relative_general">
+                <ImageView
+                    android:id="@+id/iv_3"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_brightness" />
 
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_3"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/screen_brightness"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
 
-        <RelativeLayout style="@style/relative_general">
+                <Button
+                    android:id="@+id/bt_1"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/set"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
 
-        </RelativeLayout>
-    </LinearLayout>
+                <Button
+                    android:id="@+id/bt_brightness_get"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24mm"
+                    android:layout_toLeftOf="@+id/bt_1"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/relative_volume"
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/iv_4"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_volume" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_4"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/volume"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_2"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/set"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+
+                <Button
+                    android:id="@+id/bt_volume_get"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24mm"
+                    android:layout_toLeftOf="@+id/bt_2"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_orientation"
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm">
+
+                <ImageView
+                    android:id="@+id/iv_5"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_orientation" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_5"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/orientation"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_3"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/set"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+
+                <Button
+                    android:id="@+id/bt_orientation_get"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24mm"
+                    android:layout_toLeftOf="@+id/bt_3"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_screenshot"
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm">
+
+                <ImageView
+                    android:id="@+id/iv_6"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_screenshot" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_6"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/screenshot"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_screenshot"
+                    android:layout_width="191mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/take"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_reboot"
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm">
+
+                <ImageView
+                    android:id="@+id/iv_7"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_restart" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_7"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/reboot_device"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_reboot"
+                    android:layout_width="191mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/reboot"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -24,7 +24,7 @@ object Constantdtas {
     const val VIDEOTESTKTFRAGMENT = "28800000" //视屏测试     "28800000"
     val AttaServedName = arrayOf("ENG", "中文" )
     const val STAROS_ORIENTATION ="STARTOOL_CONFIG"
-
+    val ORIENTATION = arrayOf("Landscape", "Portrait")
 
     fun getGreAgingDate(): MutableList<AgingBean> {
         var minItemBean: MutableList<AgingBean> = ArrayList<AgingBean>()

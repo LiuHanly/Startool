@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="116mm"
+    android:layout_height="104mm"
     android:background="@color/colorMain"
     tools:ignore="InOrMmUsage">
 
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="76mm"
+        android:layout_marginLeft="30mm"
         android:orientation="horizontal">
 
         <ImageView
@@ -24,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20mm"
+            android:fontFamily="@font/montserrat_regular"
             android:baselineAligned="false"
             android:gravity="center"
             android:text="@string/Back"
@@ -37,21 +38,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/white"
-        android:textSize="25mm" />
+        android:textSize="37mm" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="60px"
+        android:layout_marginRight="30mm"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20mm"
             android:gravity="center"
             android:text="@string/language"
             android:textColor="@color/white"

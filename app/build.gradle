@@ -103,5 +103,11 @@ dependencies {
     // 提示框 和 图片预览 框架。
     implementation 'com.lxj:xpopup:1.8.10'
 
+    implementation files('libs/otaSdk-release.aar')
+    implementation files('libs/GSIOSdk-release.aar')
+    implementation files('libs/relaylibrary.aar')
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.google.code.gson:gson:2.8.8'
+
 
 }

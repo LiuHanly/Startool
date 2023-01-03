@@ -36,7 +36,7 @@
 
     <string name="Start_test">Start test</string>
     <string name="Select_all">Select all</string>
-    <string name="device_infor">Device information</string>
+    <string name="device_info">Device information</string>
 
     <string name="Screen_number">Serial number</string>
     <string name="Model_name">Model</string>

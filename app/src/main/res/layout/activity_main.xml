@@ -6,344 +6,373 @@
     android:layout_height="match_parent"
     android:background="@color/colorMain"
     android:orientation="vertical"
-
-    tools:context=".ui.activity.MainActivity"
-    tools:ignore="InOrMmUsage">
+    tools:context=".ui.activity.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="116mm"
-        android:layout_alignParentEnd="true"
-        android:paddingLeft="24mm"
-        android:paddingRight="24mm"
-        tools:ignore="InOrMmUsage,MissingConstraints">
+        android:layout_height="104dp">
 
-        <LinearLayout
-            android:id="@+id/title_linear"
-            android:layout_width="wrap_content"
-            android:layout_height="116mm"
-            android:layout_alignParentEnd="true"
+        <ImageView
+            android:id="@+id/iv_language"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@+id/textlanguage"
+            android:src="@drawable/ic_info" />
+
+        <TextView
+            android:id="@+id/textlanguage"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingEnd="70mm"
-            tools:ignore="RtlSymmetry,UseCompoundDrawables,UselessParent">
-
-            <ImageView
-
-                android:layout_width="36mm"
-                android:layout_height="36mm"
-                android:layout_marginEnd="24mm"
-                android:contentDescription="TODO"
-                android:padding="4mm"
-                android:src="@drawable/ic_info" />
-
-            <TextView
-                android:id="@+id/textlanguage"
-                android:layout_width="44mm"
-                android:layout_height="44mm"
-                android:gravity="center"
-                android:text="@string/language"
-                android:textColor="@color/white"
-                android:textSize="25mm" />
-        </LinearLayout>
+            android:text="@string/language"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24mm"
-        android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/logo_startoo"
-            android:layout_width="686mm"
-            android:layout_height="369mm"
-
-            android:contentDescription="TODO"
-            android:src="@mipmap/startoolslogo"
-            tools:ignore="InOrMmUsage,NotSibling" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70mm"
-            android:gravity="center"
-            android:text="@string/select"
-            android:textColor="@color/colorFont"
-            android:textSize="23mm"
-            tools:ignore="InOrMmUsage" />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_marginTop="20mm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:paddingLeft="88mm"
-        android:paddingRight="88mm"
-        android:paddingBottom="61mm"
-        tools:ignore="InOrMmUsage">
+                <ImageView
+                    android:id="@+id/logo_startoo"
+                    android:layout_width="596dp"
+                    android:layout_height="321dp"
+                    android:src="@mipmap/startoolslogo"
+                    tools:ignore="InOrMmUsage,NotSibling" />
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="400mm"
-            android:layout_height="359mm"
-            android:layout_marginEnd="48mm"
-            android:background="@color/colorMainLight"
-            android:paddingLeft="24mm"
-            android:paddingRight="24mm"
-            app:cardBackgroundColor="@color/colorMainLight"
-            app:cardCornerRadius="11mm">
-
-            <RelativeLayout
-                android:id="@+id/Enter_General"
-                style="@style/home_tile_relative"
-                tools:ignore="InOrMmUsage">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30mm"
-                    android:orientation="vertical">
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:text="@string/select"
+                    android:textColor="@color/colorFont"
+                    android:textSize="23dp"
+                    tools:ignore="InOrMmUsage" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="284dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorMainLight"
+                    app:cardBackgroundColor="@color/colorMainLight"
+                    app:cardCornerRadius="11dp">
 
                     <LinearLayout
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="24dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="31dp"
+                                android:layout_height="31dp"
+                                android:src="@drawable/ic_general"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/General"
+                                android:layout_marginLeft="14dp"
+                                android:textColor="@color/white"
+                                android:textSize="25dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:text="@string/General_masg"
+                            android:textColor="@color/colorFont"
+                            android:textSize="23dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_general"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="28dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Enter"
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:src="@drawable/ic_arrow" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="284dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorMainLight"
+                    app:cardBackgroundColor="@color/colorMainLight"
+                    app:cardCornerRadius="11dp">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="24dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="31dp"
+                                android:layout_height="31dp"
+                                android:src="@drawable/ic_model"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Model"
+                                android:layout_marginLeft="14dp"
+                                android:textColor="@color/white"
+                                android:textSize="25dp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:text="@string/Model_masg"
+                            android:textColor="@color/colorFont"
+                            android:textSize="23dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_model"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginBottom="28dp"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/General"
+                            android:text="@string/Enter"
                             android:textColor="@color/white"
-                            android:textSize="25mm" />
+                            android:textSize="25dp" />
+
+                        <ImageView
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:src="@drawable/ic_arrow" />
                     </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24mm"
-                        android:text="@string/General_masg"
-                        android:textColor="@color/colorFont"
-                        android:textSize="23mm" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:orientation="horizontal">
 
-                </LinearLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="284dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorMainLight"
+                    app:cardBackgroundColor="@color/colorMainLight"
+                    app:cardCornerRadius="11dp">
 
-                <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Enter"
-                        android:textColor="@color/white"
-                        android:textSize="25mm" />
-
-                </LinearLayout>
-
-
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="400mm"
-            android:layout_height="359mm"
-            android:layout_marginEnd="48mm"
-            android:background="@color/colorMainLight"
-            android:paddingLeft="24mm"
-            android:paddingRight="24mm"
-            app:cardBackgroundColor="@color/colorMainLight"
-            app:cardCornerRadius="11mm">
-
-            <RelativeLayout
-                android:id="@+id/Enter_Model"
-                style="@style/home_tile_relative"
-                tools:ignore="InOrMmUsage">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30mm"
-                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="24dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="31dp"
+                                android:layout_height="31dp"
+                                android:src="@drawable/ic_addon"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="14dp"
+                                android:text="@string/Addon"
+                                android:textColor="@color/white"
+                                android:textSize="25dp" />
+                        </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/Model"
-                            android:textColor="@color/white"
-                            android:textSize="25mm" />
+                            android:layout_marginTop="24dp"
+                            android:text="@string/Addon_masg"
+                            android:textColor="@color/colorFont"
+                            android:textSize="23dp" />
+
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24mm"
-                        android:text="@string/Model_masg"
-                        android:textColor="@color/colorFont"
-                        android:textSize="23mm" />
+                        <LinearLayout
+                            android:id="@+id/linear_addon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|bottom"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginBottom="28dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                </LinearLayout>
-                <LinearLayout
+                            <TextView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:orientation="horizontal">
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Enter"
+                                android:textColor="@color/white"
+                                android:textSize="25dp" />
 
-                    <TextView
+                            <ImageView
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:src="@drawable/ic_arrow" />
+                        </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Enter"
-                        android:textColor="@color/white"
-                        android:textSize="25mm" />
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="284dp"
+                    android:layout_weight="1"
+                    android:background="@color/colorMainLight"
+                    app:cardBackgroundColor="@color/colorMainLight"
+                    app:cardCornerRadius="11dp">
 
-                </LinearLayout>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="400mm"
-            android:layout_height="359mm"
-            android:layout_marginEnd="48mm"
-            android:background="@color/colorMainLight"
-            app:cardBackgroundColor="@color/colorMainLight"
-            app:cardCornerRadius="11mm">
-
-            <RelativeLayout
-                android:id="@+id/Enter_Addon"
-                style="@style/home_tile_relative"
-                tools:ignore="InOrMmUsage">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30mm"
-                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginRight="24dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="31dp"
+                                android:layout_height="31dp"
+                                android:src="@drawable/ic_aging"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Aging"
+                                android:layout_marginLeft="14dp"
+                                android:textColor="@color/white"
+                                android:textSize="25dp" />
+                        </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/Addon"
-                            android:textColor="@color/white"
-                            android:textSize="25mm" />
+                            android:layout_marginTop="24dp"
+                            android:text="@string/Aging_masg"
+                            android:textColor="@color/colorFont"
+                            android:textSize="23dp" />
+
                     </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24mm"
-                        android:text="@string/Addon_masg"
-                        android:textColor="@color/colorFont"
-                        android:textSize="23mm" />
-
-                </LinearLayout>
-                <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Enter"
-                        android:textColor="@color/white"
-                        android:textSize="25mm" />
-
-                </LinearLayout>
-            </RelativeLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="400mm"
-            android:layout_height="359mm"
-            android:background="@color/colorMainLight"
-            app:cardBackgroundColor="@color/colorMainLight"
-            app:cardCornerRadius="11mm">
-
-            <RelativeLayout
-                android:id="@+id/Enter_Aging"
-                style="@style/home_tile_relative"
-                tools:ignore="InOrMmUsage">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30mm"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
+                        <LinearLayout
+                            android:id="@+id/linear_aging"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/Aging"
-                            android:textColor="@color/white"
-                            android:textSize="25mm" />
-                    </LinearLayout>
+                            android:layout_gravity="right|bottom"
+                            android:layout_marginRight="24dp"
+                            android:layout_marginBottom="28dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="24mm"
-                        android:text="@string/Aging_masg"
-                        android:textColor="@color/colorFont"
-                        android:textSize="23mm" />
+                            <TextView
 
-                </LinearLayout>
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/Enter"
+                                android:textColor="@color/white"
+                                android:textSize="25dp" />
 
-                <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Enter"
-                        android:textColor="@color/white"
-                        android:textSize="25mm" />
-
-                </LinearLayout>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-
+                            <ImageView
+                                android:layout_width="44dp"
+                                android:layout_height="44dp"
+                                android:src="@drawable/ic_arrow" />
+                        </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

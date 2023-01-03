@@ -23,6 +23,10 @@
         <item name="colorPrimary">@color/colorMain</item>
         <item name="colorPrimaryDark">@color/colorMain</item>
         <item name="colorAccent">@color/colorMain</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:textAppearanceListItemSmall">@style/listPopupWindow</item>
     </style>
     <!-- activity 状态栏设置theme. -->
     <style name="NoTitletow" parent="Theme.AppCompat.Light.NoActionBar">
@@ -61,7 +65,7 @@
     <style name="relative_general">
         <item name="android:paddingRight">24mm</item>
         <item name="android:paddingLeft">24mm</item>
-        <item name="android:layout_marginLeft">60mm</item>
+        <item name="android:layout_marginLeft">30mm</item>
         <item name="android:layout_width">870mm</item>
         <item name="android:layout_height">103mm</item>
         <item name="android:layout_marginTop">14mm</item>
@@ -107,5 +111,9 @@
         <item name="android:layout_centerVertical">true</item>
     </style>
 
-
+    <style name="listPopupWindow">
+        <item name="android:textSize">25mm</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>
