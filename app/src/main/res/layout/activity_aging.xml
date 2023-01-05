@@ -53,9 +53,10 @@
        >
 
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/preaging_relat"
             style="@style/linear_aging"
-            android:layout_marginRight="48dp">
+            android:layout_marginRight="30dp">
 
             <ImageView
                 android:layout_width="146dp"
@@ -78,9 +79,10 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/aging_relat"
             style="@style/linear_aging"
-            android:layout_marginRight="48dp">
+            android:layout_marginRight="30dp">
 
             <ImageView
                 android:layout_width="146dp"
@@ -102,6 +104,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:layout_weight="1"
             android:id="@+id/text_post"
             style="@style/linear_aging">
 
