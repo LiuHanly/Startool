@@ -56,9 +56,9 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
-                    android:layout_width="280mm"
-                    android:layout_height="280mm"
-                    android:layout_marginRight="50mm">
+                    android:layout_width="260mm"
+                    android:layout_height="260mm"
+                    android:layout_marginRight="60mm">
 
                     <com.github.lzyzsd.circleprogress.DonutProgress
                         android:id="@+id/pgr_percent"
@@ -88,7 +88,7 @@
 
                                 android:text="@string/CPU_usage"
                                 android:textColor="@color/white"
-                                android:textSize="23mm" />
+                                android:textSize="27mm" />
 
 
                             <LinearLayout
@@ -125,7 +125,7 @@
                                     android:layout_toRightOf="@id/tv_percent"
                                     android:text="%"
                                     android:textColor="@color/white"
-                                    android:textSize="25mm"
+                                    android:textSize="37mm"
                                     android:textStyle="bold" />
                             </LinearLayout>
 
@@ -134,8 +134,8 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="280mm"
-                    android:layout_height="280mm">
+                    android:layout_width="260mm"
+                    android:layout_height="260mm">
 
                     <com.github.lzyzsd.circleprogress.DonutProgress
                         android:id="@+id/pgr_freq"

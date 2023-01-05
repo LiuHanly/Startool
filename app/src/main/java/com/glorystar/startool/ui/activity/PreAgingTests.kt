@@ -60,10 +60,12 @@ class PreAgingTests : BaseActivity() {
 
         minItemBean.addAll(Constantdtas.getGreAgingDate())
 
-        if (MyApplication.mConfiguration?.orientation == Configuration.ORIENTATION_PORTRAIT){
+        if (MyApplication.mConfiguration?.orientation == Configuration.ORIENTATION_PORTRAIT) {
             ageing_fro_recy.layoutManager = LinearLayoutManager(this)
-        }else{
+        } else {
             ageing_fro_recy.layoutManager = GridLayoutManager(this, 3)
+
+
         }
 
 

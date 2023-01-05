@@ -27,10 +27,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="50mm"
+                android:layout_marginRight="50dp"
                 android:text="@string/Ap"
                 android:textColor="@color/white"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
 
             <TextView
                 android:layout_centerVertical="true"
@@ -38,9 +38,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="50mm"
+                android:layout_marginRight="50dp"
                 android:textColor="@color/white"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
 
         </RelativeLayout>
 
@@ -52,10 +52,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="50mm"
+                android:layout_marginRight="50dp"
                 android:text="@string/Status"
                 android:textColor="@color/white"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
 
 
             <TextView
@@ -64,9 +64,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="50mm"
+                android:layout_marginRight="50dp"
                 android:textColor="@color/white"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
         </RelativeLayout>
 
 
@@ -76,16 +76,16 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="40mm"
-                android:layout_height="40mm"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@mipmap/wifixxxhdpi" />
 
             <com.glorystar.startool.ui.view.ColorGradientProgressBar
                 android:id="@+id/colorgradgressbar"
                 android:layout_width="wrap_content"
-                android:layout_height="40mm"
-                android:layout_marginLeft="25mm"
-                android:layout_marginRight="50mm"
+                android:layout_height="40dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="50dp"
                 android:layout_weight="1"
                 tools:ignore="MissingClass" />
 
@@ -94,10 +94,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="50mm"
+                android:layout_marginRight="50dp"
                 android:text="dBm"
                 android:textColor="@color/white"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
         </LinearLayout>
 
 
@@ -106,9 +106,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300mm"
-        android:layout_marginTop="50mm"
-        android:layout_marginRight="300mm"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="100dp"
 
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,7 +123,7 @@
             android:background="@drawable/r_button_bg"
             android:text="@string/Failed"
             android:textColor="@color/white"
-            android:textSize="15mm" />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/button5"
@@ -132,8 +132,8 @@
             android:layout_centerInParent="true"
             android:text="@string/Restart"
             android:textColor="@color/colorMainButton"
-            android:textSize="15mm"
-            tools:ignore="InOrMmUsage" />
+            android:textSize="15dp"
+            tools:ignore="InOrdpUsage" />
 
 
         <Button
@@ -144,7 +144,7 @@
             android:background="@drawable/r_button_bg"
             android:text="@string/Passed"
             android:textColor="@color/white"
-            android:textSize="15mm" />
+            android:textSize="15dp" />
     </RelativeLayout>
 
 

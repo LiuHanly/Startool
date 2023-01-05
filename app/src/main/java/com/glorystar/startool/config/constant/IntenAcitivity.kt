@@ -83,13 +83,13 @@ object IntenAcitivity {
 
         if (teacherDao.getTeacherID(14) != null) {
 
-            teacherDao.update(Teacher(14L, lisn[lisn.size - 1], statrDate, statrDate, transit));
+            teacherDao.update(Teacher(14L,JsonHelper.newfromJson(lisn[lisn.size - 1], liuchenData::class.java).name, statrDate, statrDate, transit));
             teacherDao.getAllTeachers().forEach {
             }
-
+          //  JsonHelper.newfromJson(lisn[testID], liuchenData::class.java).name,
         } else {
             teacherDao.getAllTeachers()
-            teacherDao.insert(Teacher(14L, lisn[lisn.size - 1], statrDate, statrDate, transit));
+            teacherDao.insert(Teacher(14L, JsonHelper.newfromJson(lisn[lisn.size - 1], liuchenData::class.java).name , statrDate, statrDate, transit));
             teacherDao.getAllTeachers().forEach {
             }
 

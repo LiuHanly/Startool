@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="116dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,7 +20,7 @@
             android:layout_centerInParent="true"
             android:text="@string/Photo_test"
             android:textColor="@color/white"
-            android:textSize="37mm" />
+            android:textSize="37dp" />
 
     </RelativeLayout>
 
@@ -37,25 +37,25 @@
         <TextView
             android:text="@string/expected_Passed"
             style="@style/text_style"
-            android:layout_marginBottom="48mm"
+            android:layout_marginBottom="48dp"
             />
 
         <RelativeLayout
-            android:layout_width="870mm"
+            android:layout_width="870dp"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints">
 
 
             <Button
                 android:id="@+id/failure_bu"
-                android:layout_width="121mm"
-                android:layout_height="55mm"
+                android:layout_width="121dp"
+                android:layout_height="55dp"
                 android:background="@drawable/r_button_bg"
                 android:text="@string/Failed"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="21mm"
-                tools:ignore="InOrMmUsage" />
+                android:textSize="21dp"
+                tools:ignore="InOrdpUsage" />
 
             <TextView
                 android:id="@+id/redo_bu"
@@ -64,20 +64,20 @@
                 android:layout_centerInParent="true"
                 android:text="@string/Restart"
                 android:textColor="@color/colorMainButton"
-                android:textSize="21mm" />
+                android:textSize="21dp" />
 
 
             <Button
                 android:id="@+id/through_bu"
-                android:layout_width="121mm"
-                android:layout_height="55mm"
+                android:layout_width="121dp"
+                android:layout_height="55dp"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/r_button_bg"
                 android:text="@string/Passed"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="21mm"
-                tools:ignore="InOrMmUsage" />
+                android:textSize="21dp"
+                tools:ignore="InOrdpUsage" />
 
 
         </RelativeLayout>

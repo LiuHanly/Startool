@@ -48,7 +48,7 @@ class AttachListPoView  constructor(context: Context) : AttachPopupView(context)
         recyclerView?.adapter = adapter
 
 
-        adapter?.setOnItemClickListener { viewHolder, data, position ->
+        adapter.setOnItemClickListener { viewHolder, data, position ->
             if (selectListener != null) {
                 selectListener?.onSelect(position, data);
             }

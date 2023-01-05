@@ -12,12 +12,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="35mm"
-            android:layout_marginTop="25mm"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/montserrat_semibold"
             android:text="@string/Video_Test"
             android:textColor="@color/white"
-            android:textSize="25mm" />
+            android:textSize="25dp" />
 
         <TextView
             android:textColor="@color/colorMainButton"
@@ -25,20 +25,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="25mm"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:layout_marginRight="55mm"
-            android:textSize="25mm" />
+            android:layout_marginRight="55dp"
+            android:textSize="25dp" />
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="15mm"
+        android:layout_marginTop="15dp"
         android:layout_centerInParent="true"
         android:layout_below="@id/save_image_matrix"
         android:id="@+id/container_video"
-        android:layout_width="520mm"
-        android:layout_height="280mm"
+        android:layout_width="520dp"
+        android:layout_height="280dp"
         >
 
         <VideoView

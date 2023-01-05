@@ -48,9 +48,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300mm"
+        android:layout_marginLeft="30mm"
         android:layout_marginTop="50mm"
-        android:layout_marginRight="300mm"
+        android:layout_marginRight="30mm"
 
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"

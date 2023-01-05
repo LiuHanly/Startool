@@ -113,7 +113,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="36mm"
-                android:text="@string/Aging"
+                android:text="@string/postagingtest"
                 android:textColor="@color/white"
                 android:textSize="37mm" />
         </RelativeLayout>

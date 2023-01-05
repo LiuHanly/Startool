@@ -8,8 +8,7 @@ import androidx.fragment.app.DialogFragment
 import com.glorystar.startool.utils.tool.DimenUtil
 
 
-abstract class BaseDialogFramene :  DialogFragment() {
-
+abstract class BaseDialogFramene : DialogFragment() {
 
 
     override fun onStart() {
@@ -24,8 +23,8 @@ abstract class BaseDialogFramene :  DialogFragment() {
             lp.dimAmount = 0.5f //设置窗口后面的暗度
             // lp.alpha = 0.8f;//设置dialog窗口的透明度
             //设置dialog窗口的宽
-            lp.width = ((DimenUtil.screenWidth * 0.8).toInt())
-            lp.height =(DimenUtil.screenHeight *0.35).toInt() // LinearLayout.LayoutParams.WRAP_CONTENT *0.75 设置dialog窗口的高
+            lp.width = ((DimenUtil.screenWidth).toInt())
+            lp.height = (DimenUtil.screenHeight).toInt() // LinearLayout.LayoutParams.WRAP_CONTENT *0.75 设置dialog窗口的高
             dialog.window!!.attributes = lp
             dialog.setCancelable(true)
 
@@ -34,10 +33,12 @@ abstract class BaseDialogFramene :  DialogFragment() {
 
 
     @SuppressLint("ClickableViewAccessibility")
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE); // 不显示标题栏
         val view = inflater.inflate(layoutId, container, false)
-        initView(view,savedInstanceState)
+        initView(view, savedInstanceState)
         return view
     }
 

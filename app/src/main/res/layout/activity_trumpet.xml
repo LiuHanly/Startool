@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,7 +20,7 @@
             android:layout_centerInParent="true"
             android:text="@string/speaker_name"
             android:textColor="@color/white"
-            android:textSize="37mm" />
+            android:textSize="37dp" />
 
 
     </RelativeLayout>
@@ -29,8 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="300mm"
-        android:layout_marginRight="300mm"
+        android:layout_marginLeft="300dp"
+        android:layout_marginRight="300dp"
 
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,20 +40,20 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:textSize="25mm"
+            android:textSize="25dp"
             android:text="@string/speaker_masg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="500mm">
+            android:layout_height="500dp">
 
 
             <ImageView
                 android:id="@+id/badge_view"
-                android:layout_width="280mm"
-                android:layout_height="280mm"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:src="@mipmap/play" />
@@ -63,11 +63,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="50mm"
+                android:layout_marginBottom="50dp"
                 android:text="@string/The_play"
                 android:textColor="@color/white"
-                android:textSize="25mm"
-                tools:ignore="InOrMmUsage" />
+                android:textSize="25dp"
+                tools:ignore="InOrdpUsage" />
 
         </RelativeLayout>
 
@@ -76,9 +76,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300mm"
-        android:layout_marginTop="50mm"
-        android:layout_marginRight="300mm"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="300dp"
 
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
-            android:textSize="15mm"
+            android:textSize="15dp"
             android:id="@+id/failure_bu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
 
         <TextView
             android:layout_centerInParent="true"
-            android:textSize="15mm"
+            android:textSize="15dp"
             android:id="@+id/redo_bu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
             android:textColor="@color/white" />
 
         <Button
-            android:textSize="15mm"
+            android:textSize="15dp"
             android:id="@+id/through_bu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,11 +20,11 @@
             android:layout_centerInParent="true"
             android:text="@string/hdmi_name"
             android:textColor="@color/white"
-            android:textSize="37mm" />
+            android:textSize="37dp" />
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="1080mm"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -33,50 +33,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
         tools:ignore="MissingConstraints">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/hdmi_cable"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
 
         <VideoView
             android:id="@+id/RecyclerLayout"
-            android:layout_width="1080mm"
-            android:layout_height="610mm" />
+            android:layout_width="772dp"
+            android:layout_height="435dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60mm"
+            android:layout_marginTop="30dp"
             android:text="@string/expected_Passed"
             android:textColor="@color/white"
-            android:textSize="25mm" />
+            android:textSize="25dp" />
 
         <RelativeLayout
-            android:layout_width="870mm"
+            android:layout_width="870dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48mm"
+            android:layout_marginTop="48dp"
             tools:ignore="MissingConstraints">
 
 
             <Button
                 android:id="@+id/failure_bu"
-                android:layout_width="121mm"
-                android:layout_height="55mm"
+                android:layout_width="121dp"
+                android:layout_height="55dp"
                 android:background="@drawable/r_button_bg"
                 android:text="@string/Failed"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="21mm"
-                tools:ignore="InOrMmUsage" />
+                android:textSize="21dp"
+                tools:ignore="InOrdpUsage" />
 
 
             <Button
                 android:id="@+id/through_bu"
-                android:layout_width="121mm"
-                android:layout_height="55mm"
+                android:layout_width="121dp"
+                android:layout_height="55dp"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/r_button_bg"
                 android:text="@string/Passed"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="21mm"
-                tools:ignore="InOrMmUsage" />
+                android:textSize="21dp"
+                tools:ignore="InOrdpUsage" />
 
 
         </RelativeLayout>

@@ -110,7 +110,6 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
         }else{
             relativeHelp.visibility = View.GONE
         }
-
         goSetting.setOnClickListener {
             if (title.equals(getString(R.string.wifi_mac_addres))) {
                 StatusNaviBarUitl.show(this)

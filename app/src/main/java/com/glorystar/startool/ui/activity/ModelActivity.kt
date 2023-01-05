@@ -14,7 +14,7 @@ class ModelActivity :BaseActivity() {
         return R.layout.activity_model
     }
 
-    /**
+        /**
      * 初始化视图
      */
     override fun initView(savedInstanceState: Bundle?) {

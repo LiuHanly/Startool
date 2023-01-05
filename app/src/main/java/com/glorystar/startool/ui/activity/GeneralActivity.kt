@@ -106,7 +106,7 @@ class GeneralActivity : BaseActivity(), OnClickListener {
                 startActivity(Intent(this, DeviceInfoActivity::class.java))
             }
             R.id.relative_ota ->{
-                startActivity(Intent(this, OtaActivity::class.java))
+              //  startActivity(Intent(this, OtaActivity::class.java))
             }
             R.id.bt_brightness_get ->{
                 showDialog(this, R.drawable.ic_brightness, getString(R.string.screen_brightness), getBrightness().toString())

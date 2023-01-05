@@ -23,23 +23,23 @@
                 android:id="@+id/ext_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35mm"
-                android:layout_marginTop="25mm"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="25dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="@string/CPU"
                 android:textColor="@color/white"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
 
             <TextView
                 android:id="@+id/time_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="25mm"
-                android:layout_marginRight="55mm"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="55dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:textColor="@color/colorMainButton"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
 
         </RelativeLayout>
 
@@ -56,20 +56,20 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
-                    android:layout_width="280mm"
-                    android:layout_height="280mm"
-                    android:layout_marginRight="50mm">
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:layout_marginRight="50dp">
 
                     <com.github.lzyzsd.circleprogress.DonutProgress
                         android:id="@+id/pgr_percent"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:donut_finished_color="@color/colorMainButton"
-                        app:donut_finished_stroke_width="4mm"
+                        app:donut_finished_stroke_width="4dp"
                         app:donut_progress="30"
                         app:donut_show_text="false"
                         app:donut_unfinished_color="@color/colorAccentLight"
-                        app:donut_unfinished_stroke_width="4mm" />
+                        app:donut_unfinished_stroke_width="4dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -88,14 +88,14 @@
 
                                 android:text="@string/CPU_usage"
                                 android:textColor="@color/white"
-                                android:textSize="23mm" />
+                                android:textSize="23dp" />
 
 
                             <LinearLayout
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="20mm"
+                                android:layout_marginTop="20dp"
                                 android:orientation="horizontal">
 
                                 <com.glorystar.startool.ui.view.DincondFontTextView
@@ -105,7 +105,7 @@
                                     android:layout_centerInParent="true"
                                     android:text="30"
                                     android:textColor="@color/white"
-                                    android:textSize="37mm"
+                                    android:textSize="37dp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -116,7 +116,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:text="@string/cpu_test_cur_freq"
                                     android:textColor="@color/white"
-                                    android:textSize="37mm" />
+                                    android:textSize="37dp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
                                     android:layout_toRightOf="@id/tv_percent"
                                     android:text="%"
                                     android:textColor="@color/white"
-                                    android:textSize="25mm"
+                                    android:textSize="25dp"
                                     android:textStyle="bold" />
                             </LinearLayout>
 
@@ -134,19 +134,19 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="280mm"
-                    android:layout_height="280mm">
+                    android:layout_width="280dp"
+                    android:layout_height="280dp">
 
                     <com.github.lzyzsd.circleprogress.DonutProgress
                         android:id="@+id/pgr_freq"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:donut_finished_color="@color/colorMainButton"
-                        app:donut_finished_stroke_width="4mm"
+                        app:donut_finished_stroke_width="4dp"
                         app:donut_progress="30"
                         app:donut_show_text="false"
                         app:donut_unfinished_color="@color/colorAccentLight"
-                        app:donut_unfinished_stroke_width="4mm" />
+                        app:donut_unfinished_stroke_width="4dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -165,12 +165,12 @@
                                 android:layout_centerHorizontal="true"
                                 android:text="@string/Current_freq"
                                 android:textColor="@color/white"
-                                android:textSize="23mm" />
+                                android:textSize="23dp" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="20mm"
+                                android:layout_marginTop="20dp"
                                 android:orientation="horizontal">
 
                                 <com.glorystar.startool.ui.view.DincondFontTextView
@@ -181,7 +181,7 @@
                                     android:layout_centerVertical="true"
                                     android:text="800"
                                     android:textColor="@color/white"
-                                    android:textSize="37mm"
+                                    android:textSize="37dp"
                                     android:textStyle="bold" />
 
                                 <TextView
@@ -191,7 +191,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:text="MHz"
                                     android:textColor="@color/white"
-                                    android:textSize="25mm" />
+                                    android:textSize="25dp" />
 
                             </LinearLayout>
 
@@ -201,7 +201,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentBottom="true"
                                 android:layout_centerHorizontal="true"
-                                android:layout_marginBottom="5mm"
+                                android:layout_marginBottom="5dp"
                                 android:orientation="horizontal">
 
                                 <TextView
@@ -210,15 +210,15 @@
                                     android:layout_height="wrap_content"
                                     android:text="1200"
                                     android:textColor="@color/colorFont"
-                                    android:textSize="23mm" />
+                                    android:textSize="23dp" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="3mm"
+                                    android:layout_marginStart="3dp"
                                     android:text="MHz"
                                     android:textColor="@color/colorFont"
-                                    android:textSize="23mm" />
+                                    android:textSize="23dp" />
 
                             </LinearLayout>
 
@@ -231,7 +231,7 @@
                             android:layout_centerHorizontal="true"
                             android:text="@string/cpu_test_cur_freq"
                             android:textColor="@color/white"
-                            android:textSize="35mm" />
+                            android:textSize="35dp" />
 
 
                     </RelativeLayout>

@@ -118,13 +118,13 @@ class WifiActivity : BaseActivity() {
         LiveDataBus.get().with("WifiActivity", String::class.java).observe(this, Observer {
             when (it) {
                 "WIFI_STATE_ENABLED" -> {
-                    text_Model.text = "已连接"
+                    text_Model.text = "Connected"
                     ap_name.text =
                         WIFIConnectionManager.getInstance(this).wifiManager.connectionInfo.ssid
                     handler.post(updateThread)
                 }
                 else -> {
-                    text_Model.text = "未连接"
+                    text_Model.text = "unconnected"
                 }
             }
         })

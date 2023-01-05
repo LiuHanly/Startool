@@ -17,7 +17,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         context = applicationContext
-
+        mConfiguration =  this.resources.configuration;
         AutoSizeConfig.getInstance().setLog(true)
             .setOnAdaptListener(object : onAdaptListener {
                 override fun onAdaptBefore(target: Any, activity: Activity) {}

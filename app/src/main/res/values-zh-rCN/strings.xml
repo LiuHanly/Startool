@@ -21,8 +21,10 @@
 
     <string name="preaging_masg_one">选择要测试的任何特定元素。然后按“开始”键。</string>
     <string name="preaging_masg_tow">所选测试将逐一进行。</string>
-
+    <string name="gyroscope_instruction"> Rotate your device following the instruction</string>
     <string name="wifi_name">WIFI</string>
+    <string name="wifi_test">WIFI test</string>
+    <string name="wifi_status">Current WIFI status</string>
     <string name="network_name">网络</string>
     <string name="bluetooth_name">蓝牙</string>
     <string name="hdmi_name">HDMI</string>

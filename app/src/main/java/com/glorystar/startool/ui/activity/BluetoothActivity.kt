@@ -120,7 +120,7 @@ class BluetoothActivity : BaseActivity() {
                 //    }
             }
         }
-    }
+    }   
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

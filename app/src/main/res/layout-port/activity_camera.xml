@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,7 +28,7 @@
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="312dp"
+        android:layout_marginTop="212mm"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
@@ -38,15 +38,18 @@
             android:text="@string/expected_Passed"
             style="@style/text_style"
             android:layout_marginBottom="48mm"
+            android:layout_marginLeft="100mm"
+            android:layout_marginRight="100mm"
             />
 
         <RelativeLayout
-            android:layout_width="870mm"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints">
 
 
             <Button
+                android:layout_marginLeft="30mm"
                 android:id="@+id/failure_bu"
                 android:layout_width="121mm"
                 android:layout_height="55mm"
@@ -68,6 +71,7 @@
 
 
             <Button
+                android:layout_marginRight="30mm"
                 android:id="@+id/through_bu"
                 android:layout_width="121mm"
                 android:layout_height="55mm"

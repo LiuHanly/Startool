@@ -53,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/Relative"
         android:layout_below="@+id/linearLayout"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:paddingLeft="48mm"
         android:paddingRight="48mm" />
 

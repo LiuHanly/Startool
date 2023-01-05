@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -35,11 +35,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
         tools:ignore="MissingConstraints">
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/hdmi_cable"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
         <VideoView
             android:id="@+id/RecyclerLayout"
             android:layout_width="match_parent"
-            android:layout_height="1080mm" />
+            android:layout_height="886mm" />
 
         <TextView
             android:layout_width="wrap_content"

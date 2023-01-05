@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorMain">
+    android:background="@color/colorMain"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -20,12 +21,22 @@
             android:layout_centerInParent="true"
             android:text="@string/gyroscope_name"
             android:textColor="@color/white"
+            android:layout_marginBottom="30mm"
             android:textSize="37mm" />
 
     </RelativeLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/gyroscope_instruction"
+        android:textColor="@color/white"
+        android:layout_marginBottom="30mm"
+        android:textSize="25mm" />
+
     <LinearLayout
-        android:layout_width="1080mm"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -38,25 +49,27 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="610mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginRight="30mm"
             android:background="@drawable/selector_mode_bg">
 
             <ImageView
                 android:id="@+id/image1"
-                android:layout_width="300mm"
-                android:layout_height="300mm"
+                android:layout_width="294mm"
+                android:layout_height="294mm"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/arrow_left" />
 
             <ImageView
-                android:layout_width="300mm"
-                android:layout_height="300mm"
+                android:layout_width="294mm"
+                android:layout_height="294mm"
                 android:layout_centerInParent="true"
                 android:src="@mipmap/device" />
 
             <ImageView
                 android:id="@+id/image2"
-                android:layout_width="300mm"
-                android:layout_height="300mm"
+                android:layout_width="294mm"
+                android:layout_height="294mm"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/arrow_right" />
@@ -67,18 +80,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60mm"
-            android:text="@string/expected_Passed"
+
+            android:layout_marginBottom="30mm"
             android:textColor="@color/white"
             android:textSize="25mm" />
 
         <RelativeLayout
-            android:layout_width="870mm"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48mm"
             tools:ignore="MissingConstraints">
 
 
             <Button
+                android:layout_marginLeft="123mm"
                 android:id="@+id/failure_bu"
                 android:layout_width="121mm"
                 android:layout_height="55mm"
@@ -91,6 +106,7 @@
 
 
             <Button
+                android:layout_marginRight="123mm"
                 android:id="@+id/through_bu"
                 android:layout_width="121mm"
                 android:layout_height="55mm"
@@ -107,4 +123,4 @@
     </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="568mm"
-    android:layout_height="103mm"
-    android:layout_marginTop="48mm"
+    android:layout_width="match_parent"
+    android:layout_height="103dp"
+    android:layout_marginLeft="30dp"
+    android:layout_marginTop="48dp"
     android:background="@drawable/selector_mode_bg">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="24mm"
+        android:layout_marginLeft="24dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/iv_image"
-            android:layout_width="31mm"
-            android:layout_height="31mm" />
+            android:layout_width="31dp"
+            android:layout_height="31dp" />
 
         <TextView
             android:id="@+id/tv_title_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24mm"
+            android:layout_marginLeft="24dp"
             android:textColor="@color/white"
-            android:textSize="25mm"
+            android:textSize="25dp"
             tools:ignore="InvalidId" />
     </LinearLayout>
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="45mm"
-        android:layout_height="45mm"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="29mm"
+        android:layout_marginRight="29dp"
         android:background="@drawable/check_style"
         android:button="@null" />
 

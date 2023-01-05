@@ -8,18 +8,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="44mm"
+        android:layout_marginTop="44dp"
         android:text="@string/touch_name_tile"
         android:textColor="@color/white"
-        android:textSize="35mm" />
+        android:textSize="35dp" />
 
     <FrameLayout
         android:id="@+id/myontouchview"
         android:layout_width="match_parent"
-        android:layout_height="800mm"
+        android:layout_height="800dp"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="200mm"
-        android:layout_marginRight="200mm"
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="200dp"
 
         android:visibility="gone" />
 
@@ -27,9 +27,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="300mm"
-        android:layout_marginTop="50mm"
-        android:layout_marginRight="300mm">
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="300dp">
 
         <Button
             android:id="@+id/failure_bu"
@@ -40,7 +40,7 @@
             android:text="@string/Failed"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="15mm" />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/redo_bu"
@@ -49,7 +49,7 @@
             android:layout_centerInParent="true"
             android:text="@string/Restart"
             android:textColor="@color/colorMainButton"
-            android:textSize="21mm" />
+            android:textSize="21dp" />
 
         <Button
             android:textAllCaps="false"
@@ -60,7 +60,7 @@
             android:background="@drawable/r_button_bg"
             android:text="@string/Passed"
             android:textColor="@color/white"
-            android:textSize="15mm" />
+            android:textSize="15dp" />
     </RelativeLayout>
 
 </RelativeLayout>

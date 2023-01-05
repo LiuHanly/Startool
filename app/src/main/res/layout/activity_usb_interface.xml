@@ -10,7 +10,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,7 +21,7 @@
             android:layout_centerInParent="true"
             android:text="@string/usb_name"
             android:textColor="@color/white"
-            android:textSize="37mm" />
+            android:textSize="37dp" />
 
 
     </RelativeLayout>
@@ -30,35 +30,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="24mm"
+        android:layout_marginTop="24dp"
         android:text="@string/usb_ports"
         android:textColor="@color/white"
-        android:textSize="25mm" />
+        android:textSize="25dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rct_progr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="24mm"
+        android:layout_marginTop="24dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="40mm"
+        android:layout_marginTop="40dp"
         android:text="@string/expected_Passed"
         android:textColor="@color/white"
-        android:textSize="25mm" />
+        android:textSize="25dp" />
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rct_progr"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="300mm"
-        android:layout_marginTop="50mm"
-        android:layout_marginRight="300mm">
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="300dp">
 
 
         <Button
@@ -69,11 +69,11 @@
             android:background="@drawable/r_button_bg"
             android:text="@string/Failed"
             android:textColor="@color/white"
-            android:textSize="15mm" />
+            android:textSize="15dp" />
 
         <Button
             android:textColor="@color/white"
-            android:textSize="15mm"
+            android:textSize="15dp"
             android:id="@+id/through_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

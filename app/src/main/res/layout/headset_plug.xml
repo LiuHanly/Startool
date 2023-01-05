@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="300mm"
-        android:layout_marginRight="300mm"
+        android:layout_marginLeft="300dp"
+        android:layout_marginRight="300dp"
         android:background="@drawable/selector_mode_bg"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,15 +20,15 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="500mm">
+            android:layout_height="500dp">
 
 
             <ImageView
-                android:layout_width="200mm"
-                android:layout_height="200mm"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
-                android:layout_margin="50mm"
+                android:layout_margin="50dp"
                 android:src="@mipmap/headphonexxxhdpi" />
 
             <TextView
@@ -36,10 +36,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="50mm"
+                android:layout_marginBottom="50dp"
                 android:text="@string/Headset_plug"
                 android:textColor="@color/white"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
 
         </RelativeLayout>
 
@@ -48,9 +48,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="300mm"
-        android:layout_marginTop="50mm"
-        android:layout_marginRight="300mm"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="300dp"
 
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,7 @@
             android:background="@drawable/r_button_bg"
             android:text="@string/Failed"
             android:textColor="@color/white"
-            android:textSize="15mm" />
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/redo_bu2"
@@ -74,7 +74,7 @@
             android:layout_centerHorizontal="true"
             android:text="@string/Restart"
             android:textColor="@color/white"
-            android:textSize="15mm"
+            android:textSize="15dp"
             android:visibility="gone" />
 
         <Button
@@ -85,7 +85,7 @@
             android:background="@drawable/r_button_bg"
             android:text="@string/Passed"
             android:textColor="@color/white"
-            android:textSize="15mm" />
+            android:textSize="15dp" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

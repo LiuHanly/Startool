@@ -11,7 +11,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,14 +22,14 @@
             android:layout_centerInParent="true"
             android:text="@string/Preaging_report"
             android:textColor="@color/white"
-            android:textSize="37mm" />
+            android:textSize="37dp" />
 
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:paddingRight="60mm"
-        android:layout_marginTop="24mm"
+        android:paddingRight="60dp"
+        android:layout_marginTop="24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -41,310 +41,310 @@
 
             <LinearLayout
 
-                android:layout_width="900mm"
+                android:layout_width="900dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32mm"
+                android:layout_marginStart="32dp"
                 android:background="@drawable/selector_mode_bg"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="25mm">
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="@string/DATE"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/Serial_number6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.5mm"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="15mm"
-                    android:layout_marginRight="50mm"
-                    android:layout_marginBottom="15mm"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@color/white" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm">
+                    android:layout_marginLeft="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="@string/TIME"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/Serial_number7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.5mm"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="15mm"
-                    android:layout_marginRight="50mm"
-                    android:layout_marginBottom="15mm"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@color/white" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm">
+                    android:layout_marginLeft="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="@string/Serial_number"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/Serial_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.5mm"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="15mm"
-                    android:layout_marginRight="50mm"
-                    android:layout_marginBottom="15mm"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@color/white" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm">
+                    android:layout_marginLeft="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="@string/Model"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/Serial_number1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.5mm"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="15mm"
-                    android:layout_marginRight="50mm"
-                    android:layout_marginBottom="15mm"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@color/white" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm">
+                    android:layout_marginLeft="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="@string/Android_version"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/Serial_number2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.5mm"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="15mm"
-                    android:layout_marginRight="50mm"
-                    android:layout_marginBottom="15mm"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@color/white" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm">
+                    android:layout_marginLeft="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="@string/Build_number"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/Serial_number3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.5mm"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="15mm"
-                    android:layout_marginRight="50mm"
-                    android:layout_marginBottom="15mm"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@color/white" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm">
+                    android:layout_marginLeft="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="DDR ："
                         android:textColor="@color/white"
-                        android:textSize="25mm"
-                        tools:layout_editor_absoluteX="14mm"
-                        tools:layout_editor_absoluteY="59mm" />
+                        android:textSize="25dp"
+                        tools:layout_editor_absoluteX="14dp"
+                        tools:layout_editor_absoluteY="59dp" />
 
                     <TextView
                         android:id="@+id/Inter_shared_storage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.5mm"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="15mm"
-                    android:layout_marginRight="50mm"
-                    android:layout_marginBottom="15mm"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@color/white" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm">
+                    android:layout_marginLeft="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="@string/MAC"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/Serial_number4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0.5mm"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginTop="15mm"
-                    android:layout_marginRight="50mm"
-                    android:layout_marginBottom="15mm"
+                    android:layout_height="0.5dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@color/white" />
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25mm"
-                    android:layout_marginBottom="25mm">
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginBottom="25dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:text="@string/INTERSHAREDSTORAGE"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                     <TextView
                         android:id="@+id/Serial_number5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="50mm"
+                        android:layout_marginRight="50dp"
                         android:textColor="@color/white"
-                        android:textSize="25mm" />
+                        android:textSize="25dp" />
 
                 </RelativeLayout>
 
@@ -353,15 +353,15 @@
 
             <Button
                 android:id="@+id/finish_buton"
-                android:layout_width="223mm"
-                android:layout_height="55mm"
-                android:layout_marginStart="32mm"
-                android:layout_marginTop="60mm"
+                android:layout_width="223dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="60dp"
                 android:background="@drawable/r_button_bg"
                 android:text="@string/Finish_leave"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="25mm" />
+                android:textSize="25dp" />
         </LinearLayout>
 
 
@@ -370,11 +370,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:layout_marginBottom="30mm"
-            android:layout_marginStart="36mm"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="36dp"
             android:layout_toRightOf="@+id/recyclerView2"
             android:background="@drawable/selector_mode_bg"
-            android:padding="15mm"
+            android:padding="15dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </RelativeLayout>

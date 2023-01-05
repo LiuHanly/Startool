@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -49,7 +49,7 @@
             android:layout_marginTop="24mm"
             android:id="@+id/full_webView"
             android:layout_width="match_parent"
-            android:layout_height="1080mm"
+            android:layout_height="886mm"
             android:layerType="hardware"
             tools:ignore="InOrMmUsage" />
 
@@ -60,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="36mm"
         android:layout_marginTop="60mm"
         android:text="@string/expected_Passed"
         android:textColor="@color/white"

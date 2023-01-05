@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -41,7 +41,7 @@
             android:text="@string/tile_masg"
             tools:ignore="InOrMmUsage" />
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
 
@@ -61,7 +61,7 @@
 
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -78,7 +78,7 @@
 
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -97,18 +97,19 @@
         </RelativeLayout>
 
         <TextView
-            style="@style/text_style"
+            style="@style/text_style_right_port"
             android:layout_marginTop="60mm"
             android:layout_marginBottom="48mm"
             android:text="@string/expected_Passed" />
 
 
         <RelativeLayout
-            android:layout_width="870mm"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
 
             <Button
+                android:layout_marginLeft="123mm"
                 android:id="@+id/failure_bu"
                 android:layout_width="121mm"
                 android:layout_height="55mm"
@@ -130,6 +131,7 @@
 
 
             <Button
+                android:layout_marginRight="123mm"
                 android:id="@+id/through_bu"
                 android:layout_width="121mm"
                 android:layout_height="55mm"

@@ -22,6 +22,8 @@
     <string name="preaging_masg_tow">Selected test will proceed one by one.</string>
 
     <string name="wifi_name">WIFI</string>
+    <string name="wifi_test">WIFI test</string>
+    <string name="wifi_status">Current WIFI status</string>
     <string name="network_name">Network</string>
     <string name="bluetooth_name">Bluetooth</string>
     <string name="hdmi_name">HDMI</string>
@@ -31,6 +33,7 @@
     <string name="touch_name">Touch</string>
     <string name="speaker_name">Speaker</string>
     <string name="gyroscope_name">Gyroscope</string>
+    <string name="gyroscope_instruction"> Rotate your device following the instruction</string>
     <string name="buttons_name">Buttons</string>
     <string name="photo_recording_name">Photo &amp; recording</string>
 

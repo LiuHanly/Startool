@@ -16,43 +16,43 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15mm"
+            android:layout_margin="15dp"
             android:text="@string/Weaker"
             android:textColor="@color/colorMain"
-            android:textSize="37mm" />
+            android:textSize="37dp" />
 
         <SeekBar
             android:id="@+id/seekBar"
-            android:layout_width="870mm"
+            android:layout_width="870dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="15mm"
+            android:layout_margin="15dp"
             android:layout_weight="1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15mm"
+            android:layout_margin="15dp"
             android:text="@string/Stronger"
             android:textColor="@color/colorMain"
-            android:textSize="37mm" />
+            android:textSize="37dp" />
     </LinearLayout>
 
     <Button
 
         android:id="@+id/nextButton"
-        android:layout_width="121mm"
-        android:layout_height="55mm"
+        android:layout_width="121dp"
+        android:layout_height="55dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="80mm"
-        android:layout_marginTop="80mm"
-        android:layout_marginEnd="80mm"
-        android:layout_marginBottom="80mm"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/r_button_bg"
         android:text="@string/NEXTBUTTON"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="25mm"
-        tools:ignore="InOrMmUsage" />
+        android:textSize="25dp"
+        tools:ignore="InOrdpUsage" />
 </RelativeLayout>

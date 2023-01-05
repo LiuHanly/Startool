@@ -23,6 +23,8 @@
     <string name="preaging_masg_tow">Selected test will proceed one by one.</string>
 
     <string name="wifi_name">WIFI</string>
+    <string name="wifi_test">WIFI test</string>
+    <string name="wifi_status">Current WIFI status</string>
     <string name="network_name">Network</string>
     <string name="bluetooth_name">Bluetooth</string>
     <string name="hdmi_name">HDMI</string>
@@ -32,6 +34,7 @@
     <string name="touch_name">Touch</string>
     <string name="speaker_name">Speaker</string>
     <string name="gyroscope_name">Gyroscope</string>
+    <string name="gyroscope_instruction"> Rotate your device following the instruction</string>
     <string name="buttons_name">Buttons</string>
     <string name="photo_recording_name">Photo &amp; recording</string>
 
@@ -86,12 +89,12 @@
     <string name="usb_ports">Plug usb devices into usb ports</string>
 
     <string name="CPU">CPU Test</string>
-    <string name="sec">秒</string>
+    <string name="sec">seconds</string>
     <string name="exit">exit</string>
     <string name="exit_test_tips">Are you sure you want to exit the test？</string>
-    <string name="cancel">取消</string>
-    <string name="ok">确定</string>
-    <string name="stop">停止</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Confirm</string>
+    <string name="stop">Stop</string>
     <string name="start">Start</string>
     <string name="exit_app_tips">There are still tests in progress. Please finish these tests first！</string>
     <string name="at_least_one_test_case">Choose at least one test scenario</string>
@@ -211,7 +214,7 @@
     <string name="Current_freq">Current frequency</string>
     <string name="Free_Memory">Free Memory</string>
     <string name="Video_Test">Video Test</string>
-    <string name="Manual_connection">手动连接</string>
+    <string name="Manual_connection">Manual connection</string>
 
     <string name="AGEINGTESTDATE">date :</string>
     <string name="AGEINGTESSTARTTIME">Starting aging time:</string>

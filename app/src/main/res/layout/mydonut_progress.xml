@@ -5,19 +5,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <FrameLayout
-        android:layout_margin="50mm"
-        android:layout_width="200mm"
-        android:layout_height="200mm">
+        android:layout_margin="50dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
 
         <com.github.lzyzsd.circleprogress.DonutProgress
             android:id="@+id/pgr_percent"
             app:donut_background_color="#1D2D4B"
             app:donut_finished_color="@color/colorAccent"
-            app:donut_finished_stroke_width="4mm"
+            app:donut_finished_stroke_width="4dp"
             app:donut_progress="10"
             app:donut_show_text="false"
             app:donut_unfinished_color="@color/colorAccentLight"
-            app:donut_unfinished_stroke_width="4mm"
+            app:donut_unfinished_stroke_width="4dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -36,8 +36,8 @@
                      app:layout_constraintHorizontal_bias="0.2"
                      app:layout_constraintStart_toStartOf="parent"
                      app:layout_constraintTop_toTopOf="parent"
-                     android:layout_width="31mm"
-                     android:layout_height="31mm"
+                     android:layout_width="31dp"
+                     android:layout_height="31dp"
                      android:src="@mipmap/sdcard" />
 
                  <TextView
@@ -48,10 +48,10 @@
                      app:layout_constraintTop_toTopOf="@+id/imageview"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
-                     android:layout_marginTop="4mm"
+                     android:layout_marginTop="4dp"
                      android:text="USB"
                      android:textColor="@color/white"
-                     android:textSize="20mm" />
+                     android:textSize="20dp" />
                  <TextView
                      android:id="@+id/textMina"
                      app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
                      android:layout_height="wrap_content"
                      android:text="7.2 GB / 14.4 GB"
                      android:textColor="@color/colorFont"
-                     android:textSize="20mm" />
+                     android:textSize="20dp" />
              </LinearLayout>
 
 

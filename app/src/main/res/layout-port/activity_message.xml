@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -44,11 +44,11 @@
 
             <TextView
                 android:id="@+id/Serial_number"
-                style="@style/text_style_right" />
+                style="@style/text_style_right_port" />
 
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -56,10 +56,10 @@
 
             <TextView
                 android:id="@+id/Model"
-                style="@style/text_style_right" />
+                style="@style/text_style_right_port" />
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -67,10 +67,10 @@
 
             <TextView
                 android:id="@+id/Android_version"
-                style="@style/text_style_right" />
+                style="@style/text_style_right_port" />
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -78,10 +78,10 @@
 
             <TextView
                 android:id="@+id/Build_number"
-                style="@style/text_style_right" />
+                style="@style/text_style_right_port" />
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -89,10 +89,10 @@
 
             <TextView
                 android:id="@+id/IP_address"
-                style="@style/text_style_right" />
+                style="@style/text_style_right_port" />
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -100,10 +100,10 @@
 
             <TextView
                 android:id="@+id/Inter_shared_storage"
-                style="@style/text_style_right" />
+                style="@style/text_style_right_port" />
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative">
+        <RelativeLayout style="@style/device_relative_port">
 
             <TextView
                 style="@style/text_style"
@@ -111,7 +111,7 @@
 
             <TextView
                 android:id="@+id/Inter_storage"
-                style="@style/text_style_right" />
+                style="@style/text_style_right_port" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -129,7 +129,9 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <RelativeLayout
-        android:layout_width="870mm"
+        android:paddingLeft="101mm"
+        android:paddingRight="101mm"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40mm"
         app:layout_constraintEnd_toEndOf="parent"

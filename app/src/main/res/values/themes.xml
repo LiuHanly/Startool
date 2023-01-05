@@ -73,8 +73,8 @@
     </style>
 
     <style name="linear_aging">
-        <item name="android:layout_width">568mm</item>
-        <item name="android:layout_height">308mm</item>
+        <item name="android:layout_width">387dp</item>
+        <item name="android:layout_height">308dp</item>
         <item name="android:background">@drawable/selector_mode_bg</item>
     </style>
     <style name="linear_aging_port">
@@ -86,23 +86,44 @@
 
 
     <style name="device_relative">
-        <item name="android:paddingRight">24mm</item>
-        <item name="android:paddingLeft">24mm</item>
-        <item name="android:layout_marginTop">14mm</item>
-        <item name="android:layout_width">870mm</item>
+        <item name="android:paddingRight">24dp</item>
+        <item name="android:paddingLeft">24dp</item>
+        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:layout_width">870dp</item>
+        <item name="android:layout_height">79dp</item>
+        <item name="android:background">@drawable/selector_mode_bg</item>
+    </style>
+
+    <style name="device_relative_port">
+        <item name="android:layout_marginLeft">30mm</item>
+        <item name="android:layout_marginRight">30mm</item>
+        <item name="android:paddingRight">30mm</item>
+        <item name="android:layout_marginTop">20mm</item>
+        <item name="android:paddingLeft">30mm</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">79mm</item>
         <item name="android:background">@drawable/selector_mode_bg</item>
     </style>
 
+
     <style name="text_style">
         <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">25mm</item>
+        <item name="android:textSize">25dp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerVertical">true</item>
     </style>
 
     <style name="text_style_right">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="text_style_right_port">
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">25mm</item>

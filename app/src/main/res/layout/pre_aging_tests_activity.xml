@@ -10,7 +10,7 @@
     <com.glorystar.startool.ui.view.TitleKtView
         android:id="@+id/tile_view"
         android:layout_width="match_parent"
-        android:layout_height="116mm"
+        android:layout_height="104dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:text="@string/preaging_masg_one"
             android:textColor="@color/white"
-            android:textSize="25mm" />
+            android:textSize="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,7 +43,7 @@
             android:layout_gravity="center"
             android:text="@string/preaging_masg_tow"
             android:textColor="@color/white"
-            android:textSize="25mm" />
+            android:textSize="25dp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -51,8 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:paddingLeft="60mm"
-        android:paddingRight="60mm"
+        android:paddingRight="30dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -71,22 +70,23 @@
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100mm"
+            android:layout_marginLeft="100dp"
             android:text="@string/Select_all"
             android:textColor="@color/colorMainButton"
-            android:textSize="25mm" />
+            android:textSize="25dp" />
 
         <Button
+            android:layout_marginRight="30dp"
             android:id="@+id/start_button"
-            android:layout_width="200mm"
-            android:layout_height="79mm"
-            android:layout_centerInParent="true"
+            android:layout_width="200dp"
+            android:layout_height="79dp"
+            android:layout_alignParentRight="true"
             android:background="@drawable/r_button_bg"
             android:text="@string/Start_test"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="25mm"
-            tools:ignore="InOrMmUsage" />
+            android:textSize="25dp"
+            tools:ignore="InOrdpUsage" />
 
 
     </RelativeLayout>
