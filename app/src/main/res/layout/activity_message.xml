@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorMain">
+    android:background="@color/colorMain"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -25,142 +26,159 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent">
 
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <RelativeLayout style="@style/device_relative">
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+                <RelativeLayout style="@style/device_relative">
+
+                    <TextView
+                        style="@style/text_style"
+                        android:text="@string/Screen_number" />
+
+                    <TextView
+                        android:id="@+id/Serial_number"
+                        style="@style/text_style_right" />
+
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/device_relative">
+
+                    <TextView
+                        style="@style/text_style"
+                        android:text="@string/Model_name" />
+
+                    <TextView
+                        android:id="@+id/Model"
+                        style="@style/text_style_right" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/device_relative">
+
+                    <TextView
+                        style="@style/text_style"
+                        android:text="@string/Android_version" />
+
+                    <TextView
+                        android:id="@+id/Android_version"
+                        style="@style/text_style_right" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/device_relative">
+
+                    <TextView
+                        style="@style/text_style"
+                        android:text="@string/Build_version" />
+
+                    <TextView
+                        android:id="@+id/Build_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/white"
+                        android:textSize="14dp"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/device_relative">
+
+                    <TextView
+                        style="@style/text_style"
+                        android:text="@string/MAC" />
+
+                    <TextView
+                        android:id="@+id/IP_address"
+                        style="@style/text_style_right" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/device_relative">
+
+                    <TextView
+                        style="@style/text_style"
+                        android:text="@string/DDR" />
+
+                    <TextView
+                        android:id="@+id/Inter_shared_storage"
+                        style="@style/text_style_right" />
+                </RelativeLayout>
+
+                <RelativeLayout style="@style/device_relative">
+
+                    <TextView
+                        style="@style/text_style"
+                        android:text="@string/Menory" />
+
+                    <TextView
+                        android:id="@+id/Inter_storage"
+                        style="@style/text_style_right" />
+                </RelativeLayout>
+
+            </LinearLayout>
 
             <TextView
-                style="@style/text_style"
-                android:text="@string/Screen_number" />
+                android:id="@+id/tv_title_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:gravity="center"
+                android:text="@string/expected_Passed"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-            <TextView
-                android:id="@+id/Serial_number"
-                style="@style/text_style_right" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="30dp"
+                android:paddingLeft="341dp"
+                android:paddingRight="341dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title_name"
+                tools:ignore="InOrdpUsage">
 
-        </RelativeLayout>
+                <Button
+                    android:id="@+id/failure_bu"
+                    android:layout_width="121dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/r_button_bg"
+                    android:text="@string/Failed"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp"
+                    tools:ignore="InOrdpUsage" />
 
-        <RelativeLayout style="@style/device_relative">
+                <Button
+                    android:id="@+id/through_bu"
+                    android:layout_width="121dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/r_button_bg"
+                    android:text="@string/Passed"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp"
+                    tools:ignore="InOrdpUsage" />
 
-            <TextView
-                style="@style/text_style"
-                android:text="@string/Model_name" />
-
-            <TextView
-                android:id="@+id/Model"
-                style="@style/text_style_right" />
-        </RelativeLayout>
-
-        <RelativeLayout style="@style/device_relative">
-
-            <TextView
-                style="@style/text_style"
-                android:text="@string/Android_version" />
-
-            <TextView
-                android:id="@+id/Android_version"
-                style="@style/text_style_right" />
-        </RelativeLayout>
-
-        <RelativeLayout style="@style/device_relative">
-
-            <TextView
-                style="@style/text_style"
-                android:text="@string/Build_version" />
-
-            <TextView
-                android:id="@+id/Build_number"
-                style="@style/text_style_right" />
-        </RelativeLayout>
-
-        <RelativeLayout style="@style/device_relative">
-
-            <TextView
-                style="@style/text_style"
-                android:text="@string/MAC" />
-
-            <TextView
-                android:id="@+id/IP_address"
-                style="@style/text_style_right" />
-        </RelativeLayout>
-
-        <RelativeLayout style="@style/device_relative">
-
-            <TextView
-                style="@style/text_style"
-                android:text="@string/DDR" />
-
-            <TextView
-                android:id="@+id/Inter_shared_storage"
-                style="@style/text_style_right" />
-        </RelativeLayout>
-
-        <RelativeLayout style="@style/device_relative">
-
-            <TextView
-                style="@style/text_style"
-                android:text="@string/Menory" />
-
-            <TextView
-                android:id="@+id/Inter_storage"
-                style="@style/text_style_right" />
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_title_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/expected_Passed"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
-
-    <RelativeLayout
-        android:layout_width="870dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_name"
-        tools:ignore="InOrdpUsage">
-
-        <Button
-            android:id="@+id/failure_bu"
-            android:layout_width="121dp"
-            android:layout_height="55dp"
-            android:background="@drawable/r_button_bg"
-            android:text="@string/Failed"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="21dp"
-            tools:ignore="InOrdpUsage" />
-
-        <Button
-            android:id="@+id/through_bu"
-            android:layout_width="121dp"
-            android:layout_height="55dp"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/r_button_bg"
-            android:text="@string/Passed"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="21dp"
-            tools:ignore="InOrdpUsage" />
-
-    </RelativeLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
