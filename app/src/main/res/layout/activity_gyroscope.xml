@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/gyroscope_name"
+            android:text="@string/gyroscope_name_test"
             android:textColor="@color/white"
             android:textSize="37dp" />
 

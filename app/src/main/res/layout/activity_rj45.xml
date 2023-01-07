@@ -18,10 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/network_name"
+            android:text="@string/network_name_test"
             android:textColor="@color/white"
             android:textSize="37dp" />
-
 
     </RelativeLayout>
 

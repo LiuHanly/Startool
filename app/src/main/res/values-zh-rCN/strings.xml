@@ -21,10 +21,9 @@
 
     <string name="preaging_masg_one">选择要测试的任何特定元素。然后按“开始”键。</string>
     <string name="preaging_masg_tow">所选测试将逐一进行。</string>
-    <string name="gyroscope_instruction"> Rotate your device following the instruction</string>
+    <string name="gyroscope_instruction">按照说明旋转您的设备</string>
     <string name="wifi_name">WIFI</string>
-    <string name="wifi_test">WIFI test</string>
-    <string name="wifi_status">Current WIFI status</string>
+    <string name="wifi_status">当前WIFI状态</string>
     <string name="network_name">网络</string>
     <string name="bluetooth_name">蓝牙</string>
     <string name="hdmi_name">HDMI</string>
@@ -37,6 +36,19 @@
     <string name="buttons_name">按钮</string>
     <string name="photo_recording_name">相机 &amp; 录音</string>
 
+    <string name="wifi_test">WIFI 测试</string>
+    <string name="bluetooth_name_test">蓝牙 测试</string>
+    <string name="hdmi_name_test">HDMI 测试</string>
+    <string name="usb_name_test">USB 测试</string>
+    <string name="network_name_test">网络 测试</string>
+    <string name="sdport_name_test">SD 卡 测试</string>
+    <string name="screen_display_name_test">屏幕显示 测试</string>
+    <string name="touch_name_test">触摸 测试</string>
+    <string name="speaker_name_test">扬声器 测试</string>
+    <string name="gyroscope_name_test">陀螺仪 测试</string>
+    <string name="buttons_name_test">按钮 测试</string>
+    <string name="photo_recording_name_test">相机 &amp; 录音 测试</string>
+
     <string name="Start_test">开始测试</string>
     <string name="Select_all">选择所有</string>
     <string name="device_info">设备信息</string>
@@ -47,7 +59,7 @@
     <string name="Build_version">固件版本 </string>
     <string name="MAC">物理地址</string>
     <string name="DDR">DDR</string>
-    <string name="Menory">Menory</string>
+    <string name="Menory">内存</string>
 
     <string name="expected_Passed">如果结果是预期的，点击“通过”，否则点击“失败”</string>
     <string name="Failed">失败</string>
@@ -55,9 +67,9 @@
     <string name="buttons_tilename">按钮测试</string>
     <string name="tile_masg">按下设备上的每个按钮</string>
 
-    <string name="KEYCODE_POWER">Screen button:</string>
-    <string name="KEYCODE_VOLUME_DOWN">Volume +</string>
-    <string name="KEYCODE_VOLUME_UP">Volume -</string>
+    <string name="KEYCODE_POWER">屏幕 按钮:</string>
+    <string name="KEYCODE_VOLUME_DOWN">音量 +</string>
+    <string name="KEYCODE_VOLUME_UP">音量 -</string>
 
     <string name="Restart">重新启动</string>
 
@@ -68,9 +80,9 @@
     <string name="screen_colors">按一下转换屏幕颜色</string>
     <string name="DATE">日期</string>
     <string name="Ap">Access point</string>
-    <string name="Status">Status</string>
-    <string name="Serial_number">Serial number</string>
-    <string name="TIME">Time</string>
+    <string name="Status">状态</string>
+    <string name="Serial_number">序列号</string>
+    <string name="TIME">时间</string>
     <string name="Build_number">Build number</string>
     <string name="INTERSHAREDSTORAGE">Build number</string>
     <string name="play">播放</string>
@@ -83,7 +95,7 @@
 
     <string name="Below_testing">下面是一个默认的测试网页</string>
     <string name="Preaging_report">Pre-aging test report</string>
-    <string name="Finish_leave">Finish and leave</string>
+    <string name="Finish_leave">完成并离开</string>
     <string name="SD_card_ports">将SD卡插入SD卡接口</string>
     <string name="usb_ports">将usb设备插入usb端口</string>
 

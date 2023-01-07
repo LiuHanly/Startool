@@ -68,9 +68,9 @@ public class PlayThread extends Thread {
                     isLoaded = true;
                 }
 
-                if (AudioTrack.PLAYSTATE_PAUSED == mAudioTrack.getPlayState()) {
+          /*      if (AudioTrack.PLAYSTATE_PAUSED == mAudioTrack.getPlayState()) {
                     // TODO 已经暂停
-                }
+                }*/
                 if (AudioTrack.PLAYSTATE_PLAYING == mAudioTrack.getPlayState()) {
                  //   Log.i(TAG, "run: 开始从 " + playIndex + " 播放");
                     playIndex += mAudioTrack.write(data, playIndex, data.length - playIndex);

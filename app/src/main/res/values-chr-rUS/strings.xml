@@ -22,7 +22,6 @@
     <string name="preaging_masg_tow">Selected test will proceed one by one.</string>
 
     <string name="wifi_name">WIFI</string>
-    <string name="wifi_test">WIFI test</string>
     <string name="wifi_status">Current WIFI status</string>
     <string name="network_name">Network</string>
     <string name="bluetooth_name">Bluetooth</string>
@@ -36,6 +35,19 @@
     <string name="gyroscope_instruction"> Rotate your device following the instruction</string>
     <string name="buttons_name">Buttons</string>
     <string name="photo_recording_name">Photo &amp; recording</string>
+
+    <string name="wifi_test">WIFI test</string>
+    <string name="bluetooth_name_test">Bluetooth test</string>
+    <string name="hdmi_name_test">HDMI test</string>
+    <string name="usb_name_test">USB test</string>
+    <string name="network_name_test">Network test</string>
+    <string name="sdport_name_test">SD port test</string>
+    <string name="screen_display_name_test">Screen display test</string>
+    <string name="touch_name_test">Touch test</string>
+    <string name="speaker_name_test">Speaker test</string>
+    <string name="gyroscope_name_test">Gyroscope test</string>
+    <string name="buttons_name_test">Buttons test</string>
+    <string name="photo_recording_name_test">Photo &amp; recording test</string>
 
     <string name="Start_test">Start test</string>
     <string name="Select_all">Select all</string>
@@ -95,10 +107,10 @@
     <string name="stop">停止</string>
     <string name="start">开始</string>
     <string name="exit_app_tips">There are still tests in progress, please finish these tests first!</string>
-    <string name="at_least_one_test_case">至少选择一种测试方案</string>
-    <string name="set_time_tips">请设置测试次数（单位：次）</string>
-    <string name="set_duration_tips">请设置测试时长（单位：小时）</string>
-    <string name="stop_test_tips">确定要停止测试吗？</string>
+    <string name="at_least_one_test_case">Choose at least one test scenario</string>
+    <string name="set_time_tips">Please set the number of tests (unit: times)</string>
+    <string name="set_duration_tips">Please set test duration (unit: hour)</string>
+    <string name="stop_test_tips">Are you sure you want to stop testing?</string>
     <string name="DDRTest">DDR Test</string>
     <string name="cpu_test_cur_freq" />
     <string name="VideoTest">Video Test</string>
@@ -111,7 +123,7 @@
     <string name="Current_freq">Current frequency</string>
     <string name="Free_Memory">Free Memory</string>
     <string name="Video_Test">Video Test</string>
-    <string name="Manual_connection">手动连接</string>
+    <string name="Manual_connection">Manual connection</string>
 
     <string name="AGEINGTESTDATE">date :</string>
     <string name="AGEINGTESSTARTTIME">Starting aging time:</string>

@@ -23,7 +23,6 @@
     <string name="preaging_masg_tow">Selected test will proceed one by one.</string>
 
     <string name="wifi_name">WIFI</string>
-    <string name="wifi_test">WIFI test</string>
     <string name="wifi_status">Current WIFI status</string>
     <string name="network_name">Network</string>
     <string name="bluetooth_name">Bluetooth</string>
@@ -38,6 +37,18 @@
     <string name="buttons_name">Buttons</string>
     <string name="photo_recording_name">Photo &amp; recording</string>
 
+    <string name="wifi_test">WIFI test</string>
+    <string name="bluetooth_name_test">Bluetooth test</string>
+    <string name="hdmi_name_test">HDMI test</string>
+    <string name="usb_name_test">USB test</string>
+    <string name="network_name_test">Network test</string>
+    <string name="sdport_name_test">SD port test</string>
+    <string name="screen_display_name_test">Screen display test</string>
+    <string name="touch_name_test">Touch test</string>
+    <string name="speaker_name_test">Speaker test</string>
+    <string name="gyroscope_name_test">Gyroscope test</string>
+    <string name="buttons_name_test">Buttons test</string>
+    <string name="photo_recording_name_test">Photo &amp; recording test</string>
 
     <string name="Start_test">Start test</string>
     <string name="Select_all">Select all</string>
