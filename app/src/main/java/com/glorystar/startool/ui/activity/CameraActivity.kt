@@ -58,7 +58,7 @@ class CameraActivity : BaseActivity() {
 
         getFile()
         change.setOnClickListener {
-
+            StatusNaviBarUitl.hide(this@CameraActivity)
             IntenAcitivity.getIntenAcitivity(this@CameraActivity, 5, 2)
 
         }
@@ -67,7 +67,7 @@ class CameraActivity : BaseActivity() {
         }
 
         camera.setOnClickListener {
-
+            StatusNaviBarUitl.hide(this@CameraActivity)
             IntenAcitivity.getIntenAcitivity(this@CameraActivity, 5, 1)
 
         }
@@ -81,8 +81,10 @@ class CameraActivity : BaseActivity() {
 
     override fun onStop() {
         super.onStop()
-        StatusNaviBarUitl.show(this@CameraActivity)
+      //  StatusNaviBarUitl.show(this@CameraActivity)
     }
+
+
 
     fun getFile() {
         if (hasCameraSupport()) {

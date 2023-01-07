@@ -46,7 +46,7 @@
             <TextView
 
                 style="@style/text_style"
-                android:text="@string/Screen_number" />
+                android:text="@string/KEYCODE_POWER" />
 
             <ImageView
                 android:id="@+id/KEYCODE_POWER"
@@ -65,7 +65,7 @@
 
             <TextView
                 style="@style/text_style"
-                android:text="@string/Model_name" />
+                android:text="@string/KEYCODE_VOLUME_DOWN" />
 
             <ImageView
                 android:id="@+id/KEYCODE_VOLUME_DOWN"
@@ -82,7 +82,7 @@
 
             <TextView
                 style="@style/text_style"
-                android:text="@string/Android_version" />
+                android:text="@string/KEYCODE_VOLUME_UP" />
 
             <ImageView
                 android:id="@+id/KEYCODE_VOLUME_UP"

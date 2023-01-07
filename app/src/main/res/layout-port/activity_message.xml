@@ -70,16 +70,30 @@
                 style="@style/text_style_right_port" />
         </RelativeLayout>
 
-        <RelativeLayout style="@style/device_relative_port">
+        <LinearLayout
+            style="@style/device_relative_port"
+            android:orientation="horizontal"
+            >
 
             <TextView
                 style="@style/text_style"
-                android:text="@string/Build_version" />
+                android:layout_gravity="center"
+                android:text="@string/Build_version"
+                android:layout_marginRight="20mm"
+                />
 
             <TextView
+                android:layout_gravity="center"
+                android:gravity="right"
                 android:id="@+id/Build_number"
-                style="@style/text_style_right_port" />
-        </RelativeLayout>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="25mm"
+                android:layout_alignParentRight="true"
+
+                />
+        </LinearLayout>
 
         <RelativeLayout style="@style/device_relative_port">
 
@@ -129,11 +143,11 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <RelativeLayout
-        android:paddingLeft="101mm"
-        android:paddingRight="101mm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40mm"
+        android:paddingLeft="101mm"
+        android:paddingRight="101mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title_name"

@@ -130,13 +130,13 @@ class WifiActivity : BaseActivity() {
         })
 
         failure_bu.setOnClickListener {
-
+            StatusNaviBarUitl.hide(this@WifiActivity)
             IntenAcitivity.getIntenAcitivity(this@WifiActivity, 3, 1)
 
         }
 
         through_bu.setOnClickListener {
-
+            StatusNaviBarUitl.hide(this@WifiActivity)
             IntenAcitivity.getIntenAcitivity(this@WifiActivity, 3, 2)
 
 

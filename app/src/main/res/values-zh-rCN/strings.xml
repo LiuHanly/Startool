@@ -16,8 +16,8 @@
     <string name="through">逐一检查下面的所有测试</string>
     <string name="performace">或可选地执行任何特定的测试</string>
 
-    <string name="preaging">Pre-aging test</string>
-    <string name="postagingtest">Post-aging test</string>
+    <string name="preaging">老化前 测试 </string>
+    <string name="postagingtest">老化后 测试</string>
 
     <string name="preaging_masg_one">选择要测试的任何特定元素。然后按“开始”键。</string>
     <string name="preaging_masg_tow">所选测试将逐一进行。</string>
