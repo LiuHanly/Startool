@@ -1,4 +1,4 @@
-package com.glorystar.systemtest.ui.broadcast
+package com.glorystar.startool.ui.broadcast
 
 import android.content.BroadcastReceiver
 import android.content.Context

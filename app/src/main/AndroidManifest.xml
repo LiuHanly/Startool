@@ -265,6 +265,20 @@
         <meta-data
             android:name="design_height_in_dp"
             android:value="204" />
+
+        <receiver
+            android:name=".ui.broadcast.UsbReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_REMOVE" />
+                <action android:name="android.intent.action.MEDIA_UNMOUNTED" />
+                <action android:name="android.intent.action.HEADSET_PLUG" />
+
+                <data android:scheme="file" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
