@@ -16,6 +16,7 @@ import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.utils.db.Ageing
 import com.glorystar.startool.utils.tool.DateUtil
 import com.glorystar.startool.utils.tool.LiveDataBus
+import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -66,9 +67,14 @@ class AgeingKtActivity : BaseActivity() {
         }
     }
 
+
+
+
+
+
     @SuppressLint("LogNotTimber")
     override fun initView(savedInstanceState: Bundle?) {
-
+        StatusNaviBarUitl.show(this@AgeingKtActivity)
         LiveDataBus.get().with("AgeingKtActivity", String::class.java).observe(this, Observer {
             val name = it.split(":")
             when (name[0]) {

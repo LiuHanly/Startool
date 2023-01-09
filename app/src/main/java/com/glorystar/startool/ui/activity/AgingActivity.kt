@@ -8,6 +8,7 @@ import android.widget.RelativeLayout
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.ui.view.TitleKtView
+import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 
 class AgingActivity : BaseActivity() {
     lateinit var tile_view: TitleKtView
@@ -44,5 +45,11 @@ class AgingActivity : BaseActivity() {
         test_post.setOnClickListener {
             startActivity(Intent(this, PreAgingTests::class.java))
         }
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        StatusNaviBarUitl.hide(this@AgingActivity)
     }
 }
