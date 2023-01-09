@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.OtaActivity"
+    android:background="@color/colorMain">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104mm"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="30mm"
+        android:layout_marginRight="30mm"
+        android:layout_marginTop="12mm"
+        android:background="@drawable/selector_mode_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tile_view">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="24mm"
+            android:layout_marginTop="36mm"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="31mm"
+                android:layout_height="31mm"
+                android:src="@drawable/ic_ota"/>
+
+            <TextView
+                android:id="@+id/tv_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24mm"
+                android:textSize="25mm"
+                android:text="@string/ota_update"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_regular"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36mm"
+            android:layout_marginLeft="24mm"
+            android:layout_marginRight="24mm"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <EditText
+                android:id="@+id/edt_input"
+                android:layout_width="match_parent"
+                android:layout_height="79mm"
+                android:paddingLeft="24mm"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="25mm"
+                android:background="@drawable/edit_bg"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/colorFont"
+                android:textColorHint="@color/colorFont"
+                android:hint="@string/ota_input_tip"
+                android:imeOptions="actionDone"/>
+
+            <LinearLayout
+                android:id="@+id/linear_success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="20mm"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:src="@drawable/ic_success"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/package_downloaded"
+                    android:layout_marginLeft="14mm"
+                    android:textSize="23mm"
+                    android:textColor="@color/colorAccent"
+                    android:fontFamily="@font/montserrat_regular" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60mm"
+            android:layout_gravity="right"
+            android:layout_marginRight="42mm"
+            android:layout_marginBottom="30mm"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:focusableInTouchMode="true"
+            android:focusable="true">
+
+            <Button
+                android:id="@+id/bt_download"
+                android:layout_width="251mm"
+                android:layout_height="55mm"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:textStyle="bold"
+                android:textSize="21mm"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="@string/ota_download"/>
+
+            <TextView
+                android:id="@+id/tv_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="42mm"
+                android:fontFamily="@font/montserrat_regular"
+                android:textStyle="bold"
+                android:textSize="21mm"
+                android:textColor="@color/colorMainButton"
+                android:text="@string/ota_clear"/>
+
+            <Button
+                android:id="@+id/bt_verify"
+                android:layout_width="251mm"
+                android:layout_height="55mm"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:textStyle="bold"
+                android:textSize="21mm"
+                android:layout_marginLeft="24mm"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="@string/verify_package"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

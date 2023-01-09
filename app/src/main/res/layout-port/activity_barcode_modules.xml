@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.BarcodeModulesActivity"
+    android:background="@color/colorMain">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104mm" />
+
+    <RelativeLayout
+        android:id="@+id/relative_barcode_honeywell"
+        android:layout_width="match_parent"
+        android:layout_height="103mm"
+        android:layout_marginLeft="30mm"
+        android:layout_marginRight="30mm"
+        android:layout_marginTop="12mm"
+        android:paddingLeft="24mm"
+        android:paddingRight="24mm"
+        android:background="@drawable/selector_mode_bg">
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="31mm"
+            android:layout_height="31mm"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_barcode"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24mm"
+            android:layout_toRightOf="@+id/iv_1"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/honeywell_n4680"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+        <ImageView
+            android:layout_width="51mm"
+            android:layout_height="51mm"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_barcode_newland"
+        android:layout_width="match_parent"
+        android:layout_height="103mm"
+        android:layout_marginLeft="30mm"
+        android:layout_marginRight="30mm"
+        android:layout_marginTop="20mm"
+        android:paddingLeft="24mm"
+        android:paddingRight="24mm"
+        android:background="@drawable/selector_mode_bg">
+        <ImageView
+            android:id="@+id/iv_2"
+            android:layout_width="31mm"
+            android:layout_height="31mm"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_barcode"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24mm"
+            android:layout_toRightOf="@+id/iv_2"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/newland_em3396"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+
+        <ImageView
+            android:layout_width="51mm"
+            android:layout_height="51mm"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow"/>
+    </RelativeLayout>
+</LinearLayout>

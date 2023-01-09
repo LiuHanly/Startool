@@ -1,0 +1,192 @@
+package com.glorystar.startool.ui.activity
+
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.os.Bundle
+import android.view.KeyEvent
+import android.view.LayoutInflater
+import android.view.View
+import android.view.WindowManager
+import android.widget.Button
+import android.widget.EditText
+import android.widget.RelativeLayout
+import android.widget.TextView
+import com.glorystar.startool.R
+import com.glorystar.startool.config.base.BaseActivity
+import com.glorystar.startool.ui.view.TitleKtView
+import com.glorystar.startool.utils.tool.HexUtil
+import com.glorystar.startool.utils.tool.RS232Util
+
+class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener {
+    lateinit var titleView: TitleKtView
+    lateinit var relativeGpio: RelativeLayout
+    lateinit var relativeWiegand: RelativeLayout
+    lateinit var btUart: Button
+    lateinit var btSensor: Button
+    lateinit var btButtons: Button
+    lateinit var proximityInfo: TextView
+    lateinit var ambientInfo: TextView
+    lateinit var output: EditText
+    var rs232: RS232Util? = null
+    var sensorManager: SensorManager? = null
+
+    override fun getLayoutId(): Int = R.layout.activity_neb101
+
+    override fun initView(savedInstanceState: Bundle?) {
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+        rs232 = RS232Util(application)
+        titleView = findViewById(R.id.tile_view)
+        titleView.title.text = getString(R.string.model_neb101)
+        titleView.action = this
+
+        relativeGpio = findViewById(R.id.relative_gpio)
+        relativeWiegand = findViewById(R.id.relative_wiegand)
+        btUart = findViewById(R.id.bt_uart)
+        btSensor = findViewById(R.id.bt_sensor)
+        btButtons = findViewById(R.id.bt_buttons)
+
+        relativeGpio.setOnClickListener(this)
+        relativeWiegand.setOnClickListener(this)
+        btUart.setOnClickListener(this)
+        btSensor.setOnClickListener(this)
+        btButtons.setOnClickListener(this)
+    }
+
+    override fun onClick(p0: View?) {
+        when(p0?.id){
+            R.id.relative_gpio ->{
+                startActivity(Intent(application, GpioActivity::class.java))
+            }
+            R.id.relative_wiegand ->{
+                startActivity(Intent(application, WiegandActivity::class.java))
+            }
+            R.id.bt_uart ->{
+                showDialog(this@Neb101Activity)
+            }
+            R.id.bt_sensor ->{
+                sensorDialog(this@Neb101Activity)
+            }
+            R.id.bt_buttons ->{
+                buttonsDialog(this@Neb101Activity)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        sensorManager?.registerListener(
+            this,
+            sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT),
+            SensorManager.SENSOR_DELAY_NORMAL
+        )
+        sensorManager?.registerListener(
+            this,
+            sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY),
+            SensorManager.SENSOR_DELAY_NORMAL
+        )
+    }
+
+    private fun showDialog(context: Context?) {
+        val view: View =
+            LayoutInflater.from(context).inflate(R.layout.dialog_port, null)
+        var tvInfo = view.findViewById<TextView>(R.id.tv_info)
+        var goBack = view.findViewById<TextView>(R.id.tv_go_back)
+
+        val builder = AlertDialog.Builder(context)
+        builder.setView(view)
+        builder.setCancelable(false)
+        val dialog = builder.create()
+        goBack.setOnClickListener {
+            rs232?.stop()
+            dialog.dismiss()
+        }
+
+        dialog.show()
+        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
+
+        rs232?.start()
+        rs232!!.getData(object : RS232Util.OnGetDataListener {
+            override fun onDataReceive(var1: String) {
+                runOnUiThread {
+                    tvInfo.setText(HexUtil.ByteArrToHex(var1.toByteArray()))
+                }
+            }
+        })
+    }
+
+    private fun sensorDialog(context: Context?) {
+        val view: View =
+            LayoutInflater.from(context).inflate(R.layout.dialog_sensor, null)
+        proximityInfo = view.findViewById<TextView>(R.id.tv_proximity_info)
+        ambientInfo = view.findViewById<TextView>(R.id.tv_ambient_info)
+        var goBack = view.findViewById<TextView>(R.id.tv_go_back)
+
+        val builder = AlertDialog.Builder(context)
+        builder.setView(view)
+        builder.setCancelable(false)
+        val dialog = builder.create()
+        goBack.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
+    }
+
+    private fun buttonsDialog(context: Context?) {
+        val view: View =
+            LayoutInflater.from(context).inflate(R.layout.dialog_buttons, null)
+        output = view.findViewById<EditText>(R.id.edt_output)
+        var goBack = view.findViewById<TextView>(R.id.tv_go_back)
+
+        val builder = AlertDialog.Builder(context)
+        builder.setView(view)
+        builder.setCancelable(false)
+        val dialog = builder.create()
+        goBack.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        when (keyCode) {
+            KeyEvent.KEYCODE_VOLUME_DOWN -> output.setText("press volume -")
+            KeyEvent.KEYCODE_VOLUME_UP -> output.setText("press volume +")
+            KeyEvent.KEYCODE_HOME -> {
+                output.setText("press home")
+                return true
+            }
+            else -> {
+            }
+        }
+        return super.onKeyDown(keyCode, event)
+    }
+
+    override fun onSensorChanged(p0: SensorEvent?) {
+        val values: FloatArray? = p0?.values
+        val type: Int? = p0?.sensor?.getType()
+        when (type) {
+            Sensor.TYPE_LIGHT ->ambientInfo.setText((values?.get(0).toString()) + "lx")
+            Sensor.TYPE_PROXIMITY -> proximityInfo.setText(values?.get(0).toString() + "cm")
+        }
+    }
+
+    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
+
+    override fun onStop() {
+        super.onStop()
+        if (sensorManager != null) {
+            sensorManager!!.unregisterListener(this)
+        }
+    }
+}

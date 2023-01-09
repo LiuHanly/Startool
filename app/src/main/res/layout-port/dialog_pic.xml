@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="700mm"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/selector_mode_bg">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="30mm"
+            android:layout_marginTop="38mm"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="27mm"
+                android:layout_height="27mm"
+                android:src="@drawable/ic_screenshot"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12mm"
+                android:textSize="25mm"
+                android:textColor="@color/white"
+                android:text="@string/screenshot"
+                android:fontFamily="@font/montserrat_regular"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_screen"
+            android:layout_width="match_parent"
+            android:layout_height="956mm"
+            android:layout_marginLeft="81mm"
+            android:layout_marginRight="81mm"
+            android:layout_marginTop="30mm" />
+
+        <TextView
+            android:id="@+id/tv_go_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="45mm"
+            android:layout_marginRight="42mm"
+            android:layout_marginBottom="45mm"
+            android:fontFamily="@font/montserrat_regular"
+            android:textStyle="bold"
+            android:textSize="21mm"
+            android:textColor="@color/colorMainButton"
+            android:text="@string/go_back"/>
+    </LinearLayout>
+</LinearLayout>

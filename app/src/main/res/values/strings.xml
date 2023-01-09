@@ -193,7 +193,7 @@
     <string name="send_now">Send now</string>
     <string name="sender_output_tip">Make sure that both devices are connected correctly</string>
     <string name="sender_processing">Data has been sent. Please check the receiver device.</string>
-    <string name="model_neb156">Model specific (NEB 156 &amp; NEB 215)</string>
+    <string name="model_neb156">Model (NEB 156 &amp; 215)</string>
     <string name="model_vega">Model specific (VEGA)</string>
     <string name="relay">Relay</string>
     <string name="rs485">RS485</string>
@@ -216,7 +216,69 @@
     <string name="content_7941d3">ISO14443A: LEGIC Advant(UID only), MIFARE Classic EV1, MIFARE Classic, MIFARE Mini, MIFARE DESFire EV1, MIFARE DESFire EV2, MIFARE Plus S, X, MIFARE Pro X, MIFARE Smart MX, MIFARE Ultralight, MIFARE Ultralight C, MIFARE Ultralight EV1, NTAG2xx, SLE44R35, SLE66Rxx (my-d move), Topaz
 \n\nISO14443B: Calypso, Calypso Innovatron protocol, CEPAS, HID iCLASS(UID only), Moneo, Pico Pass(UID only), SRI4K, SRIX4K, SRI512, SRT512
 \n\n125 kHz, 134.2 kHz: AWID, Cardax, CASI-RUSCO, Deister6), EM4100, 4102, 42007), EM4050, 4150, 4450, 4550, EM43058), FDX-B, EM4105, HITAG 19), HITAG 29), HITAG S9), ICT8), IDTECK, Isonas8), Keri, Miro, Nedap6), PAC, Pyramid, Q5, T5557, T5567, T5577, TIRIS/HDX, TITAN (EM4050), UNIQUE, ZODIAC, Cotag, G-Prox6)</string>
+    <string name="addon_modules">Addon modules</string>
+    <string name="barcode_modules">Barcode modules</string>
+    <string name="rfid_module">RFID module</string>
+    <string name="light_strips">Light strips</string>
+    <string name="honeywell_n4680">Honeywell N4680 barcode</string>
+    <string name="newland_em3396">Newland EM3396 barcode</string>
+    <string name="hdr_camera">5MPs HDR camera</string>
+    <string name="dual_camera">Dual camera</string>
+    <string name="color_camera">Color camera</string>
+    <string name="b_w_camera">B/W camera</string>
+    <string name="light_tip">Select a color. Strip will light up accordingly</string>
+    <string name="light_red">Red</string>
+    <string name="light_yellow">Yellow</string>
+    <string name="light_green">Green</string>
+    <string name="current">Current, tap here to turn off</string>
+    <string name="input_mode">Input mode</string>
+    <string name="keyboard">Keyboard</string>
+    <string name="serial">Serial</string>
+    <string name="scanned_output">Scanned output</string>
+    <string name="scanned_detail">Hover a card on the module. Retrieved value will be displayed here</string>
+    <string name="advanced_config">Advanced configuration</string>
+    <string name="light_modes">Light modes</string>
+    <string name="auto">Auto</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="automatically_return">Automatically return</string>
+    <string name="automatically_detail">A line break attached after scanned, simluating return action</string>
+    <string name="sound_notification">Sound notification</string>
+    <string name="sound_detail">A “beep” sound played after scanned</string>
+    <string name="supported_format">Supported format</string>
+    <string name="barcode_1d">1D barcodes</string>
+    <string name="honey_barcode_1d_content">Codabar\nCode 11\nCode 128\nCode 2 of 5\nCode 39\nCode 93 and 93i\nEAN/JAN-13\nEAN/JAN 8</string>
+    <string name="barcode_2d">2D barcodes</string>
+    <string name="honey_barcode_2d_content">2D Stacked: Codablock A, Codablock F, PDF417, MicroPDF417\n2D Matrix: Aztec Code, Data Matrix, MaxiCode, QR Code</string>
+    <string name="newland_barcode_1d_content">Code 128 ,EAN-13, EAN-8 ,Code 39 ,UPC-A ,UPC-E\nCodabar, Interleaved 2 of 5,  ITF-6, ITF-14, ISBN\nCode 93, UCC/EAN-128, GS1 Databar, Matrix 2 of 5\nCode 11, Industrial 2 of 5, Standard 2 of 5, Plessey, MSI-Plessey </string>
+    <string name="newland_barcode_2d_content">PDF417\nData Matrix (ECC200, ECC000, 050, 080, 100, 140)\nQR Code\nChinese Sensible Code</string>
+    <string name="rfid_module_detail">Hover a RFID card on the module and press the button below to scan</string>
+    <string name="scan_card">Scan card</string>
+    <string name="card_scanned">Card scanned</string>
+    <string name="clear_card">Clear and restart</string>
+    <string name="write_card">Write card</string>
+    <string name="write_card_tip">16-digit hex number</string>
+    <string name="scan_rfid_card">Scan RFID card</string>
+    <string name="no_card">No card found. Please try again.</string>
+    <string name="write_to_card">Write value to card</string>
+    <string name="card_update">Card value updated.</string>
+    <string name="standard">Standard</string>
+    <string name="standard_content">ISO14443A: LEGIC Advant(UID only), MIFARE Classic EV1, MIFARE Classic, MIFARE Mini, MIFARE DESFire EV1, MIFARE DESFire EV2, MIFARE Plus S, X, MIFARE Pro X, MIFARE Smart MX, MIFARE Ultralight, MIFARE Ultralight C, MIFARE Ultralight EV1, NTAG2xx, SLE44R35, SLE66Rxx (my-d move), Topaz
+\n\nISO14443B: Calypso, Calypso Innovatron protocol, CEPAS, HID iCLASS(UID only), Moneo, Pico Pass(UID only), SRI4K, SRIX4K, SRI512, SRT512
+\n\nISO18092 ECMA-340: NFC Forum Tag 1-5, NFC Peer-to-Peer, Sony FeliCa, NFC Active and passive communication mode
+\n\nISO15693: EM4x33, EM4x35, HID iCLASS(UID only), HID iCLASS SE/SR(UID only), ICODE SLI, LEGIC Advant(UID only), M24LR16/64, MB89R118/119, SRF55Vxx (my-d vicinity), Tag-it, PicoPass
+\n\n125 kHz/134.2kHz: AWID, Cardax, CASI-RUSCO, Deister, EM4100/4102, EM4050/4150/4450/4550, FDX-B(134.2 kHz only), EM4105(134.2 kHz only), UltraProx(134.2 kHz only), HITAG, HITAG 2, HITAG S, ICT, IDTECK, Isonas, Keri, Miro, Dedap, PAC, Pyramid, Q5, T5557, T5567, T5577, TIRIS/HDX(134.2 kHz only), TITAN(EM4050), UNIQUE, ZODIAC</string>
+    <string name="version_p">Version P</string>
+    <string name="version_p_content">All Standard Transponders, Cotag, G-Prox, HID DuoProx II, HID ISO Prox II, HID Micro Prox, HID ProxKey III, HID Prox, HID Prox II, Indala, ioProx, Nexwatch</string>
 
+    <string name="app_version">Version</string>
+    <string name="update_tip">StarTools provides diagnostic and functional testing to Glorystar devices. It checks both hardwares and softwares if they are working properly</string>
+    <string name="check_for_update">Check for update</string>
+    <string name="up_to_date">Up-to-date</string>
+    <string name="update_now">Update now</string>
+    <string name="update_startool">Updating StarTools</string>
+    <string name="model_test">Model specific test</string>
+    <string name="model_detail">Please selecte your device model from below.\nOnly devices in the list are supported for this test.</string>
 
     <!--DDR Test-->
     <string name="ddr_test_intro">It tries to maximize randomized traffic to memory from processor and I/O, with the intent of creating a realistic high load situation in order to test the existing hardware devices in a computer.</string>
@@ -245,6 +307,4 @@
     <string name="touch_view_masg_tow">(To complete the test, please click the title 4 times consecutively to enter the next step)</string>
     <string name="camerasupp">The device does not have a camera</string>
     <string name="speaker_masg">Click the icon below to play the sound. Check if \n Left channel - Male voice \n Right channel - Female voice</string>
-    <string name="model_test">Model specific test</string>
-    <string name="model_detail">Please selecte your device model from below.\nOnly devices in the list are supported for this test.</string>
 </resources>

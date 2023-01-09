@@ -133,7 +133,7 @@
     </style>
 
     <style name="listPopupWindow">
-        <item name="android:textSize">25mm</item>
+        <item name="android:textSize">20mm</item>
         <item name="android:fontFamily">@font/montserrat_regular</item>
         <item name="android:textColor">@color/black</item>
     </style>

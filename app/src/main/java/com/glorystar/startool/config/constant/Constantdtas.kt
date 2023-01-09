@@ -14,6 +14,7 @@ import com.glorystar.startool.utils.tool.ToastUtil
 import java.io.*
 
 object Constantdtas {
+    const val UPDATE_APP = "http://18.221.204.147/app_storage/demoApkInfo.json";
     const val STAROS_SETTING: String = "systemtest"
     const val WIFI_SSID = "GSCNAPK"
     const val WIFI_PASS = "12062106"
@@ -25,6 +26,8 @@ object Constantdtas {
     val AttaServedName = arrayOf("ENG", "中文" )
     const val STAROS_ORIENTATION ="STARTOOL_CONFIG"
     val ORIENTATION = arrayOf("Landscape", "Portrait")
+    val BARCODE = arrayOf("1D barcodes", "2D barcodes")
+    val RFIDSUPPORT = arrayOf("Standard", "Version P")
 
     fun getGreAgingDate(): MutableList<AgingBean> {
         var minItemBean: MutableList<AgingBean> = ArrayList<AgingBean>()

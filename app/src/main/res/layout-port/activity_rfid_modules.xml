@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorMain"
+    tools:context=".ui.activity.RfidModulesActivity">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104mm" />
+
+    <ScrollView
+        android:id="@+id/scrollview_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginRight="30mm"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@drawable/selector_mode_bg">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginTop="36mm"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="31mm"
+                            android:layout_height="31mm"
+                            android:src="@drawable/ic_rfid"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24mm"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/white"
+                            android:textSize="25mm"
+                            android:text="@string/rfid_module"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginTop="36mm"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:text="@string/rfid_module_detail"
+                        android:textSize="25mm"/>
+
+                    <TextView
+                        android:id="@+id/tv_card_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8mm"
+                        android:layout_marginLeft="24mm"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/colorFont"
+                        android:textSize="23mm" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40mm"
+                        android:layout_marginRight="24mm"
+                        android:layout_marginBottom="20mm"
+                        android:layout_gravity="right|bottom">
+
+                        <LinearLayout
+                            android:id="@+id/linear_card_success"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center_vertical"
+                            android:visibility="gone">
+                            <ImageView
+                                android:layout_width="29mm"
+                                android:layout_height="29mm"
+                                android:src="@drawable/ic_checked_green"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/colorAccent"
+                                android:layout_marginLeft="14mm"
+                                android:textSize="23mm"
+                                android:text="@string/card_scanned"/>
+
+
+                            <TextView
+                                android:id="@+id/tv_clear_card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:textColor="@color/colorFont"
+                                android:layout_marginLeft="42mm"
+                                android:textSize="21mm"
+                                android:text="@string/clear_card"/>
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/bt_scan_card"
+                            android:layout_width="191mm"
+                            android:layout_height="55mm"
+                            android:background="@drawable/r_button_bg"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            android:textSize="21mm"
+                            android:textAllCaps="false"
+                            android:text="@string/scan_card"/>
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_read_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14mm"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:background="@drawable/selector_mode_bg">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginTop="36mm"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="31mm"
+                            android:layout_height="31mm"
+                            android:src="@drawable/ic_rfid"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24mm"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/white"
+                            android:textSize="25mm"
+                            android:text="@string/read_card"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginTop="36mm"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/colorFont"
+                        android:text="@string/rfid_value"
+                        android:textSize="23mm"/>
+
+                    <TextView
+                        android:id="@+id/tv_retrieved_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginTop="4mm"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="37mm" />
+
+                    <Button
+                        android:id="@+id/bt_read_card"
+                        android:layout_width="191mm"
+                        android:layout_height="55mm"
+                        android:layout_marginTop="60mm"
+                        android:layout_marginRight="24mm"
+                        android:layout_marginBottom="20mm"
+                        android:layout_gravity="right|bottom"
+                        android:background="@drawable/r_button_bg"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="21mm"
+                        android:textAllCaps="false"
+                        android:text="@string/read_card"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear_write_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14mm"
+                    android:layout_marginBottom="20mm"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:background="@drawable/selector_mode_bg">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginTop="36mm"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="31mm"
+                            android:layout_height="31mm"
+                            android:src="@drawable/ic_rfid"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24mm"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:textColor="@color/white"
+                            android:textSize="25mm"
+                            android:text="@string/write_card"/>
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/edt_input_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="79mm"
+                        android:layout_marginTop="42mm"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginRight="24mm"
+                        android:paddingLeft="24mm"
+                        android:maxLength="32"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:background="@drawable/edit_bg"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:hint="@string/write_card_tip"
+                        android:textColorHint="@color/colorFont"
+                        android:textColor="@color/white"
+                        android:textSize="25mm"/>
+
+                    <Button
+                        android:id="@+id/bt_write_card"
+                        android:layout_width="191mm"
+                        android:layout_height="55mm"
+                        android:layout_marginTop="60mm"
+                        android:layout_marginRight="24mm"
+                        android:layout_marginBottom="20mm"
+                        android:layout_gravity="right|bottom"
+                        android:background="@drawable/r_button_bg"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="21mm"
+                        android:textAllCaps="false"
+                        android:text="@string/write_card"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="20mm"
+                android:layout_marginBottom="30mm"
+                android:background="@drawable/selector_mode_bg">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24mm"
+                    android:layout_marginTop="36mm"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="27mm"
+                        android:layout_height="27mm"
+                        android:src="@drawable/ic_help"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="27mm"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:textSize="25mm"
+                        android:text="@string/rfid_support"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/rfid_support"
+                    android:layout_width="match_parent"
+                    android:layout_height="61mm"
+                    android:layout_marginTop="36mm"
+                    android:layout_marginLeft="24mm"
+                    android:layout_marginRight="24mm"
+                    android:paddingLeft="24mm"
+                    android:paddingRight="24mm"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/edit_bg"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:drawableRight="@drawable/ic_arrow_drop_down"
+                    android:textSize="25mm"
+                    android:text="@string/standard"/>
+
+                <ScrollView
+                    android:id="@+id/scrollview_child"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24mm">
+
+                    <TextView
+                        android:id="@+id/rfid_support_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginRight="24mm"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:textSize="25mm"
+                        android:text="@string/standard_content"/>
+                </ScrollView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

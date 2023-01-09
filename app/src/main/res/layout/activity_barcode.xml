@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.BarcodeActivity"
+    android:background="@color/colorMain">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="111dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:background="@drawable/selector_mode_bg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:textSize="25dp"
+                        android:text="@string/input_mode"/>
+
+                    <LinearLayout
+                        android:layout_width="320dp"
+                        android:layout_height="61dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit_bg"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/linear_keyboard"
+                            android:layout_width="160dp"
+                            android:layout_height="61dp"
+                            android:background="@drawable/r_button_bg"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/iv_keyboard"
+                                android:layout_width="23dp"
+                                android:layout_height="23dp"
+                                android:layout_marginLeft="16dp"
+                                android:src="@drawable/ic_tick" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/keyboard"
+                                android:textColor="@color/white"
+                                android:textSize="23dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_serial"
+                            android:layout_width="160dp"
+                            android:layout_height="61dp"
+                            android:background="@color/transparent"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:id="@+id/iv_serial"
+                                android:layout_width="23dp"
+                                android:layout_height="23dp"
+                                android:layout_marginLeft="16dp"
+                                android:src="@drawable/ic_tick"
+                                android:visibility="invisible"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="7dp"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:text="@string/serial"
+                                android:textColor="@color/white"
+                                android:textSize="23dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="235dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="14dp"
+                    android:padding="24dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:background="@drawable/selector_mode_bg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:text="@string/scanned_output"/>
+
+                    <EditText
+                        android:id="@+id/edt_scan_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="12dp"
+                        android:background="@null"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColorHint="@color/colorFont"
+                        android:textColor="@color/colorFont"
+                        android:gravity="left|top"
+                        android:textSize="25dp"
+                        android:hint="@string/scanned_detail"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:text="@string/advanced_config"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="111dp"
+                    android:layout_marginTop="22dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:background="@drawable/selector_mode_bg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:textSize="25dp"
+                        android:text="@string/light_modes"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/montserrat_regular"/>
+
+                    <FrameLayout
+                        android:id="@+id/frame_mode"
+                        android:layout_width="210dp"
+                        android:layout_height="61dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/edit_bg">
+
+                        <TextView
+                            android:id="@+id/tv_light_mode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="24dp"
+                            android:fontFamily="@font/montserrat_regular"
+                            android:gravity="center_vertical"
+                            android:text="@string/auto"
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
+
+                        <ImageView
+                            android:id="@+id/iv_arrow"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="24dp"
+                            android:src="@drawable/ic_arrow_drop_down" />
+                    </FrameLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="14dp"
+                    android:padding="24dp"
+                    android:background="@drawable/selector_mode_bg">
+
+                    <TextView
+                        android:id="@+id/tv_automatically_return"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:text="@string/automatically_return"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_below="@+id/tv_automatically_return"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="@color/colorFont"
+                        android:textSize="23dp"
+                        android:text="@string/automatically_detail"/>
+
+                    <Switch
+                        android:id="@+id/sw_auto_return"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="13dp"
+                        android:thumb="@drawable/thumb"
+                        android:track="@drawable/track" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="111dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="30dp"
+                    android:padding="24dp"
+                    android:background="@drawable/selector_mode_bg">
+
+                    <TextView
+                        android:id="@+id/tv_sound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textSize="25dp"
+                        android:textColor="@color/white"
+                        android:text="@string/sound_notification"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:layout_below="@+id/tv_sound"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="@color/colorFont"
+                        android:textSize="23dp"
+                        android:text="@string/sound_detail"/>
+
+                    <Switch
+                        android:id="@+id/sw_sound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:layout_alignParentRight="true"
+                        android:thumb="@drawable/thumb"
+                        android:track="@drawable/track"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/selector_mode_bg">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="36dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="27dp"
+                        android:layout_height="27dp"
+                        android:src="@drawable/ic_help"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="27dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:textSize="25dp"
+                        android:text="@string/supported_format"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/barcode_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/edit_bg"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:drawableRight="@drawable/ic_arrow_drop_down"
+                    android:textSize="25dp"
+                    android:text="@string/barcode_1d"/>
+
+
+                <TextView
+                    android:id="@+id/barcode_support"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:text="@string/honey_barcode_1d_content"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
