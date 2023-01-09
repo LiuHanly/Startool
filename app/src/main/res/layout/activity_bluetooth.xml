@@ -47,7 +47,7 @@
             android:layout_gravity="center"
             android:id="@+id/RecyclerLayout"
             android:layout_width="870dp"
-            android:layout_height="451dp"
+            android:layout_height="351dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <TextView

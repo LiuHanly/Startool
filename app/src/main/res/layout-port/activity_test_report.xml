@@ -373,7 +373,8 @@
                     android:text="@string/Finish_leave"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="25mm" />
+                    android:textSize="25mm"
+                    android:layout_marginBottom="40mm"/>
             </LinearLayout>
         </ScrollView>
 

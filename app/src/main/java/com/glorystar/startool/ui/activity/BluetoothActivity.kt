@@ -21,6 +21,7 @@ import com.glorystar.startool.config.bluetooth.DiscoveryListener
 import com.glorystar.startool.config.constant.IntenAcitivity
 import com.glorystar.startool.ui.adapter.BaseRecyclerAdapter
 import com.glorystar.startool.ui.adapter.BaseRecyclerHolder
+import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -90,12 +91,12 @@ class BluetoothActivity : BaseActivity() {
         RecyclerLayout.adapter = baserecycleradapter
 
         failure_bu.setOnClickListener {
-
+            StatusNaviBarUitl.hide(this@BluetoothActivity)
             IntenAcitivity.getIntenAcitivity(this@BluetoothActivity, 4, 1)
 
         }
         through_bu.setOnClickListener {
-
+            StatusNaviBarUitl.hide(this@BluetoothActivity)
             IntenAcitivity.getIntenAcitivity(this@BluetoothActivity, 4, 2)
 
         }

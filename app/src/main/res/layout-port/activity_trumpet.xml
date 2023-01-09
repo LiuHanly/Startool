@@ -100,6 +100,7 @@
             android:textSize="15mm" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/redo_bu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
