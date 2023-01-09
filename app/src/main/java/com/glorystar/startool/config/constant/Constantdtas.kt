@@ -26,46 +26,47 @@ object Constantdtas {
     const val STAROS_ORIENTATION ="STARTOOL_CONFIG"
     val ORIENTATION = arrayOf("Landscape", "Portrait")
 
-    fun getGreAgingDate(): MutableList<AgingBean> {
+    fun getGreAgingDate(context: Activity): MutableList<AgingBean> {
         var minItemBean: MutableList<AgingBean> = ArrayList<AgingBean>()
 
-        MyApplication.context?.resources?.getString(R.string.wifi_name)
+       context?.resources?.getString(R.string.wifi_name)
             ?.let { AgingBean(3, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
 
-        MyApplication.context?.resources?.getString(R.string.network_name)
+
+       context?.resources?.getString(R.string.network_name)
             ?.let { AgingBean(6, R.mipmap.internet, it, false) }?.let { minItemBean.add(it) }
 
 
-        MyApplication.context?.resources?.getString(R.string.bluetooth_name)
+       context?.resources?.getString(R.string.bluetooth_name)
             ?.let { AgingBean(4, R.mipmap.bluetooth, it, false) }?.let { minItemBean.add(it) }
 
 
-        MyApplication.context?.resources?.getString(R.string.hdmi_name)
+        context?.resources?.getString(R.string.hdmi_name)
             ?.let { AgingBean(9, R.mipmap.hdmi, it, false) }?.let { minItemBean.add(it) }
 
 
-        MyApplication.context?.resources?.getString(R.string.usb_name)
+       context?.resources?.getString(R.string.usb_name)
             ?.let { AgingBean(8, R.mipmap.usb, it, false) }?.let { minItemBean.add(it) }
 
-        MyApplication.context?.resources?.getString(R.string.sdport_name)
+       context?.resources?.getString(R.string.sdport_name)
             ?.let { AgingBean(7, R.mipmap.sdcard, it, false) }?.let { minItemBean.add(it) }
 
-        MyApplication.context?.resources?.getString(R.string.screen_display_name)
+      context?.resources?.getString(R.string.screen_display_name)
             ?.let { AgingBean(1, R.mipmap.screendisplay, it, false) }?.let { minItemBean.add(it) }
 
-        MyApplication.context?.resources?.getString(R.string.touch_name)
+       context?.resources?.getString(R.string.touch_name)
             ?.let { AgingBean(2, R.mipmap.touch, it, false) }?.let { minItemBean.add(it) }
 
-        MyApplication.context?.resources?.getString(R.string.speaker_name)
+       context?.resources?.getString(R.string.speaker_name)
             ?.let { AgingBean(10, R.mipmap.speaker, it, false) }?.let { minItemBean.add(it) }
 
-        MyApplication.context?.resources?.getString(R.string.gyroscope_name)
+       context?.resources?.getString(R.string.gyroscope_name)
             ?.let { AgingBean(12, R.mipmap.orientation, it, false) }?.let { minItemBean.add(it) }
 
-        MyApplication.context?.resources?.getString(R.string.buttons_name)
+       context?.resources?.getString(R.string.buttons_name)
             ?.let { AgingBean(13, R.mipmap.button, it, false) }?.let { minItemBean.add(it) }
 
-        MyApplication.context?.resources?.getString(R.string.photo_recording_name)
+      context?.resources?.getString(R.string.photo_recording_name)
             ?.let { AgingBean(5, R.mipmap.camera, it, false) }?.let { minItemBean.add(it) }
 
         return minItemBean

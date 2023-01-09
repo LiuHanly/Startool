@@ -58,7 +58,7 @@ class PreAgingTests : BaseActivity() {
             BufferedReader(InputStreamReader(mAssetManger.open("liucheng.txt"), "utf-8"))
         val lines1 = bufferedReader1.readLines()
 
-        minItemBean.addAll(Constantdtas.getGreAgingDate())
+        minItemBean.addAll(Constantdtas.getGreAgingDate(this@PreAgingTests))
 
         if (MyApplication.mConfiguration?.orientation == Configuration.ORIENTATION_PORTRAIT) {
             ageing_fro_recy.layoutManager = LinearLayoutManager(this)
