@@ -49,7 +49,7 @@
     <string name="gyroscope_name_test">Gyroscope test</string>
     <string name="buttons_name_test">Buttons test</string>
     <string name="photo_recording_name_test">Photo &amp; recording test</string>
-
+    <string name="bluetooth_name_masg">Scanned devices are displayed below</string>
     <string name="Start_test">Start test</string>
     <string name="Select_all">Select all</string>
 

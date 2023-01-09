@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/colorMain">
+
     <RelativeLayout
         android:id="@+id/relativeLayout2"
         android:layout_width="match_parent"
@@ -17,43 +19,64 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/bluetooth_name"
+            android:text="@string/bluetooth_name_test"
             android:textColor="@color/white"
             android:textSize="37dp" />
 
 
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerLayout"
-        android:layout_width="870dp"
-        android:layout_height="628dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-    <TextView
-        android:id="@+id/tv_title_name"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/expected_Passed"
-        android:textColor="@color/white"
-        android:textSize="25dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RecyclerLayout" />
+        >
+
+        <TextView
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:text="@string/bluetooth_name_masg"
+            android:textSize="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="24dp"
+            android:layout_gravity="center"
+            android:id="@+id/RecyclerLayout"
+            android:layout_width="870dp"
+            android:layout_height="451dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/tv_title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/expected_Passed"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+    </LinearLayout>
+
 
     <RelativeLayout
-        android:layout_width="870dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title_name"
         tools:ignore="InOrdpUsage">
 
         <Button
+            android:layout_marginLeft="364dp"
             android:id="@+id/failure_bu"
             android:layout_width="121dp"
             android:layout_height="55dp"
@@ -65,6 +88,7 @@
             tools:ignore="InOrdpUsage" />
 
         <Button
+            android:layout_marginRight="364dp"
             android:id="@+id/through_bu"
             android:layout_width="121dp"
             android:layout_height="55dp"
@@ -79,4 +103,4 @@
     </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

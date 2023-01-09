@@ -48,7 +48,7 @@
     <string name="gyroscope_name_test">陀螺仪 测试</string>
     <string name="buttons_name_test">按钮 测试</string>
     <string name="photo_recording_name_test">相机 &amp; 录音 测试</string>
-
+    <string name="bluetooth_name_masg">扫描后的设备如下所示</string>
     <string name="Start_test">开始测试</string>
     <string name="Select_all">选择所有</string>
     <string name="device_info">设备信息</string>
