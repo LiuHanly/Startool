@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.RfidActivity"
+    android:orientation="vertical"
+    android:background="@color/colorMain">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104mm" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12mm"
+        android:layout_marginLeft="30mm"
+        android:layout_marginRight="30mm"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0mm"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/selector_mode_bg">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="24mm"
+                android:layout_marginTop="36mm"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:src="@drawable/ic_rfid"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="27mm"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/white"
+                    android:textSize="25mm"
+                    android:text="@string/read_card"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36mm"
+                android:layout_marginLeft="24mm"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="25mm"
+                android:textColor="@color/white"
+                android:text="@string/read_card_detail"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36mm"
+                android:layout_marginLeft="24mm"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="23mm"
+                android:textColor="@color/colorFont"
+                android:text="@string/rfid_value"/>
+
+            <EditText
+                android:id="@+id/et_retrieved_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4mm"
+                android:layout_marginLeft="24mm"
+                android:layout_marginBottom="30mm"
+                android:imeOptions="actionDone"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="37mm"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="20mm"
+            android:orientation="vertical"
+            android:background="@drawable/selector_mode_bg">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24mm"
+                android:layout_marginTop="36mm"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="27mm"
+                    android:layout_height="27mm"
+                    android:src="@drawable/ic_help"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="27mm"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/white"
+                    android:textSize="25mm"
+                    android:text="@string/rfid_support"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="61mm"
+                android:layout_marginTop="36mm"
+                android:layout_marginLeft="24mm"
+                android:layout_marginRight="24mm"
+                android:paddingLeft="24mm"
+                android:gravity="center_vertical"
+                android:background="@drawable/edit_bg"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="25mm"
+                android:text="@string/rfid_7941d3"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24mm"
+                android:layout_marginBottom="20mm">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24mm"
+                    android:layout_marginRight="24mm"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textColor="@color/white"
+                    android:textSize="25mm"
+                    android:text="@string/content_7941d3"/>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

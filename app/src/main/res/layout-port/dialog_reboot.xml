@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="600mm"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:background="@drawable/selector_mode_bg">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="30mm"
+            android:layout_marginTop="38mm"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="27mm"
+                android:layout_height="27mm"
+                android:src="@drawable/ic_restart"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12mm"
+                android:textSize="25mm"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/reboot_device"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginRight="30mm"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="25mm"
+            android:text="@string/reboot_tip"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="95mm"
+            android:layout_gravity="right"
+            android:layout_marginRight="42mm"
+            android:layout_marginBottom="30mm"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:focusableInTouchMode="true"
+            android:focusable="true">
+
+            <Button
+                android:id="@+id/bt_confirm"
+                android:layout_width="141mm"
+                android:layout_height="55mm"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:textStyle="bold"
+                android:textSize="21mm"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:text="@string/confirm"/>
+
+            <TextView
+                android:id="@+id/tv_go_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="42mm"
+                android:fontFamily="@font/montserrat_regular"
+                android:textStyle="bold"
+                android:textSize="21mm"
+                android:textColor="@color/colorMainButton"
+                android:text="@string/go_back"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

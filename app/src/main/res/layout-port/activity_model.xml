@@ -1,6 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104mm" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30mm"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_regular"
+            android:textSize="25mm"
+            android:textColor="@color/white"
+            android:text="@string/model_detail"/>
+
+            <FrameLayout
+                android:id="@+id/frame_101"
+                android:layout_width="match_parent"
+                android:layout_height="400mm"
+                android:layout_marginTop="30mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginRight="30mm"
+                android:background="@drawable/ic_neb">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24mm"
+                    android:layout_marginTop="30mm"
+                    android:layout_gravity="left|top"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textStyle="bold"
+                    android:textSize="37mm"
+                    android:text="NEB 101"/>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="30mm"
+                    android:layout_marginRight="24mm"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:textSize="25mm"
+                        android:text="@string/Enter"/>
+
+                    <ImageView
+                        android:layout_width="44mm"
+                        android:layout_height="44mm"
+                        android:src="@drawable/ic_arrow"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_neb"
+                android:layout_width="match_parent"
+                android:layout_height="400mm"
+                android:layout_marginTop="20mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginRight="30mm"
+                android:background="@drawable/ic_neb">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24mm"
+                    android:layout_marginTop="30mm"
+                    android:layout_gravity="left|top"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textStyle="bold"
+                    android:textSize="37mm"
+                    android:text="NEB 156, NEB 215"/>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="30mm"
+                    android:layout_marginRight="24mm"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:textSize="25mm"
+                        android:text="@string/Enter"/>
+
+                    <ImageView
+                        android:layout_width="44mm"
+                        android:layout_height="44mm"
+                        android:src="@drawable/ic_arrow"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_vega"
+                android:layout_width="match_parent"
+                android:layout_height="400mm"
+                android:layout_marginTop="20mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginRight="30mm"
+                android:layout_marginBottom="30mm"
+                android:background="@drawable/ic_vega">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24mm"
+                    android:layout_marginTop="30mm"
+                    android:layout_gravity="left|top"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textStyle="bold"
+                    android:textSize="37mm"
+                    android:text="VEGA"/>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="30mm"
+                    android:layout_marginRight="24mm"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/white"
+                        android:textSize="25mm"
+                        android:text="@string/Enter"/>
+
+                    <ImageView
+                        android:layout_width="44mm"
+                        android:layout_height="44mm"
+                        android:src="@drawable/ic_arrow"/>
+                </LinearLayout>
+            </FrameLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

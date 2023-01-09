@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.CamerasActivity">
+
+    <com.glorystar.startool.ui.camera.AutoTexturePreviewView
+        android:id="@+id/autotexture_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/linear_back"
+        android:layout_width="150dp"
+        android:layout_height="91dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:background="@drawable/selector_mode_bg">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="12dp"
+            android:src="@drawable/ic_esc"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_marginLeft="22dp"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:text="@string/Back"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center_vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_mode_bg">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginLeft="24dp"
+            android:src="@drawable/ic_camera"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:text="@string/camera"/>
+
+        <Button
+            android:id="@+id/bt_turn_off"
+            android:layout_width="140dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="18dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/r_button_bg"
+            android:fontFamily="@font/montserrat_regular"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="21dp"
+            android:textAllCaps="false"
+            android:text="@string/turn_off"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="91dp"
+        android:layout_height="91dp"
+        android:layout_alignTop="@+id/linear_camera"
+        android:layout_toRightOf="@+id/linear_camera"
+        android:layout_marginLeft="24dp"
+        android:gravity="center"
+        android:background="@drawable/selector_mode_bg">
+        <ImageView
+            android:id="@+id/iv_rotate"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:src="@drawable/ic_rotate"/>
+    </LinearLayout>
+</RelativeLayout>

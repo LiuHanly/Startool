@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="600mm"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:background="@drawable/selector_mode_bg">
+
+
+
+        <ImageView
+            android:layout_width="239mm"
+            android:layout_height="129mm"
+            android:layout_marginTop="30mm"
+            android:layout_marginLeft="24mm"
+            android:src="@mipmap/startoolslogo"/>
+
+        <TextView
+            android:id="@+id/app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24mm"
+            android:layout_marginLeft="24mm"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_gravity="center_vertical"
+            android:textSize="23mm"
+            android:textColor="@color/colorFont"
+            android:text="@string/app_version"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24mm"
+            android:layout_marginLeft="24mm"
+            android:layout_marginRight="24mm"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_gravity="center_vertical"
+            android:textSize="25mm"
+            android:textColor="@color/white"
+            android:text="@string/update_tip"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="96mm"
+            android:layout_marginRight="42mm"
+            android:layout_marginBottom="42mm"
+            android:gravity="center_vertical"
+            android:layout_gravity="right">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_loading"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:src="@drawable/ic_loading"/>
+
+                <LinearLayout
+                    android:id="@+id/linear_up_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:visibility="gone">
+                    <ImageView
+                        android:layout_width="29mm"
+                        android:layout_height="29mm"
+                        android:src="@drawable/ic_checked_green"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginLeft="14mm"
+                        android:textSize="23mm"
+                        android:text="@string/up_to_date"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/bt_check_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55mm"
+                    android:paddingLeft="30mm"
+                    android:paddingRight="30mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/check_for_update"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_go_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_marginLeft="54mm"
+                android:textStyle="bold"
+                android:textSize="21mm"
+                android:textColor="@color/colorMainButton"
+                android:text="@string/go_back"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
