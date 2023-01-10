@@ -236,7 +236,7 @@
     <string name="keyboard">键盘</string>
     <string name="serial">串口</string>
     <string name="scanned_output">扫描的输出</string>
-    <string name="scanned_detail">将卡悬停在模块上。检索到的值将显示在此处</string>
+    <string name="scanned_detail">使用扫描仪扫描所列格式之一的条形码。检索到的值将显示在此处。</string>
     <string name="advanced_config">高级配置</string>
     <string name="light_modes">灯光模式</string>
     <string name="auto">自动</string>

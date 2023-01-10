@@ -235,7 +235,7 @@
     <string name="keyboard">Keyboard</string>
     <string name="serial">Serial</string>
     <string name="scanned_output">Scanned output</string>
-    <string name="scanned_detail">Hover a card on the module. Retrieved value will be displayed here</string>
+    <string name="scanned_detail">Scan a barcode in one of the listed formats with the scanner. Retrieved value will be displayed here.</string>
     <string name="advanced_config">Advanced configuration</string>
     <string name="light_modes">Light modes</string>
     <string name="auto">Auto</string>
