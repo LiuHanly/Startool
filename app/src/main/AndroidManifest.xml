@@ -238,6 +238,8 @@
             android:launchMode="singleTask"
             android:theme="@style/NoTitle" />
 
+        <activity android:name=".ui.activity.ShutdownActivity" />
+
         <service android:name=".ui.service.WIFIAutoConnectionService" />
 
         <service android:name=".ui.service.DownloadService"/>

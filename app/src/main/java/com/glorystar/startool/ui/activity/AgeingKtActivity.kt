@@ -29,14 +29,14 @@ class AgeingKtActivity : BaseActivity() {
         "MemoryTestKtFragment",
         "DDRTestKtFragment",
         "VideoTestKtFragment",
-
+        "ShutdownActivity"
     )
     val addTimber: MutableList<String> = arrayListOf(
         Constantdtas.CPUKTTESTFRAGMENT,
         Constantdtas.MEMORYTESTKTFRAGMENT,
         Constantdtas.DDRTESTKTFRAGMENT,
         Constantdtas.VIDEOTESTKTFRAGMENT,
-
+        Constantdtas.CPUKTTESTFRAGMENT,
     )
 
     var stTime = ""
@@ -155,7 +155,7 @@ class AgeingKtActivity : BaseActivity() {
                                 name[1]
                             )
                         )
-                    //   ShutdownActivity.toStartActivity(this@AgeingKtActivity)
+                  ShutdownActivity.toStartActivity(this@AgeingKtActivity)
 
                     }
                 }
@@ -176,7 +176,7 @@ class AgeingKtActivity : BaseActivity() {
             if (it.AgeingType.equals("2")) {
                 val AgeingRemaining = it.AgeingRemaining
                 if (it.AgeingName == "ShutdownActivity") {
-                //    ShutdownActivity.toStartActivity(this@AgeingKtActivity)
+                   ShutdownActivity.toStartActivity(this@AgeingKtActivity)
                 } else {
                     LiveDataBus.get().with(it.AgeingName).postValue("start:$AgeingRemaining")
                 }

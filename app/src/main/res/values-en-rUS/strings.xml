@@ -303,6 +303,6 @@
     <string name="touch_view_masg_tow">(To complete the test, please click the title 4 times consecutively to enter the next step)</string>
     <string name="camerasupp">The device does not have a camera</string>
     <string name="speaker_masg">Click the icon below to play the sound. Check if \n Left channel - Male voice \n Right channel - Female voice</string>
-    <string name="reporttest">" Aging test report"</string>
-
+    <string name="reporttest">Aging test report</string>
+    <string name="reporttest_masg">The device will automatically restart 5 minutes later</string>
 </resources>

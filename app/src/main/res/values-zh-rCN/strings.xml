@@ -306,5 +306,6 @@
     <string name="camerasupp">该设备没有摄像头</string>
     <string name="speaker_masg">点击下面的图标播放声音。检查 \n 左声道-男声 \n 右声道-女声</string>
     <string name="reporttest">老化试验报告</string>
+    <string name="reporttest_masg">5分钟后设备会自动重启</string>
 
 </resources>
