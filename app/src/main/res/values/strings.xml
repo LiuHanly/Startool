@@ -1,11 +1,14 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Star Tool</string>
     <string name="language">EN</string>
     <string name="select">Select a category to test</string>
-    <string name='General'>General functionalities</string>
+    <string name="General">General functionalities</string>
     <string name="Model">Model specific</string>
-    <string name='Addon'>Addon modules</string>
-    <string name='Aging'>Aging tests</string>
+    <string name="Addon">Addon modules</string>
+    <string name="Aging">Aging tests</string>
+
+
+
     <string name="Enter">Enter</string>
     <string name='General_masg'>Test common features on all devices. This test is able to find out whether internal APIs are working properly.</string>
     <string name='Model_masg'>Test specific components on particular model. This test is able to find out whether those components function correctly.</string>
@@ -17,7 +20,7 @@
 
     <string name="preaging">Pre-aging test</string>
     <string name="postagingtest">Post-aging test</string>
-
+    <string name="reporttest">Aging test report</string>
 
     <string name="preaging_masg_one">Select any specific element that you want to test. Then press “Start”.</string>
     <string name="preaging_masg_tow">Selected test will proceed one by one.</string>
@@ -307,4 +310,6 @@
     <string name="touch_view_masg_tow">(To complete the test, please click the title 4 times consecutively to enter the next step)</string>
     <string name="camerasupp">The device does not have a camera</string>
     <string name="speaker_masg">Click the icon below to play the sound. Check if \n Left channel - Male voice \n Right channel - Female voice</string>
+
+
 </resources>

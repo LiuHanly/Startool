@@ -29,14 +29,14 @@ class AgeingKtActivity : BaseActivity() {
         "MemoryTestKtFragment",
         "DDRTestKtFragment",
         "VideoTestKtFragment",
-        "ShutdownActivity"
+
     )
     val addTimber: MutableList<String> = arrayListOf(
         Constantdtas.CPUKTTESTFRAGMENT,
         Constantdtas.MEMORYTESTKTFRAGMENT,
         Constantdtas.DDRTESTKTFRAGMENT,
         Constantdtas.VIDEOTESTKTFRAGMENT,
-        Constantdtas.CPUKTTESTFRAGMENT,
+
     )
 
     var stTime = ""

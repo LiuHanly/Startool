@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Star Tool</string>
     <string name="language">中</string>
     <string name="select">选择要测试的类别</string>
@@ -7,6 +7,7 @@
     <string name="Model">具体的模型</string>
     <string name='Addon'>插件模块</string>
     <string name='Aging'>老化测试</string>
+
     <string name="Enter">进入</string>
     <string name='General_masg'>在所有设备上测试通用功能。该测试能够发现内部 API 是否正常工作.</string>
     <string name='Model_masg'>T在特定模型上测试特定组件。该测试能够查明这些组件是否正常运行.</string>
@@ -304,4 +305,6 @@
     <string name="touch_view_masg_tow">（完成测试请连续点击标题4次进入下一步）</string>
     <string name="camerasupp">该设备没有摄像头</string>
     <string name="speaker_masg">点击下面的图标播放声音。检查 \n 左声道-男声 \n 右声道-女声</string>
+    <string name="reporttest">老化试验报告</string>
+
 </resources>

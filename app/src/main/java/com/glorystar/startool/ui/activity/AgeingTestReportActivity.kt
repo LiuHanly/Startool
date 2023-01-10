@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -39,6 +40,7 @@ class AgeingTestReportActivity : BaseActivity() {
     lateinit var Serial_number6: TextView
     lateinit var Serial_number7: TextView
     lateinit var Serial_number: TextView
+    lateinit var finish_buton : Button
 
     companion object {
         // 跳转到当前页面。
@@ -60,6 +62,7 @@ class AgeingTestReportActivity : BaseActivity() {
             Serial_number6 = findViewById(R.id.Serial_number6)
             Serial_number7 = findViewById(R.id.Serial_number7)
             Serial_number = findViewById(R.id.Serial_number)
+            finish_buton = findViewById(R.id.finish_buton)
 
             ado = AppDataBase.getDatabase(this@AgeingTestReportActivity).getAgeingDao()
             baserecycleradapter = object : BaseRecyclerAdapter<Ageing>(
@@ -98,7 +101,7 @@ class AgeingTestReportActivity : BaseActivity() {
 
             Serial_number6.text = DateUtil.stampToTime(DateUtil.timeStamp.toString())
             Serial_number7.text = ado?.getAgeingID(0)?.AgeingStarTime
-            Serial_number.text = ado?.getAgeingID(4)?.AgeungStopTime
+            Serial_number.text = ado?.getAgeingID(3)?.AgeungStopTime
             GlobalScope.launch {
                 var stringbuilder: StringBuilder = StringBuilder()
                 ado?.getAllAgeing()?.forEach { adoIt ->
@@ -122,6 +125,10 @@ class AgeingTestReportActivity : BaseActivity() {
 
                 ado?.deleteAll()
             }
+            finish_buton.setOnClickListener {
+                finish()
+            }
+
         }
 
     }
