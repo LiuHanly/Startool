@@ -52,6 +52,12 @@ android {
         exclude 'META-INF/library_release.kotlin_module'
     }
 
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
 }
 
 

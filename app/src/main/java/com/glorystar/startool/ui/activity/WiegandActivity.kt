@@ -108,6 +108,7 @@ class WiegandActivity : BaseActivity(), View.OnClickListener {
             }
             R.id.bt_sender -> {
                 sendDialog(this@WiegandActivity)
+
             }
             R.id.bt_receiver -> {
                 showDialog(this@WiegandActivity, getString(R.string.receiver_input_detail), getString(R.string.receiver_input_tip))
@@ -166,6 +167,7 @@ class WiegandActivity : BaseActivity(), View.OnClickListener {
             pid = edtPid.text.toString()
             if (!TextUtils.isEmpty(hid) && !TextUtils.isEmpty(pid)){
                 sendProcessingDialog(this@WiegandActivity, hid, pid)
+                mHandler.post(sendRunnable)
                 dialog.dismiss()
             }
         }

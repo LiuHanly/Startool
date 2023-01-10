@@ -30,12 +30,12 @@ class BarcodeModulesActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when(p0?.id){
             R.id.relative_barcode_honeywell -> {
-                var intent = Intent(application, BarcodeActivity::class.java)
+                var intent = Intent(this@BarcodeModulesActivity, BarcodeActivity::class.java)
                 intent.putExtra("title", getString(R.string.honeywell_n4680))
                 startActivity(intent)
             }
             R.id.relative_barcode_newland ->{
-                var intent = Intent(application, BarcodeActivity::class.java)
+                var intent = Intent(this@BarcodeModulesActivity, BarcodeActivity::class.java)
                 intent.putExtra("title", getString(R.string.newland_em3396))
                 startActivity(intent)
             }

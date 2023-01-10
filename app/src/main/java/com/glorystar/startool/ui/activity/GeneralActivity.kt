@@ -103,10 +103,10 @@ class GeneralActivity : BaseActivity(), OnClickListener {
     override fun onClick(p0: View?) {
         when(p0?.id){
             R.id.relative_device_info ->{
-                startActivity(Intent(this, DeviceInfoActivity::class.java))
+                startActivity(Intent(this@GeneralActivity, DeviceInfoActivity::class.java))
             }
             R.id.relative_ota ->{
-                startActivity(Intent(this, OtaActivity::class.java))
+                startActivity(Intent(this@GeneralActivity, OtaActivity::class.java))
             }
             R.id.bt_brightness_get ->{
                 showDialog(this, R.drawable.ic_brightness, getString(R.string.screen_brightness), getBrightness().toString())

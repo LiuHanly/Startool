@@ -13,10 +13,14 @@ import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.ui.view.TitleKtView
 
+import android.content.DialogInterface
+
+
+
+
 class Neb156Activity : BaseActivity() {
     lateinit var titleView: TitleKtView
     lateinit var btButtons: Button
-    lateinit var output: EditText
 
     override fun getLayoutId(): Int = R.layout.activity_neb156
 
@@ -32,24 +36,10 @@ class Neb156Activity : BaseActivity() {
         }
     }
 
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        when (keyCode) {
-            KeyEvent.KEYCODE_VOLUME_DOWN -> output.setText("press volume -")
-            KeyEvent.KEYCODE_VOLUME_UP -> output.setText("press volume +")
-            KeyEvent.KEYCODE_HOME -> {
-                output.setText("press home")
-                return true
-            }
-            else -> {
-            }
-        }
-        return super.onKeyDown(keyCode, event)
-    }
-
     private fun buttonsDialog(context: Context?) {
         val view: View =
             LayoutInflater.from(context).inflate(R.layout.dialog_buttons, null)
-        output = view.findViewById<EditText>(R.id.edt_output)
+        var output = view.findViewById<EditText>(R.id.edt_output)
         var goBack = view.findViewById<TextView>(R.id.tv_go_back)
 
         val builder = AlertDialog.Builder(context)
@@ -59,6 +49,23 @@ class Neb156Activity : BaseActivity() {
         goBack.setOnClickListener {
             dialog.dismiss()
         }
+
+        dialog.setOnKeyListener(object : DialogInterface.OnKeyListener {
+            override fun onKey(dialog: DialogInterface, keyCode: Int, event: KeyEvent): Boolean {
+                when (keyCode) {
+                    KeyEvent.KEYCODE_VOLUME_DOWN -> output.setText("press volume -")
+                    KeyEvent.KEYCODE_VOLUME_UP -> output.setText("press volume +")
+                    KeyEvent.KEYCODE_HOME -> {
+                        output.setText("press home")
+                        return true
+                    }
+                    else -> {
+                    }
+                }
+                return false
+            }
+        })
+
         dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.show()
 

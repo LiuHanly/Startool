@@ -43,10 +43,10 @@ class AddonActivity  : BaseActivity(), View.OnClickListener{
 
     override fun onClick(p0: View?) {
         when(p0?.id){
-            R.id.relative_barcode -> startActivity(Intent(application, BarcodeModulesActivity::class.java))
-            R.id.relative_camera -> startActivity(Intent(application, CameraModulesActivity::class.java))
-            R.id.relative_rfid -> startActivity(Intent(application, RfidModulesActivity::class.java))
-            R.id.relative_light -> startActivity(Intent(application, LightStripsActivity::class.java))
+            R.id.relative_barcode -> startActivity(Intent(this@AddonActivity, BarcodeModulesActivity::class.java))
+            R.id.relative_camera -> startActivity(Intent(this@AddonActivity, CameraModulesActivity::class.java))
+            R.id.relative_rfid -> startActivity(Intent(this@AddonActivity, RfidModulesActivity::class.java))
+            R.id.relative_light -> startActivity(Intent(this@AddonActivity, LightStripsActivity::class.java))
         }
     }
 }

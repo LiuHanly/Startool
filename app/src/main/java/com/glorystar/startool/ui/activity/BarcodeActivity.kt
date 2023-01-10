@@ -96,6 +96,48 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
 
     override fun onClick(p0: View?) {
         when(p0?.id){
+            R.id.linear_keyboard ->{
+                if (ret == 1) {
+                    scanInfo.setText("")
+                    scanInfo.isEnabled = true
+                    scanInfo.requestFocus()
+                    imm!!.hideSoftInputFromWindow(
+                        currentFocus!!.windowToken,
+                        InputMethodManager.HIDE_NOT_ALWAYS
+                    )
+                    linearKeyboard.setBackgroundResource(R.drawable.r_button_bg)
+                    linearSerial.setBackgroundResource(R.color.transparent)
+                    ivKeyboard.visibility = View.VISIBLE
+                    ivSerial.visibility = View.INVISIBLE
+                    barcode!!.setScanningMode(true)
+                    if (index == 0) {
+                        PreferenceUtils.putBoolean(HONEYWELL_SCAN_MODE, true)
+                    } else if (index == 1) {
+                        PreferenceUtils.putBoolean(NEWLAND_SCAN_MODE, true)
+                    }
+                }
+            }
+            R.id.linear_serial ->{
+                if (ret == 1) {
+                    scanInfo.setText("")
+                    scanInfo.clearFocus()
+                    scanInfo.isEnabled = false
+                    imm!!.hideSoftInputFromWindow(
+                        currentFocus!!.windowToken,
+                        InputMethodManager.HIDE_NOT_ALWAYS
+                    )
+                    linearKeyboard.setBackgroundResource(R.color.transparent)
+                    linearSerial.setBackgroundResource(R.drawable.r_button_bg)
+                    ivKeyboard.visibility = View.INVISIBLE
+                    ivSerial.visibility = View.VISIBLE
+                    barcode!!.setScanningMode(false)
+                    if (index == 0) {
+                        PreferenceUtils.putBoolean(HONEYWELL_SCAN_MODE, false)
+                    } else if (index == 1) {
+                        PreferenceUtils.putBoolean(NEWLAND_SCAN_MODE, false)
+                    }
+                }
+            }
             R.id.frame_mode -> {
                 var mListPop = ListPopupWindow(this)
                 mListPop.setAdapter(
@@ -115,7 +157,14 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
                 mListPop.setOnItemClickListener(object : AdapterView.OnItemClickListener {
                     override fun onItemClick(
                         parent: AdapterView<*>?, view: View?, position: Int, id: Long){
-                        PreferenceUtils.putInt(NEWLAND_LIGHT_MODE, position)
+                        if (ret == 1) {
+                            barcode!!.setLightMode(position)
+                            if (index == 0) {
+                                PreferenceUtils.putInt(HONEYWELL_LIGHT_MODE, position)
+                            } else if (index == 1) {
+                                PreferenceUtils.putInt(NEWLAND_LIGHT_MODE, position)
+                            }
+                        }
                         lightMode.text = LIGHTMODE.get(position)
                         mListPop.dismiss()
                     }
@@ -204,52 +253,11 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
         lightMode.text = LIGHTMODE.get(mode)
         swBeep.setChecked(beep)
         swEnter.setChecked(scan_enter)
+        barcode!!.setLightMode(mode)
     }
 
     override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
         when(p0?.id){
-            R.id.linear_keyboard ->{
-                if (ret == 1) {
-                    scanInfo.setText("")
-                    scanInfo.isEnabled = true
-                    scanInfo.requestFocus()
-                    imm!!.hideSoftInputFromWindow(
-                        currentFocus!!.windowToken,
-                        InputMethodManager.HIDE_NOT_ALWAYS
-                    )
-                    linearKeyboard.setBackgroundResource(R.drawable.r_button_bg)
-                    linearSerial.setBackgroundResource(R.color.transparent)
-                    ivKeyboard.visibility = View.VISIBLE
-                    ivSerial.visibility = View.INVISIBLE
-                    barcode!!.setScanningMode(true)
-                    if (index == 0) {
-                        PreferenceUtils.putBoolean(HONEYWELL_SCAN_MODE, true)
-                    } else if (index == 1) {
-                        PreferenceUtils.putBoolean(NEWLAND_SCAN_MODE, true)
-                    }
-                }
-            }
-            R.id.linear_serial ->{
-                if (ret == 1) {
-                    scanInfo.setText("")
-                    scanInfo.clearFocus()
-                    scanInfo.isEnabled = false
-                    imm!!.hideSoftInputFromWindow(
-                        currentFocus!!.windowToken,
-                        InputMethodManager.HIDE_NOT_ALWAYS
-                    )
-                    linearKeyboard.setBackgroundResource(R.color.transparent)
-                    linearSerial.setBackgroundResource(R.drawable.r_button_bg)
-                    ivKeyboard.visibility = View.INVISIBLE
-                    ivSerial.visibility = View.VISIBLE
-                    barcode!!.setScanningMode(false)
-                    if (index == 0) {
-                        PreferenceUtils.putBoolean(HONEYWELL_SCAN_MODE, false)
-                    } else if (index == 1) {
-                        PreferenceUtils.putBoolean(NEWLAND_SCAN_MODE, false)
-                    }
-                }
-            }
             R.id.sw_auto_return ->{
                 if (ret == 1) {
                     if (p1) {
