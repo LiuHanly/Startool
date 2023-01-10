@@ -80,6 +80,7 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
     override fun getLayoutId(): Int = R.layout.activity_vega
 
     override fun initView(savedInstanceState: Bundle?) {
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         titleView = findViewById(R.id.tile_view)
         titleView.title.text = getString(R.string.model_vega)
         titleView.action = this
@@ -110,19 +111,33 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
         when(p0?.id){
             R.id.relative_relay -> startActivity(Intent(application, RelayActivity::class.java))
             R.id.relative_wiegand -> startActivity(Intent(application, WiegandActivity::class.java))
-            R.id.bt_485 -> showDialog(VegaActivity@this)
+            R.id.bt_485 -> showDialog(this@VegaActivity)
             R.id.bt_input -> {
-                inputPortDialog(VegaActivity@this)
+                inputPortDialog(this@VegaActivity)
                 if (Build.MODEL != "rk3288") {
+                    println("0000000000000")
                     if (checkSoFile(libraries)) {
+                        println("11111111111111111")
                         mHandler.post(inputOneRunable)
                         mHandler.post(inputTwoRunable)
                     }
                 }
             }
-            R.id.bt_camera -> startActivity(Intent(application, CamerasActivity::class.java))
-            R.id.bt_sensor -> sensorDialog(VegaActivity@this)
-            R.id.bt_rfid -> startActivity(Intent(application, RfidActivity::class.java))
+            R.id.bt_camera -> startActivity(Intent(this@VegaActivity, CamerasActivity::class.java))
+            R.id.bt_sensor -> {
+                sensorDialog(this@VegaActivity)
+                sensorManager?.registerListener(
+                    this,
+                    sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT),
+                    SensorManager.SENSOR_DELAY_NORMAL
+                )
+                sensorManager?.registerListener(
+                    this,
+                    sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY),
+                    SensorManager.SENSOR_DELAY_NORMAL
+                )
+            }
+            R.id.bt_rfid -> startActivity(Intent(this@VegaActivity, RfidActivity::class.java))
         }
     }
 
@@ -198,33 +213,19 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
         dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
     }
 
-    override fun onResume() {
-        super.onResume()
-        sensorManager?.registerListener(
-            this,
-            sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT),
-            SensorManager.SENSOR_DELAY_NORMAL
-        )
-        sensorManager?.registerListener(
-            this,
-            sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY),
-            SensorManager.SENSOR_DELAY_NORMAL
-        )
-    }
-
     override fun onSensorChanged(p0: SensorEvent?) {
         val values: FloatArray? = p0?.values
         val type: Int? = p0?.sensor?.getType()
         when (type) {
-            Sensor.TYPE_LIGHT -> ambientInfo.setText((values?.get(0).toString()) + "lx")
+            Sensor.TYPE_LIGHT ->ambientInfo.setText((values?.get(0).toString()) + "lx")
             Sensor.TYPE_PROXIMITY -> proximityInfo.setText(values?.get(0).toString() + "cm")
         }
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         if (sensorManager != null) {
             sensorManager!!.unregisterListener(this)
         }

@@ -102,20 +102,20 @@ class MainActivity : BaseActivity(), UpdateData{
         rotateAnimation.interpolator = interpolator
 
         linear_general.setOnClickListener {
-            this.startActivity(Intent(application, GeneralActivity::class.java))
+            this.startActivity(Intent(this, GeneralActivity::class.java))
         }
 
         linear_model.setOnClickListener {
-            startActivity(Intent(application, ModelActivity::class.java))
+            startActivity(Intent(this, ModelActivity::class.java))
         }
 
         linear_addon.setOnClickListener {
-            startActivity(Intent(application, AddonActivity::class.java))
+            startActivity(Intent(this, AddonActivity::class.java))
         }
 
         linear_aging.setOnClickListener {
 
-            this.startActivity(Intent(application, AgingActivity::class.java))
+            this.startActivity(Intent(this, AgingActivity::class.java))
         }
 
         update.setOnClickListener {
@@ -129,16 +129,15 @@ class MainActivity : BaseActivity(), UpdateData{
                 .popupPosition(PopupPosition.Bottom)
                 .asAttaServedView(Constantdtas.AttaServedName){ position, text ->
                     language_text.text = text
-                    println("11111111111111111")
                     IntentJumpUtils.setLanguage(position)
                     LiveDataBus.get().with("Language").postValue("refresh_language")
-//                    this.run {
-//                        this?.run {
-//                            ActivityCompat.recreate(this)
-//                        }
-//                    }
                 }.show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        super.init()
     }
 
     private fun updateDialog(context: Context?) {

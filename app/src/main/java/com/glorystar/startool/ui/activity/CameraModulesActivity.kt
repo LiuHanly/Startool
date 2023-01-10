@@ -29,8 +29,8 @@ class CameraModulesActivity : BaseActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when(p0?.id){
-            R.id.relative_hdr_camera -> startActivity(Intent(application, CamerasActivity::class.java))
-            R.id.relative_dual_camera -> startActivity(Intent(application, DualCameraActivity::class.java))
+            R.id.relative_hdr_camera -> startActivity(Intent(this@CameraModulesActivity, CamerasActivity::class.java))
+            R.id.relative_dual_camera -> startActivity(Intent(this@CameraModulesActivity, DualCameraActivity::class.java))
         }
     }
 }

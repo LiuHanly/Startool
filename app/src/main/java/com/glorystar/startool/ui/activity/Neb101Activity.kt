@@ -2,6 +2,7 @@ package com.glorystar.startool.ui.activity
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -31,7 +32,6 @@ class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
     lateinit var btButtons: Button
     lateinit var proximityInfo: TextView
     lateinit var ambientInfo: TextView
-    lateinit var output: EditText
     var rs232: RS232Util? = null
     var sensorManager: SensorManager? = null
 
@@ -60,35 +60,31 @@ class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
     override fun onClick(p0: View?) {
         when(p0?.id){
             R.id.relative_gpio ->{
-                startActivity(Intent(application, GpioActivity::class.java))
+                startActivity(Intent(this@Neb101Activity, GpioActivity::class.java))
             }
             R.id.relative_wiegand ->{
-                startActivity(Intent(application, WiegandActivity::class.java))
+                startActivity(Intent(this@Neb101Activity, WiegandActivity::class.java))
             }
             R.id.bt_uart ->{
                 showDialog(this@Neb101Activity)
             }
             R.id.bt_sensor ->{
                 sensorDialog(this@Neb101Activity)
+                sensorManager?.registerListener(
+                    this,
+                    sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT),
+                    SensorManager.SENSOR_DELAY_NORMAL
+                )
+                sensorManager?.registerListener(
+                    this,
+                    sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY),
+                    SensorManager.SENSOR_DELAY_NORMAL
+                )
             }
             R.id.bt_buttons ->{
                 buttonsDialog(this@Neb101Activity)
             }
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        sensorManager?.registerListener(
-            this,
-            sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT),
-            SensorManager.SENSOR_DELAY_NORMAL
-        )
-        sensorManager?.registerListener(
-            this,
-            sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY),
-            SensorManager.SENSOR_DELAY_NORMAL
-        )
     }
 
     private fun showDialog(context: Context?) {
@@ -143,7 +139,7 @@ class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
     private fun buttonsDialog(context: Context?) {
         val view: View =
             LayoutInflater.from(context).inflate(R.layout.dialog_buttons, null)
-        output = view.findViewById<EditText>(R.id.edt_output)
+        var output = view.findViewById<EditText>(R.id.edt_output)
         var goBack = view.findViewById<TextView>(R.id.tv_go_back)
 
         val builder = AlertDialog.Builder(context)
@@ -153,23 +149,24 @@ class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
         goBack.setOnClickListener {
             dialog.dismiss()
         }
+        dialog.setOnKeyListener(object : DialogInterface.OnKeyListener {
+            override fun onKey(dialog: DialogInterface, keyCode: Int, event: KeyEvent): Boolean {
+                when (keyCode) {
+                    KeyEvent.KEYCODE_VOLUME_DOWN -> output.setText("press volume -")
+                    KeyEvent.KEYCODE_VOLUME_UP -> output.setText("press volume +")
+                    KeyEvent.KEYCODE_HOME -> {
+                        output.setText("press home")
+                        return true
+                    }
+                    else -> {
+                    }
+                }
+                return false
+            }
+        })
         dialog.show()
         dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
-    }
-
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        when (keyCode) {
-            KeyEvent.KEYCODE_VOLUME_DOWN -> output.setText("press volume -")
-            KeyEvent.KEYCODE_VOLUME_UP -> output.setText("press volume +")
-            KeyEvent.KEYCODE_HOME -> {
-                output.setText("press home")
-                return true
-            }
-            else -> {
-            }
-        }
-        return super.onKeyDown(keyCode, event)
     }
 
     override fun onSensorChanged(p0: SensorEvent?) {
@@ -183,8 +180,8 @@ class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {}
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         if (sensorManager != null) {
             sensorManager!!.unregisterListener(this)
         }
