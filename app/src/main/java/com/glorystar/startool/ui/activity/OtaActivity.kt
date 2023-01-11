@@ -54,21 +54,32 @@ class OtaActivity : BaseActivity() {
         }
 
         downloadPackage.setOnClickListener {
-            if (NetworkUtil.isConnected(this)) {
-                var url = edtInput.text.toString()
-                if (!TextUtils.isEmpty(url)) {
-                    otaSdk.setDownloadUrl(url)
-                    otaSdk.downloadFirmware()
+            if (downloadPackage.text == getString(R.string.ota_download)) {
+                if (NetworkUtil.isConnected(this)) {
+                    var url = edtInput.text.toString()
+                    if (!TextUtils.isEmpty(url)) {
+                        edtInput.clearFocus()
+                        otaSdk.setDownloadUrl(url)
+                        otaSdk.downloadFirmware()
+                        showDialog(
+                            this@OtaActivity,
+                            R.drawable.ic_downloading,
+                            getString(R.string.downloading_package),
+                            "",
+                            1
+                        )
+                    }
+                } else {
                     showDialog(
                         this@OtaActivity,
-                        R.drawable.ic_downloading,
-                        getString(R.string.downloading_package),
-                        "",
-                        1
+                        R.drawable.ic_error,
+                        getString(R.string.download_fail),
+                        getString(R.string.download_fail_tip),
+                        0
                     )
                 }
-            }else{
-                showDialog(this@OtaActivity, R.drawable.ic_error, getString(R.string.download_fail), getString(R.string.download_fail_tip),0)
+            }else if (downloadPackage.text == getString(R.string.install_package)){
+                otaSdk.upgrade()
             }
         }
 
@@ -90,13 +101,16 @@ class OtaActivity : BaseActivity() {
                 Log.i("ota percent---->", "$i%")
                 runOnUiThread {
                     progressBar.progress = i
-                    if (i == 100) {
-                        dialog.dismiss()
-                        linearSuccess.visibility = View.VISIBLE
-                        downloadPackage.setText(getString(R.string.install_package))
-                        clearInput.visibility = View.GONE
-                        verifyPackage.visibility = View.VISIBLE
-                    }
+                }
+            }
+
+            override fun onDownloadSuccess(p0: String?) {
+                runOnUiThread {
+                    dialog.dismiss()
+                    linearSuccess.visibility = View.VISIBLE
+                    downloadPackage.setText(getString(R.string.install_package))
+                    clearInput.visibility = View.GONE
+                    verifyPackage.visibility = View.VISIBLE
                 }
             }
 

@@ -75,9 +75,11 @@
             <LinearLayout
                 android:id="@+id/linear_success"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70mm"
                 android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="20mm"
+                android:background="@drawable/selector_mode_bg"
+                android:layout_marginRight="2mm"
+                android:paddingRight="20mm"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:visibility="gone">
