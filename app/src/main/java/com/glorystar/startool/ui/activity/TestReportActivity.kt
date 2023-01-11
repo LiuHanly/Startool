@@ -70,7 +70,7 @@ class TestReportActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-      //  StatusNaviBarUitl.show(this@TestReportActivity)
+      StatusNaviBarUitl.show(this@TestReportActivity)
     }
 
     override fun getLayoutId(): Int = R.layout.activity_test_report

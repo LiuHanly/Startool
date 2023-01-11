@@ -91,7 +91,7 @@ class MainActivity : BaseActivity(), UpdateData{
         language_text = findViewById(R.id.textlanguage)
         update = findViewById(R.id.iv_update)
 
-        StatusNaviBarUitl.hide(application)
+       // StatusNaviBarUitl.hide(application)
 
         val filter = IntentFilter()
         filter.addAction("com.glorystar.intent.APK_DEMO_UPDATE_PERCENT")
