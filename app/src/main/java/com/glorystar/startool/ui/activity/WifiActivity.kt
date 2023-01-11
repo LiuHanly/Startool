@@ -2,31 +2,22 @@ package com.glorystar.startool.ui.activity
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
-import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.provider.Settings
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
-import androidx.lifecycle.Observer
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
-import com.glorystar.startool.config.constant.Constant
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.config.constant.IntenAcitivity
 import com.glorystar.startool.ui.broadcast.WIFIStateReceiver
-import com.glorystar.startool.ui.service.WIFIAutoConnectionService
 import com.glorystar.startool.ui.view.ColorGradientProgressBar
-import com.glorystar.startool.utils.tool.LiveDataBus
 import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 import com.glorystar.startool.utils.tool.WIFIConnectionManager
-
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.util.*
 
 /**
@@ -54,7 +45,7 @@ class WifiActivity : BaseActivity() {
         }
     }
 
-    @SuppressLint("HandlerLeak")
+  /*  @SuppressLint("HandlerLeak")
     var mHandler: Handler = object : Handler() {
 
         override fun handleMessage(msg: Message) {
@@ -88,23 +79,23 @@ class WifiActivity : BaseActivity() {
             }
         }
     }
-
+*/
 
     override fun getLayoutId(): Int = R.layout.activity_wifi
 
     @SuppressLint("WifiManagerLeak")
     override fun initView(savedInstanceState: Bundle?) {
-        colorgradgressbar = findViewById(R.id.colorgradgressbar)
-        ap_name = findViewById(R.id.ap_name)
-        Android_version = findViewById(R.id.Android_version)
-        text_Model = findViewById(R.id.text_Model)
+     //   colorgradgressbar = findViewById(R.id.colorgradgressbar)
+      //  ap_name = findViewById(R.id.ap_name)
+     //   Android_version = findViewById(R.id.Android_version)
+      //  text_Model = findViewById(R.id.text_Model)
         failure_bu = findViewById(R.id.failure_bu)
         through_bu = findViewById(R.id.through_bu)
         button5 = findViewById(R.id.button5)
+        getFile()
+     //   mWIFIStateReceiver = WIFIStateReceiver(this)
 
-        mWIFIStateReceiver = WIFIStateReceiver(this)
-
-        registerReceiver(
+   /*     registerReceiver(
             mWIFIStateReceiver,
             IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION)
         )
@@ -112,10 +103,10 @@ class WifiActivity : BaseActivity() {
             this@WifiActivity,
             Constantdtas.WIFI_SSID,
             Constantdtas.WIFI_PASS
-        )
+        )*/
 
 
-        LiveDataBus.get().with("WifiActivity", String::class.java).observe(this, Observer {
+      /*  LiveDataBus.get().with("WifiActivity", String::class.java).observe(this, Observer {
             when (it) {
                 "WIFI_STATE_ENABLED" -> {
                     text_Model.text = "Connected"
@@ -128,7 +119,7 @@ class WifiActivity : BaseActivity() {
                 }
             }
         })
-
+*/
         failure_bu.setOnClickListener {
             StatusNaviBarUitl.hide(this@WifiActivity)
             IntenAcitivity.getIntenAcitivity(this@WifiActivity, 3, 1)
@@ -149,12 +140,12 @@ class WifiActivity : BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        handler.removeCallbacks(updateThread)
+   //     handler.removeCallbacks(updateThread)
 
-        WIFIConnectionManager.getInstance(this).disconnect()
+/*        WIFIConnectionManager.getInstance(this).disconnect()
         WIFIConnectionManager.getInstance(this).closeWifi()
 
-        unregisterReceiver(mWIFIStateReceiver)
+        unregisterReceiver(mWIFIStateReceiver)*/
     }
 
     override fun onStop() {
@@ -168,7 +159,11 @@ class WifiActivity : BaseActivity() {
         StatusNaviBarUitl.hide(this@WifiActivity)
     }
 
-    var inetse = 0
+    fun getFile(){
+        startActivity( Intent(Settings.ACTION_WIFI_SETTINGS))
+    }
+
+/*    var inetse = 0
     val handler = Handler()
     val updateThread: Runnable = object : Runnable {
         override fun run() {
@@ -181,6 +176,8 @@ class WifiActivity : BaseActivity() {
             //do something
             //每隔1s循环执行run方法
         }
-    }
+    }*/
+
+
 
 }
