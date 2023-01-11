@@ -20,6 +20,7 @@ import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.config.constant.IntenAcitivity
 import com.glorystar.startool.utils.tool.NetworkUtil.isConnected
 import com.glorystar.startool.utils.tool.NetworkUtils
+import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -77,7 +78,7 @@ class RJ45Activity : BaseActivity() {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
-
+        StatusNaviBarUitl.hide(this@RJ45Activity)
         //AutoSizeCompat.autoConvertDensityOfGlobal(resources)
 
         full_webView = findViewById(R.id.full_webView)
@@ -107,15 +108,19 @@ class RJ45Activity : BaseActivity() {
             }
         }
         failure_bu.setOnClickListener {
-
+            StatusNaviBarUitl.hide(this@RJ45Activity)
             IntenAcitivity.getIntenAcitivity(this@RJ45Activity, 6, 1)
 
         }
         through_bu.setOnClickListener {
-
+            StatusNaviBarUitl.hide(this@RJ45Activity)
             IntenAcitivity.getIntenAcitivity(this@RJ45Activity, 6, 2)
 
         }
+    }
+    override fun onStop() {
+        super.onStop()
+        StatusNaviBarUitl.hide(this@RJ45Activity)
     }
 
     /**

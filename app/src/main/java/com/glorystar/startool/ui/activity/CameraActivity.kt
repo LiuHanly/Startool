@@ -52,6 +52,7 @@ class CameraActivity : BaseActivity() {
   //38923739
     override fun getLayoutId(): Int = R.layout.activity_camera
     override fun initView(savedInstanceState: Bundle?) {
+       // StatusNaviBarUitl.hide(this@CameraActivity)
         change = findViewById(R.id.failure_bu)
         redo_bu = findViewById(R.id.redo_bu)
         camera = findViewById(R.id.through_bu)
@@ -59,16 +60,16 @@ class CameraActivity : BaseActivity() {
         getFile()
         change.setOnClickListener {
             StatusNaviBarUitl.hide(this@CameraActivity)
-            IntenAcitivity.getIntenAcitivity(this@CameraActivity, 5, 2)
-
+            IntenAcitivity.getIntenAcitivity(this@CameraActivity, 5, 1)
         }
         redo_bu?.setOnClickListener {
+            StatusNaviBarUitl.show(this@CameraActivity)
             getFile()
         }
 
         camera.setOnClickListener {
             StatusNaviBarUitl.hide(this@CameraActivity)
-            IntenAcitivity.getIntenAcitivity(this@CameraActivity, 5, 1)
+            IntenAcitivity.getIntenAcitivity(this@CameraActivity, 5, 2)
 
         }
 
@@ -76,23 +77,25 @@ class CameraActivity : BaseActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        StatusNaviBarUitl.hide(this@CameraActivity)
+       StatusNaviBarUitl.hide(this@CameraActivity)
     }
 
     override fun onStop() {
         super.onStop()
-      //  StatusNaviBarUitl.show(this@CameraActivity)
+        StatusNaviBarUitl.show(this@CameraActivity)
     }
 
 
 
     fun getFile() {
+
         if (hasCameraSupport()) {
             //启动系统相机
             val intent = Intent()
             intent.setClassName("com.android.camera2", "com.android.camera.CameraActivity")
             // intent.action = MediaStore.ACTION_IMAGE_CAPTURE
             startActivityForResult(intent, 1)
+            //StatusNaviBarUitl.show(this@CameraActivity)
         } else {
 
             Toast.makeText(this@CameraActivity, this.getString(R.string.camerasupp), Toast.LENGTH_SHORT).show()

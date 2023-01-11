@@ -11,6 +11,7 @@ import android.widget.VideoView
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.config.constant.IntenAcitivity
+import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -43,7 +44,7 @@ class HDMIActivity : BaseActivity() {
         RecyclerLayout = findViewById(R.id.RecyclerLayout)
         failure_bu = findViewById(R.id.failure_bu)
         through_bu = findViewById(R.id.through_bu)
-
+        StatusNaviBarUitl.hide(this@HDMIActivity)
         start()
         failure_bu.setOnClickListener {
             IntenAcitivity.getIntenAcitivity(this@HDMIActivity, 9, 1)
