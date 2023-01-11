@@ -61,14 +61,12 @@ object IntenAcitivity {
             return
         }
         while (ID < ListStudent.size) {
-            Log.e("PeriodicSync","--PeriodicSync--->"+ ListStudent[ID].toString())
+            Log.e("PeriodicSync","--PeriodicSync--->"+ (ListStudent[ID].StudentID.toString() +ListStudent[ID].StudentName+"----"+ ListStudent[ID].StudentType))
             if (ListStudent[ID].StudentType) {
-                Log.e("PeriodicSync", ListStudent[ID].toString())
                 geiActivity(context, ListStudent[ID].appinfoID!!)
                 return
-            } else if (ListStudent[ID].StudentName!!.contains("Buttons") && !ListStudent[ID].StudentType) {
-                Log.e("PeriodicSync", "ID-->" + ID + "-StudentName-->" + ListStudent[ID])
-                toStartActivity(context)
+            } else if (ListStudent[ID].StudentID == 13 && !ListStudent[ID].StudentType) {
+              toStartActivity(context)
             }
             ID++
         }
