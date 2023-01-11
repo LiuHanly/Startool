@@ -240,28 +240,71 @@
                     android:textSize="25mm" />
 
                 <Button
-                    android:id="@+id/bt_3"
+                    android:id="@+id/bt_orientation_get"
                     android:layout_width="150mm"
                     android:layout_height="55mm"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/r_button_bg"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="@string/set"
+                    android:text="@string/get"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21mm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_change_orientation"
+                android:layout_width="740mm"
+                android:layout_height="103mm"
+                android:layout_marginLeft="30mm"
+                android:layout_marginTop="20mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24mm"
+                android:paddingRight="24mm">
+
+                <ImageView
+                    android:id="@+id/iv_8"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_orientation" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_8"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/change_orientation"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <Button
+                    android:id="@+id/bt_portrait"
+                    android:layout_width="150mm"
+                    android:layout_height="55mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/portrait"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="21mm" />
 
                 <Button
-                    android:id="@+id/bt_orientation_get"
+                    android:id="@+id/bt_landscape"
                     android:layout_width="150mm"
                     android:layout_height="55mm"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="24mm"
-                    android:layout_toLeftOf="@+id/bt_3"
+                    android:layout_toLeftOf="@+id/bt_portrait"
                     android:background="@drawable/r_button_bg"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="@string/get"
+                    android:text="@string/landscape"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="21mm" />

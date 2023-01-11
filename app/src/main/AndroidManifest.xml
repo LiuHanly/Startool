@@ -134,7 +134,7 @@
         </activity>
         <activity
             android:name=".ui.activity.GeneralActivity"
-            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:configChanges="locale|layoutDirection|keyboardHidden|keyboard"
             android:launchMode="singleTask"
             android:theme="@style/NoTitle" />
         <activity

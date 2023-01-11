@@ -121,6 +121,7 @@
     <string name="screen_brightness">Screen brightness</string>
     <string name="volume">Volume</string>
     <string name="orientation">Orientation</string>
+    <string name="change_orientation">Change orientation</string>
     <string name="screenshot">Screenshot</string>
     <string name="reboot_device">Reboot device</string>
     <string name="set">Set</string>

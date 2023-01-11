@@ -46,7 +46,8 @@ class GeneralActivity : BaseActivity(), OnClickListener {
     lateinit var btBrightness:Button
     lateinit var btBrightnessSet: Button
     lateinit var btVolumeSet: Button
-    lateinit var btOrientationSet: Button
+    lateinit var btLandscape: Button
+    lateinit var btPortrait: Button
     var currentVolume:Int = 0
     var media_max:Int = 0
     private val MAX_BRIGHTNESS = 255
@@ -79,7 +80,8 @@ class GeneralActivity : BaseActivity(), OnClickListener {
         btReboot = findViewById(R.id.bt_reboot)
         btBrightnessSet = findViewById(R.id.bt_1)
         btVolumeSet = findViewById(R.id.bt_2)
-        btOrientationSet = findViewById(R.id.bt_3)
+        btLandscape = findViewById(R.id.bt_landscape)
+        btPortrait = findViewById(R.id.bt_portrait)
 
         relativeDeviceInfo.setOnClickListener(this)
         relativeOta.setOnClickListener(this)
@@ -91,13 +93,20 @@ class GeneralActivity : BaseActivity(), OnClickListener {
 
         btBrightnessSet.setOnClickListener(this)
         btVolumeSet.setOnClickListener(this)
-        btOrientationSet.setOnClickListener(this)
+        btLandscape.setOnClickListener(this)
+        btPortrait.setOnClickListener(this)
     }
     override fun onStart() {
         super.onStart()
         mAudioManager = getSystemService(AUDIO_SERVICE) as AudioManager?
 
         media_max = mAudioManager?.getStreamMaxVolume(AudioManager.STREAM_MUSIC)!!
+
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+            btPortrait.setBackgroundResource(R.drawable.gray_button_bg)
+        }else {
+            btLandscape.setBackgroundResource(R.drawable.gray_button_bg)
+        }
     }
 
     override fun onClick(p0: View?) {
@@ -136,8 +145,12 @@ class GeneralActivity : BaseActivity(), OnClickListener {
             R.id.bt_2 ->{
                 setDialog(this, R.drawable.ic_volume, getString(R.string.volume))
             }
-            R.id.bt_3 ->{
-                setDialog(this, R.drawable.ic_orientation, getString(R.string.orientation))
+            R.id.bt_landscape ->{
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            }
+
+            R.id.bt_portrait -> {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
         }
     }
@@ -187,18 +200,6 @@ class GeneralActivity : BaseActivity(), OnClickListener {
         val goBack = view.findViewById<TextView>(R.id.tv_go_back)
         val confirm = view.findViewById<Button>(R.id.bt_confirm)
         var edtInput = view.findViewById<EditText>(R.id.edt_input)
-        val orientation = view.findViewById<TextView>(R.id.tv_orientation)
-        val arrow = view.findViewById<ImageView>(R.id.iv_arrow)
-
-        if (title.equals(getString(R.string.orientation))){
-            edtInput.visibility = View.GONE
-            orientation.visibility = View.VISIBLE
-            arrow.visibility = View.VISIBLE
-        }else{
-            edtInput.visibility = View.VISIBLE
-            orientation.visibility = View.GONE
-            arrow.visibility = View.GONE
-        }
 
         ivIcon.setImageResource(iconId)
         tvTitle.text = title
@@ -208,40 +209,10 @@ class GeneralActivity : BaseActivity(), OnClickListener {
         builder.setCancelable(false)
         val dialog = builder.create()
         goBack.setOnClickListener { dialog.dismiss() }
-        orientation.setOnClickListener {
-            var mListPop = ListPopupWindow(this)
-            mListPop.setAdapter(
-                ArrayAdapter<String>(
-                    this,
-                    android.R.layout.simple_list_item_1,
-                    ORIENTATION)
-            )
-            mListPop.setWidth(orientation.width)
-            mListPop.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT)
-            mListPop.setAnchorView(orientation)
-            mListPop.setBackgroundDrawable(getDrawable(R.drawable.drop_down_bg))
-            mListPop.verticalOffset = 10
-            mListPop.setModal(true)
 
-            mListPop.setOnItemClickListener(object : AdapterView.OnItemClickListener {
-                override fun onItemClick(
-                    parent: AdapterView<*>?, view: View?, position: Int, id: Long){
-                    orientation.text = ORIENTATION[position]
-                    mListPop.dismiss()
-                }
-            })
-
-            mListPop.show()
-        }
         confirm.setOnClickListener {
             var value = edtInput.text.toString()
-            if (title.equals(getString(R.string.orientation))) {
-                if (orientation.text.equals("Landscape")){
-                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                }else if (orientation.text.equals("Portrait")){
-                    requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                }
-            }else if (title.equals(getString(R.string.volume))){
+            if (title.equals(getString(R.string.volume))){
                 if (getCurrentFocus() != null) {
                     imm!!.hideSoftInputFromWindow(
                         getCurrentFocus()?.getWindowToken(),

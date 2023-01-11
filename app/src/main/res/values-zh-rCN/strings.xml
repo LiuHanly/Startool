@@ -141,6 +141,7 @@
     <string name="brightness_tip">输入值(1-100)</string>
     <string name="reboot_tip">此设备将重新启动，您可能需要重新启动此应用.</string>
     <string name="select_orientatin">请选择</string>
+    <string name="change_orientation">改变方向</string>
     <string name="ota_input_tip">下载OTA包的url</string>
     <string name="ota_download">下载固件</string>
     <string name="ota_clear">清除输入</string>
