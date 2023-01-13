@@ -48,8 +48,4 @@ class AgingActivity : BaseActivity() {
     }
 
 
-    override fun onResume() {
-        super.onResume()
-        StatusNaviBarUitl.hide(this@AgingActivity)
-    }
 }
