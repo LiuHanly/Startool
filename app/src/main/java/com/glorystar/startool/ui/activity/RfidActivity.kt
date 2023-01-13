@@ -25,10 +25,7 @@ class RfidActivity : BaseActivity() {
 
         retrievedValue = findViewById(R.id.et_retrieved_value)
 
-        retrievedValue.setShowSoftInputOnFocus(false)
-
         if (Build.MODEL == "rk3399") {
-            retrievedValue.clearFocus()
             rfid = RS485Util(application)
             rfid!!.setCOM("/dev/ttyUSB1")
             rfid?.start()
@@ -38,7 +35,6 @@ class RfidActivity : BaseActivity() {
                 }
             })
         }else if (Build.MODEL == "rk3568"){
-            retrievedValue.clearFocus()
             rfid = RS485Util(application)
             rfid!!.setCOM("/dev/ttyS7")
             rfid?.start()
@@ -47,6 +43,8 @@ class RfidActivity : BaseActivity() {
                     runOnUiThread { retrievedValue.setText(HexUtil.ByteArrToHex(var1.toByteArray())) }
                 }
             })
+        }else {
+            retrievedValue.requestFocus()
         }
 
     }
