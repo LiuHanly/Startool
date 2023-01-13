@@ -123,11 +123,11 @@ class ButtonActivity : BaseActivity() {
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         when (keyCode) {
             KeyEvent.KEYCODE_VOLUME_DOWN -> {
-                KEYCODE_VOLUME_DOWN.setImageResource(R.drawable.ic_checkcircle__)
+                KEYCODE_VOLUME_UP.setImageResource(R.drawable.ic_checkcircle__)
                 VOLUME_DOWN = 2
             }
             KeyEvent.KEYCODE_VOLUME_UP -> {
-                KEYCODE_VOLUME_UP.setImageResource(R.drawable.ic_checkcircle__)
+                KEYCODE_VOLUME_DOWN.setImageResource(R.drawable.ic_checkcircle__)
                 VOLUME_UP = 2
             }
         }
