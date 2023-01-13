@@ -22,6 +22,10 @@ public class RS232Util {
         mContext = context;
     }
 
+    public void setCOM(String com){
+        this.COM = com;
+    }
+
     public void getData(OnGetDataListener dataListener) {
         this.onDataListener = dataListener;
     }

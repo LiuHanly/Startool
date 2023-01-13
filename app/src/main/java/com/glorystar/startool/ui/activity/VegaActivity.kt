@@ -34,6 +34,7 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
     lateinit var btCamera: Button
     lateinit var btSensor: Button
     lateinit var btRfid: Button
+    lateinit var btLed: Button
     lateinit var proximityInfo: TextView
     lateinit var ambientInfo: TextView
     var sensorManager: SensorManager? = null
@@ -44,6 +45,7 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
     lateinit var ivInputTwo: ImageView
     private val libraries = arrayOf("libiotest.so")
     private val mHandler = Handler()
+    private var ledStatus = false
 
     var inputOneRunable: Runnable = object : Runnable {
         override fun run() {
@@ -88,6 +90,8 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
         rs485 = RS485Util(application)
         if (Build.MODEL == "rk3399") {
             rs485!!.setCOM("/dev/ttyUSB0")
+        }else if (Build.MODEL == "rk3568"){
+            rs485!!.setCOM("/dev/ttyS8")
         }
 
         relativeRelay = findViewById(R.id.relative_relay)
@@ -97,6 +101,7 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
         btCamera = findViewById(R.id.bt_camera)
         btSensor = findViewById(R.id.bt_sensor)
         btRfid = findViewById(R.id.bt_rfid)
+        btLed = findViewById(R.id.bt_led)
 
         relativeRelay.setOnClickListener(this)
         relativeWiegand.setOnClickListener(this)
@@ -105,19 +110,18 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
         btCamera.setOnClickListener(this)
         btSensor.setOnClickListener(this)
         btRfid.setOnClickListener(this)
+        btLed.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
         when(p0?.id){
-            R.id.relative_relay -> startActivity(Intent(application, RelayActivity::class.java))
-            R.id.relative_wiegand -> startActivity(Intent(application, WiegandActivity::class.java))
+            R.id.relative_relay -> startActivity(Intent(this, RelayActivity::class.java))
+            R.id.relative_wiegand -> startActivity(Intent(this, WiegandActivity::class.java))
             R.id.bt_485 -> showDialog(this@VegaActivity)
             R.id.bt_input -> {
                 inputPortDialog(this@VegaActivity)
                 if (Build.MODEL != "rk3288") {
-                    println("0000000000000")
                     if (checkSoFile(libraries)) {
-                        println("11111111111111111")
                         mHandler.post(inputOneRunable)
                         mHandler.post(inputTwoRunable)
                     }
@@ -138,6 +142,17 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
                 )
             }
             R.id.bt_rfid -> startActivity(Intent(this@VegaActivity, RfidActivity::class.java))
+            R.id.bt_led -> {
+                if (ledStatus) {
+                    com.example.vod.MainActivity.output(2)
+                    btLed.text = getString(R.string.turn_on)
+                    ledStatus = false
+                }else {
+                    com.example.vod.MainActivity.output(1)
+                    btLed.text = getString(R.string.turn_off)
+                    ledStatus = true
+                }
+            }
         }
     }
 

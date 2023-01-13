@@ -26,7 +26,10 @@ class Neb156Activity : BaseActivity() {
 
     override fun initView(savedInstanceState: Bundle?) {
         titleView = findViewById(R.id.tile_view)
-        titleView.title.text = getString(R.string.model_neb156)
+
+        val title = intent.getStringExtra("title")
+
+        titleView.title.text = title
         titleView.action = this
 
         btButtons = findViewById(R.id.bt_buttons)

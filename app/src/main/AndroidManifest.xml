@@ -70,11 +70,14 @@
     <application
         android:name=".config.base.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
+        <activity
+            android:name=".ui.activity.Jar101Activity"
+            android:exported="false" />
         <activity
             android:name=".ui.activity.RfidModulesActivity"
             android:exported="false" />
@@ -237,12 +240,10 @@
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
             android:theme="@style/NoTitle" />
-
         <activity android:name=".ui.activity.ShutdownActivity" />
 
         <service android:name=".ui.service.WIFIAutoConnectionService" />
-
-        <service android:name=".ui.service.DownloadService"/>
+        <service android:name=".ui.service.DownloadService" />
 
         <receiver
             android:name=".ui.broadcast.WIFIStateReceiver"
@@ -254,8 +255,8 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.glorystar.startool.fileProvider"
             android:exported="false"
-            tools:replace="android:authorities"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

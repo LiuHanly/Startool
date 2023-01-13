@@ -1,5 +1,6 @@
 package com.glorystar.startool.ui.activity
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -18,9 +19,12 @@ class LightStripsActivity : BaseActivity(), View.OnClickListener {
     lateinit var linearYellow: LinearLayout
     lateinit var linearGreen: LinearLayout
     private var ioSdk: GSIOSdk? = null
-    private var green = false
-    private var yellow = false
-    private var red = false
+    private val Led_r = 1
+    private val Led_g = 0
+    private val Led_r_on = 0
+    private val Led_r_off = 1
+    private val Led_g_on = 1
+    private val Led_g_off = 0
 
     override fun getLayoutId(): Int = R.layout.activity_light_strips
 
@@ -55,7 +59,12 @@ class LightStripsActivity : BaseActivity(), View.OnClickListener {
                 linearGreen.visibility = View.GONE
                 btRed.visibility = View.GONE
                 linearRed.visibility = View.VISIBLE
-                ioSdk!!.red = 1
+                if (Build.MODEL == "rk3126c"){
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_g, Led_g_off)
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_r, Led_r_on)
+                }else {
+                    ioSdk!!.red = 1
+                }
             }
             R.id.bt_yellow -> {
                 btYellow.visibility = View.GONE
@@ -64,7 +73,12 @@ class LightStripsActivity : BaseActivity(), View.OnClickListener {
                 btRed.visibility = View.VISIBLE
                 linearRed.visibility = View.GONE
                 linearYellow.visibility = View.VISIBLE
-                ioSdk!!.setYellow(1)
+                if (Build.MODEL == "rk3126c"){
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_g, Led_g_on)
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_r, Led_r_on)
+                }else {
+                    ioSdk!!.setYellow(1)
+                }
             }
             R.id.bt_green -> {
                 btYellow.visibility = View.VISIBLE
@@ -73,22 +87,40 @@ class LightStripsActivity : BaseActivity(), View.OnClickListener {
                 btRed.visibility = View.VISIBLE
                 linearRed.visibility = View.GONE
                 linearGreen.visibility = View.VISIBLE
-                ioSdk!!.green = 1
+                if (Build.MODEL == "rk3126c"){
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_r, Led_r_off)
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_g, Led_g_on)
+                }else {
+                    ioSdk!!.green = 1
+                }
             }
             R.id.linear_red -> {
                 linearRed.visibility = View.GONE
                 btRed.visibility = View.VISIBLE
-                ioSdk!!.red = 0
+                if (Build.MODEL == "rk3126c"){
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_r, Led_r_off)
+                }else {
+                    ioSdk!!.red = 0
+                }
             }
             R.id.linear_yellow -> {
                 linearYellow.visibility = View.GONE
                 btYellow.visibility = View.VISIBLE
-                ioSdk!!.setYellow(0)
+                if (Build.MODEL == "rk3126c"){
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_r, Led_r_off)
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_g, Led_g_off)
+                }else {
+                    ioSdk!!.setYellow(0)
+                }
             }
             R.id.linear_green -> {
                 linearGreen.visibility = View.GONE
                 btGreen.visibility = View.VISIBLE
-                ioSdk!!.green = 0
+                if (Build.MODEL == "rk3126c"){
+                    com.glorystar.ledtest.MainActivity.setLedState(Led_g, Led_g_off)
+                }else {
+                    ioSdk!!.green = 0
+                }
             }
         }
     }

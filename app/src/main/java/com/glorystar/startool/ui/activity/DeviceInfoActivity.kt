@@ -10,10 +10,7 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.ui.view.TitleKtView
@@ -83,7 +80,16 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
                 showDialog(this, R.drawable.ic_device_info, getString(R.string.ethernet_mac_address), NetworkUtil.getEthernetMac())
             }
             R.id.bt_wifi_mac ->{
-                showDialog(this, R.drawable.ic_device_info, getString(R.string.wifi_mac_addres), NetworkUtil.getMacAddress())
+                if (NetworkUtil.isConnected(this)) {
+                    showDialog(
+                        this,
+                        R.drawable.ic_device_info,
+                        getString(R.string.wifi_mac_addres),
+                        NetworkUtil.getMacAddress()
+                    )
+                }else{
+                    Toast.makeText(this, "Please connect Wi-Fi first", Toast.LENGTH_SHORT).show()
+                }
             }
             R.id.bt_storage ->{
                 showDialog(this, R.drawable.ic_device_info, getString(R.string.internal_storage),

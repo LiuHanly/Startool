@@ -8,7 +8,6 @@
     <string name="Aging">Aging tests</string>
 
 
-
     <string name="Enter">Enter</string>
     <string name='General_masg'>Test common features on all devices. This test is able to find out whether internal APIs are working properly.</string>
     <string name='Model_masg'>Test specific components on particular model. This test is able to find out whether those components function correctly.</string>
@@ -283,6 +282,15 @@
     <string name="update_startool">Updating StarTools</string>
     <string name="model_test">Model specific test</string>
     <string name="model_detail">Please selecte your device model from below.\nOnly devices in the list are supported for this test.</string>
+    <string name="jar_series">JAR series</string>
+    <string name="neb_series">NEB series</string>
+    <string name="vega_series">VEGA series</string>
+    <string name="emt_series">EMT series</string>
+    <string name="tad_series">TAD series</string>
+    <string name="model_jar101">Model specific (JAR101)</string>
+    <string name="model_emt431">Model specific (EMT431)</string>
+    <string name="model_tad321">Model specific (TAD321)</string>
+    <string name="led">LED light</string>
 
     <!--DDR Test-->
     <string name="ddr_test_intro">It tries to maximize randomized traffic to memory from processor and I/O, with the intent of creating a realistic high load situation in order to test the existing hardware devices in a computer.</string>

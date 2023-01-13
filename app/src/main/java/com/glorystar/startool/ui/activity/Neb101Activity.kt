@@ -8,6 +8,7 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
@@ -43,6 +44,10 @@ class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
         titleView = findViewById(R.id.tile_view)
         titleView.title.text = getString(R.string.model_neb101)
         titleView.action = this
+
+        if (Build.MODEL.equals("rk3568")){
+            rs232!!.setCOM("/dev/ttyS7")
+        }
 
         relativeGpio = findViewById(R.id.relative_gpio)
         relativeWiegand = findViewById(R.id.relative_wiegand)

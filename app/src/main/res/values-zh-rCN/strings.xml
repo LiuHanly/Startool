@@ -281,6 +281,15 @@
     <string name="update_startool">升级StarTools</string>
     <string name="model_test">特定型号测试</string>
     <string name="model_detail">请从下面选择您的设备型号。\n此测试只支持列表中的设备.</string>
+    <string name="jar_series">JAR系列</string>
+    <string name="neb_series">NEB系列</string>
+    <string name="vega_series">VEGA系列</string>
+    <string name="emt_series">EMT系列</string>
+    <string name="tad_series">TAD系列</string>
+    <string name="model_jar101">型号(JAR101)</string>
+    <string name="model_emt431">型号(EMT431)</string>
+    <string name="model_tad321">型号(TAD321)</string>
+    <string name="led">LED灯</string>
 
     <!--DDR Test-->
     <string name="ddr_test_intro">它试图最大化从处理器和I/O到内存的随机流量 创建一个真实的高负载环境的目的是为了测试计算机中现有的硬件设备。</string>
