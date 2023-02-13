@@ -1,7 +1,6 @@
 package com.glorystar.startool.ui.activity
 
 import android.annotation.SuppressLint
-import android.content.PeriodicSync
 import android.content.res.AssetManager
 import android.content.res.Configuration
 import android.os.Bundle
@@ -22,6 +21,7 @@ import com.glorystar.startool.ui.adapter.BaseRecyclerHolder
 import com.glorystar.startool.ui.view.TitleKtView
 import com.glorystar.startool.utils.db.Student
 import com.glorystar.startool.utils.tool.JsonHelper
+import okhttp3.internal.notify
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
@@ -32,6 +32,7 @@ class PreAgingTests : BaseActivity() {
     val minItemBean: MutableList<AgingBean> = ArrayList<AgingBean>()
     lateinit var all_select: TextView
     lateinit var start_button: Button
+    var position = -1
 
 
     /**
@@ -68,10 +69,8 @@ class PreAgingTests : BaseActivity() {
 
         }
 
-
-
         baserecycleradapter =
-            object : BaseRecyclerAdapter<AgingBean>(this, null, R.layout.ageing_fro_imet) {
+            object : BaseRecyclerAdapter<AgingBean>(this, minItemBean, R.layout.ageing_fro_imet) {
                 /**
                  * 填充RecyclerView适配器的方法，子类需要重写
                  *
@@ -87,23 +86,22 @@ class PreAgingTests : BaseActivity() {
                     isScrolling: Boolean,
                     selectedPosition: Int
                 ) {
+
                     val image = holder?.getView<ImageView>(R.id.iv_image)
                     val textView = holder?.getView<TextView>(R.id.tv_title_name)
                     val checkBox = holder?.getView<CheckBox>(R.id.checkBox)
                     checkBox?.isChecked = data?.selected == true
                     data?.imageView?.let { image?.setImageResource(it) }
                     data?.AdingName?.let { textView?.text = it }
-
-                    checkBox?.setOnCheckedChangeListener { buttonView, isChecked ->
-                        minItemBean[position].selected = isChecked
-                    }
-
-
                 }
 
             }
+
         ageing_fro_recy.adapter = baserecycleradapter
-        baserecycleradapter?.setNewData(minItemBean)
+     baserecycleradapter?.setOnItemClickListener { viewHolder, data, position ->
+            minItemBean[position].selected = !data.selected
+            baserecycleradapter?.notifyDataSetChanged()
+        }
 
         all_select.setOnClickListener {
             minItemBean.forEach {
@@ -114,9 +112,8 @@ class PreAgingTests : BaseActivity() {
         }
 
         start_button.setOnClickListener {
-            MessageActivity.toStartActivity(this@PreAgingTests)
-            PeriodicSync(lines1)
-
+             MessageActivity.toStartActivity(this@PreAgingTests)
+             PeriodicSync(lines1)
         }
 
 
@@ -141,10 +138,7 @@ class PreAgingTests : BaseActivity() {
                     if (itJson.id == appinfoIt.id) {
                         alils.add(
                             Student(
-                                id,
-                                appinfoIt.id,
-                                appinfoIt.AdingName,
-                                appinfoIt.selected
+                                id, appinfoIt.id, appinfoIt.AdingName, appinfoIt.selected
                             )
                         )
                     } else if (itJson.id === 11) {

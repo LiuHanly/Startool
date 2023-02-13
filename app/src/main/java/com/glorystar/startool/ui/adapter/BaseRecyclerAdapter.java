@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.glorystar.startool.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -128,6 +130,12 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         final BaseRecyclerHolder baseRecyclerHolder = holder;
 
         if (listener != null) {
+            holder.getView(R.id.checkBox).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(baseRecyclerHolder, list.get(position), position);
+                }
+            });
             //      holder.itemView.setBackgroundResource(R.drawable.recycler_bg);//设置背景
         }
 // /       holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {

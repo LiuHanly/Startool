@@ -29,6 +29,7 @@
     </LinearLayout>
 
     <CheckBox
+
         android:id="@+id/checkBox"
         android:layout_width="45mm"
         android:layout_height="45mm"
