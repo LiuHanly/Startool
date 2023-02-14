@@ -104,7 +104,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
     public void change(T item, int position) {
         list.set(position, item);
         this.notifyDataSetChanged();
-       // notifyItemInserted(position);
+        // notifyItemInserted(position);
     }
 
 
@@ -130,12 +130,17 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<BaseRe
         final BaseRecyclerHolder baseRecyclerHolder = holder;
 
         if (listener != null) {
-            holder.getView(R.id.checkBox).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onItemClick(baseRecyclerHolder, list.get(position), position);
-                }
-            });
+            try {
+                holder.getView(R.id.checkBox).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        listener.onItemClick(baseRecyclerHolder, list.get(position), position);
+                    }
+                });
+            } catch (Exception ignored) {
+
+            }
+
             //      holder.itemView.setBackgroundResource(R.drawable.recycler_bg);//设置背景
         }
 // /       holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
