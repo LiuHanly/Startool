@@ -79,8 +79,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
         linearKeyboard.setOnClickListener(this)
         linearSerial.setOnClickListener(this)
 
-        LIGHTMODE.add(getString(R.string.auto))
         LIGHTMODE.add(getString(R.string.on))
+        LIGHTMODE.add(getString(R.string.auto))
         LIGHTMODE.add(getString(R.string.off))
 
         barcode!!.start()
