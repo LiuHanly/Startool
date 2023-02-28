@@ -136,6 +136,7 @@
     <string name="landscape">横屏</string>
     <string name="portrait">竖屏</string>
     <string name="wifi_tip">请确保WIFI已连接</string>
+    <string name="ethernet_tip">请确保以太网已连接</string>
     <string name="go_setting">去设置</string>
     <string name="confirm">确定</string>
     <string name="brightness_tip">输入值(1-100)</string>

@@ -107,12 +107,17 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
         var ivIcon = view.findViewById<ImageView>(R.id.iv_info)
         var tvTitle = view.findViewById<TextView>(R.id.tv_info_title)
         var tvInfo = view.findViewById<TextView>(R.id.tv_info)
+        var tvMacTip = view.findViewById<TextView>(R.id.tv_mac_tip)
         var goBack = view.findViewById<TextView>(R.id.tv_go_back)
         val relativeHelp = view.findViewById<RelativeLayout>(R.id.relative_help)
         val goSetting = view.findViewById<TextView>(R.id.go_setting)
 
-        if (title.equals(getString(R.string.wifi_mac_addres)) || title.equals(getString(R.string.ethernet_mac_address))){
+        if (title.equals(getString(R.string.wifi_mac_addres))){
             relativeHelp.visibility = View.VISIBLE
+            tvMacTip.text = getString(R.string.wifi_tip)
+        }else if (title.equals(getString(R.string.ethernet_mac_address))) {
+            relativeHelp.visibility = View.VISIBLE
+            tvMacTip.text = getString(R.string.ethernet_tip)
         }else{
             relativeHelp.visibility = View.GONE
         }
