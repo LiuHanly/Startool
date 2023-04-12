@@ -32,7 +32,7 @@ public class SerialReadThread extends Thread{
     }
 
     public interface OnDataReceiveListener {
-        void onDataReceive(String str);
+        void onDataReceive(byte[] buffer, int size);
     }
 
     public void setOnDataReceiveListener(OnDataReceiveListener dataReceiveListener) {
@@ -57,7 +57,7 @@ public class SerialReadThread extends Thread{
                     int size = inputStream.read(buffer);
                     if (size > 0) {
                         if (null != onDataReceiveListener) {
-                            onDataReceiveListener.onDataReceive(new String(buffer, 0, size).toString());
+                            onDataReceiveListener.onDataReceive(buffer, size);
                         }
                     }
                 }

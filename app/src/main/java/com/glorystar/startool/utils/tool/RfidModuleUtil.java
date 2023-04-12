@@ -81,7 +81,8 @@ public class RfidModuleUtil {
         this.thread.setSleepTime(this.sleepTime);
         this.thread.start();
         this.thread.setOnDataReceiveListener(new SerialReadThread.OnDataReceiveListener() {
-            public void onDataReceive(String str) {
+            public void onDataReceive(byte[] buffer, int size) {
+                String str = new String(buffer, 0, size).toString();
                 if (onDataListener != null) {
                     System.out.println(str.trim());
                     if (str.length() >10) {

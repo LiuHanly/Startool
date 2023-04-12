@@ -55,9 +55,9 @@ public class RS232Util {
         this.thread.setSleepTime(this.sleepTime);
         this.thread.start();
         this.thread.setOnDataReceiveListener(new SerialReadThread.OnDataReceiveListener() {
-            public void onDataReceive(String str) {
+            public void onDataReceive(byte[] buffer, int size) {
                 if (onDataListener != null) {
-                    onDataListener.onDataReceive(str);
+                    onDataListener.onDataReceive(buffer, size);
                 }
             }
         });
@@ -75,6 +75,6 @@ public class RS232Util {
     }
 
     public interface OnGetDataListener {
-        void onDataReceive(String var1);
+        void onDataReceive(byte[] buffer, int size);
     }
 }

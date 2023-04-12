@@ -112,13 +112,15 @@ class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
         dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
 
         rs232?.start()
-        rs232!!.getData(object : RS232Util.OnGetDataListener {
-            override fun onDataReceive(var1: String) {
-                runOnUiThread {
-                    tvInfo.setText(HexUtil.ByteArrToHex(var1.toByteArray()))
+        rs232!!.getData { buffer, size ->
+            runOnUiThread {
+                val data = ByteArray(size)
+                for (i in 0 until size) {
+                    data[i] = buffer[i]
                 }
+                tvInfo.setText(HexUtil.ByteArrToHex(data))
             }
-        })
+        }
     }
 
     private fun sensorDialog(context: Context?) {

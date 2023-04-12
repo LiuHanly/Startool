@@ -80,7 +80,8 @@ public class BarcodeUtil {
         this.thread.setSleepTime(this.sleepTime);
         this.thread.start();
         this.thread.setOnDataReceiveListener(new SerialReadThread.OnDataReceiveListener() {
-            public void onDataReceive(String str) {
+            public void onDataReceive(byte[] buffer, int size) {
+                String str = new String(buffer, 0, size).toString();
                 if (onDataListener != null) {
                     if (!str.startsWith("BEPBEP") && !str.startsWith("SCNLED")) {
                         if (scanMode) {

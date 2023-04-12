@@ -178,11 +178,12 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
         dialog.window!!.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
 
         rs485?.start()
-        rs485!!.getData(object : RS485Util.OnGetDataListener {
-            override fun onDataReceive(var1: String) {
-                runOnUiThread { tvInfo.setText(HexUtil.ByteArrToHex(var1.toByteArray())) }
+        rs485!!.getData { buffer, size -> runOnUiThread {
+            val data = ByteArray(size)
+            for (i in 0 until size) {
+                data[i] = buffer[i]
             }
-        })
+            tvInfo.setText(HexUtil.ByteArrToHex(data)) } }
     }
 
     private fun sensorDialog(context: Context?) {
