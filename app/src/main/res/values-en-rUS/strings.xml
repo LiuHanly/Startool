@@ -206,6 +206,12 @@
     <string name="input_port_tip">Refer to the manual of testing kit for instructions</string>
     <string name="port_1">Port 1</string>
     <string name="port_2">Port 2</string>
+    <string name="port_3">Port 3</string>
+    <string name="port_4">Port 4</string>
+    <string name="port_5">Port 5</string>
+    <string name="port_6">Port 6</string>
+    <string name="port_7">Port 7</string>
+    <string name="port_8">Port 8</string>
     <string name="ready">Ready</string>
     <string name="success">Success</string>
     <string name="turn_on">Turn on</string>
@@ -317,4 +323,8 @@
     <string name="reporttest">Aging test report</string>
     <string name="reporttest_masg">The device will automatically restart 5 minutes later</string>
     <string name="wifi_masg">Whether the wifi connection is successful</string>
+    <string name="input_eight_port">Alarm input</string>
+    <string name="door_bell">Door bell input</string>
+    <string name="input_prot_3">Input port 1&amp;2&amp;3</string>
+    <string name="loop_out">Loop out</string>
 </resources>

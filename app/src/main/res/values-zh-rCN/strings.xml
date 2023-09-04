@@ -207,6 +207,12 @@
     <string name="input_port_tip">有关说明，请参阅测试套件手册</string>
     <string name="port_1">端口 1</string>
     <string name="port_2">端口 2</string>
+    <string name="port_3">端口 3</string>
+    <string name="port_4">端口 4</string>
+    <string name="port_5">端口 5</string>
+    <string name="port_6">端口 6</string>
+    <string name="port_7">端口 7</string>
+    <string name="port_8">端口 8</string>
     <string name="ready">Ready</string>
     <string name="success">成功</string>
     <string name="turn_on">开启</string>
@@ -319,4 +325,8 @@
     <string name="reporttest">老化试验报告</string>
     <string name="reporttest_masg">5分钟后设备会自动重启</string>
     <string name="wifi_masg">wifi连接是否成功</string>
+    <string name="input_eight_port">报警输入</string>
+    <string name="door_bell">门铃输入</string>
+    <string name="input_prot_3">输入端口 1&amp;2&amp;3</string>
+    <string name="loop_out">回路输出</string>
 </resources>

@@ -159,6 +159,15 @@ public class CameraPreviewManager implements TextureView.SurfaceTextureListener 
     }
 
     /**
+     * 设置镜像
+     */
+    public void setMirror(){
+        if (mTextureView != null) {
+            mTextureView.setRotationY(180);
+        }
+    }
+
+    /**
      * 开启摄像头
      */
 

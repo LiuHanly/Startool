@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorMain"
+    tools:context=".ui.activity.Vid101Activity">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_8"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_gpio" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_8"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Relay 1"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_relay1_close"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/gpio_close"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+
+                <Button
+                    android:id="@+id/bt_relay1_open"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24dp"
+                    android:layout_toLeftOf="@+id/bt_relay1_close"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/gpio_open"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@drawable/selector_mode_bg">
+
+                <ImageView
+                    android:id="@+id/iv_9"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_gpio" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_9"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Relay 2"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_relay2_close"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/gpio_close"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+
+                <Button
+                    android:id="@+id/bt_relay2_open"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24dp"
+                    android:layout_toLeftOf="@+id/bt_relay2_close"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/gpio_open"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@drawable/selector_mode_bg">
+                <ImageView
+                    android:id="@+id/iv_10"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_gpio"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_10"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/door_bell"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_input"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/test"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@drawable/selector_mode_bg">
+                <ImageView
+                    android:id="@+id/iv_14"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_gpio"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_14"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/input_eight_port"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_alarm_input"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/test"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@drawable/selector_mode_bg">
+                <ImageView
+                    android:id="@+id/iv_11"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_chips"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_11"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/rs485"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_485"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/r_button_bg"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:textSize="21dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:text="@string/open_port"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@drawable/selector_mode_bg">
+                <ImageView
+                    android:id="@+id/iv_12"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_camera"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_12"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/camera"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_camera"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/test"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@drawable/selector_mode_bg">
+                <ImageView
+                    android:id="@+id/iv_13"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_sensor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_13"
+                    android:layout_marginLeft="24dp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/sensors"/>
+
+                <Button
+                    android:id="@+id/bt_sensor"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/test"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:background="@drawable/selector_mode_bg">
+                <ImageView
+                    android:id="@+id/iv_15"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/ic_light_strip"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/iv_15"
+                    android:layout_marginLeft="24dp"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/light_strips"/>
+
+                <Button
+                    android:id="@+id/bt_light"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/test"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

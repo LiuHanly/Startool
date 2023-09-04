@@ -190,7 +190,7 @@ class WiegandActivity : BaseActivity(), View.OnClickListener {
         builder.setCancelable(false)
         val dialog = builder.create()
         stop.setOnClickListener {
-            mHandler.removeCallbacks(wiegandRunable)
+            mHandler.removeCallbacks(sendRunnable)
             dialog.dismiss()
         }
 

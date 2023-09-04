@@ -10,10 +10,10 @@ android {
 
     defaultConfig {
         applicationId "com.glorystar.startool"
-        minSdk 21
+        minSdk 24
         targetSdk 21
         versionCode 1
-        versionName "1.6"
+        versionName "2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
@@ -50,6 +50,7 @@ android {
 
     packagingOptions {
         exclude 'META-INF/library_release.kotlin_module'
+        exclude 'lib/*/liblog.so'
     }
 
     sourceSets {
@@ -112,6 +113,9 @@ dependencies {
     implementation files('libs/otaSdk-release.aar')
     implementation files('libs/GSIOSdk-release.aar')
     implementation files('libs/relaylibrary.aar')
+    implementation files('libs/lightStrip.aar')
+    implementation files('libs/keylibrary.aar')
+    implementation files('libs/vodlibrary.aar')
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.google.code.gson:gson:2.8.8'
 

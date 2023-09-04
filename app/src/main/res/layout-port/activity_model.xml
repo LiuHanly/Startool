@@ -448,6 +448,78 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/relative_vod101_rk3568"
+                android:layout_width="match_parent"
+                android:layout_height="103mm"
+                android:layout_marginTop="24mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="25mm"
+                android:paddingRight="24mm">
+
+                <ImageView
+                    android:id="@+id/iv_16"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_16"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="VOD101-RK3568"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <ImageView
+                    android:layout_width="51mm"
+                    android:layout_height="51mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_vid101_a133"
+                android:layout_width="match_parent"
+                android:layout_height="103mm"
+                android:layout_marginTop="24mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="25mm"
+                android:paddingRight="24mm">
+
+                <ImageView
+                    android:id="@+id/iv_17"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_17"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="VID101-A133"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <ImageView
+                    android:layout_width="51mm"
+                    android:layout_height="51mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/relative_vod073_rk3568"
                 android:layout_width="match_parent"
                 android:layout_height="103mm"

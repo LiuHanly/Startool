@@ -53,4 +53,29 @@ public class HexUtil {
         return String.format("%02x", new Object[]{inByte}).toUpperCase();
     }
 
+    public static byte[] HexToByteArr(String inHex) {
+        byte[] result;
+        int hexlen = inHex.length();
+        if (isOdd(hexlen) == 1) {
+            hexlen++;
+            result = new byte[(hexlen / 2)];
+            inHex = "0" + inHex;
+        } else {
+            result = new byte[(hexlen / 2)];
+        }
+        int j = 0;
+        for (int i = 0; i < hexlen; i += 2) {
+            result[j] = HexToByte(inHex.substring(i, i + 2));
+            j++;
+        }
+        return result;
+    }
+
+    public static int isOdd(int num) {
+        return num & 1;
+    }
+
+    public static byte HexToByte(String inHex) {
+        return (byte) Integer.parseInt(inHex, 16);
+    }
 }

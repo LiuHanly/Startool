@@ -73,6 +73,12 @@ public class RS485Util {
 
     }
 
+    public void sendData(String str){
+        if (this.thread != null){
+            this.thread.sendCmds(HexUtil.HexToByteArr(str));
+        }
+    }
+
     public interface OnGetDataListener {
         void onDataReceive(byte[] buffer, int size);
     }

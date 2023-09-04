@@ -151,10 +151,23 @@ public class CameraPreviewManager2 implements TextureView.SurfaceTextureListener
     }
 
 
+    /**
+     * 旋转
+     * @param rotate
+     */
     public void setRotate(int rotate){
         if (mTextureView != null) {
             mTextureView.setRotation(rotate);
             mTextureView.setPreviewSize(previewWidth, previewHeight);
+        }
+    }
+
+    /**
+     * 设置镜像
+     */
+    public void setMirror(){
+        if (mTextureView != null) {
+            mTextureView.setRotationY(180);
         }
     }
 

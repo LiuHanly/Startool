@@ -22,6 +22,8 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
     lateinit var vod073px30: RelativeLayout
     lateinit var emt431rk3399: RelativeLayout
     lateinit var tad321rk3399: RelativeLayout
+    lateinit var vod101rk3568: RelativeLayout
+    lateinit var vid101a133: RelativeLayout
 
     /**
      * 设置布局
@@ -50,6 +52,8 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
         vod073rk3568 = findViewById(R.id.relative_vod073_rk3568)
         emt431rk3399 = findViewById(R.id.relative_emt431_rk3399)
         tad321rk3399 = findViewById(R.id.relative_tad321_rk3399)
+        vod101rk3568 = findViewById(R.id.relative_vod101_rk3568)
+        vid101a133 = findViewById(R.id.relative_vid101_a133)
 
         jar101led.setOnClickListener(this)
         neb101rk3568.setOnClickListener(this)
@@ -63,6 +67,8 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
         vod073rk3568.setOnClickListener(this)
         emt431rk3399.setOnClickListener(this)
         tad321rk3399.setOnClickListener(this)
+        vod101rk3568.setOnClickListener(this)
+        vid101a133.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -113,6 +119,16 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
             R.id.relative_tad321_rk3399 ->{
                 var intent = Intent(this, Neb156Activity::class.java)
                 intent.putExtra("title", getString(R.string.model_tad321))
+                startActivity(intent)
+            }
+            R.id.relative_vod101_rk3568 ->{
+                var intent = Intent(this, Vod101Activity::class.java)
+                intent.putExtra("title", getString(R.string.model_vega))
+                startActivity(intent)
+            }
+            R.id.relative_vid101_a133 ->{
+                var intent = Intent(this, Vid101Activity::class.java)
+                intent.putExtra("title", getString(R.string.model_vega))
                 startActivity(intent)
             }
         }

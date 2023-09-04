@@ -47,8 +47,9 @@ class DualCameraActivity : BaseActivity(), View.OnClickListener {
         btColorTurnOff.setOnClickListener(this)
         colorRotate.setOnClickListener(this)
 
-        CameraPreviewManager.getInstance().setCameraFacing(CameraPreviewManager.CAMERA_FACING_BACK)
+        CameraPreviewManager.getInstance().setCameraFacing(CameraPreviewManager.CAMERA_FACING_FRONT)
         CameraPreviewManager.getInstance().startPreview(this, textureColorView, 640, 480)
+        CameraPreviewManager.getInstance().setMirror()
         if (mCameraNum > 1) {
             CameraPreviewManager2.getInstance().cameraFacing =
                 CameraPreviewManager.CAMERA_FACING_BACK

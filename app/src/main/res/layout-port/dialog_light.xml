@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:color_picker="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <LinearLayout
+        android:layout_width="600mm"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:background="@drawable/selector_mode_bg">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="30mm"
+            android:layout_marginTop="38mm"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_info"
+                android:layout_width="27mm"
+                android:layout_height="27mm"
+                android:src="@drawable/ic_light_strip"/>
+
+            <TextView
+                android:id="@+id/tv_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12mm"
+                android:textSize="25mm"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/light_strips"/>
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/iv_light"
+            android:layout_width="60mm"
+            android:layout_height="60mm"
+            android:layout_marginRight="40mm"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_light_off"/>
+
+        <com.glorystar.startool.utils.tool.ColorPickerView
+            android:id="@+id/color_pick_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10mm"
+            color_picker:center_color="#000000"
+            color_picker:center_radius="8mm"
+            color_picker:circle_radius="110mm"
+            color_picker:wheel_radius="116mm" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50mm"
+            android:layout_marginTop="30mm"
+            android:layout_marginLeft="42mm"
+            android:layout_marginRight="42mm"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/selector_color_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15mm"
+                android:textColor="@color/white"
+                android:textSize="18mm"
+                android:text="Classic"/>
+
+            <TextView
+                android:id="@+id/tv_red"
+                android:layout_width="35mm"
+                android:layout_height="35mm"
+                android:layout_marginLeft="15mm"
+                android:background="@drawable/color_red"/>
+
+            <TextView
+                android:id="@+id/tv_yellow"
+                android:layout_width="35mm"
+                android:layout_height="35mm"
+                android:layout_marginLeft="15mm"
+                android:background="@drawable/color_yellow"/>
+
+            <TextView
+                android:id="@+id/tv_green"
+                android:layout_width="35mm"
+                android:layout_height="35mm"
+                android:layout_marginLeft="15mm"
+                android:background="@drawable/color_green"/>
+
+            <TextView
+                android:id="@+id/tv_qing"
+                android:layout_width="35mm"
+                android:layout_height="35mm"
+                android:layout_marginLeft="15mm"
+                android:background="@drawable/color_qing"/>
+
+            <TextView
+                android:id="@+id/tv_white"
+                android:layout_width="35mm"
+                android:layout_height="35mm"
+                android:layout_marginLeft="15mm"
+                android:background="@drawable/color_white"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_go_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="40mm"
+            android:layout_marginRight="42mm"
+            android:layout_marginBottom="45mm"
+            android:fontFamily="@font/montserrat_regular"
+            android:textStyle="bold"
+            android:textSize="21mm"
+            android:textColor="@color/colorMainButton"
+            android:text="@string/go_back"/>
+    </LinearLayout>
+</RelativeLayout>

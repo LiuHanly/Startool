@@ -36,6 +36,7 @@
     <color name="red_50">#80ff0000</color>
     <color name="orange_red">#ffe6615c</color>
     <color name="orange_red_50">#FF70DF</color>
-
+    <color name="colorRed">#FF0000</color>
+    <color name="colorYellow">#FFFF00</color>
 
 </resources>

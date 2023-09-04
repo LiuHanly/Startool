@@ -22,6 +22,7 @@ import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.ui.view.TitleKtView
 import com.glorystar.startool.utils.tool.HexUtil
 import com.glorystar.startool.utils.tool.RS485Util
+import com.glorystar.vodlibrary.VodLib
 import java.io.File
 import java.util.ArrayList
 
@@ -144,11 +145,19 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
             R.id.bt_rfid -> startActivity(Intent(this@VegaActivity, RfidActivity::class.java))
             R.id.bt_led -> {
                 if (ledStatus) {
-                    com.example.vod.MainActivity.output(2)
+                    if (Build.MODEL == "rk3568"){
+                        VodLib.cameraLed(0)
+                    }else {
+                        com.example.vod.MainActivity.output(2)
+                    }
                     btLed.text = getString(R.string.turn_on)
                     ledStatus = false
                 }else {
-                    com.example.vod.MainActivity.output(1)
+                    if (Build.MODEL == "rk3568"){
+                        VodLib.cameraLed(1)
+                    }else {
+                        com.example.vod.MainActivity.output(1)
+                    }
                     btLed.text = getString(R.string.turn_off)
                     ledStatus = true
                 }

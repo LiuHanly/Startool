@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.RelayActivity"
+    android:background="@color/colorMain">
+
+    <com.glorystar.startool.ui.view.TitleKtView
+        android:id="@+id/tile_view"
+        android:layout_width="match_parent"
+        android:layout_height="104mm"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tile_view">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="103mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginRight="30mm"
+            android:layout_marginTop="12mm"
+            android:paddingLeft="24mm"
+            android:paddingRight="24mm"
+            android:background="@drawable/selector_mode_bg">
+
+            <ImageView
+                android:id="@+id/iv_1"
+                android:layout_width="31mm"
+                android:layout_height="31mm"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_gpio" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24mm"
+                android:layout_toRightOf="@+id/iv_1"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Relay 1"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <Button
+                android:id="@+id/bt_relay1_close"
+                android:layout_width="150mm"
+                android:layout_height="55mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/gpio_close"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+
+            <Button
+                android:id="@+id/bt_relay1_open"
+                android:layout_width="150mm"
+                android:layout_height="55mm"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24mm"
+                android:layout_toLeftOf="@+id/bt_relay1_close"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/gpio_open"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="103mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginRight="30mm"
+            android:layout_marginTop="20mm"
+            android:paddingLeft="24mm"
+            android:paddingRight="24mm"
+            android:background="@drawable/selector_mode_bg">
+
+            <ImageView
+                android:id="@+id/iv_2"
+                android:layout_width="31mm"
+                android:layout_height="31mm"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_gpio" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24mm"
+                android:layout_toRightOf="@+id/iv_2"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Relay 2"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <Button
+                android:id="@+id/bt_relay2_close"
+                android:layout_width="150mm"
+                android:layout_height="55mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/gpio_close"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+
+            <Button
+                android:id="@+id/bt_relay2_open"
+                android:layout_width="150mm"
+                android:layout_height="55mm"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24mm"
+                android:layout_toLeftOf="@+id/bt_relay2_close"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/gpio_open"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="103mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginRight="30mm"
+            android:layout_marginTop="20mm"
+            android:paddingLeft="24mm"
+            android:paddingRight="24mm"
+            android:background="@drawable/selector_mode_bg">
+
+            <ImageView
+                android:id="@+id/iv_3"
+                android:layout_width="31mm"
+                android:layout_height="31mm"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_gpio" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24mm"
+                android:layout_toRightOf="@+id/iv_3"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Relay 3"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <Button
+                android:id="@+id/bt_relay3_close"
+                android:layout_width="150mm"
+                android:layout_height="55mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/gpio_close"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+
+            <Button
+                android:id="@+id/bt_relay3_open"
+                android:layout_width="150mm"
+                android:layout_height="55mm"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="24mm"
+                android:layout_toLeftOf="@+id/bt_relay3_close"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/gpio_open"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/relative_help"
+        android:layout_width="match_parent"
+        android:layout_height="77mm"
+        android:layout_marginLeft="30mm"
+        android:layout_marginRight="30mm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="48mm"
+        android:gravity="center"
+        android:background="@drawable/selector_mode_bg">
+
+        <ImageView
+            android:id="@+id/iv_help"
+            android:layout_width="29mm"
+            android:layout_height="29mm"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30mm"
+            android:src="@drawable/ic_help" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24mm"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_help"
+            android:textSize="23mm"
+            android:text="@string/gpio_tip"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
