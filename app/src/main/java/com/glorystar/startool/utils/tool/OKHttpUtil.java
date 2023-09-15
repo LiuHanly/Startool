@@ -1,6 +1,5 @@
 package com.glorystar.startool.utils.tool;
 
-import com.glorystar.otasdk.utils.SSLSocketClient;
 
 import java.io.IOException;
 import java.security.cert.CertificateException;

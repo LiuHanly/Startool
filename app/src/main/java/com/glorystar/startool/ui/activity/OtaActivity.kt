@@ -3,6 +3,7 @@ package com.glorystar.startool.ui.activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
@@ -79,6 +80,15 @@ class OtaActivity : BaseActivity() {
                     )
                 }
             }else if (downloadPackage.text == getString(R.string.install_package)){
+                if (Build.MODEL.toString().lowercase().startsWith("a133")){
+                    showDialog(
+                        this@OtaActivity,
+                        R.drawable.ic_ota,
+                        getString(R.string.ota_update),
+                        "",
+                        1
+                    )
+                }
                 otaSdk.upgrade()
             }
         }
@@ -116,6 +126,10 @@ class OtaActivity : BaseActivity() {
 
             override fun onPreUpgrade() {}
             override fun onUpgrade() {}
+            override fun onUpgradeProgress(p0: Int) {
+                progressBar.progress = p0
+            }
+
             override fun onError(i: Int, s: String) {
                 runOnUiThread {
                     if (i == 1000) {
