@@ -3,7 +3,9 @@ package com.glorystar.startool.utils.tool;
 
 import static com.glorystar.startool.config.constant.Constant.BEEP;
 import static com.glorystar.startool.config.constant.Constant.HFTAG_HIDICLASS;
+import static com.glorystar.startool.config.constant.Constant.HFTAG_LEGIC;
 import static com.glorystar.startool.config.constant.Constant.HFTAG_MIFARE;
+import static com.glorystar.startool.config.constant.Constant.HITAG_1;
 import static com.glorystar.startool.config.constant.Constant.ICLASS_READ;
 import static com.glorystar.startool.config.constant.Constant.LFTAG_EM4102;
 import static com.glorystar.startool.config.constant.Constant.LFTAG_HIDPROX;
@@ -94,12 +96,20 @@ public class RfidModuleUtil {
                                     cardType = HFTAG_MIFARE;
                                     cardId = str.substring(10);
                                     break;
+                                case "83":
+                                    cardType = HFTAG_LEGIC;
+                                    cardId = str.substring(10);
+                                    break;
                                 case "84":
                                     cardType = HFTAG_HIDICLASS;
                                     cardId = str.substring(10);
                                     break;
                                 case "40":
                                     cardType = LFTAG_EM4102;
+                                    cardId = str.substring(10);
+                                    break;
+                                case "41":
+                                    cardType = HITAG_1;
                                     cardId = str.substring(10);
                                     break;
                                 case "49":

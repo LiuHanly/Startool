@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 /**
- * 日期时间转换工具类
  */
 @SuppressLint("SimpleDateFormat")
 object DateUtil {
@@ -25,7 +24,6 @@ object DateUtil {
     var TIMESTAMP_PATTERN_2 = "yyyy/MM/dd HH:mm:ss"
 
     /**
-     * 时间戳转换为星期
      * @param //date
      */
     fun getWeek(timeStamp: Long): String {
@@ -38,7 +36,6 @@ object DateUtil {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        // 获取指定日期转换成星期几
         when (mydate) {
             1 -> {
                 week = "周日"
@@ -65,12 +62,6 @@ object DateUtil {
         return week
     }
 
-    /**
-     * 日期转换为字符串
-     * @param date    日期
-     * @param format  日期格式
-     * @return 指定格式的日期字符串
-     */
     fun formatDateByFormat(date: Date?, format: String?): String {
         var result = ""
         if (date != null && !TextUtils.isEmpty(format)) {
@@ -84,38 +75,21 @@ object DateUtil {
         return result
     }
 
-    /**
-     * 转换为默认格式(yyyy-MM-dd)的日期字符串
-     * @param date
-     * @return
-     */
     fun formatDefaultDate(date: Date?): String {
         return formatDateByFormat(date, DEFAULT_PATTERN)
     }
 
-    /**
-     * 转换为目录格式(yyyy/MM/dd/)的日期字符串
-     * @param date
-     * @return
-     */
+
     fun formatDirDate(date: Date?): String {
         return formatDateByFormat(date, DIR_PATTERN)
     }
 
-    /**
-     * 转换为完整格式(yyyy-MM-dd HH:mm:ss)的日期字符串
-     * @param date
-     * @return
-     */
+
     fun formatTimesTampDate(date: Date?): String {
         return formatDateByFormat(date, TIMESTAMP_PATTERN)
     }
 
-    /**
-     * 转换为时分秒格式(HH:mm:ss)的日期字符串
-     * @param date
-     * @return
-     */
+
     fun formatTimesDate(date: Date?): String {
         return formatDateByFormat(date, TIMES_PATTERN)
     }
@@ -123,23 +97,14 @@ object DateUtil {
     val timesDate: String
         get() = formatDateByFormat(Date(), TIMES_PATTERN)
 
-    /**
-     * 转换为时分秒格式(HH:mm:ss)的日期字符串
-     * @param date
-     * @return
-     */
+
     fun formatNoCharDate(date: Date?): String {
         return formatDateByFormat(date, NOCHAR_PATTERN)
     }
 
 
 
-    /**
-     * 日期格式字符串转换为日期对象
-     * @param strDate  日期格式字符串
-     * @param pattern  日期对象
-     * @return
-     */
+
     fun parseDate(strDate: String?, pattern: String?): Date? {
         try {
             val format = SimpleDateFormat(pattern)
@@ -150,90 +115,52 @@ object DateUtil {
         return null
     }
 
-    /**
-     * 字符串转换为默认格式(yyyy-MM-dd)日期对象
-     * @param date
-     * @return
-     * @throws Exception
-     */
+
     fun parseDefaultDate(date: String?): Date? {
         return parseDate(date, DEFAULT_PATTERN)
     }
 
-    /**
-     * 字符串转换为默认格式(yyyy-MM-dd HH:mm)日期对象
-     * @param date
-     * @return
-     * @throws Exception
-     */
+
     fun parseDefaultDate_2(date: String?): Date? {
         return parseDate(date, "yyyy-MM-dd HH:mm")
     }
 
-    /**
-     * 字符串转换为完整格式(yyyy-MM-dd HH:mm:ss)日期对象
-     * @param date
-     * @return
-     * @throws Exception
-     */
+
     fun parseTimesTampDate(date: String?): Date? {
         return parseDate(date, TIMESTAMP_PATTERN)
     }
 
-    /**
-     * 获得当前时间戳
-     * @return
-     */
+
     val timeStamp: String
         get() {
             val t1 = timeStamp_L
             return t1.toString()
         }
 
-    /**
-     * java获取当前时间戳 精确到毫秒
-     * @return
-     */
+
     val timeStamp_L: Long
         get() = System.currentTimeMillis()
 
-    /**
-     * 获得当前时间
-     * @return
-     */
+
     val currentDate: Date
         get() {
             val calendar = Calendar.getInstance()
             return calendar.time
         }
 
-    /**
-     * 获取年份
-     * @param date
-     * @return
-     */
+
     fun getYear(date: Date?): Int {
         val c = Calendar.getInstance()
         c.time = date
         return c[Calendar.YEAR]
     }
 
-    /**
-     * 获取月份
-     * @param date
-     * @return
-     */
     fun getMonth(date: Date?): Int {
         val c = Calendar.getInstance()
         c.time = date
         return c[Calendar.MONTH] + 1
     }
 
-    /**
-     * 获取星期
-     * @param date
-     * @return
-     */
     fun getWeek(date: Date?): Int {
         val c = Calendar.getInstance()
         c.time = date
@@ -245,90 +172,46 @@ object DateUtil {
         return dayOfWeek
     }
 
-    /**
-     * 获取日期(多少号)
-     * @param date
-     * @return
-     */
     fun getDay(date: Date?): Int {
         val c = Calendar.getInstance()
         c.time = date
         return c[Calendar.DAY_OF_MONTH]
     }
 
-    /**
-     * 获取当前时间(小时)
-     * @param date
-     * @return
-     */
     fun getHour(date: Date?): Int {
         val c = Calendar.getInstance()
         c.time = date
         return c[Calendar.HOUR_OF_DAY]
     }
 
-    /**
-     * 获取当前时间(分)
-     * @param date
-     * @return
-     */
     fun getMinute(date: Date?): Int {
         val c = Calendar.getInstance()
         c.time = date
         return c[Calendar.MINUTE]
     }
 
-    /**
-     * 获取当前时间(秒)
-     * @param date
-     * @return
-     */
     fun getSecond(date: Date?): Int {
         val c = Calendar.getInstance()
         c.time = date
         return c[Calendar.SECOND]
     }
 
-    /**
-     * 获取当前毫秒
-     * @param date
-     * @return
-     */
     fun getMillis(date: Date?): Long {
         val c = Calendar.getInstance()
         c.time = date
         return c.timeInMillis
     }
 
-    /**
-     * 日期增加
-     * @param date Date
-     * @param day  int
-     * @return Date
-     */
     fun addDate(date: Date?, day: Int): Date {
         val c = Calendar.getInstance()
         c.timeInMillis = getMillis(date) + day.toLong() * 24 * 3600 * 1000
         return c.time
     }
 
-    /**
-     * 日期相减(返回天数)
-     * @param date   Date
-     * @param date1  Date
-     * @return int 相差的天数
-     */
     fun diffDate(date: Date?, date1: Date?): Int {
         return ((getMillis(date) - getMillis(date1)) / (24 * 3600 * 1000)).toInt()
     }
 
-    /**
-     * 日期相减(返回秒值)
-     * @param date  Date
-     * @param date1 Date
-     * @return int
-     * @author
-     */
     fun diffDateTime(date: Date?, date1: Date?): Long {
         return ((getMillis(date) - getMillis(date1)) / 1000)
     }
@@ -345,11 +228,6 @@ object DateUtil {
         return sdf.format(d)
     }
 
-    /**
-     * 转换为时分秒格式(HH:mm)的日期字符串
-     * @param timeStamp
-     * @return
-     */
     fun formatTimesDate_hour(timeStamp: String?): String {
         val sdf = SimpleDateFormat(TIMESTAMP_DAY_HOUR_PATTERNR)
         val lcc = java.lang.Long.valueOf(timeStamp)
@@ -357,11 +235,6 @@ object DateUtil {
         return sdf.format(Date(lcc * 1000L))
     }
 
-    /**
-     * 转换为时分秒格式(HH:mm)的日期字符串
-     * @param timeStamp
-     * @return
-     */
     fun formatTimesHour_minute(timeStamp: String?): String {
         val sdf = SimpleDateFormat(TIMES_HOUR_MIN_PATTERN)
         val lcc = java.lang.Long.valueOf(timeStamp)
@@ -369,11 +242,6 @@ object DateUtil {
         return sdf.format(Date(lcc * 1000L))
     }
 
-    /**
-     * 转换为时分秒格式(yyyy-MM-dd HH:mm)的日期字符串
-     * @param timeStamp
-     * @return
-     */
     fun formatTimesYMD_Hour_minute(timeStamp: String?): String {
         val sdf = SimpleDateFormat(TIMESTAMP_PATTERNR)
         val lcc = java.lang.Long.valueOf(timeStamp)
@@ -381,16 +249,6 @@ object DateUtil {
         return sdf.format(Date(lcc * 1000L))
     }
 
-    /**
-     * Android/java 仿微信聊天列表时间显示规则：
-     *
-     * 今天 : HH:mm ，             例 8:28
-     * 昨天 : 昨天 HH:mm，         例 昨天 9:27
-     * 近7天: 星期X HH:mm ，       例 星期一 6:25
-     * 今年 : MM月dd日 HH:mm       例 3月2日 9:43
-     * 往年 : yyyy年MM月dd日 HH:mm 例 2018年6月9日 6:52
-     * ————————————————
-     */
     fun getTimeString(timestamp: Long): String {
         var result = ""
         val weekNames = arrayOf("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六")
@@ -430,16 +288,6 @@ object DateUtil {
         }
     }
 
-    /**
-     * Android/java 仿微信会话列表时间显示规则：
-     *
-     * 今天 : HH:mm ，       例 8:28
-     * 昨天 : 昨天           例 昨天
-     * 近7天: 星期X          例 星期一
-     * 今年 : MM月dd日       例 3月2日
-     * 往年 : yyyy年MM月dd日 例 2018年6月9日
-     * ————————————————
-     */
     fun getTimeString_MD(timestamp: Long): String {
         var result = ""
         val weekNames = arrayOf("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六")
@@ -487,22 +335,16 @@ object DateUtil {
         }
     }
 
-    // 获取时间格式字符串：例 2018年6月9日 6:52
     fun getTime(time: Long, pattern: String?): String {
         val date = Date(time)
         return dateFormat(date, pattern)
     }
 
-    // 获取时间格式字符串：例 2018年6月9日 6:52
     fun dateFormat(date: Date?, pattern: String?): String {
         val format = SimpleDateFormat(pattern)
         return format.format(date)
     }
 
-    /**
-     * Android/java 仿微信会话列表时间显示规则：
-     * 计算两个时间分钟差。
-     */
     fun getTimeMinuteDiff(timestamp: Long, timestampTwo: Long): Long {
         return try {
             // 时间差。
@@ -513,10 +355,6 @@ object DateUtil {
         }
     }
 
-    /**
-     * Android/java 仿微信会话列表时间显示规则：
-     * 计算两个时间秒钟差。--- 日期相减(返回秒值)
-     */
     fun getTimeMillisDiff(timestamp: Long, timestampTwo: Long): Long {
         return try {
             // 时间差。
@@ -527,12 +365,6 @@ object DateUtil {
         }
     }
 
-    /**
-     * 转换为时分秒格式(HH:mm:ss)的日期字符串
-     *
-     * @param timeStamp
-     * @return
-     */
     fun formatTimesHour_minute_second(timeStamp: Long): String {
         val sdf = SimpleDateFormat(TIMES_PATTERN)
         //long lcc = Long.valueOf(timeStamp);
@@ -542,11 +374,6 @@ object DateUtil {
 
     private val msFormat = SimpleDateFormat("mm:ss")
 
-    /**
-     * 视频时长转换。
-     * @param duration
-     * @return
-     */
     fun timeParse(duration: Long): String {
         var time = ""
         try {
@@ -580,9 +407,6 @@ object DateUtil {
         }
     }
 
-    /**
-     * Java计算两时间相差日期,返回HH:mm:ss 小时分钟格式
-     */
     @Throws(ParseException::class)
     fun timeSubtraction(time1: Long, time2: Long): String {
         /**
@@ -611,12 +435,6 @@ object DateUtil {
         return formatter.format(sec * 1000)
     }
 
-    /**
-     * Java计算两时间相差日期,返回HH:mm:ss 天小时分钟缩减格式
-     * @description time2 是大的时间
-     * @param time1, time2
-     * @return java.lang.String
-     */
     @Throws(ParseException::class)
     fun timeSubtraction_S(time1: Long, time2: Long): String {
         val result = time2 - time1 // 获取两时间相差的毫秒数
@@ -645,12 +463,6 @@ object DateUtil {
         return sBuffer.toString()
     }
 
-    /**
-     * 日期格式字符串转换成时间戳 精确到毫秒
-     * @param date_str 字符串日期
-     * @param format 如：yyyy-MM-dd HH:mm:ss
-     * @return
-     */
     fun date2TimeStamp(date_str: String?, format: String?): String {
         try {
             val sdf = SimpleDateFormat(format)
@@ -661,12 +473,6 @@ object DateUtil {
         return ""
     }
 
-    /**
-     * 日期格式字符串转换成时间戳 精确到毫秒
-     * @param date_str 字符串日期
-     * @param format 如：yyyy-MM-dd HH:mm:ss
-     * @return
-     */
     fun date2TimeStamp_L(date_str: String?, format: String?): Long {
         try {
             val sdf = SimpleDateFormat(format)
@@ -677,7 +483,6 @@ object DateUtil {
         return 0
     }
 
-    /* //时间戳转换日期 */
     fun stampToTime(stamp: String): String? {
         var sd = ""
         val d = Date()
@@ -685,9 +490,7 @@ object DateUtil {
         sd = sdf.format(Date(stamp.toLong())) // 时间戳转换日期
         return sd
     }
- /** 时间错转时间
- * */
- /* //时间戳转换日期 */
+
  fun stampToTies(stamp: String): String? {
      var sd = ""
      val d = Date()

@@ -1,16 +1,14 @@
 package com.glorystar.startool.utils.tool;
 
 public class HexUtil {
-    //十六进制转二进制
+
     public static String hex2bin(String input) {
         StringBuilder sb = new StringBuilder();
         int len = input.length();
         for (int i = 0; i < len; i++){
-            //每1个十六进制位转换为4个二进制位
             String temp = input.substring(i, i + 1);
             int tempInt = Integer.parseInt(temp, 16);
             String tempBin = Integer.toBinaryString(tempInt);
-            //如果二进制数不足4位，补0
             if (tempBin.length() < 4){
                 int num = 4 - tempBin.length();
                 for (int j = 0; j < num; j++){
@@ -23,7 +21,6 @@ public class HexUtil {
         return sb.toString();
     }
 
-    //二进制转十六进制
     public static String bin2Hex(String binary){
         StringBuffer sbuf = new StringBuffer();
         int blength = binary.length() % 4;
@@ -39,7 +36,6 @@ public class HexUtil {
         return sbuf.toString().toUpperCase();
     }
 
-    //字节转hex
     public static String ByteArrToHex(byte[] inBytArr) {
         StringBuilder strBuilder = new StringBuilder();
         for (byte valueOf : inBytArr) {

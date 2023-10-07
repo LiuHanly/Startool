@@ -74,14 +74,12 @@ class MainActivity : BaseActivity(), UpdateData{
     }
 
     /**
-     * 设置布局
      */
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
 
     /**
-     * 初始化视图
      */
     override fun initView(savedInstanceState: Bundle?) {
         linear_general = findViewById(R.id.linear_general)

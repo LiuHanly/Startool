@@ -3,13 +3,11 @@ package com.glorystar.startool.utils.tool;
 /**
  * @className:SystemOperate
  * @author jinyuan
- * @desc 系统关机和重启
  */
 public class SystemOperate {
 
 	/**
 	 * @title:rebootSystem
-	 * @desc:重启系统
 	 * @return void
 	 */
 	public void rebootSystem() {
@@ -22,7 +20,6 @@ public class SystemOperate {
 
 	/**
 	 * @title:rebootSystem
-	 * @desc:重启系统
 	 * @return void
 	 */
 	public void rebootSystem_su() {
@@ -35,7 +32,6 @@ public class SystemOperate {
 
 	/**
 	 * @title:shutDown
-	 * @desc:关机
 	 * @return void
 	 */
 	public void shutDown() {
@@ -48,7 +44,6 @@ public class SystemOperate {
 
 	/**
 	 * @title:screenShot
-	 * @desc:系统截屏
 	 * @return void
 	 */
 //	public void screenShot(String path) {
@@ -62,7 +57,6 @@ public class SystemOperate {
 
 	/**
 	 * @title:screenShot
-	 * @desc:系统截屏
 	 * @return void
 	 */
 	public void screenShot(String path) {

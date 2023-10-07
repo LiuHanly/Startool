@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Gson解析
+ * Gson
  */
 public class JsonHelper {
 
@@ -18,9 +18,6 @@ public class JsonHelper {
 		return new Gson();
 	}
 
-	/**
-	 * json字符串转为对应实体类的数据。
-	 */
 	public synchronized static <T> T newfromJson(String json, Class<T> clazz) {
 		try {
 			if (!TextUtils.isEmpty(json)) {
@@ -36,9 +33,6 @@ public class JsonHelper {
 		return null;
 	}
 
-	/**
-	 * json字符串转为对应格式的数据。
-	 */
 	public static <T> T fromJson(String json, TypeToken<T> typeToken) {
 		try {
 			if (!TextUtils.isEmpty(json)) {
@@ -59,7 +53,6 @@ public class JsonHelper {
 		return null;
 	}
 
-	// 转为json字符串
 	public static String newtoJson(Object obj) {
 		Gson gson = new Gson();
 		String result = gson.toJson(obj);
@@ -67,14 +60,6 @@ public class JsonHelper {
 		return result;
 	}
 
-
-	/**
-	 * 解析纯Json数组
-	 * @author I321533
-	 * @param json
-	 * @param clazz
-	 * @return
-	 */
 	public static <T> List<T> jsonToList(String json, Class<T[]> clazz)
 	{
 		Gson gson = new Gson();

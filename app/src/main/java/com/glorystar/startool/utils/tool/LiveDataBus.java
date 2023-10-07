@@ -30,7 +30,7 @@ public final class LiveDataBus {
         public static final LiveDataBus DEFAULT_BUS = new LiveDataBus();
     }
 
-    /** synchronized:会有不同消息 */
+    /** synchronized: */
     public synchronized  <T> MutableLiveData<T> with(String target, Class<T> type) {
         if (!bus.containsKey(target)) {
             bus.put(target,new BusMutableLiveData<Object>());

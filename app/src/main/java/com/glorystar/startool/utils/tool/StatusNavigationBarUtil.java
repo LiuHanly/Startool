@@ -9,13 +9,11 @@ import android.os.Build.VERSION_CODES;
  * @className:HideUpDownStatus
  * @author jinyuan
  * @date 2016-7-26 上午11:25:46
- * @desc 隐藏和显示状态栏类
  */
 public class StatusNavigationBarUtil {
 
 	/**
 	 * @title:Hide
-	 * @desc:通过布尔值来实现状态栏的隐藏与显示
 	 * @return void
 	 * @param enable
 	 */
@@ -29,7 +27,6 @@ public class StatusNavigationBarUtil {
 
 	/**
 	 * @title:HideStatus
-	 * @desc:隐藏状态栏
 	 * @return void
 	 */
 	private void hideStatus(Context context) {
@@ -43,7 +40,6 @@ public class StatusNavigationBarUtil {
 
 	/**
 	 * @title:ShowStatus
-	 * @desc:显示状态栏
 	 * @return void
 	 */
 	private void showStatus(Context context) {
@@ -57,7 +53,6 @@ public class StatusNavigationBarUtil {
 
 	/**
 	 * @title:ShowStatus
-	 * @desc:显示状态栏
 	 * @return void
 	 */
 	private void ShowStatus() {
@@ -73,7 +68,6 @@ public class StatusNavigationBarUtil {
 
 	/**
 	 * @title:HideStatus
-	 * @desc:隐藏状态栏
 	 * @return void
 	 */
 	private void HideStatus() {
@@ -82,7 +76,6 @@ public class StatusNavigationBarUtil {
 			if (VERSION.SDK_INT >= VERSION_CODES.ICE_CREAM_SANDWICH) {
 				ProcID = "42"; // ICS AND NEWER
 			}
-			// 需要root 权限
 			Process proc = Runtime.getRuntime().exec(
 					new String[] {
 							"su",

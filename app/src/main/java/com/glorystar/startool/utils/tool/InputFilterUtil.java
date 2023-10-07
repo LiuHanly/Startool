@@ -9,7 +9,6 @@ import java.util.regex.Pattern;
 
 public class InputFilterUtil {
     /**
-     * 禁止EditText输入不符合字符
      * @param editText
      */
     public static void setEditTextInhibitInput(EditText editText){

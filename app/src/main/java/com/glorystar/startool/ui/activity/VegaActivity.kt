@@ -145,7 +145,7 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
             R.id.bt_rfid -> startActivity(Intent(this@VegaActivity, RfidActivity::class.java))
             R.id.bt_led -> {
                 if (ledStatus) {
-                    if (Build.MODEL == "rk3568"){
+                    if (Build.MODEL == "rk3568_VOD101"){
                         VodLib.cameraLed(0)
                     }else {
                         com.example.vod.MainActivity.output(2)
@@ -153,7 +153,7 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
                     btLed.text = getString(R.string.turn_on)
                     ledStatus = false
                 }else {
-                    if (Build.MODEL == "rk3568"){
+                    if (Build.MODEL == "rk3568_VOD101"){
                         VodLib.cameraLed(1)
                     }else {
                         com.example.vod.MainActivity.output(1)

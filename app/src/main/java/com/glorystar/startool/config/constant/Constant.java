@@ -26,6 +26,8 @@ public class Constant {
     public static final String ICLASS_READ = "1100FF\r\n";
     public static final String HFTAG_MIFARE = "ISO14443A/MIFARE"; //80
     public static final String HFTAG_HIDICLASS = "HID iCLASS"; //84
+    public static final String HFTAG_LEGIC = "LEGIC"; //83
+    public static final String HITAG_1 = "HITAG 1/HITAG S";//41
     public static final String LFTAG_EM4102 = "EM4x02/CASI-RUSCO"; //40
     public static final String LFTAG_HIDPROX = "HID Prox"; //49
 }

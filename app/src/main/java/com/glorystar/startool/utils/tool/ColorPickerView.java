@@ -22,24 +22,24 @@ import androidx.annotation.Nullable;
 import com.glorystar.startool.R;
 
 public class ColorPickerView extends View {
-    private static final float BASE_RADIO = 1.0f;//饱和度倍数，0 - 1，饱和度越高颜色越艳丽，可根据具体需求调整
+    private static final float BASE_RADIO = 1.0f;
     private Context mContext;
-    private int mBigCircle; // 外圈半径
-    private int mRudeRadius; // 可移动小球的半径
-    private int whiteWheelRadius; //外白圆半径
-    private int mCenterColor; // 可移动小球的颜色
+    private int mBigCircle;
+    private int mRudeRadius;
+    private int whiteWheelRadius;
+    private int mCenterColor;
     private int mRudeStrokeWidth = 5;
-    private Bitmap mBitmapBack; // 背景图片
-    private Paint mPaint; // 背景画笔
-    private Paint mCenterPaint; // 可移动小球画笔
-    private Paint whiteWheelPaint; //外面白色圆圈画笔
-    private Point mCenterPoint;// 中心位置
-    private Point mRockPosition;// 小球当前位置
-    private OnColorChangedListener mListener; // 小球移动的监听
-    private double length; // 小球到中心位置的距离
-    private double mHue = 0.0; // 0 - 360.0 //色相
-    private double mBrightness = 1.0;//0 - 1.0 //亮度
-    private double mSaturation = 1.0; // 0 - 1.0 //饱和度
+    private Bitmap mBitmapBack;
+    private Paint mPaint; //
+    private Paint mCenterPaint;
+    private Paint whiteWheelPaint;
+    private Point mCenterPoint;
+    private Point mRockPosition;
+    private OnColorChangedListener mListener;
+    private double length;
+    private double mHue = 0.0;
+    private double mBrightness = 1.0;
+    private double mSaturation = 1.0;
     private float[] mHSV = new float[3];
 
     public ColorPickerView(Context context) {
@@ -62,7 +62,6 @@ public class ColorPickerView extends View {
      * @param attrs
      */
     private void init(AttributeSet attrs) {
-        // 获取自定义组件的属性
         TypedArray types = mContext.obtainStyledAttributes(attrs,
                 R.styleable.color_picker);
         try {
@@ -74,21 +73,19 @@ public class ColorPickerView extends View {
                     Color.WHITE);
             whiteWheelRadius = types.getDimensionPixelOffset(R.styleable.color_picker_wheel_radius,102);
         } finally {
-            types.recycle(); // TypeArray用完需要recycle
+            types.recycle();
         }
 
-        //此处根据UI要求，可使用UI图片代替绘制取色盘
-        // 将背景图片大小设置为属性设置的直径
         //mBitmapBack = BitmapFactory.decodeResource(getResources(),
         //       R.drawable.hsb_circle_hard);
         //mBitmapBack = Bitmap.createScaledBitmap(mBitmapBack, mBigCircle * 2,
         //       mBigCircle * 2, false);
 
 
-        // 中心位置坐标
+
         mCenterPoint = new Point(whiteWheelRadius, whiteWheelRadius);
         mRockPosition = new Point(mCenterPoint);
-        // 初始化背景画笔和可移动小球的画笔
+
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mBitmapBack = createColorWheelBitmap(whiteWheelRadius * 2, whiteWheelRadius * 2);
@@ -96,19 +93,13 @@ public class ColorPickerView extends View {
         mCenterPaint.setColor(mCenterColor);
         mCenterPaint.setStrokeWidth(mRudeStrokeWidth);
         mCenterPaint.setStyle(Paint.Style.STROKE);
-        //初始化外圆画笔
+
         whiteWheelPaint = new Paint();
         whiteWheelPaint.setColor(Color.WHITE);
         whiteWheelPaint.setAntiAlias(true);
     }
 
 
-    /**
-     * 绘制取色盘，可根据UI需求，使用资源图片代替
-     * @param width
-     * @param height
-     * @return
-     */
     private Bitmap createColorWheelBitmap(int width, int height) {
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         int colorCount = 12;
@@ -150,7 +141,6 @@ public class ColorPickerView extends View {
         this.mListener = listener;
     }
 
-    // 颜色发生变化的回调接口
     public interface OnColorChangedListener {
         void onColorChange(float[] hsb);
     }
@@ -205,7 +195,6 @@ public class ColorPickerView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // 视图大小设置为直径
         setMeasuredDimension(whiteWheelRadius * 2, whiteWheelRadius * 2);
     }
 
@@ -246,13 +235,6 @@ public class ColorPickerView extends View {
         return ang;
     }
 
-    /**
-     * 计算角度，即HSB中的H
-     *
-     * @param rockX   rockY 小圆point
-     * @param centerX centerY圆心point
-     * @return
-     */
     private double getHue(float centerX, float centerY, float rockX, float rockY) {
         double hue = 0.0;
         double deltaA = Math.abs(rockX - centerX);
@@ -263,7 +245,7 @@ public class ColorPickerView extends View {
             return 0;
         }
 
-        if (centerX == rockX) {//在Y轴上
+        if (centerX == rockX) {
             if (centerY > rockY) {
                 hue = 90;
             } else {
@@ -272,7 +254,7 @@ public class ColorPickerView extends View {
             return hue;
         }
 
-        if (centerY == rockY) {//在X轴上
+        if (centerY == rockY) {
             if (centerX > rockX) {
                 hue = 180;
             } else {
@@ -281,13 +263,13 @@ public class ColorPickerView extends View {
             return hue;
         }
 
-        if (rockX > centerX && centerY > rockY) {//第一象限
+        if (rockX > centerX && centerY > rockY) {
             hue = Math.asin(deltaB / deltaC) * 180 / Math.PI;
-        } else if (rockX < centerX && rockY < centerY) {//第二象限
+        } else if (rockX < centerX && rockY < centerY) {
             hue = Math.asin(deltaA / deltaC) * 180 / Math.PI + 90;
-        } else if (rockX < centerX && rockY > centerY) {//第三象限
+        } else if (rockX < centerX && rockY > centerY) {
             hue = Math.asin(deltaB / deltaC) * 180 / Math.PI + 180;
-        } else if (rockX > centerX && rockY > centerY) {//第四象限
+        } else if (rockX > centerX && rockY > centerY) {
             hue = Math.asin(deltaA / deltaC) * 180 / Math.PI + 270;
         }
         return hue;

@@ -120,7 +120,6 @@ public class BarcodeUtil {
         if (BarcodeActivity.Companion.getIndex() == 0){
             Log.i("honeywell mode---->",mode+"");
             if (mode == 0){//honeywell light open
-                System.out.println("1111111111111111");
                 thread.sendCmds(thread.HexToByteArr("164D0D53434E4C4544312E"));
             }else if (mode == 1){//honeywell light auto
                 thread.sendCmds(thread.HexToByteArr("164D0D53434E4C4544332E"));
@@ -167,7 +166,6 @@ public class BarcodeUtil {
         addEnter = enter;
     }
 
-    //连续扫描
     public void setContinueScan(boolean open){
         if (open){
             if (BarcodeActivity.Companion.getIndex() == 0){

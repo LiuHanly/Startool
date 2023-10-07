@@ -3,9 +3,6 @@ package com.glorystar.startool.utils.tool
 import com.glorystar.startool.config.base.MyApplication
 
 
-/**
- * 获取屏幕的宽高
- */
 object DimenUtil {
     val screenWidth: Int
         get() {

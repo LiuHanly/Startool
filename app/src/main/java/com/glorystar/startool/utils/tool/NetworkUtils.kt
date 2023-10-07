@@ -31,7 +31,6 @@ class NetworkUtils private constructor() {
         private const val NETWORK_TYPE_IWLAN = 18
 
         /**
-         * 打开网络设置界面
          *
          * @param context
          */
@@ -52,7 +51,6 @@ class NetworkUtils private constructor() {
         }
 
         /**
-         * 获取活动网络信息
          *
          * @param context
          * @return NetworkInfo
@@ -64,7 +62,6 @@ class NetworkUtils private constructor() {
         }
 
         /**
-         * 判断网络是否可用
          *
          * @param context
          * @return `true`: 可用 <br></br>
@@ -76,7 +73,6 @@ class NetworkUtils private constructor() {
         }
 
         /**
-         * 判断网络是否连接
          *
          * @param context
          * @return `true`: 是<br></br>
@@ -88,11 +84,10 @@ class NetworkUtils private constructor() {
         }
 
         /**
-         * 判断网络是否是4G
          *
          * @param context
-         * @return `true`: 是<br></br>
-         * `false`: 不是
+         * @return `true`:
+         * `false`:
          */
         fun is4G(context: Context): Boolean {
             val info = getActiveNetworkInfo(context)
@@ -101,11 +96,10 @@ class NetworkUtils private constructor() {
         }
 
         /**
-         * 判断wifi是否连接状态
          *
          * @param context
-         * @return `true`: 连接<br></br>
-         * `false`: 未连接
+         * @return `true`:
+         * `false`:
          */
         fun isWifiConnected(context: Context): Boolean {
             val cm = context
@@ -115,10 +109,8 @@ class NetworkUtils private constructor() {
         }
 
         /**
-         * 获取移动网络运营商名称 如中国联通、中国移动、中国电信
-         *
          * @param context
-         * @return 移动网络运营商名称
+         * @return
          */
         fun getNetworkOperatorName(context: Context): String? {
             val tm = context
@@ -127,17 +119,15 @@ class NetworkUtils private constructor() {
         }
 
         /**
-         * 获取当前的网络类型(WIFI,2G,3G,4G)
          *
          * @param context
-         * @return 网络类型
+         * @return
          */
         fun getNetWorkType(context: Context): Int {
             var netType = NETWORK_NO
             val info = getActiveNetworkInfo(context)
             if (info != null && info.isAvailable) {
                 netType = if (info.type == ConnectivityManager.TYPE_WIFI) {
-                    // WIFI网络
                     NETWORK_WIFI
                 } else if (info.type == ConnectivityManager.TYPE_MOBILE) {
                     when (info.subtype) {
@@ -164,10 +154,8 @@ class NetworkUtils private constructor() {
         }
 
         /**
-         * 获取当前的网络类型(WIFI,2G,3G,4G)
-         *
          * @param context
-         * @return 网络类型名称
+         * @return
          */
         fun getNetWorkTypeName(context: Context): String {
             return when (getNetWorkType(context)) {
@@ -183,7 +171,6 @@ class NetworkUtils private constructor() {
 
 
         /**
-         * 获取以太网Mac地址
          *
          * @return
          */
@@ -213,7 +200,6 @@ class NetworkUtils private constructor() {
             }
 
         /**
-         * 获取IP地址
          *
          * @return
          */

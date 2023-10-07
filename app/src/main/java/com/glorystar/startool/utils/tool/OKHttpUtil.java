@@ -82,7 +82,6 @@ public class OKHttpUtil {
         return 0;
     }
 
-    /** 根据Tag取消请求 */
     public void cancelTag(Object tag) {
         if (client == null || tag == null) return;
         for (Call call : client.dispatcher().queuedCalls()) {
@@ -97,7 +96,6 @@ public class OKHttpUtil {
         }
     }
 
-    /** 取消所有请求请求 */
     public void cancelAll() {
         if (client == null) return;
         for (Call call : client.dispatcher().queuedCalls()) {

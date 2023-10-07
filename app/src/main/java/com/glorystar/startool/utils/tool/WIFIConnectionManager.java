@@ -39,11 +39,10 @@ public class WIFIConnectionManager {
 
 
     /**
-     * 尝试连接指定wifi
      *
-     * @param ssid     wifi名
-     * @param password 密码
-     * @return 是否连接成功
+     * @param ssid
+     * @param password
+     * @return
      */
     public boolean connect(@NonNull String ssid, @NonNull String password) {
         Log.d(TAG, "connect() called with: ssid = [" + ssid + "], password = [" + password + "]");
@@ -61,9 +60,8 @@ public class WIFIConnectionManager {
 
 
     /**
-     * 根据wifi名与密码配置 WiFiConfiguration, 每次尝试都会先断开已有连接
      *
-     * @param isClient 当前设备是作为客户端,还是作为服务端, 影响SSID和PWD
+     * @param isClient
      */
     @NonNull
     private WifiConfiguration newWifiConfig(String ssid, String password, boolean isClient) {
@@ -73,10 +71,10 @@ public class WIFIConnectionManager {
         config.allowedKeyManagement.clear();
         config.allowedPairwiseCiphers.clear();
         config.allowedProtocols.clear();
-        if (isClient) {//作为客户端, 连接服务端wifi热点时要加双引号
+        if (isClient) {
             config.SSID = "\"" + ssid + "\"";
             config.preSharedKey = "\"" + password + "\"";
-        } else {//作为服务端, 开放wifi热点时不需要加双引号
+        } else {
             config.SSID = ssid;
             config.preSharedKey = password;
         }
@@ -91,9 +89,6 @@ public class WIFIConnectionManager {
         return config;
     }
 
-    /**
-     * @return 热点是否已开启
-     */
     public boolean isWifiEnabled() {
         try {
             Method methodIsWifiApEnabled = WifiManager.class.getDeclaredMethod("isWifiApEnabled");
@@ -104,9 +99,6 @@ public class WIFIConnectionManager {
         }
     }
 
-    /**
-     * 是否已连接指定wifi
-     */
     public boolean isConnected(String ssid) {
         WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
         if (wifiInfo == null) {
@@ -126,7 +118,6 @@ public class WIFIConnectionManager {
     }
 
     /**
-     * 打开WiFi
      * @return
      */
     public boolean openWifi() {
@@ -138,7 +129,6 @@ public class WIFIConnectionManager {
     }
 
     /**
-     * 关闭wifi
      * @return
      */
     public boolean closeWifi() {
@@ -150,7 +140,6 @@ public class WIFIConnectionManager {
     }
 
     /**
-     * 断开连接
      * @return
      */
     public WIFIConnectionManager disconnect() {
@@ -161,9 +150,6 @@ public class WIFIConnectionManager {
         return this;
     }
 
-    /**
-     * 是否连接过指定Wifi
-     */
     @Nullable
     @SuppressLint("MissingPermission")
     public WifiConfiguration everConnected(String ssid) {
@@ -181,9 +167,6 @@ public class WIFIConnectionManager {
         return null;
     }
 
-    /**
-     * 获取本机的ip地址
-     */
     @Nullable
     public String getLocalIp() {
         return convertIp(mWifiManager.getConnectionInfo().getIpAddress());

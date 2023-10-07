@@ -29,7 +29,6 @@ public class NetworkUtil {
     private static final int NETWORK_TYPE_IWLAN = 18;
 
     /**
-     * 打开网络设置界面
      *
      * @param context
      */
@@ -44,7 +43,6 @@ public class NetworkUtil {
     }
 
     /**
-     * 获取活动网络信息
      *
      * @param context
      * @return NetworkInfo
@@ -56,11 +54,10 @@ public class NetworkUtil {
     }
 
     /**
-     * 判断网络是否可用
      *
      * @param context
-     * @return {@code true}: 可用 <br>
-     * {@code false}: 不可用
+     * @return {@code true}:
+     * {@code false}:
      */
     public static boolean isAvailable(Context context) {
         NetworkInfo info = getActiveNetworkInfo(context);
@@ -68,11 +65,10 @@ public class NetworkUtil {
     }
 
     /**
-     * 判断网络是否连接
      *
      * @param context
-     * @return {@code true}: 是<br>
-     * {@code false}: 否
+     * @return {@code true}:
+     * {@code false}:
      */
     public static boolean isConnected(Context context) {
         NetworkInfo info = getActiveNetworkInfo(context);
@@ -80,11 +76,10 @@ public class NetworkUtil {
     }
 
     /**
-     * 判断网络是否是4G
      *
      * @param context
-     * @return {@code true}: 是<br>
-     * {@code false}: 不是
+     * @return {@code true}:
+     * {@code false}:
      */
     public static boolean is4G(Context context) {
         NetworkInfo info = getActiveNetworkInfo(context);
@@ -93,11 +88,10 @@ public class NetworkUtil {
     }
 
     /**
-     * 判断wifi是否连接状态
      *
      * @param context
-     * @return {@code true}: 连接<br>
-     * {@code false}: 未连接
+     * @return {@code true}:
+     * {@code false}:
      */
     public static boolean isWifiConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context
@@ -107,10 +101,9 @@ public class NetworkUtil {
     }
 
     /**
-     * 获取移动网络运营商名称 如中国联通、中国移动、中国电信
      *
      * @param context
-     * @return 移动网络运营商名称
+     * @return
      */
     public static String getNetworkOperatorName(Context context) {
         TelephonyManager tm = (TelephonyManager) context
@@ -119,10 +112,9 @@ public class NetworkUtil {
     }
 
     /**
-     * 获取当前的网络类型(WIFI,2G,3G,4G)
      *
      * @param context
-     * @return 网络类型
+     * @return
      */
     public static int getNetWorkType(Context context) {
         int netType = NETWORK_NO;
@@ -133,7 +125,6 @@ public class NetworkUtil {
                 netType = NETWORK_WIFI;
             } else if (info.getType() == ConnectivityManager.TYPE_MOBILE) {
                 switch (info.getSubtype()) {
-                    // 2G网络
                     case NETWORK_TYPE_GSM:
                     case TelephonyManager.NETWORK_TYPE_GPRS:
                     case TelephonyManager.NETWORK_TYPE_CDMA:
@@ -142,7 +133,6 @@ public class NetworkUtil {
                     case TelephonyManager.NETWORK_TYPE_IDEN:
                         netType = NETWORK_2G;
                         break;
-                    // 3G网络
                     case NETWORK_TYPE_TD_SCDMA:
                     case TelephonyManager.NETWORK_TYPE_EVDO_A:
                     case TelephonyManager.NETWORK_TYPE_UMTS:
@@ -155,12 +145,10 @@ public class NetworkUtil {
                     case TelephonyManager.NETWORK_TYPE_HSPAP:
                         netType = NETWORK_3G;
                         break;
-                    // 4G网络
                     case NETWORK_TYPE_IWLAN:
                     case TelephonyManager.NETWORK_TYPE_LTE:
                         netType = NETWORK_4G;
                         break;
-                    // 类型未知
                     default:
                         String subtypeName = info.getSubtypeName();
                         if (subtypeName.equalsIgnoreCase("TD-SCDMA")
@@ -180,10 +168,9 @@ public class NetworkUtil {
     }
 
     /**
-     * 获取当前的网络类型(WIFI,2G,3G,4G)
      *
      * @param context
-     * @return 网络类型名称
+     * @return
      */
     public static String getNetWorkTypeName(Context context) {
         switch (getNetWorkType(context)) {
@@ -203,12 +190,10 @@ public class NetworkUtil {
     }
 
     /**
-     * 获取以太网Mac地址
      *
      * @return
      */
     /**
-     * 获取以太网Mac地址
      *
      * @return
      */
@@ -239,7 +224,6 @@ public class NetworkUtil {
 
 
     /**
-     * 获取IP地址
      *
      * @return
      */
@@ -282,7 +266,6 @@ public class NetworkUtil {
         view.setText(text.toLowerCase());
     }
 
-    //获取以太网网口MAC地址
     public static String getEthernetMac(){
         String ethernetMac = null;
         try {
