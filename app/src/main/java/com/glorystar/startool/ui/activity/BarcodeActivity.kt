@@ -43,8 +43,10 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
         val title = intent.getStringExtra("title")
         if (title.equals(getString(R.string.honeywell_n4680))){
             index = 0
-        }else{
+        }else if (title.equals(getString(R.string.newland_em3396))){
             index = 1
+        }else if (title.equals(getString(R.string.zebra_se2707))){
+            index = 2
         }
         titleView.title.text = title
         titleView.action = this
@@ -68,6 +70,9 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
         } else if (index == 1) {
             barcode?.setCOM("/dev/ttyACM0")
             barcodeSupport.text = getString(R.string.newland_barcode_1d_content)
+        } else if (index == 2){
+            barcode?.setCOM("/dev/ttyACM0")
+            barcodeSupport.text = getString(R.string.zebra_barcode_1d_content)
         }
 
         ret = barcode!!.init()
@@ -79,11 +84,23 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
         linearKeyboard.setOnClickListener(this)
         linearSerial.setOnClickListener(this)
 
-        LIGHTMODE.add(getString(R.string.on))
-        LIGHTMODE.add(getString(R.string.auto))
-        LIGHTMODE.add(getString(R.string.off))
+        if (index == 2){
+            LIGHTMODE.add(getString(R.string.auto))
+            LIGHTMODE.add(getString(R.string.off))
+        }else {
+            LIGHTMODE.add(getString(R.string.on))
+            LIGHTMODE.add(getString(R.string.auto))
+            LIGHTMODE.add(getString(R.string.off))
+        }
 
         barcode!!.start()
+
+        if (index == 2){
+            //关闭应答ACK
+            barcode?.disableACK()
+            scanInfo.setText("")
+        }
+
         barcode!!.getData(object : BarcodeUtil.OnGetDataListener {
             override fun onDataReceive(var1: String?) {
                 runOnUiThread { scanInfo.setText(var1) }
@@ -114,6 +131,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
                         PreferenceUtils.putBoolean(HONEYWELL_SCAN_MODE, true)
                     } else if (index == 1) {
                         PreferenceUtils.putBoolean(NEWLAND_SCAN_MODE, true)
+                    } else if (index == 2){
+                        PreferenceUtils.putBoolean(ZEBRA_SCAN_MODE, true)
                     }
                 }
             }
@@ -135,6 +154,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
                         PreferenceUtils.putBoolean(HONEYWELL_SCAN_MODE, false)
                     } else if (index == 1) {
                         PreferenceUtils.putBoolean(NEWLAND_SCAN_MODE, false)
+                    }else if (index == 2){
+                        PreferenceUtils.putBoolean(ZEBRA_SCAN_MODE, false)
                     }
                 }
             }
@@ -163,6 +184,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
                                 PreferenceUtils.putInt(HONEYWELL_LIGHT_MODE, position)
                             } else if (index == 1) {
                                 PreferenceUtils.putInt(NEWLAND_LIGHT_MODE, position)
+                            } else if (index == 2){
+                                PreferenceUtils.putInt(ZEBRA_LIGHT_MODE, position)
                             }
                         }
                         lightMode.text = LIGHTMODE.get(position)
@@ -204,6 +227,12 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
                             }else if (position == 1){
                                 barcodeSupport.text = getString(R.string.newland_barcode_2d_content)
                             }
+                        }else if (index == 2){
+                            if (position == 0){
+                                barcodeSupport.text = getString(R.string.zebra_barcode_1d_content)
+                            }else if (position == 1){
+                                barcodeSupport.text = getString(R.string.zebra_barcode_2d_content)
+                            }
                         }
                         mListPop.dismiss()
                     }
@@ -232,6 +261,11 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
             beep = PreferenceUtils.getBoolean(NEWLAND_PLAY_BEEP_SOUND, true)
             scan_enter = PreferenceUtils.getBoolean(NEWLAND_SCAN_ENTER, false)
             mode = PreferenceUtils.getInt(NEWLAND_LIGHT_MODE, 0)
+        } else if (index == 2){
+            scan_mode = PreferenceUtils.getBoolean(ZEBRA_SCAN_MODE, false)
+            beep = PreferenceUtils.getBoolean(ZEBRA_PLAY_BEEP_SOUND, true)
+            scan_enter = PreferenceUtils.getBoolean(ZEBRA_SCAN_ENTER, false)
+            mode = PreferenceUtils.getInt(ZEBRA_LIGHT_MODE, 0)
         }
         if (scan_mode) {
             linearKeyboard.setBackgroundResource(R.drawable.r_button_bg)
@@ -269,6 +303,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
                         PreferenceUtils.putBoolean(HONEYWELL_SCAN_ENTER, p1)
                     } else if (index == 1) {
                         PreferenceUtils.putBoolean(NEWLAND_SCAN_ENTER, p1)
+                    } else if (index == 2) {
+                        PreferenceUtils.putBoolean(ZEBRA_SCAN_ENTER, p1)
                     }
                 }
             }
@@ -283,6 +319,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
                         PreferenceUtils.putBoolean(HONEYWELL_PLAY_BEEP_SOUND, p1)
                     } else if (index == 1) {
                         PreferenceUtils.putBoolean(NEWLAND_PLAY_BEEP_SOUND, p1)
+                    } else if (index == 2) {
+                        PreferenceUtils.putBoolean(ZEBRA_PLAY_BEEP_SOUND, p1)
                     }
                 }
             }

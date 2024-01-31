@@ -16,6 +16,10 @@ public class Constant {
     public static final String NEWLAND_SCAN_ENTER = "newland_scan_enter";
     public static final String NEWLAND_LIGHT_MODE = "newland_light_mode";
     public static final String NEWLAND_SCAN_MODE = "newland_scan_mode";
+    public static final String ZEBRA_SCAN_MODE = "zebra_scan_mode";
+    public static final String ZEBRA_PLAY_BEEP_SOUND = "zebra_beep";
+    public static final String ZEBRA_SCAN_ENTER = "zebra_scan_enter";
+    public static final String ZEBRA_LIGHT_MODE = "zebra_light_mode";
     //rfid
     public static final String SEARCH_TAG = "050010\r\n";
     public static final String MIFARE_LOGIN = "0B00FFFFFFFFFFFF0000\r\n";

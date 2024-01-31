@@ -233,7 +233,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:layout_marginTop="13mm"
+                        android:layout_marginTop="6mm"
                         android:thumb="@drawable/thumb"
                         android:track="@drawable/track" />
                 </RelativeLayout>
@@ -332,12 +332,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24mm"
-                    android:layout_marginRight="24mm"
                     android:layout_marginTop="24mm"
+                    android:layout_marginRight="24mm"
                     android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/honey_barcode_1d_content"
                     android:textColor="@color/white"
-                    android:textSize="25mm"
-                    android:text="@string/honey_barcode_1d_content"/>
+                    android:textSize="25mm" />
 
             </LinearLayout>
         </LinearLayout>

@@ -135,6 +135,12 @@ public class BarcodeUtil {
             }else if (mode == 2){//newland light close
                 thread.sendCmds(thread.HexToByteArr("4E4C53303030363031303B303230303032303B303030363030303B"));
             }
+        }else if (BarcodeActivity.Companion.getIndex() == 2){
+            if (mode == 0){//zebra light auto
+                thread.sendCmds(thread.HexToByteArr("08C60400FFF02A01FD14"));
+            }else if (mode == 1){//zebra close
+                thread.sendCmds(thread.HexToByteArr("08C60400FFF02A00FD15"));
+            }
         }
     }
 
@@ -159,6 +165,12 @@ public class BarcodeUtil {
             }else {
                 thread.sendCmds(thread.HexToByteArr("4E4C53303030363031303B303230333030303B303030363030303B"));
             }
+        }else if (BarcodeActivity.Companion.getIndex() == 2){
+            if (beep){
+                thread.sendCmds(thread.HexToByteArr("07c60400FF3801FDF7"));
+            }else {
+                thread.sendCmds(thread.HexToByteArr("07c60400FF3800FDF8"));
+            }
         }
     }
 
@@ -179,6 +191,13 @@ public class BarcodeUtil {
             }else if (BarcodeActivity.Companion.getIndex() == 1){
                 thread.sendCmds(thread.HexToByteArr("4E4C53303030363031303B303330323031303B303030363030303B"));
             }
+        }
+    }
+
+    //zebra se2707关闭指令应答
+    public void disableACK(){
+        if (this.thread != null) {
+            thread.sendCmds(thread.HexToByteArr("07C60400FF9F00FD91"));
         }
     }
 }
