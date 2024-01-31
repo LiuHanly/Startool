@@ -91,7 +91,7 @@ class VegaActivity : BaseActivity(),View.OnClickListener, SensorEventListener {
         rs485 = RS485Util(application)
         if (Build.MODEL == "rk3399") {
             rs485!!.setCOM("/dev/ttyUSB0")
-        }else if (Build.MODEL == "rk3568"){
+        }else if (Build.MODEL == "rk3568" || Build.MODEL == "rk3568_VOD101"){
             rs485!!.setCOM("/dev/ttyS8")
         }
 

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.Neb101Activity"
-    android:background="@color/colorMain">
+    android:background="@color/colorMain"
+    tools:context=".ui.activity.Neb101Activity">
 
     <com.glorystar.startool.ui.view.TitleKtView
         android:id="@+id/tile_view"
@@ -13,209 +13,264 @@
         android:layout_height="104dp"
         tools:ignore="MissingConstraints" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tile_view">
 
-        <RelativeLayout
-            android:id="@+id/relative_gpio"
-            android:layout_width="870dp"
-            android:layout_height="103dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="14dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:background="@drawable/selector_mode_bg">
-            <ImageView
-                android:id="@+id/iv_1"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_gpio"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="24dp"
-                android:layout_toRightOf="@+id/iv_1"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/gpio"
-                android:textColor="@color/white"
-                android:textSize="25dp" />
+            <RelativeLayout
+                android:id="@+id/relative_gpio"
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
 
-            <ImageView
-                android:layout_width="51dp"
-                android:layout_height="51dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrow"/>
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/iv_1"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_gpio" />
 
-        <RelativeLayout
-            android:id="@+id/relative_wiegand"
-            android:layout_width="870dp"
-            android:layout_height="103dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="14dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:background="@drawable/selector_mode_bg">
-            <ImageView
-                android:id="@+id/iv_2"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_chips"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_1"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/gpio"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="24dp"
-                android:layout_toRightOf="@+id/iv_2"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/wiegand_interface"
-                android:textColor="@color/white"
-                android:textSize="25dp" />
+                <ImageView
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow" />
+            </RelativeLayout>
 
-            <ImageView
-                android:layout_width="51dp"
-                android:layout_height="51dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrow"/>
-        </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relative_wiegand"
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
 
-        <RelativeLayout
-            android:id="@+id/relative_uart"
-            android:layout_width="870dp"
-            android:layout_height="103dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="14dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:background="@drawable/selector_mode_bg">
-            <ImageView
-                android:id="@+id/iv_3"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_chips"/>
+                <ImageView
+                    android:id="@+id/iv_2"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_chips" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/iv_3"
-                android:layout_marginLeft="24dp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/white"
-                android:textSize="25dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/uart"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_2"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/wiegand_interface"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
 
-            <Button
-                android:id="@+id/bt_uart"
-                android:layout_width="191dp"
-                android:layout_height="55dp"
-                android:background="@drawable/r_button_bg"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textSize="21dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:text="@string/open_port"/>
-        </RelativeLayout>
+                <ImageView
+                    android:layout_width="51dp"
+                    android:layout_height="51dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow" />
+            </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/relative_sensor"
-            android:layout_width="870dp"
-            android:layout_height="103dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="14dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:background="@drawable/selector_mode_bg">
-            <ImageView
-                android:id="@+id/iv_4"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_sensor"/>
+            <RelativeLayout
+                android:id="@+id/relative_uart"
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/iv_4"
-                android:layout_marginLeft="24dp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/white"
-                android:textSize="25dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/sensors"/>
+                <ImageView
+                    android:id="@+id/iv_3"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_chips" />
 
-            <Button
-                android:id="@+id/bt_sensor"
-                android:layout_width="191dp"
-                android:layout_height="55dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/r_button_bg"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/test"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="21dp" />
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_3"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/uart"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
 
-        <RelativeLayout
-            android:id="@+id/relative_buttons"
-            android:layout_width="870dp"
-            android:layout_height="103dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="14dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:background="@drawable/selector_mode_bg">
-            <ImageView
-                android:id="@+id/iv_5"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_buttons"/>
+                <Button
+                    android:id="@+id/bt_uart"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/open_port"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/iv_5"
-                android:layout_marginLeft="24dp"
-                android:layout_centerVertical="true"
-                android:textColor="@color/white"
-                android:textSize="25dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/buttons"/>
+            <RelativeLayout
+                android:id="@+id/relative_sensor"
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
 
-            <Button
-                android:id="@+id/bt_buttons"
-                android:layout_width="191dp"
-                android:layout_height="55dp"
-                android:background="@drawable/r_button_bg"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textSize="21dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:text="@string/test"/>
-        </RelativeLayout>
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/iv_4"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_sensor" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_4"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/sensors"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_sensor"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/test"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relative_buttons"
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <ImageView
+                    android:id="@+id/iv_5"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_buttons" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_5"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/buttons"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_buttons"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/test"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="870dp"
+                android:layout_height="103dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp">
+
+                <ImageView
+                    android:id="@+id/iv_15"
+                    android:layout_width="31dp"
+                    android:layout_height="31dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_light_strip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/iv_15"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/light_strips"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/bt_light"
+                    android:layout_width="191dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/r_button_bg"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/test"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="21dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

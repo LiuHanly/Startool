@@ -41,7 +41,7 @@ class RfidActivity : BaseActivity() {
                     retrievedValue.setText(HexUtil.ByteArrToHex(data))
                 }
             }
-        }else if (Build.MODEL == "rk3568"){
+        }else if (Build.MODEL == "rk3568" || Build.MODEL == "rk3568_VOD101"){
             rfid = RS485Util(application)
             rfid!!.setCOM("/dev/ttyS7")
             rfid?.start()
@@ -86,7 +86,7 @@ class RfidActivity : BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (Build.MODEL == "rk3399" || Build.MODEL == "rk3568"){
+        if (Build.MODEL == "rk3399" || Build.MODEL == "rk3568" || Build.MODEL == "rk3568_VOD101"){
             rfid!!.stop()
         }
     }
