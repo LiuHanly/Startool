@@ -26,6 +26,10 @@ public class RS232Util {
         this.COM = com;
     }
 
+    public void setBaudrate(int baudrate){
+        this.baudrate = baudrate;
+    }
+
     public void getData(OnGetDataListener dataListener) {
         this.onDataListener = dataListener;
     }

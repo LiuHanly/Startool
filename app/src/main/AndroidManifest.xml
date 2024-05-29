@@ -70,12 +70,15 @@
     <application
         android:name=".config.base.MyApplication"
         android:allowBackup="true"
+        android:extractNativeLibs="true"
         android:icon="@drawable/app_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:extractNativeLibs="true"
         android:theme="@style/NoTitle">
+        <activity
+            android:name=".ui.activity.HIDRfidActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.activity.Vod101RelayActivity"
             android:exported="false" />

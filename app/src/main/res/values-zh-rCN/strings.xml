@@ -157,7 +157,7 @@
     <string name="verify_success">验证成功.</string>
     <string name="verify_fail">验证失败</string>
     <string name="verify_fail_tip">发生未知错误。请重试或重新下载固件.</string>
-    <string name="model_neb101">特定型号(NEB 101)</string>
+    <string name="model_neb101">特定型号(NEB 101/156/215)</string>
     <string name="gpio">GPIO</string>
     <string name="wiegand_interface">Wiegand接口</string>
     <string name="uart">UART</string>
@@ -227,7 +227,8 @@
 \n\n125 kHz, 134.2 kHz: AWID, Cardax, CASI-RUSCO, Deister6), EM4100, 4102, 42007), EM4050, 4150, 4450, 4550, EM43058), FDX-B, EM4105, HITAG 19), HITAG 29), HITAG S9), ICT8), IDTECK, Isonas8), Keri, Miro, Nedap6), PAC, Pyramid, Q5, T5557, T5567, T5577, TIRIS/HDX, TITAN (EM4050), UNIQUE, ZODIAC, Cotag, G-Prox6)</string>
     <string name="addon_modules">附加模块</string>
     <string name="barcode_modules">条形码模块</string>
-    <string name="rfid_module">RFID模块</string>
+    <string name="rfid_module">RFID模块(ELATEC)</string>
+    <string name="rfid_module_2">RFID模块(HID)</string>
     <string name="light_strips">灯带</string>
     <string name="honeywell_n4680">Honeywell N4680扫描器</string>
     <string name="newland_em3396">Newland EM3396扫描器</string>

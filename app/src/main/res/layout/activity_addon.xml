@@ -119,6 +119,42 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relative_rfid2"
+        android:layout_width="870dp"
+        android:layout_height="103dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="14dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:background="@drawable/selector_mode_bg">
+        <ImageView
+            android:id="@+id/iv_5"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_rfid"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24dp"
+            android:layout_toRightOf="@+id/iv_5"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/rfid_module_2"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:layout_width="51dp"
+            android:layout_height="51dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow"/>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/relative_light"
         android:layout_width="870dp"
         android:layout_height="103dp"

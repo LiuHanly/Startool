@@ -156,7 +156,7 @@
     <string name="verify_success">Verification succeed.</string>
     <string name="verify_fail">Verification failed</string>
     <string name="verify_fail_tip">Unknown error occured. Please try again or start again from downloading package.</string>
-    <string name="model_neb101">Model specific (NEB 101)</string>
+    <string name="model_neb101">Model specific (NEB 101/156/215)</string>
     <string name="gpio">GPIO</string>
     <string name="wiegand_interface">Wiegand interface</string>
     <string name="uart">UART</string>
@@ -226,7 +226,8 @@
 \n\n125 kHz, 134.2 kHz: AWID, Cardax, CASI-RUSCO, Deister6), EM4100, 4102, 42007), EM4050, 4150, 4450, 4550, EM43058), FDX-B, EM4105, HITAG 19), HITAG 29), HITAG S9), ICT8), IDTECK, Isonas8), Keri, Miro, Nedap6), PAC, Pyramid, Q5, T5557, T5567, T5577, TIRIS/HDX, TITAN (EM4050), UNIQUE, ZODIAC, Cotag, G-Prox6)</string>
     <string name="addon_modules">Addon modules</string>
     <string name="barcode_modules">Barcode modules</string>
-    <string name="rfid_module">RFID module</string>
+    <string name="rfid_module">RFID module(ELATEC)</string>
+    <string name="rfid_module_2">RFID module(HID)</string>
     <string name="light_strips">Light strips</string>
     <string name="honeywell_n4680">Honeywell N4680 barcode</string>
     <string name="newland_em3396">Newland EM3396 barcode</string>

@@ -14,6 +14,7 @@ class AddonActivity  : BaseActivity(), View.OnClickListener{
     lateinit var relativeCamera: RelativeLayout
     lateinit var relativeRfid: RelativeLayout
     lateinit var relativeLight: RelativeLayout
+    lateinit var relativeRfid2: RelativeLayout
 
     /**
      * 设置布局
@@ -34,11 +35,13 @@ class AddonActivity  : BaseActivity(), View.OnClickListener{
         relativeCamera = findViewById(R.id.relative_camera)
         relativeRfid = findViewById(R.id.relative_rfid)
         relativeLight = findViewById(R.id.relative_light)
+        relativeRfid2 = findViewById(R.id.relative_rfid2)
 
         relativeBarcode.setOnClickListener(this)
         relativeCamera.setOnClickListener(this)
         relativeRfid.setOnClickListener(this)
         relativeLight.setOnClickListener(this)
+        relativeRfid2.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -46,6 +49,7 @@ class AddonActivity  : BaseActivity(), View.OnClickListener{
             R.id.relative_barcode -> startActivity(Intent(this@AddonActivity, BarcodeModulesActivity::class.java))
             R.id.relative_camera -> startActivity(Intent(this@AddonActivity, CameraModulesActivity::class.java))
             R.id.relative_rfid -> startActivity(Intent(this@AddonActivity, RfidModulesActivity::class.java))
+            R.id.relative_rfid2 -> startActivity(Intent(this@AddonActivity, HIDRfidActivity::class.java))
             R.id.relative_light -> startActivity(Intent(this@AddonActivity, LightStripsActivity::class.java))
         }
     }

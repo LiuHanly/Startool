@@ -44,9 +44,9 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
         neb101rk3399 = findViewById(R.id.relative_neb101_rk3399)
         neb101rk3568 = findViewById(R.id.relative_neb101_rk3568)
         neb156rk3288 = findViewById(R.id.relative_neb156_rk3288)
-        neb156rk3399 = findViewById(R.id.relative_neb156_rk3399)
-        neb215rk3288 = findViewById(R.id.relative_neb215_rk3288)
-        neb215rk3399 = findViewById(R.id.relative_neb215_rk3399)
+        //neb156rk3399 = findViewById(R.id.relative_neb156_rk3399)
+        //neb215rk3288 = findViewById(R.id.relative_neb215_rk3288)
+        //neb215rk3399 = findViewById(R.id.relative_neb215_rk3399)
         vod073px30 = findViewById(R.id.relative_vod073_px30)
         vod073rk3399 = findViewById(R.id.relative_vod073_rk3399)
         vod073rk3568 = findViewById(R.id.relative_vod073_rk3568)
@@ -58,10 +58,10 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
         jar101led.setOnClickListener(this)
         neb101rk3568.setOnClickListener(this)
         neb101rk3399.setOnClickListener(this)
-        neb156rk3399.setOnClickListener(this)
+        //neb156rk3399.setOnClickListener(this)
         neb156rk3288.setOnClickListener(this)
-        neb215rk3399.setOnClickListener(this)
-        neb215rk3288.setOnClickListener(this)
+        //neb215rk3399.setOnClickListener(this)
+        //neb215rk3288.setOnClickListener(this)
         vod073px30.setOnClickListener(this)
         vod073rk3399.setOnClickListener(this)
         vod073rk3568.setOnClickListener(this)
@@ -87,21 +87,21 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
                 intent.putExtra("title", getString(R.string.model_neb156))
                 startActivity(intent)
             }
-            R.id.relative_neb156_rk3399 ->{
-                var intent = Intent(this, Neb156Activity::class.java)
-                intent.putExtra("title", getString(R.string.model_neb156))
-                startActivity(intent)
-            }
-            R.id.relative_neb215_rk3288 ->{
-                var intent = Intent(this, Neb156Activity::class.java)
-                intent.putExtra("title", getString(R.string.model_neb156))
-                startActivity(intent)
-            }
-            R.id.relative_neb215_rk3399 ->{
-                var intent = Intent(this, Neb156Activity::class.java)
-                intent.putExtra("title", getString(R.string.model_neb156))
-                startActivity(intent)
-            }
+//            R.id.relative_neb156_rk3399 ->{
+//                var intent = Intent(this, Neb156Activity::class.java)
+//                intent.putExtra("title", getString(R.string.model_neb156))
+//                startActivity(intent)
+//            }
+//            R.id.relative_neb215_rk3288 ->{
+//                var intent = Intent(this, Neb156Activity::class.java)
+//                intent.putExtra("title", getString(R.string.model_neb156))
+//                startActivity(intent)
+//            }
+//            R.id.relative_neb215_rk3399 ->{
+//                var intent = Intent(this, Neb156Activity::class.java)
+//                intent.putExtra("title", getString(R.string.model_neb156))
+//                startActivity(intent)
+//            }
             R.id.relative_vod073_px30 ->{
                 startActivity(Intent(this, VegaActivity::class.java))
             }
