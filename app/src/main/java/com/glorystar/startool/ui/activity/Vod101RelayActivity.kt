@@ -1,6 +1,7 @@
 package com.glorystar.startool.ui.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.glorystar.startool.R
@@ -23,7 +24,7 @@ class Vod101RelayActivity : BaseActivity(), View.OnClickListener {
         titleView = findViewById(R.id.tile_view)
         titleView.title.text = getString(R.string.relay)
         titleView.action = this
-
+        Log.e("Vod101RelayActivity","Vod101RelayActivity***--->")
 
         btRelay1Open = findViewById(R.id.bt_relay1_open)
         btRelay1Close = findViewById(R.id.bt_relay1_close)

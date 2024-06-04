@@ -67,6 +67,7 @@ class TrumpetActivity : BaseActivity() {
             when (msg.what) {
                 0 -> {
                     if (inetse % 2 == 0) {
+
                         Log.e("TrumpetActivity", "2-->" + inetse)
                         setRunalie(2)
                     } else {
@@ -191,14 +192,14 @@ class TrumpetActivity : BaseActivity() {
         mChannelLeftPlayer == null
         mChannelRightPlayer == null
 
-        mChannelLeftPlayer = PlayThread(this, "mChannelLeft.wav")
-        mChannelRightPlayer = PlayThread(this, "mChannelRight.wav")
+        mChannelLeftPlayer = PlayThread(this, "channaeleft.wav")
+        mChannelRightPlayer = PlayThread(this, "channelright.wav")
         mChannelLeftPlayer?.setChannel(true, false)
         mChannelRightPlayer?.setChannel(false, true)
         mChannelLeftPlayer?.start()
         countdowntimer = object : CountDownTimer(7 * 1000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-             //  badge_view.text = "播放中"
+                //  badge_view.text = "播放中"
                 badge_view?.isClickable = false
                 Log.e("CountDownTimer", "" + millisUntilFinished.div(1000).toInt())
                 var Timer = millisUntilFinished.div(1000).toInt()
@@ -212,7 +213,7 @@ class TrumpetActivity : BaseActivity() {
             }
 
             override fun onFinish() {
-               // badge_view.text = "播放"
+                // badge_view.text = "播放"
                 badge_view?.isClickable = true
 
                 mChannelLeftPlayer?.stopp()
@@ -246,8 +247,8 @@ class TrumpetActivity : BaseActivity() {
         mChannelLeftPlayer == null
         mChannelRightPlayer == null
 
-        mChannelLeftPlayer = PlayThread(this, "mChannelLeft.wav")
-        mChannelRightPlayer = PlayThread(this, "mChannelRight.wav")
+        mChannelLeftPlayer = PlayThread(this, "channaeleft.wav")
+        mChannelRightPlayer = PlayThread(this, "channelright.wav")
 
         mChannelLeftPlayer?.setChannel(true, false)
         mChannelRightPlayer?.setChannel(false, true)

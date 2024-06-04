@@ -47,9 +47,7 @@ class ScreenActivity : BaseActivity() {
     var ZoomDragImage: SwZoomDragImageView? = null
     val MIN_CLICK_DELAY_TIME = 1000 //这里设置不能超过多长时间
 
-    companion
-
-    object {
+    companion object {
         // 跳转到当前页面。
         fun toStartActivity(context: Activity) {
             val intent = Intent(context, ScreenActivity::class.java)

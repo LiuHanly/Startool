@@ -13,11 +13,11 @@ import java.io.InputStream;
 public class PlayThread extends Thread {
 
     // 采样率
-    private int mSampleRateInHz = 44100;
+    private int mSampleRateInHz = 16000;
     // 单声道
-    private int mChannelConfig = AudioFormat.CHANNEL_OUT_MONO;
+      private int mChannelConfig = AudioFormat.CHANNEL_OUT_MONO;
     // 双声道（立体声）
-    // private int mChannelConfig = AudioFormat.CHANNEL_OUT_STEREO;
+    //    private int mChannelConfig = AudioFormat.CHANNEL_OUT_STEREO;
 
     private static final String TAG = "PlayThread";
     private Activity mActivity;
@@ -78,6 +78,7 @@ public class PlayThread extends Thread {
                     if (isLoaded && playIndex == data.length) {
                      //   Log.i(TAG, "run: 播放完了");
                         mAudioTrack.stop();
+                        LiveDataBus.get().with("NewHDMIActivity").postValue(mFileName);
                     }
 
                     if (playIndex < 0) {

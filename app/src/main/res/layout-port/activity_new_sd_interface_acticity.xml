@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMain"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="104mm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/sdport_usb_name_test"
+            android:textColor="@color/white"
+            android:textSize="37mm" />
+
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rct_progr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="24mm"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rct_progr"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50mm">
+
+
+        <Button
+            android:id="@+id/through_button"
+            android:layout_width="121mm"
+            android:layout_height="55mm"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="100mm"
+            android:background="@drawable/r_button_bg"
+            android:text="@string/NEXTBUTTON"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="25mm" />
+    </RelativeLayout>
+
+</LinearLayout>

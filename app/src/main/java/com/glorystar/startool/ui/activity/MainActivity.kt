@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.provider.Settings
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -29,11 +30,12 @@ import com.glorystar.startool.config.bean.UpdateBean
 import com.glorystar.startool.config.bean.UpdateData
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.ui.service.DownloadService
+import com.glorystar.startool.ui.testactivity.TestMainActivity
 import com.glorystar.startool.utils.tool.*
 import com.lxj.xpopup.enums.PopupPosition
 import java.io.File
 
-class MainActivity : BaseActivity(), UpdateData{
+class MainActivity : BaseActivity(), UpdateData {
     private lateinit var linear_general: LinearLayout
     private lateinit var linear_model: LinearLayout
     private lateinit var linear_addon: LinearLayout
@@ -48,6 +50,7 @@ class MainActivity : BaseActivity(), UpdateData{
     lateinit var progressBar: ProgressBar
     lateinit var dialog: AlertDialog
     lateinit var rotateAnimation: Animation
+    lateinit var update1: ImageView
 
     @SuppressLint("HandlerLeak")
     var handler: Handler = object : Handler() {
@@ -62,11 +65,13 @@ class MainActivity : BaseActivity(), UpdateData{
                     downloadUrl = ub.apkUrl
                     checkUpdate.text = getString(R.string.update_now)
                 }
+
                 1 -> {
                     ivLoading.clearAnimation()
                     linearUpdate.visibility = View.VISIBLE
                     ivLoading.visibility = View.GONE
                 }
+
                 else -> {
                 }
             }
@@ -88,8 +93,9 @@ class MainActivity : BaseActivity(), UpdateData{
         linear_aging = findViewById(R.id.linear_aging)
         language_text = findViewById(R.id.textlanguage)
         update = findViewById(R.id.iv_update)
+        update1 = findViewById(R.id.iv_update1)
 
-       // StatusNaviBarUitl.hide(application)
+        // StatusNaviBarUitl.hide(application)
 
         val filter = IntentFilter()
         filter.addAction("com.glorystar.intent.APK_DEMO_UPDATE_PERCENT")
@@ -119,13 +125,18 @@ class MainActivity : BaseActivity(), UpdateData{
         update.setOnClickListener {
             updateDialog(this@MainActivity)
         }
+        update1.setOnClickListener {
+          TestMainActivity.toStartActivity(this@MainActivity)
+
+
+        }
 
         language_text.setOnClickListener {
             BasePoup.Builder(this)
                 .hasShadowBg(false)
                 .atView(it)
                 .popupPosition(PopupPosition.Bottom)
-                .asAttaServedView(Constantdtas.AttaServedName){ position, text ->
+                .asAttaServedView(Constantdtas.AttaServedName) { position, text ->
                     language_text.text = text
                     IntentJumpUtils.setLanguage(position)
                     LiveDataBus.get().with("Language").postValue("refresh_language")
@@ -147,7 +158,8 @@ class MainActivity : BaseActivity(), UpdateData{
         linearUpdate = view.findViewById<LinearLayout>(R.id.linear_up_date)
         var goBack = view.findViewById<TextView>(R.id.tv_go_back)
 
-        appVersion.text = getString(R.string.app_version)+" "+VersionInfoUtil.getVerName(context)
+        appVersion.text =
+            getString(R.string.app_version) + " " + VersionInfoUtil.getVerName(context)
 
         val builder = AlertDialog.Builder(context)
         builder.setView(view)
@@ -169,7 +181,7 @@ class MainActivity : BaseActivity(), UpdateData{
                     )
                         .show()
                 }
-            }else if (checkUpdate.text.equals(getString(R.string.update_now))){
+            } else if (checkUpdate.text.equals(getString(R.string.update_now))) {
                 if (!TextUtils.isEmpty(downloadUrl)) {
                     updateDialog.dismiss()
                     showDialog(
@@ -192,7 +204,7 @@ class MainActivity : BaseActivity(), UpdateData{
 
     }
 
-    private fun showDialog(context: Context?, iconId: Int, title: String, info: String, type:Int) {
+    private fun showDialog(context: Context?, iconId: Int, title: String, info: String, type: Int) {
         val view: View =
             LayoutInflater.from(context).inflate(R.layout.dialog_ota, null)
         var ivIcon = view.findViewById<ImageView>(R.id.iv_info)
@@ -201,11 +213,11 @@ class MainActivity : BaseActivity(), UpdateData{
         var goBack = view.findViewById<TextView>(R.id.tv_go_back)
         progressBar = view.findViewById<ProgressBar>(R.id.pb_update)
 
-        if (type == 0){
+        if (type == 0) {
             progressBar.visibility = View.GONE
             tvInfo.visibility = View.VISIBLE
             goBack.text = getString(R.string.go_back)
-        }else{
+        } else {
             progressBar.visibility = View.VISIBLE
             tvInfo.visibility = View.GONE
             goBack.text = getString(R.string.cancel)
@@ -238,7 +250,8 @@ class MainActivity : BaseActivity(), UpdateData{
                             installIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                             val contentUri = FileProvider.getUriForFile(
                                 this@MainActivity,
-                                BuildConfig.APPLICATION_ID.toString() + ".fileProvider", File(filePath)
+                                BuildConfig.APPLICATION_ID.toString() + ".fileProvider",
+                                File(filePath)
                             )
                             installIntent.setDataAndType(
                                 contentUri,
@@ -283,7 +296,7 @@ class MainActivity : BaseActivity(), UpdateData{
         super.onDestroy()
         handler.removeCallbacksAndMessages(null)
 
-        if (updateDemoReceiver != null){
+        if (updateDemoReceiver != null) {
             unregisterReceiver(updateDemoReceiver)
         }
     }

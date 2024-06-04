@@ -11,6 +11,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="104mm">
+        <ImageView
+            android:id="@+id/iv_update1"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30dp"
+            android:layout_toLeftOf="@+id/iv_update"
+            android:src="@drawable/production_mode" />
 
         <ImageView
             android:id="@+id/iv_update"

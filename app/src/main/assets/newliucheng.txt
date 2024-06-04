@@ -1,0 +1,15 @@
+{id:0,name:"Information"}
+{id:1,name:"Screen display"}
+{id:2,name:"Touch"}
+{id:3,name:"WIFI"}
+{id:4,name:"Bluetooth"}
+{id:5,name:"Photo & recording"}
+{id:6,name:"Network"}
+{id:7,name:"SD port"}
+{id:8,name:"USB"}
+{id:9,name:"HDMI"}
+{id:10,name:"Speaker"}
+{id:11,name:"Earphone"}
+{id:12,name:"Gyroscope"}
+{id:13,name:"GpIO"}
+{id:14,name:"Buttons"}

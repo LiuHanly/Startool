@@ -334,4 +334,10 @@
     <string name="zebra_se2707">Zebra SE2707扫描器</string>
     <string name="zebra_barcode_1d_content">Code 128 ,EAN-13, EAN-8 ,Code 39 ,UPC-A ,UPC-E\nCodabar, Interleaved 2 of 5\nCode 93, UCC/EAN-128, GS1 Databar, Matrix 2 of 5\nCode 11, Discrete 2 of 5 </string>
     <string name="zebra_barcode_2d_content">PDF417\nData Matrix\nQR Code\nMicroQR\nAztec</string>
+    <string name="sleep">休眠</string>
+    <string name="hdmi_speaker_name_test">HDMI 和 声音 测试</string>
+    <string name="factory_reset">恢复出厂设置</string>
+    <string name="GpIO_name_test">GPIO 测试</string>
+    <string name="sensor_name_test">传感器测试</string>
+    <string name="step">上一步</string>
 </resources>

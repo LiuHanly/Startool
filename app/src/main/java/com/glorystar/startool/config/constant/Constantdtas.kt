@@ -1,17 +1,47 @@
 package com.glorystar.startool.config.constant
 
 import android.app.Activity
+import android.content.Context
 import android.content.res.AssetManager
 import android.os.Build
 import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.AgingBean
-import com.glorystar.startool.ui.activity.*
+import com.glorystar.startool.ui.activity.BluetoothActivity
+import com.glorystar.startool.ui.activity.ButtonActivity
+import com.glorystar.startool.ui.activity.CameraActivity
+import com.glorystar.startool.ui.activity.GyroscopeActivity
+import com.glorystar.startool.ui.activity.HDMIActivity
+import com.glorystar.startool.ui.activity.RJ45Activity
+import com.glorystar.startool.ui.activity.ScreenActivity
+import com.glorystar.startool.ui.activity.ScreenShowActivity
+import com.glorystar.startool.ui.activity.SdInterfaceActicity
+import com.glorystar.startool.ui.activity.TrumpetActivity
+import com.glorystar.startool.ui.activity.USBInterfaceActivity
+import com.glorystar.startool.ui.activity.WifiActivity
+import com.glorystar.startool.ui.testactivity.NewBluetoothActivity
+import com.glorystar.startool.ui.testactivity.NewButtonActivity
+import com.glorystar.startool.ui.testactivity.NewCameraActivity
+import com.glorystar.startool.ui.testactivity.NewGpIOActivity
+import com.glorystar.startool.ui.testactivity.NewGyroscopeActivity
+import com.glorystar.startool.ui.testactivity.NewHDMIActivity
+import com.glorystar.startool.ui.testactivity.NewRJ45Activity
+import com.glorystar.startool.ui.testactivity.NewScreenActivity
+import com.glorystar.startool.ui.testactivity.NewSdInterfaceActicity
+import com.glorystar.startool.ui.testactivity.NewShowActivity
+import com.glorystar.startool.ui.testactivity.NewWifiActivity
 import com.glorystar.startool.utils.tool.DateUtil
 import com.glorystar.startool.utils.tool.ToastUtil
-import java.io.*
+import java.io.BufferedReader
+import java.io.File
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStreamReader
+
 
 object Constantdtas {
     const val UPDATE_APP = "http://18.221.204.147/app_storage/demoApkInfo.json";
@@ -23,8 +53,8 @@ object Constantdtas {
     const val MEMORYTESTKTFRAGMENT = "600000"//低内存测试时间 "600000"
     const val DDRTESTKTFRAGMENT = "600000"    //DDR测试时间   "600000"
     const val VIDEOTESTKTFRAGMENT = "28800000" //视屏测试     "28800000"
-    val AttaServedName = arrayOf("ENG", "中文" )
-    const val STAROS_ORIENTATION ="STARTOOL_CONFIG"
+    val AttaServedName = arrayOf("ENG", "中文")
+    const val STAROS_ORIENTATION = "STARTOOL_CONFIG"
     val ORIENTATION = arrayOf("Landscape", "Portrait")
     val BARCODE = arrayOf("1D barcodes", "2D barcodes")
     val RFIDSUPPORT = arrayOf("Standard", "Version P")
@@ -32,15 +62,15 @@ object Constantdtas {
     fun getGreAgingDate(context: Activity): MutableList<AgingBean> {
         var minItemBean: MutableList<AgingBean> = ArrayList<AgingBean>()
 
-       context?.resources?.getString(R.string.wifi_name)
+        context?.resources?.getString(R.string.wifi_name)
             ?.let { AgingBean(3, R.mipmap.wifixxxhdpi, it, false) }?.let { minItemBean.add(it) }
 
 
-       context?.resources?.getString(R.string.network_name)
+        context?.resources?.getString(R.string.network_name)
             ?.let { AgingBean(6, R.mipmap.internet, it, false) }?.let { minItemBean.add(it) }
 
 
-       context?.resources?.getString(R.string.bluetooth_name)
+        context?.resources?.getString(R.string.bluetooth_name)
             ?.let { AgingBean(4, R.mipmap.bluetooth, it, false) }?.let { minItemBean.add(it) }
 
 
@@ -48,28 +78,28 @@ object Constantdtas {
             ?.let { AgingBean(9, R.mipmap.hdmi, it, false) }?.let { minItemBean.add(it) }
 
 
-       context?.resources?.getString(R.string.usb_name)
+        context?.resources?.getString(R.string.usb_name)
             ?.let { AgingBean(8, R.mipmap.usb, it, false) }?.let { minItemBean.add(it) }
 
-       context?.resources?.getString(R.string.sdport_name)
+        context?.resources?.getString(R.string.sdport_name)
             ?.let { AgingBean(7, R.mipmap.sdcard, it, false) }?.let { minItemBean.add(it) }
 
-      context?.resources?.getString(R.string.screen_display_name)
+        context?.resources?.getString(R.string.screen_display_name)
             ?.let { AgingBean(1, R.mipmap.screendisplay, it, false) }?.let { minItemBean.add(it) }
 
-       context?.resources?.getString(R.string.touch_name)
+        context?.resources?.getString(R.string.touch_name)
             ?.let { AgingBean(2, R.mipmap.touch, it, false) }?.let { minItemBean.add(it) }
 
-       context?.resources?.getString(R.string.speaker_name)
+        context?.resources?.getString(R.string.speaker_name)
             ?.let { AgingBean(10, R.mipmap.speaker, it, false) }?.let { minItemBean.add(it) }
 
-       context?.resources?.getString(R.string.gyroscope_name)
+        context?.resources?.getString(R.string.gyroscope_name)
             ?.let { AgingBean(12, R.mipmap.orientation, it, false) }?.let { minItemBean.add(it) }
 
-       context?.resources?.getString(R.string.buttons_name)
+        context?.resources?.getString(R.string.buttons_name)
             ?.let { AgingBean(13, R.mipmap.button, it, false) }?.let { minItemBean.add(it) }
 
-      context?.resources?.getString(R.string.photo_recording_name)
+        context?.resources?.getString(R.string.photo_recording_name)
             ?.let { AgingBean(5, R.mipmap.camera, it, false) }?.let { minItemBean.add(it) }
 
         return minItemBean
@@ -81,6 +111,15 @@ object Constantdtas {
         val mAssetManger: AssetManager = context.assets
         val bufferedReader1 =
             BufferedReader(InputStreamReader(mAssetManger.open("liucheng.txt"), "utf-8"))
+        val lines1 = bufferedReader1.readLines()
+        return lines1
+    }
+
+    fun getInString(context: Activity,code: Int): List<String> {
+
+        val mAssetManger: AssetManager = context.assets
+        val bufferedReader1 =
+            BufferedReader(InputStreamReader(mAssetManger.open("newliucheng.txt"), "utf-8"))
         val lines1 = bufferedReader1.readLines()
         return lines1
     }
@@ -99,6 +138,26 @@ object Constantdtas {
             10 -> TrumpetActivity.toStartActivity(context)
             12 -> GyroscopeActivity.toStartActivity(context)
             13 -> ButtonActivity.toStartActivity(context)
+        }
+    }
+
+    fun geiActivity(context: Activity, position: Int, code: Int) {
+        Log.e("geiActivity", "---->$position --->$code -->${context.componentName}")
+
+        when (position) {
+            1 -> NewShowActivity.toStartActivity(context)
+            2 -> NewScreenActivity.toStartActivity(context)
+            3 -> NewWifiActivity.toStartActivity(context)
+            4 -> NewBluetoothActivity.toStartActivity(context)
+            5 -> NewCameraActivity.toStartActivity(context)
+            6 -> NewRJ45Activity.toStartActivity(context)
+            7 -> NewSdInterfaceActicity.toStartActivity(context)
+            9 -> NewHDMIActivity.toStartActivity(context)
+            10 -> NewGyroscopeActivity.toStartActivity(context)
+            12 -> NewGpIOActivity.toStartActivity(context)
+            13 -> NewButtonActivity.toStartActivity(context)
+
+
         }
     }
 
@@ -199,6 +258,36 @@ object Constantdtas {
             (millisUntilFinished - day * (1000 * 24 * 60 * 60) - hour * (1000 * 60 * 60) - minute * (1000 * 60)) / 1000
         //单位秒
         return ("$hour：$minute：$second")
+    }
+
+    // 获取最新的图片
+    fun getLatestImage(context: Context): String? {
+        val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val sortOrder = MediaStore.Images.Media.DATE_TAKEN + " DESC"
+        val cursor = context.contentResolver.query(uri, projection, null, null, sortOrder)
+        if (cursor != null && cursor.moveToFirst()) {
+            val latestImagePath =
+                cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
+            cursor.close()
+            return latestImagePath
+        }
+        return null
+    }
+
+    // 获取最新的视频
+    fun getLatestVideo(context: Context): String? {
+        val uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        val projection = arrayOf(MediaStore.Video.Media.DATA)
+        val sortOrder = MediaStore.Video.Media.DATE_TAKEN + " DESC"
+        val cursor = context.contentResolver.query(uri, projection, null, null, sortOrder)
+        if (cursor != null && cursor.moveToFirst()) {
+            val latestVideoPath =
+                cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))
+            cursor.close()
+            return latestVideoPath
+        }
+        return null
     }
 
 

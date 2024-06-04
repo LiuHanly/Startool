@@ -118,6 +118,7 @@ class RJ45Activity : BaseActivity() {
 
         }
     }
+
     override fun onStop() {
         super.onStop()
         StatusNaviBarUitl.hide(this@RJ45Activity)
@@ -140,7 +141,7 @@ class RJ45Activity : BaseActivity() {
         webSettings.loadWithOverviewMode = true
         webSettings.domStorageEnabled = true
         // 启动缓存
-        webSettings.setAppCacheEnabled(true)
+        //    webSettings.setAppCacheEnabled(true)
         // 优先使用缓存
         webSettings.cacheMode = WebSettings.LOAD_DEFAULT
         //初始方案：去掉长按后出现菜单中的搜索功能

@@ -37,6 +37,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
@@ -63,6 +64,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MASTER_CLEAR" />
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
@@ -76,6 +78,69 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
+        <activity
+            android:name=".ui.testactivity.NewTestReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.testactivity.NewButtonActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.testactivity.NewGpIOActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.testactivity.NewGyroscopeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.testactivity.NewHDMIActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.testactivity.NewSdInterfaceActicity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".ui.testactivity.NewRJ45Activity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".ui.testactivity.NewCameraActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".ui.testactivity.NewBluetoothActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".ui.testactivity.NewWifiActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".ui.testactivity.NewScreenActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".ui.testactivity.NewShowActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".ui.testactivity.TestMainActivity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitle" />
         <activity
             android:name=".ui.activity.HIDRfidActivity"
             android:exported="false" />
