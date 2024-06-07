@@ -1,13 +1,14 @@
 package com.glorystar.startool.ui.testactivity
 
+
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ContentResolver
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -19,6 +20,9 @@ import com.glorystar.startool.config.constant.IntenAcitivity
 import com.glorystar.startool.utils.tool.LiveDataBus
 import com.glorystar.startool.utils.tool.PlayThread
 import com.glorystar.startool.utils.tool.StatusNaviBarUitl
+import java.io.ByteArrayOutputStream
+import java.io.InputStream
+
 
 class NewHDMIActivity : BaseActivity() {
 
@@ -80,13 +84,11 @@ class NewHDMIActivity : BaseActivity() {
 
         mHandler.sendEmptyMessage(1)
         LiveDataBus.get().with("NewHDMIActivity", String::class.java).observe(this, {
-            if (it.contains("channaeleft.wav")) {
+            if (it.contains("mChannelLeft1.wav")) {
                 mHandler.sendEmptyMessage(0)
-            } else if (it.contains("channelright.wav")) {
+            } else if (it.contains("mChannelRight1.wav")) {
                 mHandler.sendEmptyMessage(1)
             }
-
-
         })
 
     }
@@ -139,17 +141,18 @@ class NewHDMIActivity : BaseActivity() {
         mChannelLeftPlayer == null
         mChannelRightPlayer == null
 
-        mChannelLeftPlayer = PlayThread(this, "channaeleft.wav")
-        mChannelRightPlayer = PlayThread(this, "channelright.wav")
+        mChannelLeftPlayer = PlayThread(this, "mChannelLeft1.wav")
+        mChannelRightPlayer = PlayThread(this, "mChannelRight1.wav")
 
         mChannelLeftPlayer?.setChannel(true, false)
         mChannelRightPlayer?.setChannel(false, true)
+
         if (Player == 1) {
             mChannelLeftPlayer?.start()
 
         } else {
-
             mChannelRightPlayer?.start()
+
         }
 
     }

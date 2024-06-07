@@ -13,9 +13,10 @@ import java.io.InputStream;
 public class PlayThread extends Thread {
 
     // 采样率
-    private int mSampleRateInHz = 16000;
+    //  private int mSampleRateInHz = 16000;
+    private int mSampleRateInHz = 44100;
     // 单声道
-      private int mChannelConfig = AudioFormat.CHANNEL_OUT_MONO;
+    private int mChannelConfig = AudioFormat.CHANNEL_OUT_MONO;
     // 双声道（立体声）
     //    private int mChannelConfig = AudioFormat.CHANNEL_OUT_STEREO;
 
@@ -62,7 +63,7 @@ public class PlayThread extends Thread {
                 if (-1 != (len = inputStream.read(buffer))) {
                     byteArrayOutputStream.write(buffer, 0, len);
                     data = byteArrayOutputStream.toByteArray();
-                //    Log.i(TAG, "run: 已缓冲 : " + data.length);
+                    //    Log.i(TAG, "run: 已缓冲 : " + data.length);
                 } else {
                     // 缓冲完成
                     isLoaded = true;
@@ -72,17 +73,17 @@ public class PlayThread extends Thread {
                     // TODO 已经暂停
                 }*/
                 if (AudioTrack.PLAYSTATE_PLAYING == mAudioTrack.getPlayState()) {
-                 //   Log.i(TAG, "run: 开始从 " + playIndex + " 播放");
+                    //   Log.i(TAG, "run: 开始从 " + playIndex + " 播放");
                     playIndex += mAudioTrack.write(data, playIndex, data.length - playIndex);
-                 //   Log.i(TAG, "run: 播放到了 : " + playIndex);
+                    //   Log.i(TAG, "run: 播放到了 : " + playIndex);
                     if (isLoaded && playIndex == data.length) {
-                     //   Log.i(TAG, "run: 播放完了");
+                        //   Log.i(TAG, "run: 播放完了");
                         mAudioTrack.stop();
                         LiveDataBus.get().with("NewHDMIActivity").postValue(mFileName);
                     }
 
                     if (playIndex < 0) {
-                       // Log.i(TAG, "run: 播放出错");
+                        // Log.i(TAG, "run: 播放出错");
                         mAudioTrack.stop();
                         break;
                     }

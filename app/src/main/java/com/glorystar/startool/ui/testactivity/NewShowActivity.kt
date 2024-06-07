@@ -6,6 +6,7 @@ import android.content.ContentResolver
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
@@ -18,6 +19,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.core.view.setPadding
 import androidx.viewpager.widget.PagerAdapter
 import com.glorystar.startool.R
@@ -58,6 +60,9 @@ class NewShowActivity : BaseActivity() {
     var isInfox = 0
     var isTher = true
 
+    var MaxBrightness = 0
+    var MinBrightness = 0
+
 
     @SuppressLint("HandlerLeak")
     var handler: Handler = object : Handler() {
@@ -83,33 +88,35 @@ class NewShowActivity : BaseActivity() {
                         text_name.text = ""
                         Imagenumbe++
                     } else {
-
                         if (noscroll_Viewpager_ScreenShow?.currentItem != 1) {
                             noscroll_Viewpager_ScreenShow?.currentItem = 1
                         } else {
-                            timeThread = 10L
+                            isTher = false
+/*                          timeThread = 50L
                             when (progressIntx) {
-                                0 -> {
+                                MinBrightness -> {
                                     isProgess = false
                                     isInfox++
                                 }
 
-                                255 -> {
+                                MaxBrightness -> {
                                     isProgess = true
                                     isInfox++
                                 }
                             }
-                            seekBar?.progress = progressIntx
-                            setScreenLight(progressIntx)
+                            if(isInfox != 3){
+                                Log.e("getResolver", "--progress-->${progressIntx}")
+                                seekBar?.progress = progressIntx
+                                setScreenLight(progressIntx)
+                            }
                             if (isProgess) {
                                 progressIntx--
                             } else {
                                 progressIntx++
                             }
                             if (isInfox == 3) {
-                                isTher = false
-                                IntenAcitivity.getIntenAcitivity(this@NewShowActivity, 1, 2,1)
-                            }
+                                setIntenAcit()
+                            }*/
 
                         }
 
@@ -143,12 +150,13 @@ class NewShowActivity : BaseActivity() {
 
     override fun getLayoutId(): Int = R.layout.activity_new_show
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun initView(savedInstanceState: Bundle?) {
 
 
         val view1 = layoutInflater.inflate(R.layout.screen_view_noe, null)
         val view2 = layoutInflater.inflate(R.layout.screen_view_tow, null)
-
+        getResolver()
 
         noscroll_Viewpager_ScreenShow = findViewById(R.id.noscroll_Viewpager_ScreenShow)
 
@@ -158,9 +166,11 @@ class NewShowActivity : BaseActivity() {
 
         text_name = view1.findViewById(R.id.text_name)
         nextButton = view2.findViewById(R.id.nextButton)
-        nextButton.visibility = View.GONE
-        text_name.visibility = View.GONE
 
+        text_name.visibility = View.GONE
+        nextButton.setOnClickListener {
+            IntenAcitivity.getIntenAcitivity(this@NewShowActivity, 1, 2, 1)
+        }
 
         lp = window.attributes
 
@@ -169,7 +179,9 @@ class NewShowActivity : BaseActivity() {
         screenshow_rl?.setBackgroundColor(Color.parseColor("#FF0000"))
         seekBar = view2.findViewById(R.id.seekBar)
 
-        seekBar?.max = 255/*        screenshow_rl?.setOnClickListener {
+        seekBar?.max = MaxBrightness
+        seekBar?.min = MinBrightness
+        /*        screenshow_rl?.setOnClickListener {
                     if (numbe < Textcolor.size) {
                         screenshow_rl?.setBackgroundColor(Color.parseColor(Textcolor[numbe]))
                         if (numbe == 2) {
@@ -234,9 +246,10 @@ class NewShowActivity : BaseActivity() {
             }
         }
 
+
     }
 
-
+    @Synchronized
     fun setScreenLight(brightness: Int) {
         val uri: Uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS)
         val contentResolver = contentResolver
@@ -248,6 +261,7 @@ class NewShowActivity : BaseActivity() {
     /**
      * 获得当前亮度
      */
+
     private fun getBrightness(): Int {
         var brightness = 0
         val resolver: ContentResolver = this.contentResolver
@@ -258,4 +272,29 @@ class NewShowActivity : BaseActivity() {
         }
         return brightness
     }
+
+    //获取系统亮度 最大 最小值
+    fun getResolver() {
+        val resolver = contentResolver
+        val brightnessSettingMaximumId =
+            resources.getIdentifier("config_screenBrightnessSettingMaximum", "integer", "android")
+        val brightnessSettingMaximum = resources.getInteger(brightnessSettingMaximumId)
+        val brightnessSettingMinimumId =
+            resources.getIdentifier("config_screenBrightnessSettingMinimum", "integer", "android")
+        val brightnessSettingMinimum = resources.getInteger(brightnessSettingMinimumId)
+        MaxBrightness = brightnessSettingMaximum
+        MinBrightness = brightnessSettingMinimum
+        Log.e(
+            "getResolver",
+            "-Maximum-${brightnessSettingMaximum} -Minimum- ${brightnessSettingMinimum}"
+        )
+    }
+    @Synchronized
+    fun setIntenAcit(){
+        Log.e("getResolver","--->${isInfox}")
+        isTher = false
+
+    }
+
+
 }

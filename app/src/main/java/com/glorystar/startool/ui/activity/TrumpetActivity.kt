@@ -192,8 +192,8 @@ class TrumpetActivity : BaseActivity() {
         mChannelLeftPlayer == null
         mChannelRightPlayer == null
 
-        mChannelLeftPlayer = PlayThread(this, "channaeleft.wav")
-        mChannelRightPlayer = PlayThread(this, "channelright.wav")
+        mChannelLeftPlayer = PlayThread(this, "mChannelLeft.wav")
+        mChannelRightPlayer = PlayThread(this, "mChannelRight.wav")
         mChannelLeftPlayer?.setChannel(true, false)
         mChannelRightPlayer?.setChannel(false, true)
         mChannelLeftPlayer?.start()
@@ -247,8 +247,8 @@ class TrumpetActivity : BaseActivity() {
         mChannelLeftPlayer == null
         mChannelRightPlayer == null
 
-        mChannelLeftPlayer = PlayThread(this, "channaeleft.wav")
-        mChannelRightPlayer = PlayThread(this, "channelright.wav")
+        mChannelLeftPlayer = PlayThread(this, "mChannelLeft.wav")
+        mChannelRightPlayer = PlayThread(this, "mChannelRight.wav")
 
         mChannelLeftPlayer?.setChannel(true, false)
         mChannelRightPlayer?.setChannel(false, true)
