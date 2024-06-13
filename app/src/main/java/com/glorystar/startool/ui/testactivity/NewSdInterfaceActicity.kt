@@ -6,6 +6,8 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.os.StatFs
 import android.os.storage.StorageManager
 import android.os.storage.StorageVolume
@@ -49,16 +51,32 @@ class NewSdInterfaceActicity : BaseActivity() {
         }
     }
 
+    val handler: Handler = @SuppressLint("HandlerLeak")
+    object : Handler(){
+        override fun handleMessage(msg: Message) {
+            super.handleMessage(msg)
+            Log.e("volumeList","===>${msg.what}")
+            Log.e("volumeList","==listGridItem=size=>${listGridItem.toMutableList()}")
+            var Itemstatus = listGridItem.distinctBy { it.label }
+            baserecycleradapter?.setNewData(Itemstatus)
+            if(msg.what == 0){
+                Log.e("volumeList","=Itemstatus==>${Itemstatus.size}")
+
+            }
+
+        }
+    }
+
 
     override fun getLayoutId(): Int = R.layout.activity_new_sd_interface_acticity
 
     override fun initView(savedInstanceState: Bundle?) {
+        listGridItem = arrayListOf();
         through_button = findViewById(R.id.through_button)
         rct_progr = findViewById(R.id.rct_progr)
         mstoragemanager = getSystemService(STORAGE_SERVICE) as StorageManager
 
-        baserecycleradapter =
-            object : BaseRecyclerAdapter<GridItem>(this, null, R.layout.mydonut_progress) {
+        baserecycleradapter = object : BaseRecyclerAdapter<GridItem>(this, null, R.layout.mydonut_progress) {
                 @SuppressLint("SetTextI18n")
                 override fun convert(
                     holder: BaseRecyclerHolder?,
@@ -104,6 +122,7 @@ class NewSdInterfaceActicity : BaseActivity() {
 
         LiveDataBus.get().with("USBInterfaceActivity", String::class.java).observe(this, Observer {
             Log.e("NewSdInterfaceActicity","setLinst-->${it}")
+            listGridItem.clear()
             setLinst()
             setLinstusb()
         })
@@ -111,7 +130,7 @@ class NewSdInterfaceActicity : BaseActivity() {
     }
     @SuppressLint("NewApi")
     fun setLinst() {
-        listGridItem = arrayListOf();
+
 
         if (Build.VERSION.SDK_INT < 23) {
 
@@ -120,6 +139,7 @@ class NewSdInterfaceActicity : BaseActivity() {
                 val statFs = StatFs("/mnt/external_sd")
                 val FreeBlocks = statFs.freeBlocksLong
                 val totalBytes = statFs.totalBytes
+                Log.e("volumeList","---listGridItem------->")
                 listGridItem.add(
                     GridItem(
                         "SD",
@@ -130,9 +150,9 @@ class NewSdInterfaceActicity : BaseActivity() {
                         totalBytes
                     )
                 )
-
+                handler.sendEmptyMessage(0)
             } catch (e: Exception) {
-                listGridItem.clear()
+           //     listGridItem.clear()
             }
 
         } else {
@@ -142,7 +162,9 @@ class NewSdInterfaceActicity : BaseActivity() {
                 val label: String = it.getDescription(this) //这个其实就是U盘的名称
                 val status: String = it.getState()
                 val isEmulated = it.isEmulated()            //是否是内部存储设备
-                val isRemovable = it.isRemovable()          //是否是可移除的外部存储设备
+                val isRemovable = it.isRemovable()
+             Log.e("volumeList","--->${it.storageUuid.toString()}")
+               //是否是可移除的外部存储设备
                 var mPath = ""                                    //设备的路径
                 try {
                     val myclass = Class.forName("android.os.storage.StorageVolume")
@@ -153,7 +175,9 @@ class NewSdInterfaceActicity : BaseActivity() {
                     val statFs = StatFs(mPath)
                     val FreeBlocks = statFs.freeBlocksLong
                     val totalBytes = statFs.totalBytes
+
                     if (!isEmulated) {
+                        Log.e("volumeList","---1---StatFs--mPath-->${mPath}")
                         if (label.contains("SD")) {
                             listGridItem.add(
                                 GridItem(
@@ -165,8 +189,10 @@ class NewSdInterfaceActicity : BaseActivity() {
                                     totalBytes
                                 )
                             )
-                        }
 
+                            Log.e("volumeList","statFs----${listGridItem.size}------>")
+                        }
+                        handler.sendEmptyMessage(0)
                     }
                 } catch (e: ClassNotFoundException) {
                     e.printStackTrace();
@@ -182,13 +208,13 @@ class NewSdInterfaceActicity : BaseActivity() {
             }
         }
 
-        baserecycleradapter?.setData(listGridItem)
+
     }
 
 
     @SuppressLint("NewApi", "LogNotTimber")
     fun setLinstusb() {
-        listGridItem = arrayListOf();
+
         if (Build.VERSION.SDK_INT < 23) {
             try {
                 val files: Array<File> = File("/mnt/usb_storage").listFiles()
@@ -198,7 +224,8 @@ class NewSdInterfaceActicity : BaseActivity() {
                             it.listFiles().forEach {
                                 Log.e(
                                     "USBInterfaceActivity",
-                                    "--->${it.path} --->${File(it.path).isFile}"
+
+                                    "--->${it} --->${File(it.path).isFile}"
                                 )
                                 val statFs = StatFs(it.path)
                                 val FreeBlocks = statFs.freeBlocksLong
@@ -231,10 +258,10 @@ class NewSdInterfaceActicity : BaseActivity() {
                         )
                     }
                 }
-
+                handler.sendEmptyMessage(1)
             } catch (e: Exception) {
                 Log.e("USBInterfaceActivity", "--->Exception$e")
-                listGridItem.clear()
+             //   listGridItem.clear()
             }
 
         } else {
@@ -257,6 +284,7 @@ class NewSdInterfaceActicity : BaseActivity() {
                     val totalBytes = statFs.totalBytes
                     if (!isEmulated) {
                         if (!label.contains("SD")) {
+                            Log.e("volumeList","------StatFs---->${mPath}")
                             listGridItem.add(
                                 GridItem(
                                     label,
@@ -281,10 +309,10 @@ class NewSdInterfaceActicity : BaseActivity() {
 
 
             }
-
+            handler.sendEmptyMessage(1)
         }
 
-        baserecycleradapter?.setData(listGridItem)
+
     }
 
 
