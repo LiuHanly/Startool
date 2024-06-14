@@ -55,8 +55,6 @@ class NewSdInterfaceActicity : BaseActivity() {
     object : Handler(){
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
-            Log.e("volumeList","===>${msg.what}")
-            Log.e("volumeList","==listGridItem=size=>${listGridItem.toMutableList()}")
             var Itemstatus = listGridItem.distinctBy { it.label }
             baserecycleradapter?.setNewData(Itemstatus)
             if(msg.what == 0){
@@ -139,7 +137,6 @@ class NewSdInterfaceActicity : BaseActivity() {
                 val statFs = StatFs("/mnt/external_sd")
                 val FreeBlocks = statFs.freeBlocksLong
                 val totalBytes = statFs.totalBytes
-                Log.e("volumeList","---listGridItem------->")
                 listGridItem.add(
                     GridItem(
                         "SD",
@@ -163,7 +160,6 @@ class NewSdInterfaceActicity : BaseActivity() {
                 val status: String = it.getState()
                 val isEmulated = it.isEmulated()            //是否是内部存储设备
                 val isRemovable = it.isRemovable()
-             Log.e("volumeList","--->${it.storageUuid.toString()}")
                //是否是可移除的外部存储设备
                 var mPath = ""                                    //设备的路径
                 try {
@@ -177,7 +173,7 @@ class NewSdInterfaceActicity : BaseActivity() {
                     val totalBytes = statFs.totalBytes
 
                     if (!isEmulated) {
-                        Log.e("volumeList","---1---StatFs--mPath-->${mPath}")
+
                         if (label.contains("SD")) {
                             listGridItem.add(
                                 GridItem(
@@ -222,11 +218,6 @@ class NewSdInterfaceActicity : BaseActivity() {
                     if (files[0].name.contains("USB_DISK")) {
                         files.forEach {
                             it.listFiles().forEach {
-                                Log.e(
-                                    "USBInterfaceActivity",
-
-                                    "--->${it} --->${File(it.path).isFile}"
-                                )
                                 val statFs = StatFs(it.path)
                                 val FreeBlocks = statFs.freeBlocksLong
                                 val totalBytes = statFs.totalBytes
@@ -260,7 +251,6 @@ class NewSdInterfaceActicity : BaseActivity() {
                 }
                 handler.sendEmptyMessage(1)
             } catch (e: Exception) {
-                Log.e("USBInterfaceActivity", "--->Exception$e")
              //   listGridItem.clear()
             }
 
@@ -284,7 +274,6 @@ class NewSdInterfaceActicity : BaseActivity() {
                     val totalBytes = statFs.totalBytes
                     if (!isEmulated) {
                         if (!label.contains("SD")) {
-                            Log.e("volumeList","------StatFs---->${mPath}")
                             listGridItem.add(
                                 GridItem(
                                     label,

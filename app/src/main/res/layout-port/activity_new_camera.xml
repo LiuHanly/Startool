@@ -62,11 +62,21 @@
 
 
         <RelativeLayout
-            android:layout_marginRight="100mm"
+            android:paddingLeft="100mm"
+            android:paddingRight="100mm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints">
-
+            <Button
+                android:id="@+id/f_bu"
+                android:layout_width="161mm"
+                android:layout_height="55mm"
+                android:background="@drawable/r_button_bg"
+                android:text="@string/step"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm"
+                tools:ignore="InOrdpUsage" />
 
             <Button
                 android:id="@+id/through_bu"

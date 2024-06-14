@@ -79,6 +79,9 @@
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
         <activity
+            android:name=".ui.testactivity.NewRs485Activity"
+            android:exported="false" />
+        <activity
             android:name=".ui.testactivity.NewTestReportActivity"
             android:exported="false" />
         <activity

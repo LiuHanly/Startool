@@ -66,6 +66,16 @@
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints">
 
+            <Button
+                android:id="@+id/f_bu"
+                android:layout_width="161dp"
+                android:layout_height="55dp"
+                android:background="@drawable/r_button_bg"
+                android:text="@string/step"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21dp"
+                tools:ignore="InOrdpUsage" />
 
             <Button
                 android:id="@+id/through_bu"

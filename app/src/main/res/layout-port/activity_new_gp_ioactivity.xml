@@ -37,8 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="103mm"
             android:layout_marginLeft="30mm"
-            android:layout_marginRight="30mm"
             android:layout_marginTop="14mm"
+            android:layout_marginRight="30mm"
             android:background="@drawable/selector_mode_bg"
             android:paddingLeft="24mm"
             android:paddingRight="24mm">
@@ -91,11 +91,11 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_marginRight="30mm"
             android:layout_width="wrap_content"
             android:layout_height="103mm"
             android:layout_marginLeft="30mm"
             android:layout_marginTop="14mm"
+            android:layout_marginRight="30mm"
             android:background="@drawable/selector_mode_bg"
             android:paddingLeft="24mm"
             android:paddingRight="24mm">
@@ -147,12 +147,143 @@
                 android:textSize="21mm" />
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/relative_uart"
+            android:layout_width="wrap_content"
+            android:layout_height="103mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginTop="14mm"
+            android:layout_marginRight="30mm"
+            android:background="@drawable/selector_mode_bg"
+            android:paddingLeft="24mm"
+            android:paddingRight="24mm">
+
+            <ImageView
+                android:id="@+id/iv_32"
+                android:layout_width="31mm"
+                android:layout_height="31mm"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_chips" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24mm"
+                android:layout_toRightOf="@+id/iv_32"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/uart"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <Button
+                android:id="@+id/bt_uart"
+                android:layout_width="191mm"
+                android:layout_height="55mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/open_port"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_wiegand"
+            android:layout_width="match_parent"
+            android:layout_height="103mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginTop="14mm"
+            android:layout_marginRight="30mm"
+            android:background="@drawable/selector_mode_bg"
+            android:paddingLeft="24mm"
+            android:paddingRight="24mm">
+
+            <ImageView
+                android:id="@+id/iv_31"
+                android:layout_width="31mm"
+                android:layout_height="31mm"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_chips" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24mm"
+                android:layout_toRightOf="@+id/iv_31"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/wiegand_interface"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <Button
+                android:id="@+id/bt_uart1"
+                android:layout_width="191mm"
+                android:layout_height="55mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/open_port"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="103mm"
+            android:layout_marginLeft="30mm"
+            android:layout_marginTop="14mm"
+            android:layout_marginRight="30mm"
+            android:background="@drawable/selector_mode_bg"
+            android:paddingLeft="24mm"
+            android:paddingRight="24mm">
+
+            <ImageView
+                android:id="@+id/iv_3"
+                android:layout_width="31mm"
+                android:layout_height="31mm"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_chips" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="24mm"
+                android:layout_toRightOf="@+id/iv_3"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/rs485"
+                android:textColor="@color/white"
+                android:textSize="25mm" />
+
+            <Button
+                android:id="@+id/bt_485"
+                android:layout_width="191mm"
+                android:layout_height="55mm"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/r_button_bg"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@string/open_port"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="21mm" />
+        </RelativeLayout>
+
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196mm"
+        android:layout_marginTop="20mm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
@@ -162,11 +293,11 @@
 
 
         <Button
-            android:layout_marginRight="100mm"
             android:id="@+id/through_bu"
             android:layout_width="121mm"
             android:layout_height="55mm"
             android:layout_alignParentEnd="true"
+            android:layout_marginRight="100mm"
             android:background="@drawable/r_button_bg"
             android:text="@string/NEXTBUTTON"
             android:textAllCaps="false"

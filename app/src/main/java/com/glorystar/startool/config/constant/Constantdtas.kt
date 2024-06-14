@@ -1,6 +1,7 @@
 package com.glorystar.startool.config.constant
 
 import android.app.Activity
+import android.content.ContentResolver
 import android.content.Context
 import android.content.res.AssetManager
 import android.os.Build
@@ -10,6 +11,9 @@ import android.util.Log
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.AgingBean
+import com.glorystar.startool.config.bean.GridItem
+import com.glorystar.startool.config.bean.UpdateBean
+import com.glorystar.startool.config.bean.liuchenData
 import com.glorystar.startool.ui.activity.BluetoothActivity
 import com.glorystar.startool.ui.activity.ButtonActivity
 import com.glorystar.startool.ui.activity.CameraActivity
@@ -115,7 +119,7 @@ object Constantdtas {
         return lines1
     }
 
-    fun getInString(context: Activity,code: Int): List<String> {
+    fun getInString(context: Activity, code: Int): List<String> {
 
         val mAssetManger: AssetManager = context.assets
         val bufferedReader1 =
@@ -278,17 +282,65 @@ object Constantdtas {
     // 获取最新的视频
     fun getLatestVideo(context: Context): String? {
         val uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-        val projection = arrayOf(MediaStore.Video.Media.DATA)
+        val projection = arrayOf(MediaStore.Video.Media.DATA, MediaStore.Video.Media.DATE_TAKEN)
         val sortOrder = MediaStore.Video.Media.DATE_TAKEN + " DESC"
         val cursor = context.contentResolver.query(uri, projection, null, null, sortOrder)
         if (cursor != null && cursor.moveToFirst()) {
+            /*        val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
+                    latestVideoPath = cursor.getString(columnIndex)*/
+            cursor.columnNames
             val latestVideoPath =
                 cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))
+            Log.e("getLatestVideo", "${latestVideoPath}")
             cursor.close()
             return latestVideoPath
         }
         return null
     }
 
+
+    fun getVideosInfo(context: Context): String? {
+        val contentResolver: ContentResolver = context.getContentResolver()
+        val videoColumns = arrayOf(
+            MediaStore.Video.Media._ID,
+            MediaStore.Video.Media.DATA,
+            MediaStore.Video.Media.TITLE,
+            MediaStore.Video.Media.MIME_TYPE,
+            MediaStore.Video.Media.DATE_ADDED
+        )
+        //      两种方法均可
+//		Cursor cursor=
+//	    this.managedQuery(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, mediaColumns, null, null, null);
+        val cursor = contentResolver.query(
+            MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
+            videoColumns,
+            null,
+            null,
+            null
+        )
+        var videoCursor: MutableList<liuchenData> = arrayListOf()
+        if (cursor != null) {
+            //   val video = arrayListOf<Map(String,String>()
+
+            while (cursor.moveToNext()) {
+                val _id: String =
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media._ID))
+                val filePath: String =
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))
+                val title: String =
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.TITLE))
+                val mime_type: String =
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.MIME_TYPE))
+
+                val mime_Time: String =
+                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATE_ADDED))
+                var updatebean = liuchenData(mime_Time.toInt(), filePath)
+                videoCursor.add(updatebean)
+
+            }
+            videoCursor.sortedByDescending { it.id }
+        }
+        return if (videoCursor.size > 0) videoCursor[videoCursor.size - 1].name else null
+    }
 
 }

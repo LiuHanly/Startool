@@ -21,16 +21,16 @@
             <ImageView
                 android:layout_width="27dp"
                 android:layout_height="27dp"
-                android:src="@drawable/ic_chips"/>
+                android:src="@drawable/ic_chips" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:fontFamily="@font/montserrat_regular"
+                android:text="@string/wiegand_listening"
                 android:textColor="@color/white"
-                android:textSize="25dp"
-                android:text="@string/wiegand_listening"/>
+                android:textSize="25dp" />
         </LinearLayout>
 
         <TextView
@@ -38,12 +38,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginTop="60dp"
+            android:layout_marginRight="30dp"
             android:fontFamily="@font/montserrat_regular"
+            android:text="@string/wiegand_listening_detail"
             android:textColor="@color/white"
-            android:textSize="25dp"
-            android:text="@string/wiegand_listening_detail"/>
+            android:textSize="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,9 +51,9 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="36dp"
             android:fontFamily="@font/montserrat_regular"
+            android:text="@string/retrieved_value"
             android:textColor="@color/colorFont"
-            android:textSize="23dp"
-            android:text="@string/retrieved_value"/>
+            android:textSize="23dp" />
 
         <TextView
             android:id="@+id/retrieve_value"

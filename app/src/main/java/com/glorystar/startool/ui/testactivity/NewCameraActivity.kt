@@ -26,6 +26,7 @@ import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 class NewCameraActivity : BaseActivity() {
 
     lateinit var through_bu: Button
+    lateinit var f_bu: Button
     var ImgUri = ""
     var VoidUri = ""
 
@@ -41,6 +42,8 @@ class NewCameraActivity : BaseActivity() {
                 Glide.with(this@NewCameraActivity).load(ImgUri).fitCenter().into(image_url)
             } else if (msg.what == 1) {
                 start()
+            } else if (msg.what == 2) {
+                getFile()
             }
 
 
@@ -61,23 +64,26 @@ class NewCameraActivity : BaseActivity() {
 
     override fun initView(savedInstanceState: Bundle?) {
         through_bu = findViewById(R.id.through_bu)
+        f_bu = findViewById(R.id.f_bu)
         image_url = findViewById(R.id.image_url)
         RecyclerLayout = findViewById(R.id.RecyclerLayout)
-        getFile()
+
         through_bu.setOnClickListener {
             StatusNaviBarUitl.hide(this@NewCameraActivity)
             IntenAcitivity.getIntenAcitivity(this@NewCameraActivity, 5, 2, 1)
         }
-
-
+        f_bu.setOnClickListener {
+            getFile()
+        }
+        handler.sendEmptyMessage(2)
     }
 
     override fun onRestart() {
         super.onRestart()
         StatusNaviBarUitl.hide(this@NewCameraActivity)
         ImgUri = Constantdtas.getLatestImage(this).toString()
-        VoidUri = Constantdtas.getLatestVideo(this).toString()
-        Log.e("NewCameraActivity", "${ImgUri} -- ${VoidUri}")
+        //  VoidUri = Constantdtas.getLatestVideo(this).toString()
+        VoidUri = Constantdtas.getVideosInfo(this).toString()
         if (ImgUri != "") {
             handler.sendEmptyMessage(0)
         }
