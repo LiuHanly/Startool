@@ -227,46 +227,7 @@
                 android:textColor="@color/white"
                 android:textSize="21dp" />
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="870dp"
-            android:layout_height="103dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="14dp"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:background="@drawable/selector_mode_bg">
-            <ImageView
-                android:id="@+id/iv_3"
-                android:layout_width="31dp"
-                android:layout_height="31dp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/ic_chips"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="24dp"
-                android:layout_toRightOf="@+id/iv_3"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="@string/rs485"
-                android:textColor="@color/white"
-                android:textSize="25dp" />
-
-            <Button
-                android:id="@+id/bt_485"
-                android:layout_width="191dp"
-                android:layout_height="55dp"
-                android:background="@drawable/r_button_bg"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textSize="21dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:text="@string/open_port"/>
-        </RelativeLayout>
     </LinearLayout>
 
     <RelativeLayout

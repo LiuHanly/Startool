@@ -40,7 +40,7 @@ class NewGpIOActivity : BaseActivity(), View.OnClickListener {
     private var gsioSdk: GSIOSdk? = null
     lateinit var through_bu: Button
     lateinit var btUart: Button
-    lateinit var bt_485: Button
+
     lateinit var bt_uart1: Button
     var rs232: RS232Util? = null
     private var rs485: RS485Util? = null
@@ -128,7 +128,7 @@ class NewGpIOActivity : BaseActivity(), View.OnClickListener {
         btGpio2Close = findViewById(R.id.bt_gpio2_close)
         through_bu = findViewById(R.id.through_bu)
         btUart = findViewById(R.id.bt_uart)
-        bt_485 = findViewById(R.id.bt_485)
+
         bt_uart1 = findViewById(R.id.bt_uart1)
 
 
@@ -138,7 +138,7 @@ class NewGpIOActivity : BaseActivity(), View.OnClickListener {
         btGpio2Close.setOnClickListener(this)
         through_bu.setOnClickListener(this)
         btUart.setOnClickListener(this)
-        bt_485.setOnClickListener(this)
+
         bt_uart1.setOnClickListener(this)
 
         gsioSdk = GSIOSdk()
@@ -154,10 +154,6 @@ class NewGpIOActivity : BaseActivity(), View.OnClickListener {
             R.id.through_bu -> IntenAcitivity.getIntenAcitivity(this@NewGpIOActivity, 12, 2, 1)
             R.id.bt_uart -> {
                 showDialog(this@NewGpIOActivity)
-            }
-
-            R.id.bt_485 -> {
-                rs485Dialog(this@NewGpIOActivity)
             }
 
             R.id.bt_uart1 -> {
@@ -206,53 +202,6 @@ class NewGpIOActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    private fun rs485Dialog(context: Context?) {
-        val view: View =
-            LayoutInflater.from(context).inflate(R.layout.dialog_a133_rs485, null)
-        var title = view.findViewById<TextView>(R.id.tv_info_title)
-        var tvInfo = view.findViewById<TextView>(R.id.tv_info)
-        var goBack = view.findViewById<TextView>(R.id.tv_go_back)
-        var edtText = view.findViewById<EditText>(R.id.edit_text)
-        var send = view.findViewById<Button>(R.id.bt_send)
-        var relative_help = view.findViewById<LinearLayout>(R.id.relative_help)
-
-        relative_help.visibility = View.GONE
-
-        title.setText(getString(R.string.rs485_port))
-
-        val builder = AlertDialog.Builder(context)
-        builder.setView(view)
-        builder.setCancelable(false)
-        val dialog = builder.create()
-        goBack.setOnClickListener {
-            rs485?.stop()
-            dialog.dismiss()
-        }
-        dialog.show()
-        dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
-        dialog.window!!.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.WRAP_CONTENT
-        )
-
-        rs485?.start()
-        rs485!!.getData { buffer, size ->
-            runOnUiThread {
-                val data = ByteArray(size)
-                for (i in 0 until size) {
-                    data[i] = buffer[i]
-                }
-                tvInfo.setText(HexUtil.ByteArrToHex(data))
-            }
-        }
-
-        send.setOnClickListener {
-            val info = edtText.text.toString()
-            if (info.isNotEmpty()) {
-                rs485?.sendData(info)
-            }
-        }
-    }
 
     private fun showWiegandDialog(context: Context?, detail: String, tip: String) {
         val view: View =
