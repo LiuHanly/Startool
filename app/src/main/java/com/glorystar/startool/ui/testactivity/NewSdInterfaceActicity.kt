@@ -27,6 +27,7 @@ import com.glorystar.startool.ui.adapter.BaseRecyclerAdapter
 import com.glorystar.startool.ui.adapter.BaseRecyclerHolder
 import com.glorystar.startool.utils.tool.CompuUtils
 import com.glorystar.startool.utils.tool.LiveDataBus
+import kotlinx.coroutines.Runnable
 import java.io.File
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
@@ -55,16 +56,27 @@ class NewSdInterfaceActicity : BaseActivity() {
     object : Handler(){
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
+
             var Itemstatus = listGridItem.distinctBy { it.label }
             baserecycleradapter?.setNewData(Itemstatus)
             if(msg.what == 0){
-                Log.e("volumeList","=Itemstatus==>${Itemstatus.size}")
-
             }
 
         }
     }
 
+
+
+    var ListUsbRunable: Runnable = object : Runnable{
+        override fun run() {
+            listGridItem.clear()
+            Log.e("NewSdInterfaceActicity","ListUsbRunable---->")
+            setLinst()
+            setLinstusb()
+            handler.postDelayed(this, 1000)
+        }
+
+    }
 
     override fun getLayoutId(): Int = R.layout.activity_new_sd_interface_acticity
 
@@ -95,11 +107,6 @@ class NewSdInterfaceActicity : BaseActivity() {
                     val euntotalBytes = totalBytes?.let { BigDecimal(it) }
                     val sunFreeBlocks = eunFreeBlocks?.setScale(2, BigDecimal.ROUND_HALF_DOWN)
                     val suntotalBytes = euntotalBytes?.setScale(2, BigDecimal.ROUND_HALF_DOWN)
-
-                    Log.e(
-                        "BaseRecyclerAdapter",
-                        "FreeBlocks---->" + data?.FreeBlocks + "totalBytes--->" + data?.totalBytes
-                    )
                     pgr_percent?.progress =
                         CompuUtils.div(FreeBlocks?.toDouble()!!, totalBytes?.toDouble()!!, 1)
                             .times(100).toFloat()
@@ -119,13 +126,29 @@ class NewSdInterfaceActicity : BaseActivity() {
         }
 
         LiveDataBus.get().with("USBInterfaceActivity", String::class.java).observe(this, Observer {
-            Log.e("NewSdInterfaceActicity","setLinst-->${it}")
+
             listGridItem.clear()
             setLinst()
             setLinstusb()
+            if(it.contains("Intent.ACTION_MEDIA_MOUNTED")){
+                if (!Build.MODEL.contains("rk")) {
+                    handler.post(ListUsbRunable)
+                }
+            }
+
         })
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (!Build.MODEL.contains("rk")){
+            handler.removeCallbacks(ListUsbRunable)
+        }
+
+    }
+
+    @Synchronized
     @SuppressLint("NewApi")
     fun setLinst() {
 
@@ -185,8 +208,6 @@ class NewSdInterfaceActicity : BaseActivity() {
                                     totalBytes
                                 )
                             )
-
-                            Log.e("volumeList","statFs----${listGridItem.size}------>")
                         }
                         handler.sendEmptyMessage(0)
                     }
@@ -207,7 +228,7 @@ class NewSdInterfaceActicity : BaseActivity() {
 
     }
 
-
+    @Synchronized
     @SuppressLint("NewApi", "LogNotTimber")
     fun setLinstusb() {
 
@@ -286,6 +307,8 @@ class NewSdInterfaceActicity : BaseActivity() {
                             )
                         }
                     }
+
+
                 } catch (e: ClassNotFoundException) {
                     e.printStackTrace();
                 } catch (e: NoSuchMethodException) {
