@@ -53,24 +53,22 @@ class NewSdInterfaceActicity : BaseActivity() {
     }
 
     val handler: Handler = @SuppressLint("HandlerLeak")
-    object : Handler(){
+    object : Handler() {
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
 
             var Itemstatus = listGridItem.distinctBy { it.label }
             baserecycleradapter?.setNewData(Itemstatus)
-            if(msg.what == 0){
+            if (msg.what == 0) {
             }
 
         }
     }
 
 
-
-    var ListUsbRunable: Runnable = object : Runnable{
+    var ListUsbRunable: Runnable = object : Runnable {
         override fun run() {
             listGridItem.clear()
-            Log.e("NewSdInterfaceActicity","ListUsbRunable---->")
             setLinst()
             setLinstusb()
             handler.postDelayed(this, 1000)
@@ -86,7 +84,8 @@ class NewSdInterfaceActicity : BaseActivity() {
         rct_progr = findViewById(R.id.rct_progr)
         mstoragemanager = getSystemService(STORAGE_SERVICE) as StorageManager
 
-        baserecycleradapter = object : BaseRecyclerAdapter<GridItem>(this, null, R.layout.mydonut_progress) {
+        baserecycleradapter =
+            object : BaseRecyclerAdapter<GridItem>(this, null, R.layout.mydonut_progress) {
                 @SuppressLint("SetTextI18n")
                 override fun convert(
                     holder: BaseRecyclerHolder?,
@@ -125,15 +124,14 @@ class NewSdInterfaceActicity : BaseActivity() {
 
         }
 
+        if (!Build.MODEL.contains("rk")) {
+            handler.post(ListUsbRunable)
+        }
         LiveDataBus.get().with("USBInterfaceActivity", String::class.java).observe(this, Observer {
-
-            listGridItem.clear()
-            setLinst()
-            setLinstusb()
-            if(it.contains("Intent.ACTION_MEDIA_MOUNTED")){
-                if (!Build.MODEL.contains("rk")) {
-                    handler.post(ListUsbRunable)
-                }
+            if (Build.MODEL.contains("rk")) {
+                listGridItem.clear()
+                setLinst()
+                setLinstusb()
             }
 
         })
@@ -142,7 +140,7 @@ class NewSdInterfaceActicity : BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (!Build.MODEL.contains("rk")){
+        if (!Build.MODEL.contains("rk")) {
             handler.removeCallbacks(ListUsbRunable)
         }
 
@@ -172,20 +170,21 @@ class NewSdInterfaceActicity : BaseActivity() {
                 )
                 handler.sendEmptyMessage(0)
             } catch (e: Exception) {
-           //     listGridItem.clear()
+                //     listGridItem.clear()
             }
 
         } else {
             val volumeList: List<StorageVolume> =
                 mstoragemanager?.getStorageVolumes() as List<StorageVolume>
             volumeList.forEach {
-                val label: String = it.getDescription(this) //这个其实就是U盘的名称
-                val status: String = it.getState()
-                val isEmulated = it.isEmulated()            //是否是内部存储设备
-                val isRemovable = it.isRemovable()
-               //是否是可移除的外部存储设备
-                var mPath = ""                                    //设备的路径
+
                 try {
+                    val label: String = it.getDescription(this) //这个其实就是U盘的名称
+                    val status: String = it.getState()
+                    val isEmulated = it.isEmulated()            //是否是内部存储设备
+                    val isRemovable = it.isRemovable()
+                    //是否是可移除的外部存储设备
+                    var mPath = ""                                    //设备的路径
                     val myclass = Class.forName("android.os.storage.StorageVolume")
                     val getPath: Method = myclass.getMethod("getPath")
                     getPath.isAccessible = true
@@ -218,8 +217,13 @@ class NewSdInterfaceActicity : BaseActivity() {
                 } catch (e: InvocationTargetException) {
                     e.printStackTrace();
                 } catch (e: IllegalAccessException) {
-                    e.printStackTrace();
+                    e.printStackTrace()
+                } catch (e: IllegalArgumentException) {
+                    e.printStackTrace()
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
+
 
 
             }
@@ -272,19 +276,20 @@ class NewSdInterfaceActicity : BaseActivity() {
                 }
                 handler.sendEmptyMessage(1)
             } catch (e: Exception) {
-             //   listGridItem.clear()
+                //   listGridItem.clear()
             }
 
         } else {
             val volumeList: List<StorageVolume> =
                 mstoragemanager?.getStorageVolumes() as List<StorageVolume>
             volumeList.forEach {
-                val label: String = it.getDescription(this) //这个其实就是U盘的名称
-                val status: String = it.getState()
-                val isEmulated = it.isEmulated()            //是否是内部存储设备
-                val isRemovable = it.isRemovable()          //是否是可移除的外部存储设备
-                var mPath = ""                                    //设备的路径
                 try {
+
+                    val label: String = it.getDescription(this) //这个其实就是U盘的名称
+                    val status: String = it.getState()
+                    val isEmulated = it.isEmulated()            //是否是内部存储设备
+                    val isRemovable = it.isRemovable()          //是否是可移除的外部存储设备
+                    var mPath = ""                                    //设备的路径
                     val myclass = Class.forName("android.os.storage.StorageVolume")
                     val getPath: Method = myclass.getMethod("getPath")
                     getPath.isAccessible = true
@@ -317,6 +322,10 @@ class NewSdInterfaceActicity : BaseActivity() {
                     e.printStackTrace();
                 } catch (e: IllegalAccessException) {
                     e.printStackTrace();
+                } catch (e: IllegalArgumentException) {
+                    e.printStackTrace()
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
 
 
@@ -326,7 +335,6 @@ class NewSdInterfaceActicity : BaseActivity() {
 
 
     }
-
 
 
 }
