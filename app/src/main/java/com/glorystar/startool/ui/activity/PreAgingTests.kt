@@ -1,6 +1,8 @@
 package com.glorystar.startool.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.content.res.AssetManager
 import android.content.res.Configuration
 import android.os.Bundle
@@ -14,6 +16,7 @@ import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.AgingBean
 import com.glorystar.startool.config.bean.liuchenData
+import com.glorystar.startool.config.constant.AgeingDataBase
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.config.constant.StudentDataBase
 import com.glorystar.startool.ui.adapter.BaseRecyclerAdapter
@@ -35,6 +38,16 @@ class PreAgingTests : BaseActivity() {
     var position = -1
 
 
+    companion object {
+        // 跳转到当前页面。
+        lateinit var tileName: String
+        fun toStartActivity(context: Context, tileNmae: String) {
+            val intent = Intent(context, PreAgingTests::class.java)
+            tileName = tileNmae
+            context.startActivity(intent)
+        }
+    }
+
     /**
      * 设置布局
      */
@@ -49,11 +62,12 @@ class PreAgingTests : BaseActivity() {
     @SuppressLint("NotifyDataSetChanged")
     override fun initView(savedInstanceState: Bundle?) {
         tile_view = findViewById(R.id.tile_view)
-        tile_view.title.text = getString(R.string.preaging)
+        tile_view.title.text = tileName
         tile_view.action = this
         ageing_fro_recy = findViewById(R.id.ageing_fro_recy)
         all_select = findViewById(R.id.all_select)
         start_button = findViewById(R.id.start_button)
+
         val mAssetManger: AssetManager = getAssets()
         val bufferedReader1 =
             BufferedReader(InputStreamReader(mAssetManger.open("liucheng.txt"), "utf-8"))
@@ -98,7 +112,7 @@ class PreAgingTests : BaseActivity() {
             }
 
         ageing_fro_recy.adapter = baserecycleradapter
-     baserecycleradapter?.setOnItemClickListener { viewHolder, data, position ->
+        baserecycleradapter?.setOnItemClickListener { viewHolder, data, position ->
             minItemBean[position].selected = !data.selected
             baserecycleradapter?.notifyDataSetChanged()
         }
@@ -112,8 +126,9 @@ class PreAgingTests : BaseActivity() {
         }
 
         start_button.setOnClickListener {
-             MessageActivity.toStartActivity(this@PreAgingTests)
-             PeriodicSync(lines1)
+            MessageActivity.toStartActivity(this@PreAgingTests)
+            PeriodicSync(lines1)
+
         }
 
 
@@ -128,7 +143,7 @@ class PreAgingTests : BaseActivity() {
             lines1.forEach { StrngIt ->
                 Log.e("PeriodicSync->", StrngIt)
                 val itJson = JsonHelper.newfromJson(StrngIt, liuchenData::class.java)
-                minItemBean.forEach { appinfoIt ->
+                minItemBean.forEach  { appinfoIt ->
 
                     Log.e(
                         "PeriodicSync",

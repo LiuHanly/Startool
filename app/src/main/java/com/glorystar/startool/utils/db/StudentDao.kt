@@ -23,6 +23,9 @@ interface StudentDao : BaseDao<Student> {
     @Query("select * from Student where s_name = :studentNeme")
     fun getStudnetName(studentNeme: String): Student
 
+    @Query("select * from Student where s_type =:type ")
+    fun getStudneBStudentType(type :Boolean): MutableList<Student>
+
 
     @Query("delete from Student")
     fun deleteAll()

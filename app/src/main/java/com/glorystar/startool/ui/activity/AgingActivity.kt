@@ -37,13 +37,15 @@ class AgingActivity : BaseActivity() {
         test_post = findViewById(R.id.text_post)
 
         preaging_relat.setOnClickListener {
-            startActivity(Intent(this, PreAgingTests::class.java))
+            PreAgingTests.toStartActivity(this@AgingActivity, getString(R.string.preaging))
+            //  startActivity(Intent(this, PreAgingTests::class.java))
         }
         aging_relat.setOnClickListener {
             AgeingKtActivity.toStartActivity(this@AgingActivity)
         }
         test_post.setOnClickListener {
-            startActivity(Intent(this, PreAgingTests::class.java))
+            PreAgingTests.toStartActivity(this@AgingActivity, getString(R.string.postagingtest))
+            //   startActivity(Intent(this, PreAgingTests::class.java))
         }
     }
 

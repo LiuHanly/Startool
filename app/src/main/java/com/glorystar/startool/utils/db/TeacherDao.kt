@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.glorystar.startool.config.base.BaseDao
-import com.glorystar.startool.utils.db.Teacher
 
 
 @Dao
@@ -19,6 +18,10 @@ interface TeacherDao : BaseDao<Teacher> {
 
     @Query("select * from Teacher")
     fun getAllTeachers(): MutableList<Teacher>
+
+    @Query("select * from Teacher where TeacherID IN (:teacherID)")
+    fun getTeacherIDList(teacherID: List<Long?>): MutableList<Teacher>
+
 
     @Query("select * from Teacher where t_name = :teacherName")
     fun getTeacher(teacherName: String): Teacher

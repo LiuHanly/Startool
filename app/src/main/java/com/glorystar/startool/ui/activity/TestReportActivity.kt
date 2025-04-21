@@ -18,9 +18,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
-import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.GridItem
 import com.glorystar.startool.config.constant.Constantdtas.writeSDFile
+import com.glorystar.startool.config.constant.StudentDataBase
 import com.glorystar.startool.config.constant.TeacherDataBase
 import com.glorystar.startool.ui.adapter.BaseRecyclerAdapter
 import com.glorystar.startool.ui.adapter.BaseRecyclerHolder
@@ -33,7 +33,6 @@ import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.io.*
 import java.math.BigDecimal
 
 //测试报告
@@ -70,7 +69,7 @@ class TestReportActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-      StatusNaviBarUitl.show(this@TestReportActivity)
+        StatusNaviBarUitl.show(this@TestReportActivity)
     }
 
     override fun getLayoutId(): Int = R.layout.activity_test_report
@@ -99,18 +98,13 @@ class TestReportActivity : BaseActivity() {
         val mTotalMemory = systemMemInfo.totalMem / 1024 / 1024 / 1000.00
         Serial_number4 = findViewById(R.id.Serial_number4)
 
-
         finish_buton.setOnClickListener {
             finish()
         }
-        Log.e(
-            "TestReportActivity",
-            "---->" + TeacherDataBase.getInstance(this).teacherDao.getAllTeachers().size
-        )
 
         baserecycleradapter = object : BaseRecyclerAdapter<Teacher>(
             this@TestReportActivity,
-           null,
+            null,
             R.layout.terdao_imet
         ) {
             override fun convert(
@@ -135,8 +129,18 @@ class TestReportActivity : BaseActivity() {
                 }
             }
         }
+        var AllStudents =
+            StudentDataBase(this@TestReportActivity).studentDao.getStudneBStudentType(true)
+        var StudentID = AllStudents.map { it.StudentID?.toLong() }.toMutableList()
+         StudentID.add(0L)
+        var getAllTeachers = TeacherDataBase.getInstance(this).teacherDao.getAllTeachers()
+        //  StudentID.plus(0)
         recyclerView.adapter = baserecycleradapter
-        baserecycleradapter.setNewData(TeacherDataBase.getInstance(this).teacherDao.getAllTeachers())
+        baserecycleradapter.setNewData(
+            TeacherDataBase.getInstance(this).teacherDao.getTeacherIDList(
+                StudentID
+            )
+        )
         setLinst()
 
         val statFs = StatFs(Environment.getDataDirectory().path)
@@ -175,8 +179,13 @@ class TestReportActivity : BaseActivity() {
     fun setLinst() {
         GlobalScope.launch {
             var stringbuilder: StringBuilder = StringBuilder()
-            TerDao.getAllTeachers().forEach { TerDaoIt ->
 
+            var AllStudents =
+                StudentDataBase(this@TestReportActivity).studentDao.getStudneBStudentType(true)
+            var StudentID = AllStudents.map { it.StudentID?.toLong() }.toMutableList()
+            StudentID.add(0L)
+
+            TerDao.getTeacherIDList(StudentID).forEach { TerDaoIt ->
                 val TeacherType = when (TerDaoIt.TeacherType) {
                     1 -> "_失败"
                     2 -> "_通过"
@@ -185,13 +194,7 @@ class TestReportActivity : BaseActivity() {
                 stringbuilder?.append(TerDaoIt.stopDate + "_" + TerDaoIt.teacherName + TeacherType)
                 stringbuilder?.append("\n")
             }
-            Log.e("setLinst", stringbuilder.toString())
             writeSDFile(stringbuilder.toString())
-            // val testname = MyApplication.Testname
-            //+ DateUtil.stampToTime(DateUtil.timeStamp.toString())
-//            val name = "${testname+ Build.SERIAL }.txt"
-//            val path = Environment.getExternalStorageDirectory().toString() + "/log"
-//            FileTextUtils.writeTxtToFile(stringbuilder.toString() ,path ,name)
             GlobalScope.launch {
                 TerDao.deleteAll()
             }
