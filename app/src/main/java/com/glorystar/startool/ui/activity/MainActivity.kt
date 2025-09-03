@@ -39,6 +39,7 @@ class MainActivity : BaseActivity(), UpdateData {
     private lateinit var linear_general: LinearLayout
     private lateinit var linear_model: LinearLayout
     private lateinit var linear_addon: LinearLayout
+    private lateinit var linear_learning: LinearLayout
     lateinit var linear_aging: LinearLayout
     private lateinit var language_text: TextView
     lateinit var linearUpdate: LinearLayout
@@ -90,6 +91,7 @@ class MainActivity : BaseActivity(), UpdateData {
         linear_general = findViewById(R.id.linear_general)
         linear_model = findViewById(R.id.linear_model)
         linear_addon = findViewById(R.id.linear_addon)
+        linear_learning = findViewById(R.id.linear_learning)
         linear_aging = findViewById(R.id.linear_aging)
         language_text = findViewById(R.id.textlanguage)
         update = findViewById(R.id.iv_update)
@@ -120,6 +122,10 @@ class MainActivity : BaseActivity(), UpdateData {
         linear_aging.setOnClickListener {
 
             this.startActivity(Intent(this, AgingActivity::class.java))
+        }
+
+        linear_learning.setOnClickListener {
+            startActivity(Intent(this, LivePreviewActivity::class.java))
         }
 
         update.setOnClickListener {

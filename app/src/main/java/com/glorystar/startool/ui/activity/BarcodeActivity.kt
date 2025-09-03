@@ -30,6 +30,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
     private var barcode: BarcodeUtil? = null
     var LIGHTMODE = ArrayList<String>()
     private var ret = -1
+    lateinit var relativeLightMode: RelativeLayout
+    lateinit var relativeBeep: RelativeLayout
 
     companion object {
         var index = 0
@@ -47,6 +49,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
             index = 1
         }else if (title.equals(getString(R.string.zebra_se2707))){
             index = 2
+        }else if (title.equals(getString(R.string.newland_em1365))){
+            index = 3
         }
         titleView.title.text = title
         titleView.action = this
@@ -61,6 +65,8 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
         linearSerial = findViewById(R.id.linear_serial)
         ivKeyboard = findViewById(R.id.iv_keyboard)
         ivSerial = findViewById(R.id.iv_serial)
+        relativeLightMode = findViewById(R.id.relative_light_mode)
+        relativeBeep = findViewById(R.id.relative_beep)
 
         barcode = BarcodeUtil(application)
 
@@ -71,6 +77,9 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
             barcode?.setCOM("/dev/ttyACM0")
             barcodeSupport.text = getString(R.string.newland_barcode_1d_content)
         } else if (index == 2){
+            barcode?.setCOM("/dev/ttyACM0")
+            barcodeSupport.text = getString(R.string.zebra_barcode_1d_content)
+        } else if (index == 3){
             barcode?.setCOM("/dev/ttyACM0")
             barcodeSupport.text = getString(R.string.zebra_barcode_1d_content)
         }
@@ -87,7 +96,13 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
         if (index == 2){
             LIGHTMODE.add(getString(R.string.auto))
             LIGHTMODE.add(getString(R.string.off))
-        }else {
+        } else if (index == 3) {
+            relativeLightMode.visibility = View.GONE
+            relativeBeep.visibility = View.GONE
+            LIGHTMODE.add(getString(R.string.on))
+            LIGHTMODE.add(getString(R.string.auto))
+            LIGHTMODE.add(getString(R.string.off))
+        } else {
             LIGHTMODE.add(getString(R.string.on))
             LIGHTMODE.add(getString(R.string.auto))
             LIGHTMODE.add(getString(R.string.off))
@@ -232,6 +247,12 @@ class BarcodeActivity : BaseActivity() , View.OnClickListener, CompoundButton.On
                                 barcodeSupport.text = getString(R.string.zebra_barcode_1d_content)
                             }else if (position == 1){
                                 barcodeSupport.text = getString(R.string.zebra_barcode_2d_content)
+                            }
+                        } else if (index == 3){
+                            if (position == 0) {
+                                barcodeSupport.text = getString(R.string.zebra_barcode_1d_content)
+                            }else if (position == 1){
+                                barcodeSupport.text = ""
                             }
                         }
                         mListPop.dismiss()

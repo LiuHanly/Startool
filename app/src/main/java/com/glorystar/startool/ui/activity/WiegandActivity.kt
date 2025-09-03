@@ -28,6 +28,8 @@ class WiegandActivity : BaseActivity(), View.OnClickListener {
     lateinit var titleView: TitleKtView
     private val PATH = "/sys/kernel/wiegand/wiegand_read"
     private val WRITE_PATH = "/sys/kernel/wiegand/wiegand26"
+    private val PATH_2 = "/sys/kernel/wiegand_b/wiegand_read_b"
+    private val WRITE_PATH_2 = "/sys/kernel/wiegand_b/wiegand26_b"
     lateinit var btStartTest: Button
     lateinit var btSender: Button
     lateinit var btReceiver: Button

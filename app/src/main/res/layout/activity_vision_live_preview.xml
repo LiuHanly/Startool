@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:keepScreenOn="true">
+
+  <com.glorystar.startool.ui.camera.CameraSourcePreview
+      android:id="@+id/preview_view"
+      android:layout_width="0mm"
+      android:layout_height="match_parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/control"/>
+
+  <com.glorystar.startool.ui.ml.GraphicOverlay
+      android:id="@+id/graphic_overlay"
+      android:layout_width="0mm"
+      android:layout_height="match_parent"
+      app:layout_constraintStart_toStartOf="@id/preview_view"
+      app:layout_constraintEnd_toEndOf="@id/preview_view" />
+
+  <LinearLayout
+      android:id="@+id/linear_back"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintStart_toStartOf="@+id/preview_view"
+      app:layout_constraintTop_toTopOf="@+id/preview_view"
+      android:paddingTop="10mm"
+      android:paddingLeft="10mm"
+      android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_esc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:baselineAligned="false"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:text="@string/Back"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+  </LinearLayout>
+
+  <FrameLayout
+      android:id="@id/control"
+      android:layout_width="220mm"
+      android:layout_height="match_parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:background="#fff">
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5mm"
+        android:layout_gravity="bottom|start"
+        android:gravity="center"
+        android:orientation="vertical">
+      <ImageView
+          android:id="@+id/settings_button"
+          android:layout_width="30mm"
+          android:layout_height="30mm"
+          android:contentDescription="@string/menu_item_settings"
+          android:src="@drawable/ic_settings_black"/>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/go_setting"
+          android:textSize="10mm"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="60mm"
+        android:gravity="center"
+        android:orientation="vertical">
+      <ToggleButton
+          android:id="@+id/facing_switch"
+          android:layout_width="30mm"
+          android:layout_height="30mm"
+          android:background="@drawable/ic_switch_camera"
+          android:checked="false"
+          android:textOff=""
+          android:textOn=""/>
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/switch_camera"
+          android:textSize="10mm"/>
+    </LinearLayout>
+
+  </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -57,7 +57,7 @@ public class BarcodeUtil {
         }
         if (ret == 0) {
             try {
-                this.serialPort = new SerialPort(new File(this.COM), this.baudrate, 0);
+                this.serialPort = new SerialPort(new File(this.COM), this.baudrate);
                 ret = 1;
             } catch (IOException var2) {
                 Toast.makeText(mContext,"Failed to open serial port",Toast.LENGTH_SHORT).show();

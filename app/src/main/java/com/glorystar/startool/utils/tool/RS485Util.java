@@ -38,7 +38,7 @@ public class RS485Util {
 
     public void start() {
         try {
-            this.serialPort = new SerialPort(new File(this.COM), this.baudrate, 0);
+            this.serialPort = new SerialPort(new File(this.COM), this.baudrate);
             Toast.makeText(mContext,"Serial port opened successfully",Toast.LENGTH_SHORT).show();
         } catch (IOException var2) {
             var2.printStackTrace();

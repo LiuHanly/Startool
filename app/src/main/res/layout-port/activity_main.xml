@@ -302,7 +302,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="243mm"
                     android:layout_marginTop="20mm"
-                    android:layout_marginBottom="30mm"
                     android:background="@color/colorMainLight"
                     app:cardBackgroundColor="@color/colorMainLight"
                     app:cardCornerRadius="11mm">
@@ -348,6 +347,79 @@
 
                     <LinearLayout
                         android:id="@+id/linear_aging"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginRight="24mm"
+                        android:layout_marginBottom="30mm"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Enter"
+                            android:textColor="@color/white"
+                            android:textSize="25mm" />
+
+                        <ImageView
+                            android:layout_width="44mm"
+                            android:layout_height="44mm"
+                            android:src="@drawable/ic_arrow" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="243mm"
+                    android:layout_marginTop="20mm"
+                    android:layout_marginBottom="30mm"
+                    android:background="@color/colorMainLight"
+                    app:cardBackgroundColor="@color/colorMainLight"
+                    app:cardCornerRadius="11mm">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24mm"
+                        android:layout_marginTop="30mm"
+                        android:layout_marginRight="24mm"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="31mm"
+                                android:layout_height="31mm"
+                                android:src="@drawable/ic_machine_learning"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/google_ml"
+                                android:layout_marginLeft="14mm"
+                                android:textColor="@color/white"
+                                android:textSize="25mm" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20mm"
+                            android:text="@string/google_ml_detail"
+                            android:textColor="@color/colorFont"
+                            android:textSize="23mm" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_learning"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right|bottom"

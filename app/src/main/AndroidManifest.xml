@@ -80,6 +80,11 @@
         android:supportsRtl="true"
         android:theme="@style/NoTitle">
 
+        <activity android:name=".ui.ml.SettingsActivity"
+            android:exported="false"/>
+        <activity android:name=".ui.activity.LivePreviewActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".ui.testactivity.NewTestReportActivity"
             android:exported="false" />

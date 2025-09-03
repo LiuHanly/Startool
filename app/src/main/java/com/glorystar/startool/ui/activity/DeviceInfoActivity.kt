@@ -17,11 +17,7 @@ import com.glorystar.startool.ui.view.TitleKtView
 import com.glorystar.startool.utils.tool.MemoryUtil
 import com.glorystar.startool.utils.tool.NetworkUtil
 import com.glorystar.startool.utils.tool.StatusNaviBarUitl
-import java.lang.Exception
-import java.net.InetAddress
-import java.net.NetworkInterface
-import java.net.SocketException
-import kotlin.experimental.and
+import com.glorystar.startool.utils.tool.VersionInfoUtil
 
 class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
     lateinit var titleView: TitleKtView
@@ -63,10 +59,14 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
         when(p0?.id){
             R.id.bt_serial_get ->{
                 var serialNum: String? = ""
-                serialNum = if (Build.VERSION.SDK_INT >= VERSION_CODES.O) {
-                    Build.getSerial()
+                if (Build.MANUFACTURER.equals("QUALCOMM", ignoreCase = true)) {
+                    serialNum = VersionInfoUtil.getSystemProperties("persist.radio.sn")
                 } else {
-                    Build.SERIAL
+                    serialNum = if (Build.VERSION.SDK_INT >= VERSION_CODES.O) {
+                        Build.getSerial()
+                    } else {
+                        Build.SERIAL
+                    }
                 }
                 showDialog(this, R.drawable.ic_device_info, getString(R.string.Serial_number), serialNum)
             }

@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 
+import java.lang.reflect.Method;
+
 /**
  * @className:AppInfoUtil
  * @author jinyuan
@@ -39,5 +41,17 @@ public class VersionInfoUtil {
 			}
 		}
 		return verName;
+	}
+
+	public static String getSystemProperties(String key) {
+		String value = null;
+		try {
+			Class<?> c = Class.forName("android.os.SystemProperties");
+			Method get = c.getMethod("get", String.class);
+			value = (String) get.invoke(c, key);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return value;
 	}
 }

@@ -13,6 +13,7 @@ class BarcodeModulesActivity : BaseActivity(), View.OnClickListener {
     lateinit var relativeHoneywell: RelativeLayout
     lateinit var relativeNewland: RelativeLayout
     lateinit var relativeZebra: RelativeLayout
+    lateinit var relativeNewlandLD: RelativeLayout
 
     override fun getLayoutId(): Int = R.layout.activity_barcode_modules
 
@@ -24,10 +25,12 @@ class BarcodeModulesActivity : BaseActivity(), View.OnClickListener {
         relativeHoneywell = findViewById(R.id.relative_barcode_honeywell)
         relativeNewland = findViewById(R.id.relative_barcode_newland)
         relativeZebra = findViewById(R.id.relative_barcode_zebra)
+        relativeNewlandLD = findViewById(R.id.relative_ld_newland)
 
         relativeHoneywell.setOnClickListener(this)
         relativeNewland.setOnClickListener(this)
         relativeZebra.setOnClickListener(this)
+        relativeNewlandLD.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -45,6 +48,11 @@ class BarcodeModulesActivity : BaseActivity(), View.OnClickListener {
             R.id.relative_barcode_zebra ->{
                 var intent = Intent(this@BarcodeModulesActivity, BarcodeActivity::class.java)
                 intent.putExtra("title", getString(R.string.zebra_se2707))
+                startActivity(intent)
+            }
+            R.id.relative_ld_newland -> {
+                var intent = Intent(this@BarcodeModulesActivity, BarcodeActivity::class.java)
+                intent.putExtra("title", getString(R.string.newland_em1365))
                 startActivity(intent)
             }
         }
