@@ -251,10 +251,13 @@ class NewShowActivity : BaseActivity() {
 
     @Synchronized
     fun setScreenLight(brightness: Int) {
-        val uri: Uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS)
-        val contentResolver = contentResolver
-        Settings.System.putInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS, brightness)
-        contentResolver.notifyChange(uri, null)
+        val resolver: ContentResolver = getContentResolver()
+        Settings.System.putInt(resolver, Settings.System.SCREEN_BRIGHTNESS, brightness)
+
+//        val uri: Uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS)
+//        val contentResolver = contentResolver
+//        Settings.System.putInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS, brightness)
+//        contentResolver.notifyChange(uri, null)
     }
 
 

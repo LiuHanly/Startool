@@ -155,10 +155,13 @@ class TestReportActivity : BaseActivity() {
         Serial_number7.text =
             DateUtil.formatDateByFormat(DateUtil.currentDate, DateUtil.TIMES_HOUR_MIN_PATTERN)
 
-        Serial_number.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Build.getSerial()
-        } else {
-            Build.SERIAL
+        try {
+            Serial_number.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Build.getSerial()
+            } else {
+                Build.SERIAL
+            }
+        } catch (e: Exception) {
         }
 
         Serial_number1.text = Build.MODEL

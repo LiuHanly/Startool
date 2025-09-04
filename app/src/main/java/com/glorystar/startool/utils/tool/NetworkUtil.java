@@ -270,6 +270,7 @@ public class NetworkUtil {
         String ethernetMac = null;
         try {
             NetworkInterface NIC = NetworkInterface.getByName("eth0");
+
             byte[] buf = NIC.getHardwareAddress();
             StringBuffer buffer = new StringBuffer();
             for (int i = 0; i < buf.length; i++) {

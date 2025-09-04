@@ -1,5 +1,6 @@
 package com.glorystar.startool.ui.testactivity
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.bluetooth.BluetoothAdapter
@@ -11,6 +12,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.RequiresPermission
 import androidx.recyclerview.widget.RecyclerView
 import cn.wandersnail.commons.util.ToastUtils
 import com.glorystar.startool.R
@@ -56,6 +58,7 @@ class NewBluetoothActivity : BaseActivity() {
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
         baserecycleradapter =
             object : BaseRecyclerAdapter<Device>(this, devList, R.layout.device_item) {
+                @RequiresPermission(Manifest.permission.BLUETOOTH_CONNECT)
                 override fun convert(
                     holder: BaseRecyclerHolder?,
                     data: Device?,

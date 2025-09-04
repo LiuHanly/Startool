@@ -76,12 +76,12 @@ class CPUKtTestFragment : BaseFragemt() {
         ado = activity?.let { AppDataBase.getDatabase(it).getAgeingDao() }
         stTime = DateUtil.stampToTime(DateUtil.timeStamp_L.toString())!!
         tv_freq = view?.findViewById(R.id.tv_freq)!!
-        tv_freq_max = view?.findViewById(R.id.tv_freq_max)!!
-        ext_text = view?.findViewById(R.id.ext_text)
+        tv_freq_max = view.findViewById(R.id.tv_freq_max)!!
+        ext_text = view.findViewById(R.id.ext_text)!!
         tv_percent = view.findViewById(R.id.tv_percent)
         pgr_percent = view.findViewById(R.id.pgr_percent)
         time_text = view.findViewById(R.id.time_text)
-        pgr_freq = view?.findViewById(R.id.pgr_freq)
+        pgr_freq = view.findViewById(R.id.pgr_freq)!!
 
         val tCurCpuFreq = getCurCpuFreq()?.toLong()?.div(1000)
 

@@ -84,13 +84,13 @@ class SdInterfaceActicity : BaseActivity() {
                     val sunFreeBlocks = eunFreeBlocks?.setScale(2, BigDecimal.ROUND_HALF_DOWN)
                     val suntotalBytes = euntotalBytes?.setScale(2, BigDecimal.ROUND_HALF_DOWN)
 
-                    Log.e(
-                        "BaseRecyclerAdapter",
-                        "FreeBlocks---->" + data?.FreeBlocks + "totalBytes--->" + data?.totalBytes
-                    )
-                    pgr_percent?.progress =
-                        CompuUtils.div(FreeBlocks?.toDouble()!!, totalBytes?.toDouble()!!, 1)
-                            .times(100).toFloat()
+                    try {
+                        pgr_percent?.progress =
+                            CompuUtils.div(FreeBlocks?.toDouble()!!, totalBytes?.toDouble()!!, 1)
+                                .times(100).toFloat()
+                    } catch (e: Exception) {
+
+                    }
                     textMina?.text = "" + sunFreeBlocks + "G" + "/" + suntotalBytes + "G"
                 }
             }

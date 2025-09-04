@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMain"
-    tools:context=".ui.activity.Neb101Activity">
+ >
 
     <com.glorystar.startool.ui.view.TitleKtView
         android:id="@+id/tile_view"

@@ -106,9 +106,14 @@ class NewSdInterfaceActicity : BaseActivity() {
                     val euntotalBytes = totalBytes?.let { BigDecimal(it) }
                     val sunFreeBlocks = eunFreeBlocks?.setScale(2, BigDecimal.ROUND_HALF_DOWN)
                     val suntotalBytes = euntotalBytes?.setScale(2, BigDecimal.ROUND_HALF_DOWN)
-                    pgr_percent?.progress =
-                        CompuUtils.div(FreeBlocks?.toDouble()!!, totalBytes?.toDouble()!!, 1)
-                            .times(100).toFloat()
+                    try {
+                        //抛出 CompuUtils.div(FreeBlocks?.toDouble()!!, totalBytes?.toDouble()!!, 1) 等于0  除0 异常
+                        pgr_percent?.progress =
+                            CompuUtils.div(FreeBlocks?.toDouble()!!, totalBytes?.toDouble()!!, 1)
+                                .times(100).toFloat()
+                    } catch (e: Exception) {
+
+                    }
                     textMina?.text = "" + sunFreeBlocks + "G" + "/" + suntotalBytes + "G"
 
                 }

@@ -121,7 +121,12 @@ class NewGpIOActivity : BaseActivity(), View.OnClickListener {
             rs485!!.setCOM("/dev/ttyS7")
             rs485?.start()
 
+        } else if (Build.MODEL.equals("rk3576")) {
+            rs485!!.setCOM("/dev/ttyS9")
+            rs485?.start()
         }
+
+
         btGpio1Open = findViewById(R.id.bt_gpio1_open)
         btGpio1Close = findViewById(R.id.bt_gpio1_close)
         btGpio2Open = findViewById(R.id.bt_gpio2_open)

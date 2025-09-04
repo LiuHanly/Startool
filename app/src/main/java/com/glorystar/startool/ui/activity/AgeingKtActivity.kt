@@ -51,15 +51,20 @@ class AgeingKtActivity : BaseActivity() {
     override fun getLayoutId(): Int = R.layout.ageingkt_activity
     override fun onResume() {
         super.onResume()
+      //  AgeingDataBase.getInstance(this).ageingDao?.deleteAll()
         stTime = DateUtil.stampToTime(DateUtil.timeStamp.toString())!!
         adl = AgeingDataBase.getInstance(this).ageingDao?.getAllAgeing()!!
+        Log.e("AgeingKtActivity",adl.joinToString() )
+
         if (adl.isEmpty()) {
             var ageingID = 0
             addFragment.forEach {
                 Log.e("AgeingKtActivity", "addTimber--->" + addTimber[ageingID])
+
                 adl.add(Ageing(ageingID, it, stTime, stTime, "2", addTimber[ageingID]))
                 ageingID++
             }
+
             AgeingDataBase.getInstance(this).ageingDao?.insertAll(adl)
             appData()
         } else {

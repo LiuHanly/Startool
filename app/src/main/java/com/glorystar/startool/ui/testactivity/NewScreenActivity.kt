@@ -2,7 +2,8 @@ package com.glorystar.startool.ui.testactivity
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.provider.Settings
@@ -26,6 +27,7 @@ import com.glorystar.startool.ui.view.SwZoomDragImageView
 import com.glorystar.startool.utils.tool.LiveDataBus
 import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 import com.glorystar.startool.utils.tool.StatusNavigationBarUtil
+import androidx.core.net.toUri
 
 
 /**
@@ -168,4 +170,7 @@ class NewScreenActivity : BaseActivity() {
             "pointer_location", 0
         )
     }
+
+
+
 }

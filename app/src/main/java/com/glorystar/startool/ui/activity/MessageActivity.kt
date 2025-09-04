@@ -83,28 +83,34 @@ class MessageActivity : BaseActivity() {
         Inter_storage?.text = "$suntotalBytes G"
         Serial_number?.setTextColor(Color.GREEN)
 
-        val Serial = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Build.getSerial()
-        } else {
-            Build.SERIAL
-        }
-        if (Serial.contains("GS", true) && Serial.toCharArray().size == 14) {
-            Serial.toCharArray().forEach {
-                if (!it.isLetterOrDigit()) {
-                    Serial_number?.setTextColor(Color.RED)
-                    initData = 1
-                }
-            }
 
-        } else {
-            Serial_number?.setTextColor(Color.RED)
-            initData = 1
+        try {
+            val Serial = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Build.getSerial()
+            } else {
+                Build.SERIAL
+            }
+            if (Serial.contains("GS", true) && Serial.toCharArray().size == 14) {
+                Serial.toCharArray().forEach {
+                    if (!it.isLetterOrDigit()) {
+                        Serial_number?.setTextColor(Color.RED)
+                        initData = 1
+                    }
+                }
+
+            } else {
+                Serial_number?.setTextColor(Color.RED)
+                initData = 1
+            }
+            Serial_number?.text = Serial
+        } catch (e: Exception) {
+
         }
 
         Inter_shared_storage?.text = mTotalMemory.toString() + "G"
 
 
-        Serial_number?.text = Serial
+
         Model?.text = Build.MODEL
         Android_version?.text = Build.VERSION.RELEASE
 

@@ -50,7 +50,7 @@ class TestMainActivity : BaseActivity() {
     //  activity_test_main
     override fun getLayoutId(): Int = R.layout.activity_test_main
     override fun initView(savedInstanceState: Bundle?) {
-        ToastUtil.showMsg("Enter the factory mode.")
+    //    ToastUtil.showMsg("Enter the factory mode.")
         val mAssetManger: AssetManager = assets
         val bufferedReader1 =
             BufferedReader(InputStreamReader(mAssetManger.open("liucheng.txt"), "utf-8"))
@@ -82,29 +82,33 @@ class TestMainActivity : BaseActivity() {
         Inter_storage = findViewById(R.id.Inter_storage)
         Inter_storage?.text = "$suntotalBytes G"
         Serial_number?.setTextColor(Color.GREEN)
-
-        val Serial = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Build.getSerial()
-        } else {
-            Build.SERIAL
-        }
-        if (Serial.contains("GS", true) && Serial.toCharArray().size == 14) {
-            Serial.toCharArray().forEach {
-                if (!it.isLetterOrDigit()) {
-                    Serial_number?.setTextColor(Color.RED)
-                    initData = 1
-                }
+        try {
+            val Serial = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Build.getSerial()
+            } else {
+                Build.SERIAL
             }
+            if (Serial.contains("GS", true) && Serial.toCharArray().size == 14) {
+                Serial.toCharArray().forEach {
+                    if (!it.isLetterOrDigit()) {
+                        Serial_number?.setTextColor(Color.RED)
+                        initData = 1
+                    }
+                }
 
-        } else {
-            Serial_number?.setTextColor(Color.RED)
-            initData = 1
+            } else {
+                Serial_number?.setTextColor(Color.RED)
+                initData = 1
+            }
+            Serial_number?.text = Serial
+        }catch (e:Exception){
+
         }
 
         Inter_shared_storage?.text = mTotalMemory.toString() + "G"
 
 
-        Serial_number?.text = Serial
+
         Model?.text = Build.MODEL
         Android_version?.text = Build.VERSION.RELEASE
 

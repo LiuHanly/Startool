@@ -25,6 +25,7 @@ import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+
 import java.util.*
 
 
@@ -172,6 +173,14 @@ class BluetoothActivity : BaseActivity() {
         super.onDestroy()
         BTManager.getInstance().stopDiscovery()
 
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String?>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
 }

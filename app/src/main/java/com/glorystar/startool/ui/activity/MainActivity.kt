@@ -1,5 +1,6 @@
 package com.glorystar.startool.ui.activity
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.BroadcastReceiver
@@ -11,15 +12,18 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.provider.Settings
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
-import android.widget.*
-import androidx.core.app.ActivityCompat
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.FileProvider
 import com.glorystar.startool.BuildConfig
 import com.glorystar.startool.R
@@ -31,9 +35,14 @@ import com.glorystar.startool.config.bean.UpdateData
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.ui.service.DownloadService
 import com.glorystar.startool.ui.testactivity.TestMainActivity
-import com.glorystar.startool.utils.tool.*
+import com.glorystar.startool.utils.tool.IntentJumpUtils
+import com.glorystar.startool.utils.tool.LiveDataBus
+import com.glorystar.startool.utils.tool.NetworkUtils
+import com.glorystar.startool.utils.tool.VersionInfoUtil
 import com.lxj.xpopup.enums.PopupPosition
+import com.permissionx.guolindev.PermissionX
 import java.io.File
+
 
 class MainActivity : BaseActivity(), UpdateData {
     private lateinit var linear_general: LinearLayout
@@ -132,7 +141,7 @@ class MainActivity : BaseActivity(), UpdateData {
             updateDialog(this@MainActivity)
         }
         update1.setOnClickListener {
-          TestMainActivity.toStartActivity(this@MainActivity)
+            TestMainActivity.toStartActivity(this@MainActivity)
 
 
         }
@@ -148,6 +157,7 @@ class MainActivity : BaseActivity(), UpdateData {
                     LiveDataBus.get().with("Language").postValue("refresh_language")
                 }.show()
         }
+        setPermission()
     }
 
     override fun onStart() {
@@ -306,4 +316,52 @@ class MainActivity : BaseActivity(), UpdateData {
             unregisterReceiver(updateDemoReceiver)
         }
     }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String?>,
+        grantResults: IntArray
+    ) {
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+
+    }
+
+
+    //请求需要的权限  .WRITE_SETTINGS. permission.WRITE_SETTINGS
+    fun setPermission() {
+        PermissionX.init(this)
+            .permissions(
+                Manifest.permission.WRITE_SETTINGS,
+                Manifest.permission.WRITE_SYNC_SETTINGS,
+                Manifest.permission.WRITE_APN_SETTINGS,
+                Manifest.permission.WRITE_SECURE_SETTINGS,
+                Manifest.permission.READ_CONTACTS,
+                Manifest.permission.CAMERA,
+                Manifest.permission.CALL_PHONE,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.BLUETOOTH,
+                Manifest.permission.WRITE_CONTACTS,
+
+            )
+            .request { allGranted, grantedList, deniedList ->
+                if (allGranted) {
+                    Toast.makeText(this, "All permissions are granted", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        this,
+                        "These permissions are denied: $deniedList",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+
+
+    }
+
 }

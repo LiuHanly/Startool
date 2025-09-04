@@ -60,7 +60,7 @@ class MemoryTestKtFragment : BaseFragemt() {
         ado = activity?.let { AppDataBase.getDatabase(it).getAgeingDao() }
         stTime = DateUtil.stampToTime(DateUtil.timeStamp_L.toString())!!
         pgr_freq = view?.findViewById(R.id.pgr_freq)!!
-        tv_freq = view?.findViewById(R.id.tv_freq)
+        tv_freq = view?.findViewById(R.id.tv_freq)!!
 
         mAm = activity?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         val systemMemInfo = ActivityManager.MemoryInfo()

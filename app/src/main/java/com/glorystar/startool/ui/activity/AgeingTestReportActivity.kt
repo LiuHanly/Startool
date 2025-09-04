@@ -17,6 +17,7 @@ import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.config.constant.Constant
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.config.constant.Constantdtas.setTime
+import com.glorystar.startool.config.constant.StudentDataBase
 import com.glorystar.startool.ui.adapter.BaseRecyclerAdapter
 import com.glorystar.startool.ui.adapter.BaseRecyclerHolder
 import com.glorystar.startool.utils.db.Ageing
@@ -30,6 +31,7 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
+import java.util.logging.Logger
 
 //老化测试报告
 
@@ -40,7 +42,7 @@ class AgeingTestReportActivity : BaseActivity() {
     lateinit var Serial_number6: TextView
     lateinit var Serial_number7: TextView
     lateinit var Serial_number: TextView
-    lateinit var finish_buton : Button
+    lateinit var finish_buton: Button
 
     companion object {
         // 跳转到当前页面。
@@ -65,6 +67,7 @@ class AgeingTestReportActivity : BaseActivity() {
             finish_buton = findViewById(R.id.finish_buton)
 
             ado = AppDataBase.getDatabase(this@AgeingTestReportActivity).getAgeingDao()
+
             baserecycleradapter = object : BaseRecyclerAdapter<Ageing>(
                 this@AgeingTestReportActivity,
                 ado?.getAllAgeing(),
@@ -102,19 +105,41 @@ class AgeingTestReportActivity : BaseActivity() {
             Serial_number6.text = DateUtil.stampToTime(DateUtil.timeStamp.toString())
             Serial_number7.text = ado?.getAgeingID(0)?.AgeingStarTime
             Serial_number.text = ado?.getAgeingID(3)?.AgeungStopTime
+
             GlobalScope.launch {
                 var stringbuilder: StringBuilder = StringBuilder()
                 ado?.getAllAgeing()?.forEach { adoIt ->
+
                     val TeacherType = when (adoIt.AgeingType) {
                         "1" -> "_通过"
                         "2" -> "_失败"
                         else -> ""
                     }
                     val name = when (adoIt?.AgeingName) {
-                        "CPUKtTestFragment" -> "CPU 测试_老化时间_ ${Constantdtas.setTime(Constantdtas.CPUKTTESTFRAGMENT.toLong())}_"
-                        "MemoryTestKtFragment" -> "EMMC 测试_老化时间_${Constantdtas.setTime(Constantdtas.MEMORYTESTKTFRAGMENT.toLong())}_"
-                        "DDRTestKtFragment" -> "DDR 测试_老化时间 ${Constantdtas.setTime(Constantdtas.DDRTESTKTFRAGMENT.toLong())}_"
-                        "VideoTestKtFragment" -> "Video 测试:_老化时间_ ${Constantdtas.setTime(Constantdtas.VIDEOTESTKTFRAGMENT.toLong())}_"
+                        "CPUKtTestFragment" -> "CPU 测试_老化时间_ ${
+                            Constantdtas.setTime(
+                                Constantdtas.CPUKTTESTFRAGMENT.toLong()
+                            )
+                        }_"
+
+                        "MemoryTestKtFragment" -> "EMMC 测试_老化时间_${
+                            Constantdtas.setTime(
+                                Constantdtas.MEMORYTESTKTFRAGMENT.toLong()
+                            )
+                        }_"
+
+                        "DDRTestKtFragment" -> "DDR 测试_老化时间 ${
+                            Constantdtas.setTime(
+                                Constantdtas.DDRTESTKTFRAGMENT.toLong()
+                            )
+                        }_"
+
+                        "VideoTestKtFragment" -> "Video 测试:_老化时间_ ${
+                            Constantdtas.setTime(
+                                Constantdtas.VIDEOTESTKTFRAGMENT.toLong()
+                            )
+                        }_"
+
                         else -> "定时开关机_老化时间_${Constantdtas.setTime(300000)}_"
                     }
                     stringbuilder?.append(adoIt.AgeingStarTime + "_" + adoIt.AgeungStopTime + "_" + name + TeacherType)

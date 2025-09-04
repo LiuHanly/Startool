@@ -8,6 +8,7 @@ import android.os.SystemClock
 import android.provider.Settings
 import android.view.*
 import android.widget.*
+import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.PagerAdapter
 import com.glorystar.startool.R
@@ -60,14 +61,11 @@ class ScreenActivity : BaseActivity() {
         super.onStart()
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         StatusNavigationBarUtil().hide(true, this@ScreenActivity)
-
         Settings.System.putInt(
-            contentResolver,
-            "show_touches", 1
+            contentResolver, "show_touches", 1
         );
         Settings.System.putInt(
-            contentResolver,
-            "pointer_location", 1
+            contentResolver, "pointer_location", 1
         )
     }
 
@@ -102,7 +100,7 @@ class ScreenActivity : BaseActivity() {
         viewList.add(view2)
         viewList.add(view3)
         dawsme?.addView(DrawingView(this@ScreenActivity))
-        TouchDialog.newInstance()?.show(this.supportFragmentManager ,"")
+        TouchDialog.newInstance()?.show(this.supportFragmentManager, "")
         FrameLayoutDragImage?.addView(mytouchview)
 
 
@@ -164,12 +162,13 @@ class ScreenActivity : BaseActivity() {
         }
         //
         textView3?.setOnTouchListener(
-            OnDoubleClickListener(@SuppressLint("ClickableViewAccessibility")
-            object : OnDoubleClickListener.DoubleClickCallback {
-                override fun onDoubleClick() {
-                    LiveDataBus.get().with("DrawingView").postValue(true)
-                }
-            })
+            OnDoubleClickListener(
+                @SuppressLint("ClickableViewAccessibility") object :
+                    OnDoubleClickListener.DoubleClickCallback {
+                    override fun onDoubleClick() {
+                        LiveDataBus.get().with("DrawingView").postValue(true)
+                    }
+                })
         )
     }
 
@@ -177,12 +176,10 @@ class ScreenActivity : BaseActivity() {
         super.onDestroy()
         StatusNaviBarUitl.show(this@ScreenActivity)
         Settings.System.putInt(
-            contentResolver,
-            "show_touches", 0
+            contentResolver, "show_touches", 0
         );
         Settings.System.putInt(
-            contentResolver,
-            "pointer_location", 0
+            contentResolver, "pointer_location", 0
         )
     }
 

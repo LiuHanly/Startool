@@ -206,6 +206,7 @@ object Constantdtas {
      * str为内容
      */
     fun writeSDFile(str: String?) {
+        println("writeSDFile--->")
         try {
             val testname = MyApplication.Testname
             //+ DateUtil.stampToTime(DateUtil.timeStamp.toString())
@@ -228,7 +229,7 @@ object Constantdtas {
                 try {
 
                     str?.let {
-                        Log.e("writeSDFile", "写入失败-->$it")
+                        Log.e("writeSDFile", "写入-->$it")
                         file.writeText(it)
 
                     }

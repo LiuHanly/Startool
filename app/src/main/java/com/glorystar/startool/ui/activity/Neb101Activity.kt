@@ -49,8 +49,13 @@ class Neb101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
         titleView.title.text = getString(R.string.model_neb101)
         titleView.action = this
 
+
+
         if (Build.MODEL.equals("rk3568")){
             rs232!!.setCOM("/dev/ttyS7")
+        }else if(Build.MODEL.equals("rk3576_u")){
+            println("======Neb101Activity====rk3576=====")
+            rs232!!.setCOM("/dev/ttyS9")
         }
 
         relativeGpio = findViewById(R.id.relative_gpio)
