@@ -60,13 +60,17 @@ class ScreenActivity : BaseActivity() {
     override fun onStart() {
         super.onStart()
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        StatusNavigationBarUtil().hide(true, this@ScreenActivity)
-        Settings.System.putInt(
-            contentResolver, "show_touches", 1
-        );
-        Settings.System.putInt(
-            contentResolver, "pointer_location", 1
-        )
+        try {
+            StatusNavigationBarUtil().hide(true, this@ScreenActivity)
+            Settings.System.putInt(
+                contentResolver, "show_touches", 1
+            );
+            Settings.System.putInt(
+                contentResolver, "pointer_location", 1
+            )
+        } catch (e: Exception) {
+
+        }
     }
 
     override fun getLayoutId(): Int {
@@ -174,13 +178,17 @@ class ScreenActivity : BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        StatusNaviBarUitl.show(this@ScreenActivity)
-        Settings.System.putInt(
-            contentResolver, "show_touches", 0
-        );
-        Settings.System.putInt(
-            contentResolver, "pointer_location", 0
-        )
+        try {
+            StatusNaviBarUitl.show(this@ScreenActivity)
+            Settings.System.putInt(
+                contentResolver, "show_touches", 0
+            );
+            Settings.System.putInt(
+                contentResolver, "pointer_location", 0
+            )
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
 }
