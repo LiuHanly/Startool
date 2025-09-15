@@ -76,6 +76,8 @@ class NewCameraActivity : BaseActivity() {
             getFile()
         }
         handler.sendEmptyMessage(2)
+
+
     }
 
     override fun onRestart() {

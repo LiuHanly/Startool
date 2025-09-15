@@ -17,6 +17,7 @@ import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.config.constant.IntenAcitivity
 import com.glorystar.startool.config.constant.StudentDataBase
 import com.glorystar.startool.utils.db.Student
+import com.glorystar.startool.utils.tool.NetworkUtil
 import com.glorystar.startool.utils.tool.NetworkUtil.getMacAddressTextView
 import java.math.BigDecimal
 
@@ -116,7 +117,14 @@ class MessageActivity : BaseActivity() {
 
         Build_number?.text = Build.DISPLAY
         try {
-            getMacAddressTextView(IP_address)
+            getMacAddressTextView(
+                IP_address, when (NetworkUtil.getNetWorkTypeInt(this)) {
+                    1 -> NetworkUtil.getEthernetMacAddress()
+                    2 -> NetworkUtil.getWifiMacAddress()
+                    3 -> NetworkUtil.get4GMacAddress()
+                    else -> "02:00:00:00:00:00"
+                }
+            )
         } catch (e: Exception) {
         }
         failure_bu?.setOnClickListener {

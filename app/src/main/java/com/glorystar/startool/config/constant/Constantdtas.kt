@@ -270,10 +270,11 @@ object Constantdtas {
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(MediaStore.Images.Media.DATA)
         val sortOrder = MediaStore.Images.Media.DATE_TAKEN + " DESC"
-        val cursor = context.contentResolver.query(uri, projection, null, null, sortOrder)
+        val cursor = context.contentResolver.query(uri, null, null, null, null)
+        Log.e("latestImagePath", "${cursor}")
         if (cursor != null && cursor.moveToFirst()) {
-            val latestImagePath =
-                cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
+            val latestImagePath = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
+
             cursor.close()
             return latestImagePath
         }

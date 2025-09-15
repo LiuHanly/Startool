@@ -73,6 +73,12 @@
         android:name="android.permission.MASTER_CLEAR"
         tools:ignore="ProtectedPermissions" />
 
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+
+    <uses-permission android:name="android.permission.SENSOR_DATA"/>
+
     <application
         android:name=".config.base.MyApplication"
         android:allowBackup="true"

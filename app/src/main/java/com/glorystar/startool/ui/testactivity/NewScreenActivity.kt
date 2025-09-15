@@ -72,14 +72,18 @@ class NewScreenActivity : BaseActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         StatusNavigationBarUtil().hide(true, this@NewScreenActivity)
 
-        Settings.System.putInt(
-            contentResolver,
-            "show_touches", 1
-        );
-        Settings.System.putInt(
-            contentResolver,
-            "pointer_location", 1
-        )
+        try {
+            Settings.System.putInt(
+                contentResolver,
+                "show_touches", 1
+            );
+            Settings.System.putInt(
+                contentResolver,
+                "pointer_location", 1
+            )
+        } catch (e: Exception) {
+
+        }
     }
 
     override fun getLayoutId(): Int = R.layout.activity_new_screen
@@ -161,14 +165,18 @@ class NewScreenActivity : BaseActivity() {
     override fun onDestroy() {
         super.onDestroy()
         StatusNaviBarUitl.show(this@NewScreenActivity)
-        Settings.System.putInt(
-            contentResolver,
-            "show_touches", 0
-        );
-        Settings.System.putInt(
-            contentResolver,
-            "pointer_location", 0
-        )
+        try {
+            Settings.System.putInt(
+                contentResolver,
+                "show_touches", 0
+            );
+            Settings.System.putInt(
+                contentResolver,
+                "pointer_location", 0
+            )
+        } catch (e: Exception) {
+
+        }
     }
 
 

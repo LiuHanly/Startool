@@ -63,7 +63,11 @@ class RfidActivity : BaseActivity() {
                     retrievedValue.setText(cardData?.let { BigInteger(it, 16).toString() })
                 }
             }
-        }else {
+        }else if (Build.MODEL =="rk3568"){
+
+        }
+
+        else {
             retrievedValue.requestFocus()
         }
 

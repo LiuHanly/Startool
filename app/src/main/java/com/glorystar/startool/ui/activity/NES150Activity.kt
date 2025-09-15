@@ -163,4 +163,11 @@ class NES150Activity : BaseActivity(), View.OnClickListener, SensorEventListener
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (sensorManager != null) {
+            sensorManager!!.unregisterListener(this)
+        }
+    }
 }

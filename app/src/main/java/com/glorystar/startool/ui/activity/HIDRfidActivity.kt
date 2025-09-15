@@ -28,7 +28,12 @@ class HIDRfidActivity : BaseActivity() {
         rfid.setBaudrate(115200)
         if (Build.MODEL.startsWith("rk3399")) {
             rfid.setCOM("/dev/ttyUSB1")
+        }else if(Build.MODEL.startsWith("rk3576_u")){
+            rfid.setCOM("/dev/ttyS9")
         }
+
+
+
         rfid.start()
         rfid.getData { buffer, size ->
             runOnUiThread{

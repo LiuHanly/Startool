@@ -29,6 +29,8 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
     lateinit var btStorage: Button
     lateinit var btRam: Button
 
+    lateinit var btSim : Button
+
     override fun getLayoutId(): Int {
         return R.layout.activity_device_info
     }
@@ -45,6 +47,7 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
         btWifiMac = findViewById(R.id.bt_wifi_mac)
         btStorage = findViewById(R.id.bt_storage)
         btRam = findViewById(R.id.bt_ram)
+        btSim = findViewById(R.id.bt_sim_mac)
 
         btSerialNumber.setOnClickListener(this)
         btAndroidVersion.setOnClickListener(this)
@@ -53,6 +56,7 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
         btWifiMac.setOnClickListener(this)
         btStorage.setOnClickListener(this)
         btRam.setOnClickListener(this)
+        btSim.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -77,7 +81,7 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
                 showDialog(this, R.drawable.ic_device_info, getString(R.string.firmware_version), Build.DISPLAY)
             }
             R.id.bt_ethernet_get ->{
-                showDialog(this, R.drawable.ic_device_info, getString(R.string.ethernet_mac_address), NetworkUtil.getEthernetMac())
+                showDialog(this, R.drawable.ic_device_info, getString(R.string.ethernet_mac_address), NetworkUtil.getEthernetMacAddress())
             }
             R.id.bt_wifi_mac ->{
                 if (NetworkUtil.isConnected(this)) {
@@ -85,7 +89,7 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
                         this,
                         R.drawable.ic_device_info,
                         getString(R.string.wifi_mac_addres),
-                        NetworkUtil.getMacAddress()
+                        NetworkUtil.getWifiMacAddress()
                     )
                 }else{
                     Toast.makeText(this, "Please connect Wi-Fi first", Toast.LENGTH_SHORT).show()
@@ -97,6 +101,16 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
             }
             R.id.bt_ram ->{
                 showDialog(this, R.drawable.ic_device_info, getString(R.string.ram),MemoryUtil.getTotalMemory(this).toString())
+            }
+            R.id.bt_sim_mac ->{
+
+                showDialog(
+                    this,
+                    R.drawable.ic_device_info,
+                    getString(R.string.sim_mac_addres),
+                    NetworkUtil.get4GMacAddress()
+                )
+
             }
         }
     }
@@ -118,7 +132,10 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
         }else if (title.equals(getString(R.string.ethernet_mac_address))) {
             relativeHelp.visibility = View.VISIBLE
             tvMacTip.text = getString(R.string.ethernet_tip)
-        }else{
+        } else if (title.equals(getString(R.string.sim_mac_addres))) {
+            relativeHelp.visibility = View.VISIBLE
+            tvMacTip.text = getString(R.string.ethernet_tip)
+        } else{
             relativeHelp.visibility = View.GONE
         }
         goSetting.setOnClickListener {
@@ -126,14 +143,18 @@ class DeviceInfoActivity : BaseActivity(), View.OnClickListener {
                 StatusNaviBarUitl.show(this)
                 val wifiIntent = Intent("android.settings.WIFI_SETTINGS")
                 startActivity(wifiIntent)
-            }else if (title.equals(getString(R.string.ethernet_mac_address))){
+            }else if (title.equals(getString(R.string.sim_mac_addres))){
+                StatusNaviBarUitl.show(this)
+                val ethernetIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
+                startActivity(ethernetIntent)
+            } else if (title.equals(getString(R.string.ethernet_mac_address))){
                 StatusNaviBarUitl.show(this)
                 val ethernetIntent = Intent(Settings.ACTION_WIRELESS_SETTINGS)
                 startActivity(ethernetIntent)
             }
         }
 
-        ivIcon.setImageResource(iconId)
+        ivIcon.setImageResource(iconId) 
         tvTitle.text = title
         tvInfo.text = info
         val builder = AlertDialog.Builder(context)

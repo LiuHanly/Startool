@@ -108,6 +108,9 @@ class NewGpIOActivity : BaseActivity(), View.OnClickListener {
 
         if (Build.MODEL.equals("rk3568")) {
             rs232!!.setCOM("/dev/ttyS7")
+        } else if (Build.MODEL.equals("rk3576_u")) {
+            rs232!!.setCOM("/dev/ttyS9")
+            rs232?.start()
         }
 
         if (Build.MODEL == "rk3399" || Build.MODEL.contains("rk3399")) {
@@ -121,9 +124,6 @@ class NewGpIOActivity : BaseActivity(), View.OnClickListener {
             rs485!!.setCOM("/dev/ttyS7")
             rs485?.start()
 
-        } else if (Build.MODEL.equals("rk3576")) {
-            rs485!!.setCOM("/dev/ttyS9")
-            rs485?.start()
         }
 
 

@@ -24,6 +24,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.content.FileProvider
 import com.glorystar.startool.BuildConfig
 import com.glorystar.startool.R
@@ -37,6 +38,7 @@ import com.glorystar.startool.ui.service.DownloadService
 import com.glorystar.startool.ui.testactivity.TestMainActivity
 import com.glorystar.startool.utils.tool.IntentJumpUtils
 import com.glorystar.startool.utils.tool.LiveDataBus
+import com.glorystar.startool.utils.tool.NetworkUtil
 import com.glorystar.startool.utils.tool.NetworkUtils
 import com.glorystar.startool.utils.tool.VersionInfoUtil
 import com.lxj.xpopup.enums.PopupPosition
@@ -96,6 +98,7 @@ class MainActivity : BaseActivity(), UpdateData {
 
     /**
      */
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun initView(savedInstanceState: Bundle?) {
         linear_general = findViewById(R.id.linear_general)
         linear_model = findViewById(R.id.linear_model)
@@ -331,6 +334,7 @@ class MainActivity : BaseActivity(), UpdateData {
 
 
     //请求需要的权限  .WRITE_SETTINGS. permission.WRITE_SETTINGS
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun setPermission() {
         PermissionX.init(this)
             .permissions(
@@ -347,8 +351,11 @@ class MainActivity : BaseActivity(), UpdateData {
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.BLUETOOTH,
                 Manifest.permission.WRITE_CONTACTS,
-
-            )
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.READ_MEDIA_AUDIO,
+                Manifest.permission.READ_MEDIA_VIDEO,
+                )
             .request { allGranted, grantedList, deniedList ->
                 if (allGranted) {
                     Toast.makeText(this, "All permissions are granted", Toast.LENGTH_LONG).show()

@@ -23,17 +23,39 @@
             android:textSize="37dp" />
 
     </RelativeLayout>
-
     <LinearLayout
+        android:id="@+id/masg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relativeLayout2">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/image_url"
+            android:layout_width="400dp"
+            android:layout_height="400dp" />
+
+        <VideoView
+            android:id="@+id/RecyclerLayout"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:layout_marginLeft="32dp" />
+    </LinearLayout>
+    <LinearLayout
+
         android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="312dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/masg_text">
         <TextView
             android:text="@string/expected_Passed"
             style="@style/text_style"

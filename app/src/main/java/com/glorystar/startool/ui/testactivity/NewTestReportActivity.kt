@@ -31,6 +31,7 @@ import com.glorystar.startool.utils.db.Teacher
 import com.glorystar.startool.utils.db.TeacherDao
 import com.glorystar.startool.utils.tool.DateUtil
 import com.glorystar.startool.utils.tool.NetworkUtil
+import com.glorystar.startool.utils.tool.NetworkUtil.getMacAddressTextView
 import com.glorystar.startool.utils.tool.Rootcommands
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -163,7 +164,17 @@ class NewTestReportActivity : BaseActivity() {
         Inter_shared_storage.text = mTotalMemory.toString() + "G"
 
         try {
-            NetworkUtil.getMacAddressTextView(Serial_number4)
+            getMacAddressTextView(
+                Serial_number4, when (NetworkUtil.getNetWorkTypeInt(this)) {
+                    1 -> NetworkUtil.getEthernetMacAddress()
+                    2 -> NetworkUtil.getWifiMacAddress()
+                    3 -> NetworkUtil.get4GMacAddress()
+                    else -> "02:00:00:00:00:00"
+                }
+            )
+      //      NetworkUtil.getMacAddressTextView(Serial_number4)
+
+
         } catch (e: Exception) {
         }
 

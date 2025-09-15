@@ -20,6 +20,7 @@ import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.ui.dialog.NebDialog
 import com.glorystar.startool.ui.view.TitleKtView
+import kotlin.io.path.Path
 
 class SM6255Activity : BaseActivity(), View.OnClickListener, SensorEventListener {
 
@@ -32,11 +33,14 @@ class SM6255Activity : BaseActivity(), View.OnClickListener, SensorEventListener
     lateinit var ambientInfo: TextView
 
     var sensorManager: SensorManager? = null
+    var sensorManager1: SensorManager? = null
 
     override fun getLayoutId(): Int = R.layout.activity_sm6255
 
     override fun initView(savedInstanceState: Bundle?) {
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+        sensorManager1 = getSystemService(SENSOR_SERVICE) as SensorManager
+
 
         titleView = findViewById(R.id.tile_view)
 
@@ -62,14 +66,15 @@ class SM6255Activity : BaseActivity(), View.OnClickListener, SensorEventListener
                 sensorDialog(this@SM6255Activity)
                 sensorManager?.registerListener(
                     this,
-                    sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT),
-                    SensorManager.SENSOR_DELAY_NORMAL
-                )
-                sensorManager?.registerListener(
-                    this,
                     sensorManager!!.getDefaultSensor(Sensor.TYPE_PROXIMITY),
                     SensorManager.SENSOR_DELAY_NORMAL
                 )
+                sensorManager1?.registerListener(
+                    this,
+                    sensorManager!!.getDefaultSensor(Sensor.TYPE_LIGHT),
+                    SensorManager.SENSOR_DELAY_NORMAL
+                )
+
             }
 
             R.id.bt_buttons -> {
@@ -82,8 +87,7 @@ class SM6255Activity : BaseActivity(), View.OnClickListener, SensorEventListener
     }
 
     fun sensorDialog(context: Context?) {
-        val view: View =
-            LayoutInflater.from(context).inflate(R.layout.dialog_sensor, null)
+        val view: View = LayoutInflater.from(context).inflate(R.layout.dialog_sensor, null)
         proximityInfo = view.findViewById<TextView>(R.id.tv_proximity_info)
         ambientInfo = view.findViewById<TextView>(R.id.tv_ambient_info)
         var goBack = view.findViewById<TextView>(R.id.tv_go_back)
@@ -99,14 +103,16 @@ class SM6255Activity : BaseActivity(), View.OnClickListener, SensorEventListener
         dialog.show()
         dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.window!!.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.WRAP_CONTENT
+            WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT
         )
     }
+ //   {Sensor name="mxc4005x Accelerometer Non-wakeup", vendor="memsic", version=10120150, type=1, maxRange=3000.0288, resolution=0.0976, power=1.0, minDelay=5000}, {Sensor name="mxc4005x Accelerometer Wakeup", vendor="memsic", version=10120150, type=1, maxRange=3000.0288, resolution=0.0976, power=1.0, minDelay=5000}, {Sensor name="rpr0521rs Ambient Light Sensor Non-wakeup", vendor="ROHM", version=262146, type=5, maxRange=43000.0, resolution=2.0, power=0.09, minDelay=0}, {Sensor name="rpr0521rs Ambient Light Sensor Wakeup", vendor="ROHM", version=262146, type=5, maxRange=43000.0, resolution=2.0, power=0.09, minDelay=0}, {Sensor name="rpr0521rs Proximity Sensor Non-wakeup", vendor="ROHM", version=262146, type=8, maxRange=20.0, resolution=1.0, power=0.09, minDelay=0}, {Sensor name="rpr0521rs Proximity Sensor Wakeup", vendor="ROHM", version=262146, type=8, maxRange=20.0, resolution=1.0, power=0.09, minDelay=0}, {Sensor name="sns_smd  Wakeup", vendor="qualcomm", version=1, type=17, maxRange=1.0, resolution=1.0, power=0.025, minDelay=-1}, {Sensor name="step_detect  Non-wakeup", vendor="qualcomm", version=1, type=18, maxRange=1.0, resolution=1.0, power=0.15, minDelay=0}, {Sensor name="step_detect  Wakeup", vendor="qualcomm", version=1, type=18, maxRange=1.0, resolution=1.0, power=0.15, minDelay=0}, {Sensor name="pedometer  Non-wakeup", vendor="qualcomm", version=1, type=19, maxRange=4.2949673E9, resolution=1.0, power=0.15, minDelay=0}, {Sensor name="pedometer  Wakeup", vendor="qualcomm", version=1, type=19, maxRange=4.2949673E9, resolution=1.0, power=0.15, minDelay=0}, {Sensor name="sns_tilt  Wakeup", vendor="qualcomm", version=1, type=22, maxRange=1.0, resolution=1.0, power=0.025, minDelay=0}, {Sensor name="Device Orientation  Non-wakeup", vendor="qualcomm", version=1, type=27, maxRange=1.0, resolution=1.0, power=0.025, minDelay=0}, {Sensor name="Device Orientation  Wakeup", vendor="qualcomm", version=1, type=27, maxRange=1.0, resolution=1.0, power=0.025, minDelay=0}, {Sensor name="stationary_detect", vendor="qualcomm", version=1, type=29, maxRange=1.0, resolution=1.0, power=0.025, minDelay=-1}, {Sensor name="stationary_detect_wakeup", vendor="qualcomm", version=1, type=29, maxRange=1.0, resolution=1.0, power=0.025, minDelay=-1}, {Sensor name="motion_detect", vendor="qualcomm", version=1, type=30, maxRange=1.0, resolution=1.0, power=0.025, minDelay=-1}, {Sensor name="motion_detect_wakeup", vendor="qualcomm", version=1, type=30, maxRange=1.0, resolution=1.0, power=0.025, minDelay=-1}, {Sensor name="mxc4005x Accelerometer-Uncalibrated Non-wakeup", vendor="memsic", version=10120150, type=35, maxRange=3000.0288, resolution=0.0976, power=1.0, minDelay=5000}, {Sensor name="mxc4005x Accelerometer-Uncalibrated Wakeup", vendor="memsic", version=10120150, type=35, maxRange=3000.0288, resolution=0.0976, power=1.0, minDelay=5000}
+
 
     override fun onSensorChanged(event: SensorEvent?) {
         val values: FloatArray? = event?.values
         val type: Int? = event?.sensor?.getType()
+        println("onSensorChanged:${type} -- ${values?.size} --${values?.get(0)}")
         when (type) {
             Sensor.TYPE_LIGHT -> ambientInfo.setText((values?.get(0).toString()) + "lx")
             Sensor.TYPE_PROXIMITY -> proximityInfo.setText(values?.get(0).toString() + "cm")
@@ -117,5 +123,14 @@ class SM6255Activity : BaseActivity(), View.OnClickListener, SensorEventListener
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        if (sensorManager != null) {
+            sensorManager!!.unregisterListener(this)
+        }
+        if (sensorManager1 != null) {
+            sensorManager1!!.unregisterListener(this)
+        }
+    }
 
 }
