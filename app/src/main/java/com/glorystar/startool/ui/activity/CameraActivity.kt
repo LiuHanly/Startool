@@ -71,7 +71,6 @@ class CameraActivity : BaseActivity() {
     }
 
 
-
     companion object {
         // 跳转到当前页面。
         fun toStartActivity(context: Activity) {
@@ -82,10 +81,11 @@ class CameraActivity : BaseActivity() {
 
 
     }
-  //38923739
+
+    //38923739
     override fun getLayoutId(): Int = R.layout.activity_camera
     override fun initView(savedInstanceState: Bundle?) {
-       // StatusNaviBarUitl.hide(this@CameraActivity)
+        // StatusNaviBarUitl.hide(this@CameraActivity)
         change = findViewById(R.id.failure_bu)
         redo_bu = findViewById(R.id.redo_bu)
         camera = findViewById(R.id.through_bu)
@@ -113,10 +113,9 @@ class CameraActivity : BaseActivity() {
 
     override fun onRestart() {
         super.onRestart()
-       StatusNaviBarUitl.hide(this@CameraActivity)
+        StatusNaviBarUitl.hide(this@CameraActivity)
         ImgUri = Constantdtas.getLatestImage(this).toString()
-        //  VoidUri = Constantdtas.getLatestVideo(this).toString()
-        VoidUri = Constantdtas.getVideosInfo(this).toString()
+        VoidUri = Constantdtas.getLatestVideo(this).toString()
         if (ImgUri != "") {
             handler.sendEmptyMessage(0)
         }
@@ -132,7 +131,6 @@ class CameraActivity : BaseActivity() {
     }
 
 
-
     fun getFile() {
 
         if (hasCameraSupport()) {
@@ -144,11 +142,14 @@ class CameraActivity : BaseActivity() {
             //StatusNaviBarUitl.show(this@CameraActivity)
         } else {
 
-            Toast.makeText(this@CameraActivity, this.getString(R.string.camerasupp), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this@CameraActivity,
+                this.getString(R.string.camerasupp),
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
     }
-
 
 
     override fun onDestroy() {
@@ -191,6 +192,7 @@ class CameraActivity : BaseActivity() {
         val CAMERA_FACING_BACK = 0
         return checkCameraFacing(CAMERA_FACING_BACK)
     }
+
     /**
      * 获取手机中所有视频的信息
      */

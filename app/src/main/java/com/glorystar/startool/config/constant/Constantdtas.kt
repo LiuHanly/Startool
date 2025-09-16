@@ -270,7 +270,7 @@ object Constantdtas {
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(MediaStore.Images.Media.DATA)
         val sortOrder = MediaStore.Images.Media.DATE_TAKEN + " DESC"
-        val cursor = context.contentResolver.query(uri, null, null, null, null)
+        val cursor = context.contentResolver.query(uri, null, null, null, sortOrder)
         Log.e("latestImagePath", "${cursor}")
         if (cursor != null && cursor.moveToFirst()) {
             val latestImagePath = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
@@ -286,13 +286,12 @@ object Constantdtas {
         val uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(MediaStore.Video.Media.DATA, MediaStore.Video.Media.DATE_TAKEN)
         val sortOrder = MediaStore.Video.Media.DATE_TAKEN + " DESC"
-        val cursor = context.contentResolver.query(uri, projection, null, null, sortOrder)
+        val cursor = context.contentResolver.query(uri, null, null, null, sortOrder)
         if (cursor != null && cursor.moveToFirst()) {
             /*        val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
                     latestVideoPath = cursor.getString(columnIndex)*/
             cursor.columnNames
-            val latestVideoPath =
-                cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))
+            val latestVideoPath = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))
             Log.e("getLatestVideo", "${latestVideoPath}")
             cursor.close()
             return latestVideoPath

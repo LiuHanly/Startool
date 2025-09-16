@@ -84,8 +84,7 @@ class NewCameraActivity : BaseActivity() {
         super.onRestart()
         StatusNaviBarUitl.hide(this@NewCameraActivity)
         ImgUri = Constantdtas.getLatestImage(this).toString()
-        //  VoidUri = Constantdtas.getLatestVideo(this).toString()
-        VoidUri = Constantdtas.getVideosInfo(this).toString()
+        VoidUri = Constantdtas.getLatestVideo(this).toString()
         if (ImgUri != "") {
             handler.sendEmptyMessage(0)
         }
