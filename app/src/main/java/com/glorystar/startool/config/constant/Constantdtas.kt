@@ -268,12 +268,17 @@ object Constantdtas {
     // 获取最新的图片
     fun getLatestImage(context: Context): String? {
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val projection = arrayOf(
+            MediaStore.Images.Media.DATA,
+            MediaStore.Images.Media.DISPLAY_NAME,
+            MediaStore.Images.Media.DATE_TAKEN
+            )
         val sortOrder = MediaStore.Images.Media.DATE_TAKEN + " DESC"
-        val cursor = context.contentResolver.query(uri, null, null, null, sortOrder)
+        val cursor = context.contentResolver.query(uri, projection, null, null, sortOrder)
         Log.e("latestImagePath", "${cursor}")
         if (cursor != null && cursor.moveToFirst()) {
-            val latestImagePath = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
+            val latestImagePath =
+                cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
 
             cursor.close()
             return latestImagePath
@@ -284,14 +289,22 @@ object Constantdtas {
     // 获取最新的视频
     fun getLatestVideo(context: Context): String? {
         val uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-        val projection = arrayOf(MediaStore.Video.Media.DATA, MediaStore.Video.Media.DATE_TAKEN)
-        val sortOrder = MediaStore.Video.Media.DATE_TAKEN + " DESC"
-        val cursor = context.contentResolver.query(uri, null, null, null, sortOrder)
+        val sortOrder = MediaStore.Video.Media.DATE_MODIFIED + " DESC"
+        val cursor = context.contentResolver.query(
+            uri, arrayOf(
+                MediaStore.Video.Media._ID,
+                MediaStore.Video.Media.DATA,    // 视频文件路径（内部存储路径）
+                MediaStore.Video.Media.DISPLAY_NAME,
+                MediaStore.Video.Media.DATE_TAKEN
+            ), null, null, sortOrder
+        )
+
         if (cursor != null && cursor.moveToFirst()) {
-            /*        val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
-                    latestVideoPath = cursor.getString(columnIndex)*/
-            cursor.columnNames
-            val latestVideoPath = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))
+            val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
+            val latestVideoPath = cursor.getString(columnIndex)
+            /*     cursor.columnNames
+                 val latestVideoPath = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA))*/
+
             Log.e("getLatestVideo", "${latestVideoPath}")
             cursor.close()
             return latestVideoPath
