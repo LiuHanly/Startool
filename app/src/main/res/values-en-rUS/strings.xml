@@ -506,6 +506,6 @@
     <string name="ml_16">Face Mesh Detection (Beta)</string>
     <string name="switch_camera">Switch camera</string>
     <string name="model_nes150">RK3576 ALU100\\NES150\\NES210</string>
-    <string name="model_sm6255">SM6255 ALU100\\NES150\\NES210</string>
+    <string name="model_sm6255">SM6225 ALU100\\NES150\\NES210</string>
     <string name="sim_mac_addres">SIM MAC address</string>
 </resources>

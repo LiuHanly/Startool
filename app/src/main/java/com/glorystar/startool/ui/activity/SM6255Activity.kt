@@ -57,7 +57,7 @@ class SM6255Activity : BaseActivity(), View.OnClickListener, SensorEventListener
 
         btSensor.setOnClickListener(this)
         btLight.setOnClickListener(this)
-        btSensor.setOnClickListener(this)
+        btButtons.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {

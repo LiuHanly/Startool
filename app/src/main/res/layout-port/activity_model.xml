@@ -260,7 +260,7 @@
                     android:layout_marginLeft="24mm"
                     android:layout_toRightOf="@+id/iv_13"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="RK3576 ALU100\NES150\NES210"
+                    android:text="ALU100/NES150/NES210-RK3576"
                     android:textColor="@color/white"
                     android:textSize="25mm" />
 
@@ -296,7 +296,7 @@
                     android:layout_marginLeft="24mm"
                     android:layout_toRightOf="@+id/iv_14"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="SM6255 ALU100\NES150\NES210"
+                    android:text="ALU100/NES150/NES210-SM6225"
                     android:textColor="@color/white"
                     android:textSize="25mm" />
 
