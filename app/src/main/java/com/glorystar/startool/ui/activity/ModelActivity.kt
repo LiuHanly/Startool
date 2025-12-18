@@ -1,7 +1,10 @@
 package com.glorystar.startool.ui.activity
 
 import android.content.Intent
+import android.media.AudioDeviceInfo
+import android.media.AudioManager
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.RelativeLayout
 import com.glorystar.startool.R
@@ -82,6 +85,7 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
         neb215rk3576.setOnClickListener(this)
         neb215sm6255.setOnClickListener(this)
         alu100a133.setOnClickListener(this)
+
     }
 
     override fun onClick(p0: View?) {

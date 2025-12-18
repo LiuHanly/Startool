@@ -86,7 +86,7 @@
                     android:layout_marginLeft="24mm"
                     android:layout_toRightOf="@+id/iv_1"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="JAR101-LED-RK3128"
+                    android:text="JRK3128"
                     android:textColor="@color/white"
                     android:textSize="25mm" />
 
@@ -152,7 +152,7 @@
                     android:layout_marginLeft="24mm"
                     android:layout_toRightOf="@+id/iv_2"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="NEB101/156/215-RK3399"
+                    android:text="RK3399"
                     android:textColor="@color/white"
                     android:textSize="25mm" />
 
@@ -188,7 +188,7 @@
                     android:layout_marginLeft="24mm"
                     android:layout_toRightOf="@+id/iv_3"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="NEB101/156/215-RK3568"
+                    android:text="RK3568"
                     android:textColor="@color/white"
                     android:textSize="25mm" />
 
@@ -201,6 +201,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/relative_neb156_rk3288"
                 android:layout_width="match_parent"
                 android:layout_height="103mm"
@@ -260,7 +261,7 @@
                     android:layout_marginLeft="24mm"
                     android:layout_toRightOf="@+id/iv_13"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="ALU100/NES150/NES210-RK3576"
+                    android:text="RK3576"
                     android:textColor="@color/white"
                     android:textSize="25mm" />
 
@@ -296,7 +297,7 @@
                     android:layout_marginLeft="24mm"
                     android:layout_toRightOf="@+id/iv_14"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="ALU100/NES150/NES210-SM6225"
+                    android:text="SM6225"
                     android:textColor="@color/white"
                     android:textSize="25mm" />
 
@@ -331,7 +332,7 @@
                     android:layout_marginLeft="24mm"
                     android:layout_toRightOf="@+id/iv_15"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="ALU100/150/210-A133"
+                    android:text="A133"
                     android:textColor="@color/white"
                     android:textSize="25mm" />
 
@@ -626,6 +627,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:layout_marginBottom="30mm"
                 android:id="@+id/relative_vod073_rk3568"
                 android:layout_width="match_parent"
                 android:layout_height="103mm"
@@ -662,6 +664,7 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72mm"
@@ -692,6 +695,7 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/relative_emt431_rk3399"
                 android:layout_width="match_parent"
                 android:layout_height="103mm"
@@ -728,6 +732,7 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="72mm"
@@ -758,6 +763,7 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/relative_tad321_rk3399"
                 android:layout_width="match_parent"
                 android:layout_height="103mm"

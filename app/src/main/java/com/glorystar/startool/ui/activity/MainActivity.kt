@@ -1,6 +1,8 @@
 package com.glorystar.startool.ui.activity
 
 import android.Manifest
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.BroadcastReceiver
@@ -38,7 +40,6 @@ import com.glorystar.startool.ui.service.DownloadService
 import com.glorystar.startool.ui.testactivity.TestMainActivity
 import com.glorystar.startool.utils.tool.IntentJumpUtils
 import com.glorystar.startool.utils.tool.LiveDataBus
-import com.glorystar.startool.utils.tool.NetworkUtil
 import com.glorystar.startool.utils.tool.NetworkUtils
 import com.glorystar.startool.utils.tool.VersionInfoUtil
 import com.lxj.xpopup.enums.PopupPosition
@@ -63,6 +64,12 @@ class MainActivity : BaseActivity(), UpdateData {
     lateinit var dialog: AlertDialog
     lateinit var rotateAnimation: Animation
     lateinit var update1: ImageView
+
+    private var clickCount = 1
+    private var lastClickTime = 0L
+    private val requiredClicks = 4
+    private val maxInterval = 800L
+
 
     @SuppressLint("HandlerLeak")
     var handler: Handler = object : Handler() {
@@ -89,6 +96,7 @@ class MainActivity : BaseActivity(), UpdateData {
             }
         }
     }
+
 
     /**
      */
@@ -144,9 +152,23 @@ class MainActivity : BaseActivity(), UpdateData {
             updateDialog(this@MainActivity)
         }
         update1.setOnClickListener {
-            TestMainActivity.toStartActivity(this@MainActivity)
+            ButtonClickZoomInAnimation(it,0.8f)
+            val now = System.currentTimeMillis()
+            if (now - lastClickTime > 1000) {
+                // 超过时间，重新计数
+                clickCount = 1
+            } else {
+                clickCount++
+            }
+            val remaining = requiredClicks - clickCount
+            if (remaining > 0) {
 
-
+            }
+            lastClickTime = now
+            if (clickCount == 4) {
+                clickCount = 0
+                TestMainActivity.toStartActivity(this@MainActivity)
+            }
         }
 
         language_text.setOnClickListener {
@@ -163,6 +185,17 @@ class MainActivity : BaseActivity(), UpdateData {
         setPermission()
     }
 
+
+    fun ButtonClickZoomInAnimation(view_lay: View?, numerical: Float) {
+        if (view_lay != null) {
+            val set: AnimatorSet = AnimatorSet()
+            set.playTogether(
+                ObjectAnimator.ofFloat(view_lay, "scaleX", numerical, 1f),
+                ObjectAnimator.ofFloat(view_lay, "scaleY", numerical, 1f)
+            )
+            set.setDuration(1 * 200).start()
+        }
+    }
     override fun onStart() {
         super.onStart()
         super.init()
@@ -326,10 +359,7 @@ class MainActivity : BaseActivity(), UpdateData {
         permissions: Array<out String?>,
         grantResults: IntArray
     ) {
-
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-
     }
 
 
@@ -355,7 +385,7 @@ class MainActivity : BaseActivity(), UpdateData {
                 Manifest.permission.READ_MEDIA_IMAGES,
                 Manifest.permission.READ_MEDIA_AUDIO,
                 Manifest.permission.READ_MEDIA_VIDEO,
-                )
+            )
             .request { allGranted, grantedList, deniedList ->
                 if (allGranted) {
                     Toast.makeText(this, "All permissions are granted", Toast.LENGTH_LONG).show()

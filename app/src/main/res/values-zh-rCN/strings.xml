@@ -197,7 +197,7 @@
     <string name="sender_output_tip">M确保两个设备都正确连接</string>
     <string name="sender_processing">数据已发送。请检查接收器设备.</string>
     <string name="model_neb156">型号 (NEB 156 和 215)</string>
-    <string name="model_vega">特定型号(VEGA)</string>
+    <string name="model_vega">10.1” – 21.5”</string>
     <string name="relay">Relay</string>
     <string name="rs485">RS485</string>
     <string name="rs485_port">RS485 端口打开中</string>
@@ -289,8 +289,8 @@
     <string name="update_startool">升级StarTools</string>
     <string name="model_test">特定型号测试</string>
     <string name="model_detail">请从下面选择您的设备型号。\n此测试只支持列表中的设备.</string>
-    <string name="jar_series">JAR系列</string>
-    <string name="neb_series">NEB系列</string>
+    <string name="jar_series">JARVIS 系列</string>
+    <string name="neb_series">NEBULA 系列</string>
     <string name="vega_series">VEGA系列</string>
     <string name="emt_series">EMT系列</string>
     <string name="tad_series">TAD系列</string>
@@ -504,7 +504,7 @@
     <string name="ml_15">文本识别韩语</string>
     <string name="ml_16">人脸网格检测（Beta）</string>
     <string name="switch_camera">切换摄像头</string>
-    <string name="model_nes150">RK3576 ALU100\\NES150\\NES210</string>
-    <string name="model_sm6255">SM6225 ALU100\\NES150\\NES210</string>
+    <string name="model_nes150">10.1” – 21.5”</string>
+    <string name="model_sm6255">10.1” – 21.5”</string>
     <string name="sim_mac_addres">SIM MAC address</string>
 </resources>

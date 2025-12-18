@@ -156,12 +156,12 @@
     <string name="verify_success">Verification succeed.</string>
     <string name="verify_fail">Verification failed</string>
     <string name="verify_fail_tip">Unknown error occured. Please try again or start again from downloading package.</string>
-    <string name="model_neb101">Model specific (NEB 101/156/215)</string>
+    <string name="model_neb101">10.1” – 21.5”</string>
     <string name="gpio">GPIO</string>
     <string name="wiegand_interface">Wiegand interface</string>
     <string name="uart">UART</string>
     <string name="open_port">Open port</string>
-    <string name="sensors">Sensors</string>
+    <string name="sensors">Sensors for ALU100</string>
     <string name="test">Test</string>
     <string name="buttons">Buttons</string>
     <string name="close_go_back">Close and go back</string>
@@ -196,7 +196,7 @@
     <string name="sender_output_tip">Make sure that both devices are connected correctly</string>
     <string name="sender_processing">Data has been sent. Please check the receiver device.</string>
     <string name="model_neb156">Model (NEB 156 &amp; 215)</string>
-    <string name="model_vega">Model specific (VEGA)</string>
+    <string name="model_vega">10.1” – 21.5”</string>
     <string name="relay">Relay</string>
     <string name="rs485">RS485</string>
     <string name="rs485_port">RS485 port opening</string>
@@ -228,7 +228,7 @@
     <string name="barcode_modules">Barcode modules</string>
     <string name="rfid_module">RFID module(ELATEC)</string>
     <string name="rfid_module_2">RFID module(HID)</string>
-    <string name="light_strips">Light strips</string>
+    <string name="light_strips">Light strips for GLOW series</string>
     <string name="honeywell_n4680">Honeywell N4680 barcode</string>
     <string name="newland_em3396">Newland EM3396 barcode</string>
     <string name="hdr_camera">5MPs HDR camera</string>
@@ -288,12 +288,12 @@
     <string name="update_startool">Updating StarTools</string>
     <string name="model_test">Model specific test</string>
     <string name="model_detail">Please selecte your device model from below.\nOnly devices in the list are supported for this test.</string>
-    <string name="jar_series">JAR series</string>
-    <string name="neb_series">NEB series</string>
+    <string name="jar_series">JARVIS series</string>
+    <string name="neb_series">NEBULA series</string>
     <string name="vega_series">VEGA series</string>
     <string name="emt_series">EMT series</string>
     <string name="tad_series">TAD series</string>
-    <string name="model_jar101">Model specific (JAR101)</string>
+    <string name="model_jar101">JAR101 Part#128/MR/PE</string>
     <string name="model_emt431">Model specific (EMT431)</string>
     <string name="model_tad321">Model specific (TAD321)</string>
     <string name="led">LED light</string>
@@ -505,7 +505,7 @@
     <string name="ml_15">Text Recognition Korean</string>
     <string name="ml_16">Face Mesh Detection (Beta)</string>
     <string name="switch_camera">Switch camera</string>
-    <string name="model_nes150">RK3576 ALU100\\NES150\\NES210</string>
-    <string name="model_sm6255">SM6225 ALU100\\NES150\\NES210</string>
+    <string name="model_nes150">10.1” – 21.5”</string>
+    <string name="model_sm6255">10.1” – 21.5”</string>
     <string name="sim_mac_addres">SIM MAC address</string>
 </resources>
