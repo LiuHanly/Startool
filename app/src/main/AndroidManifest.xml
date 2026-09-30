@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:installLocation="auto">
-    <!-- 连网权限 -->
+    <!--    android:sharedUserId="android.uid.system"    -->
+    <!-- 连网权限     android:sharedUserId="android.uid.system" -->
     <!-- 获取网络状态，根据网络状态切换进行数据请求网络转换 -->
     <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- 录音权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -77,9 +79,21 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
 
+    <!-- 声明 Glorystar 系统隐藏状态栏所需的自定义权限 -->
+    <!-- 常见 Glorystar 自定义控制权限 -->
+    <uses-permission android:name="com.glorystartech.permission.HIDE_STATUS" />
+    <uses-permission android:name="com.glorystartech.permission.SYSTEM_BAR" />
+    <uses-permission android:name="com.glorystartech.permission.SYSTEM_CONTROL" />
+
     <uses-permission android:name="android.permission.SENSOR_DATA"/>
 
+    <uses-permission android:name="com.glorystartech.permission.HIDE_STATUS_BAR" />
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
     <application
+        android:usesCleartextTraffic="true"
         android:name=".config.base.MyApplication"
         android:allowBackup="true"
         android:extractNativeLibs="true"
@@ -87,7 +101,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/NoTitle">
+        <activity
+            android:name=".ui.activity.A733Activity"
+            android:exported="false" />
         <activity
             android:name=".ui.activity.SM6255Activity"
             android:exported="false" />
@@ -127,6 +145,11 @@
             android:exported="false"
             android:launchMode="singleTask"
             android:theme="@style/NoTitle" />
+        <activity
+            android:name=".ui.activity.RJ45Activity"
+            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitleForWebView" />
         <activity
             android:name=".ui.testactivity.NewCameraActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
@@ -275,11 +298,7 @@
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
             android:launchMode="singleTask"
             android:theme="@style/NoTitle" />
-        <activity
-            android:name=".ui.activity.RJ45Activity"
-            android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"
-            android:launchMode="singleTask"
-            android:theme="@style/NoTitle" />
+
         <activity
             android:name=".ui.activity.ScreenActivity"
             android:configChanges="locale|layoutDirection|orientation|keyboardHidden|keyboard"

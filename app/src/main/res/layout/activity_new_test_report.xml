@@ -373,6 +373,7 @@
                         android:orientation="horizontal">
 
                         <Button
+
                             android:id="@+id/finish_buton"
                             android:layout_width="223dp"
                             android:layout_height="55dp"
@@ -392,6 +393,17 @@
                             android:layout_marginTop="60dp"
                             android:background="@drawable/r_button_bg"
                             android:text="@string/factory_reset"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="25dp" />
+                        <Button
+                            android:id="@+id/finish_buton2"
+                            android:layout_width="100dp"
+                            android:layout_height="55dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="60dp"
+                            android:background="@drawable/r_button_bg"
+                            android:text="Export"
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             android:textSize="25dp" />

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
+import android.util.Log; // 💡 引入日志库
 
 /**
  * @className:HideUpDownStatus
@@ -12,16 +13,23 @@ import android.os.Build.VERSION_CODES;
  */
 public class StatusNavigationBarUtil {
 
+	private static final String TAG = "StatusNaviBarUtil";
+
 	/**
 	 * @title:Hide
 	 * @return void
 	 * @param enable
 	 */
 	public void hide(boolean enable, Context context) {
-		if (enable) {
-			hideStatus(context);
-		} else {
-			showStatus(context);
+		try {
+			if (enable) {
+				hideStatus(context);
+			} else {
+				showStatus(context);
+			}
+		} catch (Exception e) {
+			// 💡 修复：不再抛出异常导致闪退，仅打印堆栈日志
+			e.printStackTrace();
 		}
 	}
 
@@ -30,11 +38,20 @@ public class StatusNavigationBarUtil {
 	 * @return void
 	 */
 	private void hideStatus(Context context) {
-		String sysVersion = VERSION.RELEASE;
-		if (sysVersion.equals("4.4.2")) {
-			HideStatus();
-		} else {
-			context.sendBroadcast(new Intent("com.glorystartech.HideStatus"));
+		try {
+			String sysVersion = VERSION.RELEASE;
+			if ("4.4.2".equals(sysVersion)) {
+				HideStatus();
+			} else {
+				if (context != null) {
+					context.sendBroadcast(new Intent("com.glorystartech.HideStatus"));
+				}
+			}
+		} catch (SecurityException e) {
+			// 💡 修复：专门捕获由于缺失系统签名引起的权限拒绝异常
+			Log.e(TAG, "Permission Denial: check if your app is signed with GloryStar Platform certificate.");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -43,11 +60,19 @@ public class StatusNavigationBarUtil {
 	 * @return void
 	 */
 	private void showStatus(Context context) {
-		String sysVersion = VERSION.RELEASE;
-		if (sysVersion.equals("4.4.2")) {
-			ShowStatus();
-		} else {
-			context.sendBroadcast(new Intent("com.glorystartech.OpenStatus"));
+		try {
+			String sysVersion = VERSION.RELEASE;
+			if ("4.4.2".equals(sysVersion)) {
+				ShowStatus();
+			} else {
+				if (context != null) {
+					context.sendBroadcast(new Intent("com.glorystartech.OpenStatus"));
+				}
+			}
+		} catch (SecurityException e) {
+			Log.e(TAG, "Permission Denial: open status bar failed.");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -84,6 +109,7 @@ public class StatusNavigationBarUtil {
 									+ " s16 com.android.systemui" }); // WAS
 			proc.waitFor();
 		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 }

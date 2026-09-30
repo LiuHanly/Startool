@@ -43,13 +43,13 @@
             android:text="@string/Below_testing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <com.glorystar.startool.ui.view.AutoWebView
-            android:layout_marginLeft="48mm"
-            android:layout_marginRight="48mm"
-            android:layout_marginTop="24mm"
+        <WebView
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginTop="24dp"
             android:id="@+id/full_webView"
             android:layout_width="match_parent"
-            android:layout_height="886mm"
+            android:layout_height="886dp"
             android:layerType="hardware"
             tools:ignore="InOrMmUsage" />
 

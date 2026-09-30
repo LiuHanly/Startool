@@ -5,14 +5,11 @@ import android.content.ContentResolver
 import android.content.Context
 import android.content.res.AssetManager
 import android.os.Build
-import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.AgingBean
-import com.glorystar.startool.config.bean.GridItem
-import com.glorystar.startool.config.bean.UpdateBean
 import com.glorystar.startool.config.bean.liuchenData
 import com.glorystar.startool.ui.activity.BluetoothActivity
 import com.glorystar.startool.ui.activity.ButtonActivity
@@ -45,6 +42,7 @@ import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.InputStreamReader
+import java.util.Objects
 
 
 object Constantdtas {
@@ -129,6 +127,7 @@ object Constantdtas {
     }
 
     fun geiActivity(context: Activity, position: Int) {
+        Log.e("geiActivity", "---->$position ----->${context.componentName}")
         when (position) {
             1 -> ScreenShowActivity.toStartActivity(context)
             2 -> ScreenActivity.toStartActivity(context)
@@ -205,14 +204,23 @@ object Constantdtas {
      * 写入内容到SD卡中的txt文本中
      * str为内容
      */
-    fun writeSDFile(str: String?) {
+    fun writeSDFile(str: String?, fileName: String) {
         println("writeSDFile--->")
         try {
             val testname = MyApplication.Testname
+            val Serial = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                Build.getSerial()
+            } else {
+                Build.SERIAL
+            }
+
             //+ DateUtil.stampToTime(DateUtil.timeStamp.toString())
             val name =
-                "${testname + Build.SERIAL + DateUtil.stampToTies(DateUtil.timeStamp.toString())}.txt"
-            val path = Environment.getExternalStorageDirectory().toString() + "/log"
+                "${fileName}_${testname + Serial + DateUtil.stampToTies(DateUtil.timeStamp.toString())}.txt"
+            val path = MyApplication.context?.getExternalFilesDir("log_${Serial}").toString()
+            //  val path = "${MyApplication.context?.filesDir}/log_${Build.SERIAL}"
+            println("writeSDFile--->${path}")
+            // val path = Environment.getExternalStorageDirectory().toString() + "/log"
             val file1 = File(path)
             if (!file1.exists()) {
                 file1.mkdirs()
@@ -220,9 +228,7 @@ object Constantdtas {
             val file = File(path, name)
             if (file.exists()) {
                 file.delete()
-
             }
-
             var fos: FileOutputStream? = null
             try {
                 fos = FileOutputStream(file)
@@ -231,7 +237,6 @@ object Constantdtas {
                     str?.let {
                         Log.e("writeSDFile", "写入-->$it")
                         file.writeText(it)
-
                     }
                 } catch (e: IOException) {
                     e.printStackTrace()
@@ -242,11 +247,11 @@ object Constantdtas {
             }
             ToastUtil.showMsg(
                 "日志已保存至： ${
-                    Environment.getExternalStorageDirectory().toString()
-                }/log 文件夹下"
+                    path
+                } 文件夹下"
             )
         } catch (e: Exception) {
-            Log.e("writeSDFile", "写入失败-->$e")
+
         }
 
 
@@ -272,7 +277,7 @@ object Constantdtas {
             MediaStore.Images.Media.DATA,
             MediaStore.Images.Media.DISPLAY_NAME,
             MediaStore.Images.Media.DATE_TAKEN
-            )
+        )
         val sortOrder = MediaStore.Images.Media.DATE_TAKEN + " DESC"
         val cursor = context.contentResolver.query(uri, projection, null, null, sortOrder)
         Log.e("latestImagePath", "${cursor}")

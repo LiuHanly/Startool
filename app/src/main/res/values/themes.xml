@@ -28,6 +28,12 @@
         <item name="windowNoTitle">true</item>
         <item name="android:textAppearanceListItemSmall">@style/listPopupWindow</item>
     </style>
+
+    <!-- 继承自你的 NoTitle，但把引发 WebView 崩溃的属性清空 -->
+    <style name="NoTitleForWebView" parent="NoTitle">
+        <!-- 强行清除此处的弹窗干扰，恢复系统默认样式 -->
+        <item name="android:textAppearanceListItemSmall">@android:style/TextAppearance.Material.Subhead</item>
+    </style>
     <!-- activity 状态栏设置theme. -->
     <style name="NoTitletow" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/colorMain</item>

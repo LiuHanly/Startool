@@ -3,6 +3,7 @@ package com.glorystar.startool.ui.service;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -37,10 +38,11 @@ public class WIFIAutoConnectionService extends Service {
     private Handler mHandler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-
+            if(Build.MODEL.startsWith("A133")){}else {
             WIFIConnectionManager.getInstance(WIFIAutoConnectionService.this).connect(Constantdtas.WIFI_SSID, Constantdtas.WIFI_PASS);
             boolean connected = WIFIConnectionManager.getInstance(WIFIAutoConnectionService.this).isConnected(Constantdtas.WIFI_SSID);
             //  WIFIConnectionManager.getInstance(WIFIAutoConnectionService.this).wifiManager.connectionInfo.rssi.toString()) getExtraInfo()
+            }
             String SSID = WIFIConnectionManager.getInstance(WIFIAutoConnectionService.this).getWifiManager().getConnectionInfo().getSSID();
 
             if ( SSID.isEmpty()) {
@@ -63,6 +65,7 @@ public class WIFIAutoConnectionService extends Service {
      * @param pwd     (WPA加密)默认12345678
      */
     public static void start(Context context, String ssid, String pwd) {
+
         Intent starter = new Intent(context, WIFIAutoConnectionService.class);
         starter.putExtra(KEY_SSID, ssid).putExtra(KEY_PWD, pwd);
         context.startService(starter);

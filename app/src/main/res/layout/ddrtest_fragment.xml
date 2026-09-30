@@ -56,9 +56,10 @@
         </LinearLayout>
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/tv_log"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
             android:layout_below="@id/container_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
@@ -67,6 +68,143 @@
             android:text="@string/ddr_test_intro"
             android:textColor="@color/white"
             android:textSize="15dp" />
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_below="@id/tv_log"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- 进度条 -->
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="0"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:id="@+id/progress_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingTop="24dp"
+            android:orientation="horizontal">
+            <FrameLayout
+                android:layout_width="260dp"
+                android:layout_height="260dp">
+
+                <com.github.lzyzsd.circleprogress.DonutProgress
+                    android:id="@+id/pgr_freq"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:donut_finished_color="@color/colorMainButton"
+                    app:donut_finished_stroke_width="4dp"
+                    app:donut_progress="30"
+                    app:donut_show_text="false"
+                    app:donut_unfinished_color="@color/colorAccentLight"
+                    app:donut_unfinished_stroke_width="4dp" />
+
+                <RelativeLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="@string/DDRTest"
+                            android:textColor="@color/white"
+                            android:textSize="23dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+
+                            <com.glorystar.startool.ui.view.DincondFontTextView
+                                android:id="@+id/tv_freq"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/white"
+
+                                android:textSize="37dp"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_above="@id/tv_freq"
+                                android:layout_centerHorizontal="true"
+                                android:text="@string/cpu_test_cur_freq"
+                                android:textColor="@color/white"
+                                android:textSize="35dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tv_freq"
+                                android:layout_centerHorizontal="true"
+                                android:text="MB"
+                                android:textColor="@color/white"
+                                android:textSize="25dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_freq_max"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textColor="@color/colorFont"
+                                android:textSize="23dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="MB"
+                                android:textColor="@color/colorFont"
+                                android:textSize="23dp" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+
+
 
     </RelativeLayout>
 </RelativeLayout>
