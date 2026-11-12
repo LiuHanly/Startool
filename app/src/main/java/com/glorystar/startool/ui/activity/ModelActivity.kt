@@ -33,6 +33,7 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
     lateinit var vid101a133: RelativeLayout
 
     lateinit var alu100a133: RelativeLayout
+    lateinit var alu100a733: RelativeLayout
 
 
     /**
@@ -67,6 +68,7 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
         neb215rk3576 = findViewById(R.id.relative_neb156_rk3576)
         neb215sm6255 = findViewById(R.id.relative_neb156_sm6255)
         alu100a133 = findViewById(R.id.relative_ALU100_150_210_A133)
+        alu100a733 = findViewById(R.id.relative_ALU100_150_210_A733)
 
         jar101led.setOnClickListener(this)
         neb101rk3568.setOnClickListener(this)
@@ -85,6 +87,7 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
         neb215rk3576.setOnClickListener(this)
         neb215sm6255.setOnClickListener(this)
         alu100a133.setOnClickListener(this)
+        alu100a733.setOnClickListener(this)
 
     }
 
@@ -171,6 +174,9 @@ class ModelActivity : BaseActivity(), View.OnClickListener {
 
             R.id.relative_neb156_sm6255 -> {
                 startActivity(Intent(this, SM6255Activity::class.java))
+            }
+            R.id.relative_ALU100_150_210_A733 -> {
+                startActivity(Intent(this, A733Activity::class.java))
             }
 
         }

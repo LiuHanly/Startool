@@ -20,6 +20,7 @@ import com.glorystar.startool.utils.db.Student
 import com.glorystar.startool.utils.tool.NetworkUtil
 import com.glorystar.startool.utils.tool.NetworkUtil.getMacAddressTextView
 import java.math.BigDecimal
+import kotlin.concurrent.thread
 
 class MessageActivity : BaseActivity() {
 
@@ -116,17 +117,37 @@ class MessageActivity : BaseActivity() {
         Android_version?.text = Build.VERSION.RELEASE
 
         Build_number?.text = Build.DISPLAY
-        try {
-            getMacAddressTextView(
-                IP_address, when (NetworkUtil.getNetWorkTypeInt(this)) {
+        thread(start = true){
+            try {
+                val networkType = NetworkUtil.getNetWorkTypeInt(this@MessageActivity)
+                val macAddress = when (networkType) {
                     1 -> NetworkUtil.getEthernetMacAddress()
                     2 -> NetworkUtil.getWifiMacAddress()
                     3 -> NetworkUtil.get4GMacAddress()
                     else -> "02:00:00:00:00:00"
                 }
-            )
-        } catch (e: Exception) {
+                runOnUiThread {
+                    getMacAddressTextView(IP_address, macAddress)
+                }
+      /*          getMacAddressTextView(
+                    IP_address, when (NetworkUtil.getNetWorkTypeInt(this)) {
+                        1 -> NetworkUtil.getEthernetMacAddress()
+                        2 -> NetworkUtil.getWifiMacAddress()
+                        3 -> NetworkUtil.get4GMacAddress()
+                        else -> "02:00:00:00:00:00"
+                    }
+                )*/
+            } catch (e: Exception) {
+                runOnUiThread {
+                    IP_address?.text = "N/A"
+                }
+            }
+
         }
+
+
+
+
         failure_bu?.setOnClickListener {
             IntenAcitivity.getIntenAcitivity(this@MessageActivity, 0, 1)
 

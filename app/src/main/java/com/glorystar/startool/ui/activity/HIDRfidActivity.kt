@@ -2,6 +2,7 @@ package com.glorystar.startool.ui.activity
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -23,17 +24,14 @@ class HIDRfidActivity : BaseActivity() {
         titleView.action = this
 
         retrievedValue = findViewById(R.id.et_retrieved_value)
-
         rfid = RS232Util(application)
         rfid.setBaudrate(115200)
         if (Build.MODEL.startsWith("rk3399")) {
             rfid.setCOM("/dev/ttyUSB1")
         }else if(Build.MODEL.startsWith("rk3576_u")){
-            rfid.setCOM("/dev/ttyS9")
+            // rfid.setCOM("/dev/ttyS9")
+            rfid.setCOM("/dev/ttyUSB0")
         }
-
-
-
         rfid.start()
         rfid.getData { buffer, size ->
             runOnUiThread{

@@ -1,7 +1,10 @@
 package com.glorystar.startool.config.base
 
+import android.app.Application.getProcessName
+import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.glorystar.startool.utils.tool.IntentJumpUtils
@@ -13,6 +16,14 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Android 9 (API 28) 及以上系统，必须为非主进程的 WebView 指定独立的数据目录后缀
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            val processName = getProcessName()
+            if (packageName != processName) {
+                // 如果不是主进程，为 WebView 设置目录后缀（比如叫 webview）
+                WebView.setDataDirectorySuffix("webview")
+            }
+        }
         init()
         // 设置布局
         setContentView(getLayoutId())

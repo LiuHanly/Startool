@@ -205,7 +205,7 @@ class TestReportActivity : BaseActivity() {
                 stringbuilder?.append(TerDaoIt.stopDate + "_" + TerDaoIt.teacherName + TeacherType)
                 stringbuilder?.append("\n")
             }
-            writeSDFile(stringbuilder.toString())
+            writeSDFile(stringbuilder.toString(),"测试报告")
             GlobalScope.launch {
                 TerDao.deleteAll()
             }

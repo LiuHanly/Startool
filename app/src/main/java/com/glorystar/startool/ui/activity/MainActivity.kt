@@ -14,7 +14,10 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.os.storage.StorageManager
+import android.os.storage.StorageVolume
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.Animation
@@ -32,6 +35,7 @@ import com.glorystar.startool.BuildConfig
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.config.base.BasePoup
+import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.OnlineData
 import com.glorystar.startool.config.bean.UpdateBean
 import com.glorystar.startool.config.bean.UpdateData
@@ -41,10 +45,13 @@ import com.glorystar.startool.ui.testactivity.TestMainActivity
 import com.glorystar.startool.utils.tool.IntentJumpUtils
 import com.glorystar.startool.utils.tool.LiveDataBus
 import com.glorystar.startool.utils.tool.NetworkUtils
+import com.glorystar.startool.utils.tool.Rootcommands
+import com.glorystar.startool.utils.tool.ToastUtil
 import com.glorystar.startool.utils.tool.VersionInfoUtil
 import com.lxj.xpopup.enums.PopupPosition
 import com.permissionx.guolindev.PermissionX
 import java.io.File
+import java.lang.reflect.Method
 
 
 class MainActivity : BaseActivity(), UpdateData {
@@ -65,11 +72,14 @@ class MainActivity : BaseActivity(), UpdateData {
     lateinit var rotateAnimation: Animation
     lateinit var update1: ImageView
 
+    lateinit var logo_startoo: ImageView
+
     private var clickCount = 1
     private var lastClickTime = 0L
     private val requiredClicks = 4
     private val maxInterval = 800L
 
+    var mstoragemanager: StorageManager? = null
 
     @SuppressLint("HandlerLeak")
     var handler: Handler = object : Handler() {
@@ -116,7 +126,8 @@ class MainActivity : BaseActivity(), UpdateData {
         language_text = findViewById(R.id.textlanguage)
         update = findViewById(R.id.iv_update)
         update1 = findViewById(R.id.iv_update1)
-
+        logo_startoo = findViewById(R.id.logo_startoo)
+        mstoragemanager = getSystemService(STORAGE_SERVICE) as StorageManager
         // StatusNaviBarUitl.hide(application)
 
         val filter = IntentFilter()
@@ -152,7 +163,7 @@ class MainActivity : BaseActivity(), UpdateData {
             updateDialog(this@MainActivity)
         }
         update1.setOnClickListener {
-            ButtonClickZoomInAnimation(it,0.8f)
+            ButtonClickZoomInAnimation(it, 0.8f)
             val now = System.currentTimeMillis()
             if (now - lastClickTime > 1000) {
                 // 超过时间，重新计数
@@ -170,12 +181,87 @@ class MainActivity : BaseActivity(), UpdateData {
                 TestMainActivity.toStartActivity(this@MainActivity)
             }
         }
+        val Serial = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Build.getSerial()
+        } else {
+            Build.SERIAL
+        }
+
+        val path = MyApplication.context?.getExternalFilesDir("log_${Serial}").toString()
+        logo_startoo.setOnClickListener {
+            ButtonClickZoomInAnimation(it, 0.8f)
+            val now = System.currentTimeMillis()
+            if (now - lastClickTime > 1000) {
+                // 超过时间，重新计数
+                clickCount = 1
+            } else {
+                clickCount++
+            }
+            val remaining = requiredClicks - clickCount
+            if (remaining > 0) {
+
+            }
+            lastClickTime = now
+            if (clickCount == 4) {
+                clickCount = 0
+                try {
+                    val directory = File(path)
+                    val hasFiles = if (directory.exists() && directory.isDirectory) {
+                        // listFiles() 会返回目录下所有文件和文件夹的数组，如果数组不为空且长度大于 0，说明有文件
+                        val files = directory.listFiles()
+                        files != null && files.isNotEmpty()
+                    } else {
+                        false // 文件夹不存在或者不是一个目录
+                    }
+                    val volumeList: List<StorageVolume> =
+                        mstoragemanager?.getStorageVolumes() as List<StorageVolume>
+                    if (volumeList.isNotEmpty()) {
+                        var mPath = ""
+                        volumeList.forEach {
+                            val label: String = it.getDescription(this) //这个其实就是U盘的名称
+                            val status: String = it.getState()
+                            val isEmulated = it.isEmulated()            //是否是内部存储设备
+                            val isRemovable = it.isRemovable()          //是否是可移除的外部存储设备
+                            val myclass = Class.forName("android.os.storage.StorageVolume")
+                            val getPath: Method = myclass.getMethod("getPath")
+                            getPath.isAccessible = true
+                            if (!isEmulated && isRemovable) {
+                                mPath = getPath.invoke(it).toString()
+                                Log.e("USBInterfaceActivity", "--->${mPath} -->${label}")
+                            }
+
+                        }
+                        if (mPath.isNotEmpty()) {
+                            Log.e("USBInterfaceActivity", "--->${mPath}")
+                            if (hasFiles){
+                                val command = "cp -rf \"$path\" \"$mPath/\""
+                               val runRoot =  Rootcommands.runRootCommand(command)
+                                if (runRoot){
+                                    ToastUtil.showMsg("Copy complete")
+                                }
+                                Log.d("FileCheck", "--->$runRoot")
+                            }else {
+                                ToastUtil.showMsg("USB device not found")
+                                // 路径下没有文件，或者文件夹根本不存在
+                                Log.d("FileCheck", "No files found in this path, or the folder does not exist")
+                            }
+
+
+                        } else {
+                            ToastUtil.showMsg("USB device not found")
+                        }
+
+                    }
+                } catch (e: Exception) {
+                    Log.e("USBInterfaceActivity", "--->${e.message}")
+                }
+
+                ///  TestMainActivity.toStartActivity(this@MainActivity)
+            }
+        }
 
         language_text.setOnClickListener {
-            BasePoup.Builder(this)
-                .hasShadowBg(false)
-                .atView(it)
-                .popupPosition(PopupPosition.Bottom)
+            BasePoup.Builder(this).hasShadowBg(false).atView(it).popupPosition(PopupPosition.Bottom)
                 .asAttaServedView(Constantdtas.AttaServedName) { position, text ->
                     language_text.text = text
                     IntentJumpUtils.setLanguage(position)
@@ -183,6 +269,8 @@ class MainActivity : BaseActivity(), UpdateData {
                 }.show()
         }
         setPermission()
+
+
     }
 
 
@@ -196,14 +284,14 @@ class MainActivity : BaseActivity(), UpdateData {
             set.setDuration(1 * 200).start()
         }
     }
+
     override fun onStart() {
         super.onStart()
         super.init()
     }
 
     private fun updateDialog(context: Context?) {
-        val view: View =
-            LayoutInflater.from(context).inflate(R.layout.dialog_update, null)
+        val view: View = LayoutInflater.from(context).inflate(R.layout.dialog_update, null)
         checkUpdate = view.findViewById<Button>(R.id.bt_check_update)
         var appVersion = view.findViewById<TextView>(R.id.app_version)
         ivLoading = view.findViewById<ImageView>(R.id.iv_loading)
@@ -227,11 +315,8 @@ class MainActivity : BaseActivity(), UpdateData {
                     checkUpdate.visibility = View.GONE
                 } else {
                     Toast.makeText(
-                        this@MainActivity,
-                        "The network is not connected",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+                        this@MainActivity, "The network is not connected", Toast.LENGTH_SHORT
+                    ).show()
                 }
             } else if (checkUpdate.text.equals(getString(R.string.update_now))) {
                 if (!TextUtils.isEmpty(downloadUrl)) {
@@ -257,8 +342,7 @@ class MainActivity : BaseActivity(), UpdateData {
     }
 
     private fun showDialog(context: Context?, iconId: Int, title: String, info: String, type: Int) {
-        val view: View =
-            LayoutInflater.from(context).inflate(R.layout.dialog_ota, null)
+        val view: View = LayoutInflater.from(context).inflate(R.layout.dialog_ota, null)
         var ivIcon = view.findViewById<ImageView>(R.id.iv_info)
         var tvTitle = view.findViewById<TextView>(R.id.tv_info_title)
         var tvInfo = view.findViewById<TextView>(R.id.tv_info)
@@ -281,7 +365,7 @@ class MainActivity : BaseActivity(), UpdateData {
         val builder = AlertDialog.Builder(context)
         builder.setView(view)
         builder.setCancelable(false)
-        dialog = builder.create()
+
         goBack.setOnClickListener { dialog.dismiss() }
         dialog.window!!.setBackgroundDrawableResource(android.R.color.transparent)
         dialog.show()
@@ -306,22 +390,18 @@ class MainActivity : BaseActivity(), UpdateData {
                                 File(filePath)
                             )
                             installIntent.setDataAndType(
-                                contentUri,
-                                "application/vnd.android.package-archive"
+                                contentUri, "application/vnd.android.package-archive"
                             )
                         } else {
                             val uri = Uri.parse("file://" + File(filePath))
                             installIntent.setDataAndType(
-                                uri,
-                                "application/vnd.android.package-archive"
+                                uri, "application/vnd.android.package-archive"
                             )
                         }
                         startActivity(installIntent)
                     } else {
                         Toast.makeText(
-                            this@MainActivity,
-                            "Please download the app first",
-                            Toast.LENGTH_SHORT
+                            this@MainActivity, "Please download the app first", Toast.LENGTH_SHORT
                         ).show()
                     }
                 }
@@ -355,19 +435,16 @@ class MainActivity : BaseActivity(), UpdateData {
 
 
     override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String?>,
-        grantResults: IntArray
+        requestCode: Int, permissions: Array<out String?>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
 
-    //请求需要的权限  .WRITE_SETTINGS. permission.WRITE_SETTINGS
+    //请求需要的权限  .WRITE_SETTINGS. permission.WRITE_SETTINGS  ACTION_MANAGE_WRITE_SETTINGS
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun setPermission() {
-        PermissionX.init(this)
-            .permissions(
+        PermissionX.init(this).permissions(
                 Manifest.permission.WRITE_SETTINGS,
                 Manifest.permission.WRITE_SYNC_SETTINGS,
                 Manifest.permission.WRITE_APN_SETTINGS,
@@ -385,15 +462,12 @@ class MainActivity : BaseActivity(), UpdateData {
                 Manifest.permission.READ_MEDIA_IMAGES,
                 Manifest.permission.READ_MEDIA_AUDIO,
                 Manifest.permission.READ_MEDIA_VIDEO,
-            )
-            .request { allGranted, grantedList, deniedList ->
+            ).request { allGranted, grantedList, deniedList ->
                 if (allGranted) {
                     Toast.makeText(this, "All permissions are granted", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(
-                        this,
-                        "These permissions are denied: $deniedList",
-                        Toast.LENGTH_LONG
+                        this, "These permissions are denied: $deniedList", Toast.LENGTH_LONG
                     ).show()
                 }
             }

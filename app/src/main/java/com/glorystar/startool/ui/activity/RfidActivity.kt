@@ -2,6 +2,7 @@ package com.glorystar.startool.ui.activity
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -41,7 +42,7 @@ class RfidActivity : BaseActivity() {
                     retrievedValue.setText(HexUtil.ByteArrToHex(data))
                 }
             }
-        }else if (Build.MODEL == "rk3568" || Build.MODEL == "rk3568_VOD101"){
+        }else if (Build.MODEL == "rk3568" || Build.MODEL == "rk3568_VOD101"||Build.MODEL == "rk3576"){
             rfid = RS485Util(application)
             rfid!!.setCOM("/dev/ttyS7")
             rfid?.start()

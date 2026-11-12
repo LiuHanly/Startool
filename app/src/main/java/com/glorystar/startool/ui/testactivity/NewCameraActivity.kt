@@ -63,6 +63,7 @@ class NewCameraActivity : BaseActivity() {
     override fun getLayoutId(): Int = R.layout.activity_new_camera
 
     override fun initView(savedInstanceState: Bundle?) {
+        StatusNaviBarUitl.hide(this@NewCameraActivity)
         through_bu = findViewById(R.id.through_bu)
         f_bu = findViewById(R.id.f_bu)
         image_url = findViewById(R.id.image_url)

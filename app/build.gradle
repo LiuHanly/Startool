@@ -7,13 +7,12 @@ plugins {
 
 android {
     compileSdk 34
-
     defaultConfig {
         applicationId "com.glorystar.startool"
         minSdk 24
-        targetSdk 22
+        targetSdk 29
         versionCode 1
-        versionName "2.6"
+        versionName "3.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
@@ -59,6 +58,19 @@ android {
         }
     }
     namespace 'com.glorystar.startool'
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all{
+                output ->
+                    if (variant.buildType.name.equals('release')) {
+                        outputFileName = "startool_release_v${defaultConfig.versionName}.apk";
+                    }else if (variant.buildType.name.equals('debug')) {
+                        // outputFileName = "staros_debug_v${defaultConfig.versionName}_${System.currentTimeMillis()}.apk";
+                        outputFileName = "startool_debug_v${defaultConfig.versionName}.apk";
+                    }
+            }
+    }
 
 }
 

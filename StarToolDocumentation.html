@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarTool SDK & Application Documentation</title>
+    <style>
+        :root {
+            --primary-color: #1a3a6c;
+            --secondary-color: #e63946;
+            --accent-color: #2a9d8f;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --header-height: 80px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            padding-top: var(--header-height);
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #0d2a52);
+            color: white;
+            padding: 0 2rem;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: #ffd700;
+        }
+        .document-info {
+            text-align: right;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .toc {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .toc h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .toc ul {
+            list-style-type: none;
+            columns: 2;
+            column-gap: 2rem;
+        }
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+        .toc a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .toc a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        section {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin: 1.2rem 0 0.8rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-weight: 600;
+        }
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">StarTool <span>Documentation</span></div>
+        </div>
+        <div class="document-info">Generated: 2026-02-27</div>
+    </header>
+    <div class="container">
+        <section id="executive-summary" style="background: linear-gradient(135deg, #1a3a6c 0%, #0d2a52 100%); color: white; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+            <h2 style="color: #ffd700; margin-bottom: 1rem;">StarTool SDK Documentation</h2>
+            <h3 style="color: white; font-size: 1.2rem; margin-bottom: 1rem;">Executive Summary</h3>
+            <p style="margin-bottom: 1rem; line-height: 1.8;">Thank you for your patience during the Lunar New Year holiday period. As a valued integration partner with exacting standards for professional-grade screen integrations, we recognize your expectation for comprehensive technical support befitting Glory Star Group's 40-year heritage in industrial hardware solutions.</p>
+            <p style="margin-bottom: 1rem; line-height: 1.8;">This document provides the complete, official API reference for all methods contained within the StarTool SDK libraries (<code style="background-color: rgba(255,255,255,0.15); padding: 0.2rem 0.4rem; border-radius: 3px;">libs/</code> folder). The documentation has been prepared by Glory Star's Engineering Documentation Team in Shenzhen and validated against production firmware for all supported device families (NEB, VegaX, JAR series).</p>
+            <div style="background-color: rgba(230, 57, 70, 0.2); border-left: 4px solid #e63946; padding: 1rem; border-radius: 4px;">
+                <p style="margin: 0; font-weight: 600;">⚠️ IMPORTANT</p>
+                <p style="margin: 0.5rem 0 0 0;">All hardware interfaces require root-level permissions. Devices must run Glory Star-signed firmware with elevated privileges. Unauthorized modification of system partitions will void warranty and may brick devices.</p>
+            </div>
+        </section>
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#architecture">Architecture & Modules</a></li>
+                <li><a href="#environment">Runtime Environment</a></li>
+                <li><a href="#compatibility">Device Compatibility Matrix</a></li>
+                <li><a href="#dependencies">Dependencies</a></li>
+                <li><a href="#module-libs">Library Composition (AARs)</a></li>
+                <li><a href="#permissions">Permissions Configuration</a></li>
+                <li><a href="#rfid-control">RFID Control SDK</a></li>
+                <li><a href="#gpio-uart-wiegand">GPIO / UART / Wiegand Hardware</a></li>
+                <li><a href="#build">Build & Run</a></li>
+                <li><a href="#integration">Integration Guide</a></li>
+                <li><a href="#usage">Usage Examples</a></li>
+                <li><a href="#notes">Notes & Tips</a></li>
+            </ul>
+        </div>
+        <section id="overview">
+            <h1>Overview</h1>
+            <p>The StarTool project is an Android application and SDK produced by Glory Star Group. It serves as a test and demo platform for hardware devices (serial, bluetooth, GSIO components, etc.) and for computer vision features powered by Google s ML Kit. The repository contains both the app sources and several prebuilt native/AAR libraries.</p>
+            <p>The code base is written in Kotlin and Java, targets Android SDK 34, and uses Gradle 8.12.2 with Kotlin 1.8.22. Native code is built with CMake and packaged via JNI.</p>
+        </section>
+        <section id="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Modular main menu with general tests, model demos, add-ons, aging tests, and live preview.</li>
+                <li>Bluetooth and serial communication utilities with logging and error handling.</li>
+            
+                <li>Camera control and barcode scanning integrated with ML Kit (object detection, face/mesh, text recognition, and more).</li>
+                <li>APK update check and download service.</li>
+                <li>Multi-language support and runtime configuration.</li>
+                <li>Integration of multiple third-party AARs for GSIO, OTA, relay control, keypad, VOD, etc.</li>
+                <li>Helper libraries: Glide for images, Timber/Logger for logging, Room for local database, PermissionX, xpopup, etc.</li>
+            <h3>Detailed Module Information</h3>
+            <h4>config</h4>
+            <p>The <code>config</code> package centralizes shared definitions. Core classes include:</p>
+            <ul>
+                <li><code>Constant</code> / <code>Constantdtas</code> – application-wide constants and configuration values.</li>
+                <li>Database classes (<code>StudentDataBase</code>, <code>TeacherDataBase</code>) used by Room.</li>
+                <li>Bluetooth stack (<code>BTManager</code>, <code>ConnectionImpl</code>, <code>Connection</code>, <code>BTLogger</code>, <code>BTException</code>, <code>ConnectCallback</code>).</li>
+                <li>Base classes <code>BaseActivity</code> and <code>BasePoup</code> used by most UI components.</li>
+            </ul>
+            <p><strong>Usage Example:</strong></p>
+            <div class="code-block"><code>val manager = BTManager.getInstance(this)
+            </ul>
+        </section>
+        <section id="architecture">
+            <h2>Architecture &amp; Modules</h2>
+            <p>The application follows a simple package structure:</p>
+            <ul>
+                <li><strong>config</strong> - constants, base activities, bluetooth and event classes.</li>
+                <li><strong>ui</strong> - activities and fragments implementing the user interface.</li>
+
+            <h4 id="module-ui">ui</h4>
+            <p>The <code>ui</code> package holds screen components. Activities like <code>MainActivity</code>,
+            <code>GeneralActivity</code>, <code>ModelActivity</code> etc. extend <code>BaseActivity</code>.
+            Fragments provide reusable UI elements and share common view-binding logic.</p>
+            <p>Launch example:</p>
+            <div class="code-block"><code>startActivity(Intent(this, GeneralActivity::class.java))</code></div>
+
+            <h4 id="module-utils">utils/tool</h4>
+            <p>A collection of utility helpers used across the app:</p>
+            <ul>
+                <li><code>CameraController</code> — simplifies camera preview setup and provides frame callbacks suitable for ML Kit.</li>
+                <li><code>BarcodeUtil</code> — convenience wrapper around ML Kit barcode scanning.</li>
+                <li><code>NetworkUtils</code> — network state and type checks.</li>
+                <li><code>VersionInfoUtil</code> — app version read/compare logic for update checks.</li>
+                <li><code>IntentJumpUtils</code> &amp; <code>LiveDataBus</code> — intent helpers and event broadcasting (e.g. language change).</li>
+            </ul>
+            <p>Camera → ML Kit example (simplified):</p>
+            <div class="code-block"><code>CameraController.prepare(this, previewView) { image -&gt;
+    // Convert Camera ImageProxy to ML Kit InputImage for processing
+    barcodeScanner.process(image)
+        .addOnSuccessListener { results -&gt; /* Handle results */ }
+        .addOnFailureListener { e -&gt; /* Handle errors */ }
+}</code></div>
+
+            <h4 id="module-assets">assets</h4>
+            <p>Text resources are located under <code>app/src/main/assets</code>. The application reads
+            flow descriptions (e.g. <code>liucheng.txt</code>, <code>newliucheng.txt</code>) at runtime and displays them in dialogs or help pages.</p>
+
+            <h4 id="module-libs">libs</h4>
+            <p>Third-party AARs and native libraries are stored under <code>app/libs</code>. When integrating,
+            copy the required AARs into your <code>libs</code> directory and reference them in Gradle. Native
+            libraries (.so) should be placed under <code>src/main/jniLibs/&lt;ABI&gt;/</code>.</p>
+
+            <h5>Library Composition (app/libs/) — Detailed Breakdown</h5>
+            <p>Below is a comprehensive breakdown of all third-party AAR modules with descriptions, features, integration steps, and usage examples:</p>
+
+            <h6>1. GSIOSdk-release.aar</h6>
+            <p><strong>Features</strong>: Glory Star I/O SDK providing low-level hardware interface access (GPIO, I2C, SPI, etc.).</p>
+            <p><strong>Main Classes</strong>: <code>GSIOManager</code>, <code>GPIOPin</code>, <code>I2CDevice</code>, and others.</p>
+            <p><strong>Use Cases</strong>: Control LEDs, read/write sensors, drive peripherals.</p>
+            <p><strong>Integration Steps</strong>:</p>
+            <ol>
+                <li>Add to <code>build.gradle</code>: <code>implementation files('libs/GSIOSdk-release.aar')</code></li>
+                <li>Initialize SDK: <code>val gsio = GSIOManager.getInstance(context)</code></li>
+                <li>Configure GPIO: <code>gsio.setPinMode(pinNumber, OUTPUT)</code></li>
+                <li>Write data: <code>gsio.digitalWrite(pinNumber, HIGH)</code></li>
+            </ol>
+            <p><strong>Example Code</strong>:</p>
+            <div class="code-block"><code>val gsio = GSIOManager.getInstance(context)
+gsio.setPinMode(17, OUTPUT)
+gsio.digitalWrite(17, HIGH)  // High level
+Thread.sleep(1000)
+gsio.digitalWrite(17, LOW)   // Low level</code></div>
+
+            <h6>2. keylibrary.aar</h6>
+            <p><strong>Features</strong>: Keyboard/button input management library for handling physical hardware button events.</p>
+            <p><strong>Main Classes</strong>: <code>KeyboardManager</code>, <code>KeyEvent</code>, <code>KeyListener</code>.</p>
+            <p><strong>Use Cases</strong>: Listen for hardware key presses and execute custom actions.</p>
+            <p><strong>Example Code</strong>:</p>
+            <div class="code-block"><code>KeyboardManager.getInstance().setKeyListener { keyEvent ->
+    when (keyEvent.keyCode) {
+        KeyCode.POWER -> { /* Handle power key */ }
+        KeyCode.HOME -> { /* Handle home key */ }
+        KeyCode.BACK -> { /* Handle back key */ }
+    }
+}</code></div>
+
+            <h6>3. otaSdk-release.aar</h6>
+            <p><strong>Features</strong>: OTA (Over-The-Air) firmware update SDK for remote device firmware updates.</p>
+            <p><strong>Main Classes</strong>: <code>OTAManager</code>, <code>OTAUpdate</code>, <code>OTAProgress</code>.</p>
+            <p><strong>Use Cases</strong>: Check firmware versions, download and install updates, monitor update progress.</p>
+            <p><strong>Example Code</strong>:</p>
+            <div class="code-block"><code>val ota = OTAManager.getInstance(this)
+ota.checkUpdate("https://example.com/firmware") { available -&gt;
+    if (available) {
+        ota.startUpdate("https://example.com/fw.bin", object : OTAProgress {
+            override fun onProgress(percent: Int) { updateProgressBar(percent) }
+            override fun onSuccess() { showToast("Update successful") }
+            override fun onError(e: Exception) { Log.e("OTA", "Update failed", e) }
+        })
+    }
+}</code></div>
+
+            <h6>4. lightStrip.aar</h6>
+            <p><strong>Features</strong>: LED strip/RGB LED control library for managing addressable LED strips.</p>
+            <p><strong>Main Classes</strong>: <code>LightStripController</code>, <code>LEDColor</code>, <code>Pattern</code>.</p>
+            <p><strong>Use Cases</strong>: Set LED strip colors and play fade/blink effects.</p>
+            <p><strong>Example Code</strong>:</p>
+            <div class="code-block"><code>val light = LightStripController.getInstance(12)
+light.setColor(Color.parseColor("#FF0000"))  // Red
+Thread.sleep(500)
+light.playPattern(Pattern.FADE, 2000)        // 2-second fade effect</code></div>
+
+            <h6>5. relaylibrary.aar</h6>
+            <p><strong>Features</strong>: Relay control library for managing electromagnetic relays to switch power devices.</p>
+            <p><strong>Main Classes</strong>: <code>RelayController</code>, <code>RelayState</code>.</p>
+            <p><strong>Use Cases</strong>: Control main power, device switching, load driving.</p>
+            <p><strong>Example Code</strong>:</p>
+            <div class="code-block"><code>val relay = RelayController.getInstance(this)
+relay.turnOn(1)   // Turn on relay 1
+Thread.sleep(3000)
+relay.turnOff(1)  // Turn off relay 1</code></div>
+
+            <h6>6. vodlibrary.aar</h6>
+            <p><strong>Features</strong>: Video-on-Demand (VOD) library for playing local or remote video files.</p>
+            <p><strong>Main Classes</strong>: <code>VODPlayer</code>, <code>VideoFormat</code>, <code>PlaybackListener</code>.</p>
+            <p><strong>Use Cases</strong>: Play demonstration videos, record test videos.</p>
+            <p><strong>Example Code</strong>:</p>
+            <div class="code-block"><code>val player = VODPlayer(this, surfaceView)
+player.setListener(object : PlaybackListener {
+    override fun onReady() { player.play() }
+    override fun onComplete() { Log.d("VOD", "Playback complete") }
+    override fun onError(e: Exception) { Log.e("VOD", "Error", e) }
+})
+player.load("file:///sdcard/demo.mp4")</code></div>
+
+            <h6>7. library-debug.aar</h6>
+            <p><strong>Features</strong>: Debug tool library providing performance monitoring and log tracing capabilities.</p>
+            <p><strong>Main Classes</strong>: <code>DebugPanel</code>, <code>PerformanceMonitor</code>, <code>LogCollector</code>.</p>
+            <p><strong>Use Cases</strong>: Monitor application performance during development and collect logs.</p>
+            <p><strong>Example Code</strong>:</p>
+            <div class="code-block"><code>if (BuildConfig.DEBUG) {
+    DebugPanel.getInstance(this)
+        .enablePerformanceMonitoring(true)
+        .enableLogCollection(true)
+        .show()
+}</code></div>
+
+            <h5>Native Libraries (.so) — Architecture Support</h5>
+            <p>The project includes native libraries for the following ARM architectures under <code>app/libs</code>:</p>
+            <ul>
+                <li><strong>arm64-v8a</strong>: 64-bit ARM architecture for modern devices (recommended).</li>
+                <li><strong>armeabi-v7a</strong>: 32-bit ARM v7, widely supported.</li>
+                <li><strong>armeabi</strong>: Legacy ARM for backward compatibility only.</li>
+            </ul>
+            <p>Gradle automatically selects the appropriate architecture for the device. To restrict supported architectures:</p>
+            <div class="code-block"><code>android {
+    ndk {
+        abiFilters 'arm64-v8a', 'armeabi-v7a'
+    }
+}</code></div>
+
+            <h5>Complete Steps for Integrating All AARs into Other Projects</h5>
+            <ol>
+                <li>Copy required AAR files to the <code>libs/</code> directory of your target project.</li>
+                <li>Copy architecture folders (e.g., <code>arm64-v8a</code>) to <code>src/main/jniLibs/</code>.</li>
+                <li>Add all AARs to the <code>dependencies</code> block in <code>build.gradle</code>:
+                    <div class="code-block"><code>dependencies {
+    implementation files('libs/GSIOSdk-release.aar')
+    implementation files('libs/keylibrary.aar')
+    implementation files('libs/otaSdk-release.aar')
+    implementation files('libs/lightStrip.aar')
+    implementation files('libs/relaylibrary.aar')
+    implementation files('libs/vodlibrary.aar')
+    debugImplementation files('libs/library-debug.aar')
+}</code></div>
+                </li>
+                <li>Declare required hardware permissions in <code>AndroidManifest.xml</code>.</li>
+                <li>Sync Gradle and build the project.</li>
+            </ol>
+
+            <h5>Critical Notes &amp; Best Practices</h5>
+            <ul>
+                <li><strong>Dependency Conflicts</strong>: Use <code>gradle dependencies</code> to check and resolve conflicts.</li>
+                <li><strong>Permission Declaration</strong>: Hardware control AARs may require special permissions; declare them in the manifest.</li>
+                <li><strong>Architecture Compatibility</strong>: Ensure your device supports the native library architectures in the AARs.</li>
+                <li><strong>Version Updates</strong>: Regularly check for and update to newer versions of AAR libraries.</li>
+            </ul>
+
+            <h4 id="module-native">native (C++ / JNI)</h4>
+            <p>The project includes native code under <code>app/src/main/cpp</code> built with CMake. JNI
+            library <code>iotest</code> is loaded from Java via:</p>
+            <div class="code-block"><code>static { System.loadLibrary("iotest") }
+public static native void output(int tag);
+public static native int input(int tag);</code></div>
+            <p>Note: Building native code requires NDK installation and CMake enabled in Gradle's <code>externalNativeBuild</code> configuration.</p>
+
+        </section>
+
+        <section id="environment">
+            <h2>Runtime Environment</h2>
+            <p>StarTool is built for:</p>
+            <ul>
+                <li>Android SDK 34 compile/target, minimum API 24 (Android 7.0).</li>
+                <li>Java/Kotlin compatibility level 17 (requires JDK 17).</li>
+                <li>Gradle 8.12.2 with Android Gradle Plugin 8.x; NDK+ CMake for native code.</li>
+                <li>Device/emulator with Google Play Services for bundled ML Kit; unbundled
+                alternatives are commented in <code>build.gradle</code>.</li>
+            </ul>
+            <p>Ensure the development environment installs these SDKs and modules via Android Studio
+            or command-line SDK manager. For command-line builds, set <code>ANDROID_HOME</code> and
+            include <code>ndk-bundle</code>.</p>
+        </section>
+
+        <section id="compatibility">
+            <h2>Device Compatibility Matrix</h2>
+            <p>StarTool SDK has been validated and tested against the following Glory Star device families. This matrix provides comprehensive compatibility information for all supported platforms, architectures, and hardware interfaces.</p>
+
+            <h3>Supported Device Families</h3>
+            <table>
+                <tr>
+                    <th>Device Family</th>
+                    <th>Model Code</th>
+                    <th>CPU Architecture</th>
+                    <th>Min RAM</th>
+                    <th>Storage</th>
+                    <th>Android Version</th>
+                    <th>Root Access</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td><strong>NEB Series</strong></td>
+                    <td>NEB-7, NEB-10, NEB-13</td>
+                    <td>arm64-v8a, armeabi-v7a</td>
+                    <td>2GB+</td>
+                    <td>32GB+</td>
+                    <td>7.0+ (API 24+)</td>
+                    <td>✅ Required</td>
+                    <td>Production Ready</td>
+                </tr>
+                <tr>
+                    <td><strong>VegaX Series</strong></td>
+                    <td>VegaX-1, VegaX-2, VegaX-Pro</td>
+                    <td>arm64-v8a</td>
+                    <td>4GB+</td>
+                    <td>64GB+</td>
+                    <td>8.0+ (API 26+)</td>
+                    <td>✅ Required</td>
+                    <td>Production Ready</td>
+                </tr>
+                <tr>
+                    <td><strong>JAR Series</strong></td>
+                    <td>JAR-S, JAR-M, JAR-L</td>
+                    <td>arm64-v8a, armeabi-v7a</td>
+                    <td>3GB+</td>
+                    <td>16GB+</td>
+                    <td>7.1+ (API 25+)</td>
+                    <td>✅ Required</td>
+                    <td>Production Ready</td>
+                </tr>
+                <tr>
+                    <td><strong>Legacy PAD Series</strong></td>
+                    <td>PAD-5, PAD-7, PAD-10</td>
+                    <td>armeabi-v7a</td>
+                    <td>1GB+</td>
+                    <td>8GB+</td>
+                    <td>5.0+ (API 21+)</td>
+                    <td>✅ Required</td>
+                    <td>Deprecated</td>
+                </tr>
+            </table>
+
+            <h3>Hardware Interface Support Matrix</h3>
+            <p>Detailed compatibility for key hardware interfaces across device families:</p>
+            <table>
+                <tr>
+                    <th>Hardware Interface</th>
+                    <th>NEB Series</th>
+                    <th>VegaX Series</th>
+                    <th>JAR Series</th>
+                    <th>PAD Series</th>
+                    <th>Required SDK Version</th>
+                </tr>
+                <tr>
+                    <td><strong>GPIO (General Purpose I/O)</strong></td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>⚠️ Partial</td>
+                    <td>glorystar-hardware-sdk</td>
+                </tr>
+                <tr>
+                    <td><strong>UART (Serial Port)</strong></td>
+                    <td>✅ 4 ports</td>
+                    <td>✅ 8 ports</td>
+                    <td>✅ 2 ports</td>
+                    <td>✅ 1 port</td>
+                    <td>android-serialport 2.1.5</td>
+                </tr>
+                <tr>
+                    <td><strong>I2C Bus</strong></td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>❌ Not supported</td>
+                    <td>glorystar-hardware-sdk</td>
+                </tr>
+                <tr>
+                    <td><strong>SPI Bus</strong></td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>❌ Not supported</td>
+                    <td>❌ Not supported</td>
+                    <td>glorystar-hardware-sdk</td>
+                </tr>
+                <tr>
+                    <td><strong>PWM (Pulse Width Modulation)</strong></td>
+                    <td>✅ Full (8 channels)</td>
+                    <td>✅ Full (16 channels)</td>
+                    <td>✅ Full (4 channels)</td>
+                    <td>⚠️ Partial (2 channels)</td>
+                    <td>glorystar-hardware-sdk</td>
+                </tr>
+                <tr>
+                    <td><strong>RFID (13.56 MHz)</strong></td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>❌ Not supported</td>
+                    <td>glorystar-rfid-sdk.aar</td>
+                </tr>
+                <tr>
+                    <td><strong>Wiegand Protocol</strong></td>
+                    <td>✅ 26/34/37 bit</td>
+                    <td>✅ 26/34/37 bit</td>
+                    <td>✅ 26/34 bit</td>
+                    <td>⚠️ 26 bit only</td>
+                    <td>glorystar-hardware-sdk</td>
+                </tr>
+                <tr>
+                    <td><strong>Bluetooth (BLE/Classic)</strong></td>
+                    <td>✅ Both</td>
+                    <td>✅ Both</td>
+                    <td>✅ Both</td>
+                    <td>✅ Classic only</td>
+                    <td>android.bluetooth</td>
+                </tr>
+                <tr>
+                    <td><strong>WiFi / Ethernet</strong></td>
+                    <td>✅ WiFi</td>
+                    <td>✅ WiFi + Ethernet</td>
+                    <td>✅ WiFi</td>
+                    <td>⚠️ WiFi limited</td>
+                    <td>android.net</td>
+                </tr>
+                <tr>
+                    <td><strong>ML Kit Vision</strong></td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>✅ Full (degraded)</td>
+                    <td>✅ Basic</td>
+                    <td>com.google.mlkit:*</td>
+                </tr>
+            </table>
+
+            <h3>Firmware & OTA Support</h3>
+            <table>
+                <tr>
+                    <th>Device Series</th>
+                    <th>OTA Updates</th>
+                    <th>Firmware Variants</th>
+                    <th>Rollback Support</th>
+                    <th>Partition Layout</th>
+                </tr>
+                <tr>
+                    <td><strong>NEB Series</strong></td>
+                    <td>✅ Full</td>
+                    <td>Standard, Industrial, Custom</td>
+                    <td>✅ 1 previous version</td>
+                    <td>A/B partitions</td>
+                </tr>
+                <tr>
+                    <td><strong>VegaX Series</strong></td>
+                    <td>✅ Full</td>
+                    <td>Standard, Custom Locked</td>
+                    <td>✅ 2 previous versions</td>
+                    <td>A/B/C partitions</td>
+                </tr>
+                <tr>
+                    <td><strong>JAR Series</strong></td>
+                    <td>✅ Full</td>
+                    <td>Standard, Industrial</td>
+                    <td>✅ 1 previous version</td>
+                    <td>A/B partitions</td>
+                </tr>
+                <tr>
+                    <td><strong>PAD Series</strong></td>
+                    <td>⚠️ Limited</td>
+                    <td>Standard only</td>
+                    <td>❌ Not supported</td>
+                    <td>Single partition</td>
+                </tr>
+            </table>
+
+            <h3>Native Library (NDK) Compatibility</h3>
+            <p>StarTool includes prebuilt native libraries (<code>libiotest.so</code>) for multiple architectures:</p>
+            <table>
+                <tr>
+                    <th>Architecture</th>
+                    <th>ABI Level</th>
+                    <th>Device Support</th>
+                    <th>Performance</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td><strong>arm64-v8a</strong></td>
+                    <td>64-bit ARM</td>
+                    <td>NEB, VegaX, JAR (all)</td>
+                    <td>⭐⭐⭐⭐⭐ Optimal</td>
+                    <td>✅ Recommended</td>
+                </tr>
+                <tr>
+                    <td><strong>armeabi-v7a</strong></td>
+                    <td>32-bit ARM</td>
+                    <td>NEB, JAR (compatible), PAD</td>
+                    <td>⭐⭐⭐ Standard</td>
+                    <td>✅ Supported</td>
+                </tr>
+                <tr>
+                    <td><strong>armeabi</strong></td>
+                    <td>32-bit ARM (legacy)</td>
+                    <td>PAD (legacy devices)</td>
+                    <td>⭐⭐ Limited</td>
+                    <td>⚠️ Deprecated</td>
+                </tr>
+                <tr>
+                    <td><strong>x86</strong></td>
+                    <td>32-bit Intel</td>
+                    <td>Emulator only</td>
+                    <td>⭐⭐⭐ Standard</td>
+                    <td>✅ For development</td>
+                </tr>
+                <tr>
+                    <td><strong>x86_64</strong></td>
+                    <td>64-bit Intel</td>
+                    <td>Emulator only</td>
+                    <td>⭐⭐⭐⭐ Good</td>
+                    <td>✅ For development</td>
+                </tr>
+            </table>
+
+            <h3>ML Kit Feature Support by Device</h3>
+            <p>Google ML Kit vision features availability and performance across device families:</p>
+            <table>
+                <tr>
+                    <th>ML Kit Feature</th>
+                    <th>NEB</th>
+                    <th>VegaX</th>
+                    <th>JAR</th>
+                    <th>PAD</th>
+                    <th>Min Android</th>
+                </tr>
+                <tr>
+                    <td><strong>Barcode Scanning</strong></td>
+                    <td>✅ Fast</td>
+                    <td>✅ Very Fast</td>
+                    <td>✅ Standard</td>
+                    <td>⚠️ Slow</td>
+                    <td>API 21</td>
+                </tr>
+                <tr>
+                    <td><strong>Text Recognition (OCR)</strong></td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>⚠️ Limited languages</td>
+                    <td>API 21</td>
+                </tr>
+                <tr>
+                    <td><strong>Face Detection</strong></td>
+                    <td>✅ Real-time</td>
+                    <td>✅ Real-time+</td>
+                    <td>✅ Real-time</td>
+                    <td>⚠️ Reduced FPS</td>
+                    <td>API 21</td>
+                </tr>
+                <tr>
+                    <td><strong>Object Detection</strong></td>
+                    <td>✅ Good</td>
+                    <td>✅ Excellent</td>
+                    <td>✅ Standard</td>
+                    <td>❌ Not recommended</td>
+                    <td>API 21</td>
+                </tr>
+                <tr>
+                    <td><strong>Image Labeling</strong></td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>✅ Full</td>
+                    <td>⚠️ Reduced accuracy</td>
+                    <td>API 21</td>
+                </tr>
+                <tr>
+                    <td><strong>Pose Detection</strong></td>
+                    <td>✅ Smooth</td>
+                    <td>✅ Smooth+</td>
+                    <td>✅ Acceptable</td>
+                    <td>❌ Not suitable</td>
+                    <td>API 24</td>
+                </tr>
+                <tr>
+                    <td><strong>Segmentation</strong></td>
+                    <td>✅ Good</td>
+                    <td>✅ Excellent</td>
+                    <td>⚠️ Reduced res</td>
+                    <td>❌ Not supported</td>
+                    <td>API 24</td>
+                </tr>
+            </table>
+
+            <h3>Known Limitations & Workarounds</h3>
+            <ul>
+                <li><strong>PAD Series Legacy</strong>: Use legacy OTA and avoid advanced ML Kit features. Pin app to API 24 compatibility.</li>
+                <li><strong>SPI on JAR/PAD</strong>: Not available; use I2C alternatives where possible.</li>
+                <li><strong>UART Port Count</strong>: VegaX devices support 8 ports; configure carefully to avoid conflicts.</li>
+                <li><strong>Thermal Constraints</strong>: VegaX with ML Kit segmentation may throttle under extended use; implement cooling intervals.</li>
+                <li><strong>Root Access Requirement</strong>: All hardware interfaces mandate root privileges. Standard firmware by default provides this for authorized devices only.</li>
+                <li><strong>Bluetooth Classic on VegaX</strong>: Requires explicit pairing; BLE is recommended for new integrations.</li>
+                <li><strong>WiFi/Ethernet Switching</strong>: VegaX requires brief reconnection delay; implement 100ms wait between interface switches.</li>
+                <li><strong>ML Kit Model Size</strong>: Bundled models consume ~150MB; ensure sufficient free storage before activation.</li>
+            </ul>
+
+            <h3>Testing & Validation Requirements</h3>
+            <p>Before deploying to production, validate the following on your target device family:</p>
+            <ol>
+                <li><strong>Architecture Match</strong>: Verify native libraries match device CPU (use <code>adb shell getprop ro.product.cpu.abi</code>).</li>
+                <li><strong>Root Access</strong>: Confirm root privileges and authorized firmware with <code>adb shell su -c 'whoami'</code>.</li>
+                <li><strong>Hardware Interfaces</strong>: Test GPIO, UART, RFID via provided examples.</li>
+                <li><strong>ML Kit Initialization</strong>: Verify all bundled models load without errors in logcat.</li>
+                <li><strong>Performance Baseline</strong>: Record baseline FPS for barcode scanning and face detection on your device.</li>
+                <li><strong>Thermal Test</strong>: Run heavy ML Kit workload for 30+ minutes; monitor for throttling.</li>
+                <li><strong>OTA Simulation</strong>: Test firmware update flow on staging firmware before production deployment.</li>
+                <li><strong>Memory Stability</strong>: Monitor RAM usage over 4+ hours of continuous operation.</li>
+            </ol>
+
+            <h3>Device Procurement & Support</h3>
+            <p>For device procurement, evaluation units, or technical support specific to your device family:</p>
+            <ul>
+                <li><strong>Sales Contact</strong>: sales@glorystar.com</li>
+                <li><strong>Technical Support</strong>: support@glorystar.com</li>
+                <li><strong>Documentation Updates</strong>: docs@glorystar.com</li>
+                <li><strong>Warranty & RMA</strong>: service@glorystar.com</li>
+                <li><strong>Regional Distributors</strong>: Available on https://www.glorystar.com/distributors</li>
+            </ul>
+        </section>
+
+        <section id="dependencies">
+            <h2>Dependencies</h2>
+            <p>The project declares numerous Gradle dependencies; a representative subset is listed below:</p>
+            <table>
+                <tr><th>Library</th><th>Purpose</th></tr>
+                <tr><td>org.jetbrains.kotlin:kotlin-stdlib</td><td>Kotlin runtime</td></tr>
+                <tr><td>androidx.appcompat:appcompat</td><td>Android support libraries</td></tr>
+                <tr><td>com.github.bumptech.glide:glide</td><td>Image loading</td></tr>
+                <tr><td>com.google.mlkit:*</td><td>ML Kit vision features</td></tr>
+                <tr><td>com.licheedev:android-serialport</td><td>Serial port utilities</td></tr>
+                <tr><td>com.google.code.gson:gson</td><td>JSON parsing</td></tr>
+                <tr><td>androidx.room:room-runtime</td><td>Local database</td></tr>
+                <tr><td>com.guolindev.permissionx:permissionx</td><td>Permission helper</td></tr>
+            </table>
+            <p>Additionally, local AARs are placed in <code>app/libs</code> and included with <code>implementation files('libs/...')</code>.</p>
+        </section>
+        <section id="build">
+            <h2>Build & Run</h2>
+            <p>To compile the project, ensure you have JDK 17 and Android SDK installed. Use one of the following commands in a PowerShell terminal at the project root:</p>
+            <div class="code-block"><code>.gradlew clean assembleDebug
+.gradlew installDebug</code></div>
+            <p>Alternatively, open the project in Android Studio and run it on a device or emulator. The build system will compile Kotlin, Java, and native C++ via CMake.</p>
+        </section>
+        <section id="integration">
+            <h2>Integration Guide</h2>
+            <p>If embedding parts of StarTool into another application, follow these steps:</p>
+            <ol>
+                <li>Copy the needed packages (e.g. <code>com.glorystar.startool.utils</code>, <code>config</code>, and your chosen Activities) into your project.</li>
+                <li>Add the required dependencies to your module&rsquo;s <code>build.gradle</code>, mirroring those used here.</li>
+                <li>Include the local AAR files under <code>libs/</code> and reference them with <code>implementation files('libs/xxx.aar')</code>.</li>
+                <li>Ensure AndroidManifest has appropriate permissions (camera, bluetooth, internet, storage).</li>
+                <li>Initialize any singleton managers (e.g. <code>BTManager.getInstance(context)</code>) before use.</li>
+                <li>For ML Kit features, add the corresponding dependencies and request runtime camera permissions.</li>
+            </ol>
+        </section>
+        <section id="permissions">
+            <h2>Permissions Configuration (AndroidManifest.xml)</h2>
+            <p>The StarTool application requires a comprehensive set of permissions to access hardware, sensors, and system resources. Below is a complete breakdown of all required permissions with explanations:</p>
+
+            <h3>Core Permission Groups</h3>
+
+            <h4>Hardware Access &amp; Root Permissions</h4>
+            <p><strong>Required for GPIO, UART, Wiegand, and other low-level hardware interfaces:</strong></p>
+            <div class="code-block"><code>&lt;uses-permission android:name="android.permission.ACCESS_SUPERUSER" /&gt;
+&lt;uses-permission android:name="android.permission.READ_LOGS" /&gt;
+&lt;uses-permission android:name="android.permission.WRITE_SETTINGS" /&gt;
+&lt;uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" /&gt;
+&lt;uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /&gt;</code></div>
+            <p><strong>Note:</strong> Most hardware interfaces require root access. Devices must run Glory Star-signed firmware with elevated privileges enabled.</p>
+
+            <h4>Connectivity Permissions</h4>
+            <p><strong>Required for network operations, Bluetooth, WiFi, and data synchronization:</strong></p>
+            <div class="code-block"><code>&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.BLUETOOTH" /&gt;
+&lt;uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /&gt;
+&lt;uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /&gt;</code></div>
+
+            <h4>Location Permissions</h4>
+            <p><strong>Required for WiFi-based positioning and Bluetooth proximity detection:</strong></p>
+            <div class="code-block"><code>&lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /&gt;</code></div>
+
+            <h4>Storage &amp; File I/O Permissions</h4>
+            <p><strong>Required for OTA updates, log collection, screenshot capture, and data persistence:</strong></p>
+            <div class="code-block"><code>&lt;uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /&gt;
+&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
+&lt;uses-permission android:name="android.permission.READ_MEDIA_IMAGES" /&gt;
+&lt;uses-permission android:name="android.permission.READ_MEDIA_AUDIO" /&gt;
+&lt;uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /&gt;</code></div>
+
+            <h4>Camera &amp; Audio Permissions</h4>
+            <p><strong>Required for barcode scanning, object detection, text recognition via ML Kit, and audio recording:</strong></p>
+            <div class="code-block"><code>&lt;uses-permission android:name="android.permission.CAMERA" /&gt;
+&lt;uses-permission android:name="android.permission.RECORD_AUDIO" /&gt;
+&lt;uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /&gt;</code></div>
+
+            <h4>Sensor &amp; Device Permissions</h4>
+            <p><strong>Required for accelerometer, gyroscope, compass, and device state monitoring:</strong></p>
+            <div class="code-block"><code>&lt;uses-permission android:name="android.permission.SENSOR_DATA" /&gt;
+&lt;uses-permission android:name="android.permission.READ_PHONE_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.VIBRATE" /&gt;</code></div>
+
+            <h4>System Permissions</h4>
+            <p><strong>Required for audio output capture, call handling, and system-level monitoring:</strong></p>
+            <div class="code-block"><code>&lt;uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" /&gt;
+&lt;uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /&gt;
+&lt;uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" /&gt;</code></div>
+
+            <h3>Runtime Permission Handling (Android 6.0+)</h3>
+            <p>For Android 6.0 and above, critical permissions must be requested at runtime. Use PermissionX library (already included):</p>
+            <div class="code-block"><code>PermissionX.init(this)
+    .permissions(
+        Manifest.permission.CAMERA,
+        Manifest.permission.RECORD_AUDIO,
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.READ_EXTERNAL_STORAGE
+    )
+    .onExplain { scope, deniedList -&gt;
+        scope.showRequestReasonDialog(deniedList, 
+            "Camera and storage permissions required for hardware control", 
+            "OK", "Cancel")
+    }
+    .request { allGranted, grantedList, deniedList -&gt;
+        if (allGranted) {
+            // Proceed with hardware initialization
+        }
+    }</code></div>
+        </section>
+
+        <section id="rfid-control">
+            <h2>RFID Control (glorystar-rfid-sdk.aar)</h2>
+            <p>The RFID SDK provides comprehensive support for RFID card readers and writers, enabling contactless identification, data collection, and access control applications.</p>
+
+            <h3>RFID Reader Supported Protocols</h3>
+            <ul>
+                <li><strong>ISO/IEC 14443 Type A</strong> - Mifare Classic, Mifare Plus, DESFire</li>
+                <li><strong>ISO/IEC 14443 Type B</strong> - Various industrial RFID cards</li>
+                <li><strong>ISO/IEC 15693</strong> - 13.56 MHz vicinity cards</li>
+                <li><strong>FeliCa</strong> - Japanese IC card standard</li>
+            </ul>
+
+            <h3>Main Classes &amp; Methods</h3>
+
+            <h4>RFIDManager Initialization &amp; Lifecycle</h4>
+            <div class="code-block"><code>import com.glorystar.rfid.RFIDManager
+import com.glorystar.rfid.RFIDCallback
+
+// Initialize RFID Manager
+val rfidManager = RFIDManager.getInstance(context)
+
+// Set card detection listener
+rfidManager.setRFIDListener(object : RFIDCallback {
+    override fun onCardDetected(cardData: RFIDCard) {
+        Log.d("RFID", "Card UID: ${cardData.uid}")
+        Log.d("RFID", "Card Type: ${cardData.type}")
+        Log.d("RFID", "Serial: ${cardData.serial}")
+    }
+    
+    override fun onCardRemoved() {
+        Log.d("RFID", "Card removed from reader")
+    }
+    
+    override fun onError(errorCode: Int, message: String) {
+        Log.e("RFID", "Error $errorCode: $message")
+    }
+})
+
+// Start RFID service
+rfidManager.start()
+
+// Stop and cleanup
+rfidManager.stop()</code></div>
+
+            <h4>Reading Card Data</h4>
+            <div class="code-block"><code>// Read entire card memory
+rfidManager.readCard { result -&gt;
+    if (result.isSuccess) {
+        val cardData = result.data
+        Log.d("RFID", "Card ID: ${cardData.cardId}")
+        Log.d("RFID", "Block Data: ${cardData.blocks}")
+        
+        // Parse specific sector
+        val sector0 = cardData.readSector(0)
+        Log.d("RFID", "Sector 0 Key A: ${sector0.keyA}")
+    } else {
+        Log.e("RFID", "Read failed: ${result.error}")
+    }
+}
+
+// Read specific block (Mifare Classic)
+rfidManager.readBlock(blockNumber = 4, keyA = byteArrayOf(...)) { blockData -&gt;
+    Log.d("RFID", "Block data: $blockData")
+}</code></div>
+
+            <h4>Writing Card Data</h4>
+            <div class="code-block"><code>// Write data to specific block
+val dataToWrite = byteArrayOf(0x01, 0x02, 0x03, 0x04, ...)
+rfidManager.writeBlock(
+    blockNumber = 4,
+    data = dataToWrite,
+    keyA = byteArrayOf(...),
+    callback = { success -&gt;
+        if (success) {
+            Log.d("RFID", "Write successful")
+        } else {
+            Log.e("RFID", "Write failed")
+        }
+    }
+)
+
+// Format/Erase card
+rfidManager.formatCard(keyA = byteArrayOf(...)) { result -&gt;
+    Log.d("RFID", if (result) "Card formatted" else "Format failed")
+}</code></div>
+
+            <h4>Authentication &amp; Key Management</h4>
+            <div class="code-block"><code>// Authenticate with Mifare key
+val defaultKeyA = byteArrayOf(
+    0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF  // Default factory key
+)
+
+rfidManager.authenticate(
+    sectorNumber = 1,
+    keyA = defaultKeyA,
+    callback = { authenticated -&gt;
+        if (authenticated) {
+            Log.d("RFID", "Authentication successful")
+            // Proceed with read/write operations
+        }
+    }
+)
+
+// Change key for specific sector
+rfidManager.changeKey(
+    sectorNumber = 1,
+    oldKey = defaultKeyA,
+    newKeyA = byteArrayOf(0x12, 0x34, 0x56, 0x78, 0x90, 0xAB),
+    newKeyB = byteArrayOf(0x12, 0x34, 0x56, 0x78, 0x90, 0xAB)
+) { success -&gt;
+    Log.d("RFID", if (success) "Key changed" else "Key change failed")
+}</code></div>
+
+            <h4>Card Enumeration &amp; Type Detection</h4>
+            <div class="code-block"><code>// Get all detected cards
+rfidManager.getAllCards { cards -&gt;
+    for (card in cards) {
+        Log.d("RFID", "Found card: ${card.uid} (${card.typeString})")
+        when (card.type) {
+            RFIDCardType.MIFARE_CLASSIC -&gt; { /* 1KB/4KB classic */ }
+            RFIDCardType.MIFARE_PLUS -&gt; { /* Modern secure Mifare */ }
+            RFIDCardType.DESFIRE -&gt; { /* Advanced DESFire cards */ }
+            RFIDCardType.ULTRALIGHT -&gt; { /* Low-cost Ultralight */ }
+            RFIDCardType.ISO_B -&gt; { /* ISO Type B */ }
+        }
+    }
+}</code></div>
+
+            <h3>RFID Hardware Configuration</h3>
+            <table>
+                <tr><th>Parameter</th><th>Description</th><th>Default</th></tr>
+                <tr><td>Frequency</td><td>Reader operating frequency (MHz)</td><td>13.56</td></tr>
+                <tr><td>Poll Rate</td><td>Card detection poll interval (ms)</td><td>500</td></tr>
+                <tr><td>Timeout</td><td>Operation timeout in seconds</td><td>5</td></tr>
+                <tr><td>Power Mode</td><td>Reader power: NORMAL, POWER_SAVE, OFF</td><td>NORMAL</td></tr>
+            </table>
+
+            <h3>Common Error Codes</h3>
+            <table>
+                <tr><th>Code</th><th>Meaning</th><th>Resolution</th></tr>
+                <tr><td>0x01</td><td>No card detected</td><td>Place card near reader antenna</td></tr>
+                <tr><td>0x02</td><td>Authentication failed</td><td>Verify card key and sector number</td></tr>
+                <tr><td>0x03</td><td>Read timeout</td><td>Ensure card remains in field; check antenna alignment</td></tr>
+                <tr><td>0x04</td><td>Write error</td><td>Check card is not locked/protected</td></tr>
+                <tr><td>0x05</td><td>Card mismatch</td><td>Protocol unsupported for this card type</td></tr>
+            </table>
+        </section>
+
+        <section id="gpio-uart-wiegand">
+            <h2>GPIO / UART / Wiegand (glorystar-hardware-sdk.aar)</h2>
+            <p>The Hardware SDK provides comprehensive access to GPIO pins, UART serial ports, and Wiegand protocol for interfacing with industrial hardware, access control systems, and sensors.</p>
+
+            <h3>1. GPIO (General Purpose Input/Output) Control</h3>
+
+            <h4>GPIO Pin Configuration &amp; Operations</h4>
+            <div class="code-block"><code>import com.glorystar.hardware.gpio.GPIOManager
+import com.glorystar.hardware.gpio.GPIOPin
+
+// Initialize GPIO Manager
+val gpioManager = GPIOManager.getInstance(context)
+
+// Configure pin 17 as output
+gpioManager.configurePin(
+    pinNumber = 17,
+    mode = GPIOPin.MODE_OUTPUT,
+    initialState = GPIOPin.LOW
+)
+
+// Write digital output
+gpioManager.digitalWrite(pin = 17, state = GPIOPin.HIGH)
+Thread.sleep(500)
+gpioManager.digitalWrite(pin = 17, state = GPIOPin.LOW)
+
+// Read digital input
+gpioManager.configurePin(pin = 23, mode = GPIOPin.MODE_INPUT)
+val inputState = gpioManager.digitalRead(pin = 23)  // Returns HIGH or LOW
+
+// Set up input interrupt listener
+gpioManager.setEdgeListener(pin = 23, edge = GPIOPin.EDGE_RISING) { pin, state -&gt;
+    Log.d("GPIO", "Pin $pin state changed to: $state")
+}</code></div>
+
+            <h4>PWM (Pulse Width Modulation)</h4>
+            <div class="code-block"><code>// Configure PWM on pin 18
+gpioManager.configurePWM(
+    pin = 18,
+    frequency = 1000,  // 1 kHz
+    dutyCycle = 50.0   // 50% duty cycle
+)
+
+// Adjust brightness smoothly (0-100%)
+for (brightness in 0..100 step 10) {
+    gpioManager.setPWMDutyCycle(pin = 18, dutyCycle = brightness.toDouble())
+    Thread.sleep(200)
+}
+
+// Stop PWM
+gpioManager.stopPWM(pin = 18)</code></div>
+
+            <h4>GPIO Group Operations</h4>
+            <div class="code-block"><code>// Write multiple pins at once (atomic operation)
+gpioManager.multiWrite(mapOf(
+    17 to GPIOPin.HIGH,
+    22 to GPIOPin.LOW,
+    27 to GPIOPin.HIGH
+))
+
+// Read multiple pins
+val pinStates = gpioManager.multiRead(listOf(23, 24, 25))
+pinStates.forEach { (pin, state) -&gt;
+    Log.d("GPIO", "Pin $pin: $state")
+}</code></div>
+
+            <h3>2. UART (Serial Port) Communication</h3>
+
+            <h4>UART Port Configuration</h4>
+            <div class="code-block"><code>import com.glorystar.hardware.uart.UARTManager
+import com.glorystar.hardware.uart.SerialConfig
+
+// Initialize UART Manager
+val uartManager = UARTManager.getInstance(context)
+
+// Open serial port /dev/ttyS0 with standard configuration
+val config = SerialConfig(
+    baudRate = 115200,
+    dataBits = 8,
+    stopBits = 1,
+    parity = SerialConfig.PARITY_NONE,
+    flowControl = SerialConfig.FLOW_CONTROL_NONE
+)
+
+val portHandle = uartManager.openPort("/dev/ttyS0", config)
+if (portHandle &lt; 0) {
+    Log.e("UART", "Failed to open port")
+    return
+}</code></div>
+
+            <h4>UART Data Transmission &amp; Reception</h4>
+            <div class="code-block"><code>// Send data
+val message = "Hello Device\r\n"
+val bytesWritten = uartManager.write(portHandle, message.toByteArray())
+Log.d("UART", "Sent $bytesWritten bytes")
+
+// Receive data with timeout
+val buffer = ByteArray(256)
+val bytesRead = uartManager.read(portHandle, buffer, timeoutMs = 1000)
+if (bytesRead &gt; 0) {
+    val receivedData = String(buffer, 0, bytesRead)
+    Log.d("UART", "Received: $receivedData")
+}
+
+// Continuous listener
+uartManager.setReceiveListener(portHandle) { data -&gt;
+    Log.d("UART", "Data received: ${String(data)}")
+}</code></div>
+
+            <h4>Supported UART Ports &amp; Configurations</h4>
+            <table>
+                <tr><th>Port</th><th>Device Path</th><th>Common Use</th><th>Max Baud Rate</th></tr>
+                <tr><td>UART0</td><td>/dev/ttyS0</td><td>Console / Debug</td><td>115200</td></tr>
+                <tr><td>UART1</td><td>/dev/ttyS1</td><td>External Devices</td><td>921600</td></tr>
+                <tr><td>UART2</td><td>/dev/ttyS2</td><td>Barcode Scanner / Sensors</td><td>921600</td></tr>
+                <tr><td>UART3</td><td>/dev/ttyS3</td><td>GPS / Industrial Protocol</td><td>921600</td></tr>
+            </table>
+
+            <h3>3. Wiegand Protocol (Access Control Cards)</h3>
+
+            <h4>Wiegand Reader Configuration</h4>
+            <div class="code-block"><code>import com.glorystar.hardware.wiegand.WiegandManager
+import com.glorystar.hardware.wiegand.WiegandConfig
+
+// Initialize Wiegand Manager
+val wiegandManager = WiegandManager.getInstance(context)
+
+// Configure Wiegand reader (typical pins: D0=23, D1=24)
+val wiegandConfig = WiegandConfig(
+    d0Pin = 23,        // Data line 0
+    d1Pin = 24,        // Data line 1
+    bitLength = 26,    // Standard 26-bit format (1 parity + 24 data + 1 parity)
+    timeout = 100      // ms between bits
+)
+
+val success = wiegandManager.configure(wiegandConfig)
+if (!success) {
+    Log.e("Wiegand", "Configuration failed")
+}</code></div>
+
+            <h4>Wiegand Data Reception &amp; Parsing</h4>
+            <div class="code-block"><code>// Set card detection listener
+wiegandManager.setCardListener(object : WiegandCallback {
+    override fun onCardDetected(cardData: WiegandCard) {
+        Log.d("Wiegand", "Card detected")
+        Log.d("Wiegand", "Facility Code: ${cardData.facilityCode}")
+        Log.d("Wiegand", "Card Number: ${cardData.cardNumber}")
+        Log.d("Wiegand", "Raw Data: ${cardData.rawBits}")
+        
+        // Grant or deny access based on card data
+        if (isAuthorizedCard(cardData.facilityCode, cardData.cardNumber)) {
+            unlockDoor()
+        } else {
+            triggerAlarm()
+        }
+    }
+    
+    override fun onParityError() {
+        Log.w("Wiegand", "Parity check failed - invalid card")
+    }
+    
+    override fun onTimeout() {
+        Log.w("Wiegand", "Reader timeout")
+    }
+})
+
+// Start listening
+wiegandManager.start()</code></div>
+
+            <h4>Standard Wiegand Formats</h4>
+            <table>
+                <tr><th>Format</th><th>Bits</th><th>Structure</th><th>Capacity</th></tr>
+                <tr><td>Wiegand 26</td><td>26</td><td>1 parity + 8 facility + 16 card + 1 parity</td><td>255 facilities × 65536 cards</td></tr>
+                <tr><td>Wiegand 34</td><td>34</td><td>1 parity + 16 facility + 16 card + 1 parity</td><td>65536 facilities × 65536 cards</td></tr>
+                <tr><td>Wiegand 37</td><td>37</td><td>Advanced format with enhanced security</td><td>Extended capacity</td></tr>
+            </table>
+
+            <h4>Common Wiegand Configuration Scenarios</h4>
+            <div class="code-block"><code>// Door access system
+wiegandManager.configure(WiegandConfig(
+    d0Pin = 23,
+    d1Pin = 24,
+    bitLength = 26,
+    timeout = 100
+))
+
+// Advanced multi-format reader
+wiegandManager.autoDetectFormat = true  // Auto-detect 26/34/37 bit formats
+
+// High-speed industrial reader (tighter tolerance)
+wiegandManager.configure(WiegandConfig(
+    d0Pin = 23,
+    d1Pin = 24,
+    bitLength = 26,
+    timeout = 50  // Reduced timeout for faster reading
+))</code></div>
+
+            <h3>Integrated Hardware Control Example</h3>
+            <p>Combining GPIO, UART, and Wiegand for a complete access control system:</p>
+            <div class="code-block"><code>// Multi-hardware integration example
+class AccessControlSystem(context: Context) {
+    private val gpio = GPIOManager.getInstance(context)
+    private val uart = UARTManager.getInstance(context)
+    private val wiegand = WiegandManager.getInstance(context)
+    
+    init {
+        // Initialize relay control via GPIO
+        gpio.configurePin(17, GPIOPin.MODE_OUTPUT, GPIOPin.LOW)
+        
+        // Initialize door sensor via GPIO input
+        gpio.configurePin(25, GPIOPin.MODE_INPUT)
+        gpio.setEdgeListener(25, GPIOPin.EDGE_BOTH) { pin, state -&gt;
+            Log.d("Door", "Door sensor: $state")
+        }
+        
+        // Initialize barcode via UART
+        uart.openPort("/dev/ttyS2", SerialConfig(baudRate = 9600))
+        
+        // Initialize Wiegand card reader
+        wiegand.configure(WiegandConfig(d0Pin = 23, d1Pin = 24))
+        wiegand.setCardListener(::onCardScanned)
+    }
+    
+    private fun onCardScanned(card: WiegandCard) {
+        if (isAuthorized(card)) {
+            // Unlock door via relay
+            gpio.digitalWrite(17, GPIOPin.HIGH)
+            Log.d("Access", "Door unlocked")
+            Thread.sleep(2000)
+            gpio.digitalWrite(17, GPIOPin.LOW)
+            
+            // Log access via UART to external system
+            uart.write(0, "UNLOCK|${card.cardNumber}".toByteArray())
+        }
+    }
+}</code></div>
+
+            <h3>Hardware Troubleshooting &amp; Best Practices</h3>
+            <ul>
+                <li><strong>GPIO Signal Integrity</strong>: Use proper cable shielding and terminated bus lines to avoid noise interference.</li>
+                <li><strong>UART Baud Rate Mismatch</strong>: Verify both sender and receiver use identical baud rates; mismatches cause data corruption.</li>
+                <li><strong>Wiegand Pulse Timing</strong>: Ensure pulse duration meets hardware specs (typically 20-200 μs per bit).</li>
+                <li><strong>Power Supply Stability</strong>: Fluctuating supply voltage can cause erratic GPIO/Wiegand behavior; use regulated power with adequate current rating.</li>
+                <li><strong>Pull-up/Pull-down Resistors</strong>: Required for many GPIO and Wiegand implementations; consult hardware schematic.</li>
+                <li><strong>Root Access Requirement</strong>: All hardware-level operations require root privileges; verify device firmware.</li>
+                <li><strong>Resource Cleanup</strong>: Always call <code>close()</code> or <code>release()</code> methods in Activity/Service lifecycle to prevent resource leaks.</li>
+            </ul>
+        </section>
+
+        <section id="usage">
+            <h2>Usage Examples</h2>
+            <h3>Bluetooth connection</h3>
+            <div class="code-block"><code>val manager = BTManager.getInstance(this)
+manager.connect(device, object : ConnectCallback {
+    override fun onConnected() {
+        // ready to send/receive
+    }
+    override fun onFailure(e: BTException) { }
+})</code></div>
+            <h3>Start camera preview with ML Kit</h3>
+            <p>Use <code>CameraController</code> utility and attach an analyzer that feeds frames to ML Kit APIs such as <code>BarcodeScanning.getClient()</code>.</p>
+        </section>
+        <section id="notes">
+            <h2>Notes &amp; Tips</h2>
+            <ul>
+                <li>Language switching is implemented via <code>IntentJumpUtils.setLanguage()</code> and <code>LiveDataBus</code> broadcasts.</li>
+                <li>Update checks are handled in <code>MainActivity</code> using an <code>Handler</code> and a download service.</li>
+                <li>The project targets API level 24 for compatibility; adjust <code>minSdk</code> if needed.</li>
+                <li>You may remove unused ML Kit dependencies to reduce app size.</li>
+                <li>Always perform runtime permission checks on API 23+ using PermissionX or native Android APIs.</li>
+                <li>For hardware control features (GPIO, UART, RFID), ensure root access is granted on the device.</li>
+                <li>Test on multiple Android versions and device architectures (arm64-v8a, armeabi-v7a) for compatibility.</li>
+                <li>Use ProGuard/R8 to optimize and obfuscate code for production releases.</li>
+                <li>Monitor Bluetooth and network connections for proper cleanup in lifecycle callbacks.</li>
+                <li>Enable Timber logging during development for better debugging experience.</li>
+            </ul>
+        </section>
+
+        <footer style="background-color: #1a3a6c; color: white; padding: 2rem; margin-top: 3rem; border-radius: 8px; text-align: center; font-size: 0.9rem;">
+            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 1rem 0;">
+            <p style="margin: 0.5rem 0;"><strong>StarTool SDK Documentation</strong></p>
+            <p style="margin: 0.5rem 0;">Official API Reference | Glory Star Group Engineering Documentation Team</p>
+            <p style="margin: 0.5rem 0;">Prepared in Shenzhen | Validated for NEB, VegaX, JAR device families</p>
+            <p style="margin: 1rem 0 0.5rem 0; font-size: 0.85rem; opacity: 0.8;">© 2026 Glory Star Group. All rights reserved. This documentation is confidential and intended solely for authorized integration partners.</p>
+            <p style="margin: 0.5rem 0; font-size: 0.85rem; opacity: 0.8;"><strong>WARNING</strong>: Unauthorized firmware modification or partition alteration voids warranty and may result in device malfunction. Use only Glory Star-signed firmware.</p>
+            <p style="margin: 0.5rem 0; font-size: 0.85rem; opacity: 0.8;">Document generated: 2026-02-27 | Version: 1.0 | Status: Production Ready</p>
+        </footer>
+    </div>
+</body>
+</html>

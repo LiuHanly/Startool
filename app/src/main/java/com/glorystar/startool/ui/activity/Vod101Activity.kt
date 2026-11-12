@@ -11,6 +11,7 @@ import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
@@ -59,6 +60,7 @@ class Vod101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
     var inputOneRunable: Runnable = object : Runnable {
         override fun run() {
             val result: Int = VodLib.input(1)
+            Log.e("inputKeyRunable", "inputOneRunable- run: $result")
             if (result == 1) {
                 ivInputOne.setImageResource(R.drawable.input_port_original)
                 inputOne.text = getString(R.string.ready)
@@ -74,7 +76,9 @@ class Vod101Activity : BaseActivity(), View.OnClickListener, SensorEventListener
 
     var inputTwoRunable: Runnable = object : Runnable {
         override fun run() {
+
             val result: Int = VodLib.input(2)
+          //  Log.e("inputKeyRunable", "inputTwoRunable- run: $result")
             if (result == 1) {
                 ivInputTwo.setImageResource(R.drawable.input_port_original)
                 inputTwo.text = getString(R.string.ready)

@@ -5,11 +5,12 @@ import android.app.Activity
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.wifi.WifiManager
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.provider.Settings
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.Observer
@@ -17,13 +18,14 @@ import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.config.constant.IntenAcitivity
-import com.glorystar.startool.ui.activity.WifiActivity
 import com.glorystar.startool.ui.broadcast.WIFIStateReceiver
 import com.glorystar.startool.ui.service.WIFIAutoConnectionService
 import com.glorystar.startool.ui.view.ColorGradientProgressBar
 import com.glorystar.startool.utils.tool.LiveDataBus
+import com.glorystar.startool.utils.tool.Rootcommands.runRootCommand
 import com.glorystar.startool.utils.tool.StatusNaviBarUitl
 import com.glorystar.startool.utils.tool.WIFIConnectionManager
+
 
 class NewWifiActivity : BaseActivity() {
 
@@ -92,33 +94,51 @@ class NewWifiActivity : BaseActivity() {
 
         getFile()
         mWIFIStateReceiver = WIFIStateReceiver(this)
+//
+        registerReceiver(mWIFIStateReceiver, IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION))
+        if (Build.MODEL.startsWith("A133") ) {
 
-        registerReceiver(
-            mWIFIStateReceiver,
-            IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION)
-        )
+            val success = runRootCommand("cmd wifi connect-network GSCNAPK wpa2 12062106")
+            try {
+                // 1. 先确保 WiFi 已开启
+                runRootCommand("cmd wifi set-wifi-enabled enabled")
+                Thread.sleep(2000) // 等待 WiFi 模块就绪
+
+                // 2. 连接目标 WiFi
+                val connected = runRootCommand("cmd wifi connect-network GSCNAPK wpa2 12062106")
+                Log.d("WiFi", "连接结果: " + connected)
+
+                // 3. 等待几秒后检查连接状态
+                Thread.sleep(3000)
+                runRootCommand("cmd wifi status")
+            } catch (e: Throwable) {
+                e.printStackTrace()
+            }
+        }
+        // adb shell cmd wifi connect-network GSCNAPK wpa2 12062106
         WIFIAutoConnectionService.start(
             this@NewWifiActivity,
             Constantdtas.WIFI_SSID,
             Constantdtas.WIFI_PASS
         )
         LiveDataBus.get().with("WifiActivity", String::class.java).observe(this, Observer {
-              when (it) {
-                  "WIFI_STATE_ENABLED" -> {
-                      text_Model.text = "Connected"
-                      ap_name.text =
-                          WIFIConnectionManager.getInstance(this).wifiManager.connectionInfo.ssid
-                      handler.post(updateThread)
-                  }
-                  else -> {
-                      text_Model.text = "unconnected"
-                  }
-              }
-          })
+            when (it) {
+                "WIFI_STATE_ENABLED" -> {
+                    text_Model.text = "Connected"
+                    ap_name.text =
+                        WIFIConnectionManager.getInstance(this).wifiManager.connectionInfo.ssid
+                    handler.post(updateThread)
+                }
+
+                else -> {
+                    text_Model.text = "unconnected"
+                }
+            }
+        })
 
         through_bu.setOnClickListener {
             StatusNaviBarUitl.hide(this@NewWifiActivity)
-            IntenAcitivity.getIntenAcitivity(this@NewWifiActivity, 3, 2,1)
+            IntenAcitivity.getIntenAcitivity(this@NewWifiActivity, 3, 2, 1)
         }
 
     }

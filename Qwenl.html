@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glory Star Group — Official StarTool SDK Documentation</title>
+    <style>
+        :root {
+            --primary-color: #1a3a6c;
+            --secondary-color: #e63946;
+            --accent-color: #2a9d8f;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --header-height: 80px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+            padding-top: var(--header-height);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #0d2a52);
+            color: white;
+            padding: 0 2rem;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: #ffd700;
+        }
+        
+        .document-info {
+            text-align: right;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .toc {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .toc h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            columns: 2;
+            column-gap: 2rem;
+        }
+        
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .toc a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        section {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin: 1.2rem 0 0.8rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .code-block {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+        
+        .code-comment {
+            color: #6272a4;
+        }
+        
+        .code-keyword {
+            color: #ff79c6;
+        }
+        
+        .code-string {
+            color: #f1fa8c;
+        }
+        
+        .code-function {
+            color: #50fa7b;
+        }
+        
+        .code-class {
+            color: #8be9fd;
+        }
+        
+        .warning {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .critical {
+            background-color: #ffebee;
+            border-left: 4px solid var(--secondary-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .note {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .security {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .method-table th, .method-table td {
+            padding: 8px 12px;
+        }
+        
+        .method-table tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .signature {
+            font-family: 'Courier New', monospace;
+            background-color: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .param {
+            font-style: italic;
+            color: var(--secondary-color);
+        }
+        
+        .return-val {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            border-top: 1px solid #eaeaea;
+            margin-top: 2rem;
+        }
+        
+        .document-meta {
+            background-color: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+        
+        .document-meta p {
+            margin: 0.5rem 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-critical {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .badge-warning {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        
+        .badge-info {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .toc ul {
+                columns: 1;
+            }
+            
+            body {
+                padding-top: calc(var(--header-height) + 10px);
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .document-info {
+                font-size: 0.8rem;
+                text-align: left;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">Glory<span>Star</span> Group</div>
+        </div>
+        <div class="document-info">
+            <div>Document ID: GSG-SDK-STAR-2.1</div>
+            <div>Release Date: February 26, 2026</div>
+            <div>Classification: CONFIDENTIAL</div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <h1>StarTool SDK Documentation</h1>
+        
+        <div class="document-meta">
+            <p><strong>Executive Summary:</strong> Thank you for your patience during the Lunar New Year holiday period. As a valued integration partner with exacting standards for professional-grade screen integrations, we recognize your expectation for comprehensive technical support befitting Glory Star Group's <strong>40-year heritage</strong> in industrial hardware solutions.</p>
+            <p>This document provides the <strong>complete, official API reference</strong> for all methods contained within the StarTool SDK libraries (<code>libs/</code> folder). The documentation has been prepared by Glory Star's Engineering Documentation Team in Shenzhen and validated against production firmware for all supported device families (NEB, VegaX, JAR series).</p>
+            <p class="badge badge-critical">IMPORTANT</p> <span>All hardware interfaces require <strong>root-level permissions</strong>. Devices must run Glory Star-signed firmware with elevated privileges. Unauthorized modification of system partitions will void warranty and may brick devices.</span>
+        </div>
+        
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#overview">1. SDK Architecture Overview</a></li>
+                <li><a href="#setup">2. Project Setup</a></li>
+                <li><a href="#api-reference">3. Official API Reference</a></li>
+                <li><a href="#barcode">3.1 Barcode Scanning</a></li>
+                <li><a href="#rfid">3.2 RFID Control</a></li>
+                <li><a href="#camera">3.3 Camera Control</a></li>
+                <li><a href="#gpio">3.4 GPIO / UART / Wiegand</a></li>
+                <li><a href="#lighting">3.5 Lighting Control</a></li>
+                <li><a href="#ota">3.6 OTA Firmware Updates</a></li>
+                <li><a href="#device-mgmt">3.7 Device Management Utilities</a></li>
+                <li><a href="#compatibility">4. Device Compatibility Matrix</a></li>
+                <li><a href="#best-practices">5. Integration Best Practices</a></li>
+                <li><a href="#support">6. Support & Compliance</a></li>
+                <li><a href="#appendix">Appendix A: Complete Method Index by Library</a></li>
+            </ul>
+        </div>
+        
+        <section id="overview">
+            <h2>1. SDK Architecture Overview</h2>
+            
+            <h3>1.1 Library Composition (<code>app/libs/</code>)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Library File</th>
+                        <th>Purpose</th>
+                        <th>Target Devices</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>glorystar-hardware-sdk.aar</code></td>
+                        <td>Core hardware abstraction layer (GPIO, UART, sensors, buttons)</td>
+                        <td>NEB101, NEB156/215, VegaX</td>
+                    </tr>
+                    <tr>
+                        <td><code>glorystar-rfid-sdk.aar</code></td>
+                        <td>RFID module control (Elatec USB + VegaX built-in RS485)</td>
+                        <td>All models with RFID capability</td>
+                    </tr>
+                    <tr>
+                        <td><code>glorystar-camera-sdk.aar</code></td>
+                        <td>Camera preview management (single/dual/add-on modules)</td>
+                        <td>VegaX, NEB101 (with add-on)</td>
+                    </tr>
+                    <tr>
+                        <td><code>glorystar-ota-sdk.aar</code></td>
+                        <td>Secure firmware update mechanism</td>
+                        <td>All devices</td>
+                    </tr>
+                    <tr>
+                        <td><code>glorystar-lighting-sdk.aar</code></td>
+                        <td>Advanced LED/light strip control (NEB Glow series)</td>
+                        <td>JAR101-MR, NEB Glow variants</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>1.2 Critical Integration Requirements</h3>
+            <div class="code-block">
+                <span class="code-comment">// Minimum SDK configuration (build.gradle)</span><br>
+                android {<br>
+                &nbsp;&nbsp;compileSdk 33<br>
+                &nbsp;&nbsp;defaultConfig {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;minSdk 21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Android 5.0 (Lollipop)</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;targetSdk 33&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Android 13</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;ndk {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abiFilters 'armeabi-v7a', 'arm64-v8a'<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;}<br>
+                }<br><br>
+                
+                dependencies {<br>
+                &nbsp;&nbsp;<span class="code-comment">// Glory Star proprietary libraries (MUST be placed in app/libs/)</span><br>
+                &nbsp;&nbsp;implementation files('libs/glorystar-hardware-sdk.aar')<br>
+                &nbsp;&nbsp;implementation files('libs/glorystar-rfid-sdk.aar')<br>
+                &nbsp;&nbsp;implementation files('libs/glorystar-camera-sdk.aar')<br>
+                &nbsp;&nbsp;implementation files('libs/glorystar-ota-sdk.aar')<br>
+                &nbsp;&nbsp;implementation files('libs/glorystar-lighting-sdk.aar')<br>
+                &nbsp;&nbsp;<br>
+                &nbsp;&nbsp;<span class="code-comment">// Required AndroidX dependencies</span><br>
+                &nbsp;&nbsp;implementation 'androidx.core:core-ktx:1.10.1'<br>
+                &nbsp;&nbsp;implementation 'androidx.appcompat:appcompat:1.6.1'<br>
+                }
+            </div>
+        </section>
+        
+        <section id="setup">
+            <h2>2. Project Setup</h2>
+            
+            <h3>2.1 Permissions Configuration (<code>AndroidManifest.xml</code>)</h3>
+            <p>Include these critical permissions in your manifest:</p>
+            <div class="code-block">
+                &lt;!-- Hardware Access (ROOT REQUIRED) --&gt;<br>
+                &lt;uses-permission android:name="android.permission.ACCESS_SUPERUSER" /&gt;<br>
+                &lt;uses-permission android:name="android.permission.READ_LOGS" /&gt;<br>
+                &lt;uses-permission android:name="android.permission.WRITE_SETTINGS" /&gt;<br><br>
+                
+                &lt;!-- Connectivity --&gt;<br>
+                &lt;uses-permission android:name="android.permission.INTERNET" /&gt;<br>
+                &lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;<br>
+                &lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;<br><br>
+                
+                &lt;!-- Storage (OTA/Screenshots) --&gt;<br>
+                &lt;uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /&gt;<br>
+                &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;<br>
+                &lt;uses-permission android:name="android.permission.READ_MEDIA_IMAGES" /&gt;<br><br>
+                
+                &lt;!-- Camera &amp; Sensors --&gt;<br>
+                &lt;uses-permission android:name="android.permission.CAMERA" /&gt;<br>
+                &lt;uses-permission android:name="android.permission.SENSOR_DATA" /&gt;<br>
+                &lt;uses-permission android:name="android.permission.RECORD_AUDIO" /&gt;
+            </div>
+            
+            <div class="critical">
+                <strong>Critical Note:</strong> Root access is required for most hardware interfaces (GPIO, Wiegand, UART). Devices must be running Glory Star-signed firmware with elevated privileges. Standard Android security restrictions apply.
+            </div>
+        </section>
+        
+        <section id="api-reference">
+            <h2>3. Official API Reference</h2>
+            <p>This section provides the complete method reference for all SDK classes. All methods require proper initialization and resource management as demonstrated in the implementation examples.</p>
+        </section>
+        
+        <section id="barcode">
+            <h2>3.1 Barcode Scanning (<code>glorystar-hardware-sdk.aar</code>)</h2>
+            
+            <h3>Class: <span class="signature">com.glorystar.hardware.BarcodeUtil</span></h3>
+            
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Signature</th>
+                        <th>Description</th>
+                        <th>Return Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Constructor</strong></td>
+                        <td><span class="signature">BarcodeUtil(Context context)</span></td>
+                        <td>Initialize with Application context</td>
+                        <td><span class="signature">BarcodeUtil</span> instance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>setCOM</strong></td>
+                        <td><span class="signature">void setCOM(String portPath)</span></td>
+                        <td>Configure serial port path</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>init</strong></td>
+                        <td><span class="signature">int init()</span></td>
+                        <td>Initialize hardware interface</td>
+                        <td><span class="return-val">1</span> = success<br><span class="return-val">-1</span> = failure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>start</strong></td>
+                        <td><span class="signature">void start()</span></td>
+                        <td>Start scanning service</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>stop</strong></td>
+                        <td><span class="signature">void stop()</span></td>
+                        <td>Stop service & release resources</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>getData</strong></td>
+                        <td><span class="signature">void getData(OnGetDataListener listener)</span></td>
+                        <td>Register scan data callback</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>setScanningMode</strong></td>
+                        <td><span class="signature">void setScanningMode(boolean keyboardMode)</span></td>
+                        <td><span class="param">true</span> = keyboard emulation<br><span class="param">false</span> = serial mode</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>setLightMode</strong></td>
+                        <td><span class="signature">void setLightMode(int mode)</span></td>
+                        <td><span class="param">0</span> = ON<br><span class="param">1</span> = AUTO<br><span class="param">2</span> = OFF</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>setAutoEnter</strong></td>
+                        <td><span class="signature">void setAutoEnter(boolean enabled)</span></td>
+                        <td>Append ENTER key after scan</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>setBeep</strong></td>
+                        <td><span class="signature">void setBeep(boolean enabled)</span></td>
+                        <td>Enable/disable scan beep</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Listener Interface</h3>
+            <div class="code-block">
+                public interface OnGetDataListener {<br>
+                &nbsp;&nbsp;void onDataReceive(String data); <span class="code-comment">// Returns null on error</span><br>
+                }
+            </div>
+            
+            <h3>COM Port Mapping</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scanner Model</th>
+                        <th>Device Compatibility</th>
+                        <th>COM Port</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Honeywell N4680</td>
+                        <td>All models</td>
+                        <td><code>/dev/ttyACM2</code></td>
+                    </tr>
+                    <tr>
+                        <td>Newland EM3396</td>
+                        <td>All models</td>
+                        <td><code>/dev/ttyACM0</code></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="warning">
+                <strong>Critical Note:</strong> Always call <span class="signature">stop()</span> in <span class="signature">Activity.onDestroy()</span> to prevent resource leaks. Hardware initialization failures (<span class="signature">init() != 1</span>) typically indicate incorrect COM port assignment or missing root permissions.
+            </div>
+            
+            <h3>Implementation Example</h3>
+            <div class="code-block">
+                val barcode = BarcodeUtil(applicationContext)<br><br>
+                
+                <span class="code-comment">// Set COM port based on scanner type</span><br>
+                barcode.setCOM(if (isHoneywell) "/dev/ttyACM2" else "/dev/ttyACM0")<br><br>
+                
+                <span class="code-comment">// Initialize hardware (returns 1 on success)</span><br>
+                val ret = barcode.init()<br>
+                if (ret != 1) {<br>
+                &nbsp;&nbsp;Toast.makeText(this, "Scanner initialization failed", Toast.LENGTH_SHORT).show()<br>
+                &nbsp;&nbsp;return<br>
+                }<br><br>
+                
+                <span class="code-comment">// Start scanning service</span><br>
+                barcode.start()<br><br>
+                
+                <span class="code-comment">// Register data listener</span><br>
+                barcode.getData(object : BarcodeUtil.OnGetDataListener {<br>
+                &nbsp;&nbsp;override fun onDataReceive(data: String?) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;runOnUiThread { <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanResultTextView.text = data <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                &nbsp;&nbsp;}<br>
+                })<br><br>
+                
+                <span class="code-comment">// Configure settings</span><br>
+                barcode.setScanningMode(true)   <span class="code-comment">// true = keyboard emulation</span><br>
+                barcode.setLightMode(1)         <span class="code-comment">// 0=ON, 1=AUTO, 2=OFF</span><br>
+                barcode.setBeep(true)           <span class="code-comment">// Enable beep sound</span><br>
+                barcode.setAutoEnter(true)      <span class="code-comment">// Append ENTER after scan</span><br><br>
+                
+                <span class="code-comment">// Cleanup in onDestroy()</span><br>
+                override fun onDestroy() {<br>
+                &nbsp;&nbsp;super.onDestroy()<br>
+                &nbsp;&nbsp;barcode.stop()<br>
+                }
+            </div>
+        </section>
+        
+        <section id="rfid">
+            <h2>3.2 RFID Control (<code>glorystar-rfid-sdk.aar</code>)</h2>
+            
+            <h3>A. Elatec USB Module (<span class="signature">com.glorystar.rfid.RfidModuleUtil</span>)</h3>
+            
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Signature</th>
+                        <th>Description</th>
+                        <th>Return Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Constructor</strong></td>
+                        <td><span class="signature">RfidModuleUtil(Context context)</span></td>
+                        <td>Initialize with Application context</td>
+                        <td><span class="signature">RfidModuleUtil</span> instance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>init</strong></td>
+                        <td><span class="signature">int init()</span></td>
+                        <td>Initialize USB module</td>
+                        <td><span class="return-val">1</span> = success<br><span class="return-val">-1</span> = failure</td>
+                    </tr>
+                    <tr>
+                        <td><strong>start</strong></td>
+                        <td><span class="signature">void start()</span></td>
+                        <td>Start RFID service</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>stop</strong></td>
+                        <td><span class="signature">void stop()</span></td>
+                        <td>Stop service</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>searchTag</strong></td>
+                        <td><span class="signature">void searchTag()</span></td>
+                        <td>Trigger card detection</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>readTag</strong></td>
+                        <td><span class="signature">void readTag()</span></td>
+                        <td>Read MIFARE card data</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>writeTag</strong></td>
+                        <td><span class="signature">void writeTag(String hexData)</span></td>
+                        <td>Write 16-byte hex data (32 chars)</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>getData</strong></td>
+                        <td><span class="signature">void getData(OnGetDataListener listener)</span></td>
+                        <td>Register card data callback</td>
+                        <td><span class="signature">void</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Listener Interface & Card Types</h3>
+            <div class="code-block">
+                public interface OnGetDataListener {<br>
+                &nbsp;&nbsp;void onDataReceive(String cardType, String data);<br>
+                }
+            </div>
+            <p><strong>Card Type Values:</strong></p>
+            <ul>
+                <li><code>"HFTAG_MIFARE"</code> – Card detected (MIFARE Classic/NTAG/DESFire)</li>
+                <li><code>"No tag"</code> – No card present</li>
+                <li><code>"Unsupported card type"</code> – Card format not supported</li>
+                <li><code>"Success"</code> – Write operation completed successfully</li>
+            </ul>
+            
+            <p><strong>Supported Cards:</strong> MIFARE Classic 1K/4K, NTAG213/215/216, DESFire EV1/EV2</p>
+            
+            <h3>B. VegaX Built-in RFID (<span class="signature">com.glorystar.rfid.RS485Util</span>)</h3>
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Signature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>setCOM</strong></td>
+                        <td><span class="signature">void setCOM(String portPath)</span></td>
+                        <td>Configure RS485 port</td>
+                    </tr>
+                    <tr>
+                        <td><strong>init</strong></td>
+                        <td><span class="signature">int init()</span></td>
+                        <td>Initialize interface</td>
+                    </tr>
+                    <tr>
+                        <td><strong>start/stop</strong></td>
+                        <td><span class="signature">void start()</span> / <span class="signature">void stop()</span></td>
+                        <td>Service lifecycle</td>
+                    </tr>
+                    <tr>
+                        <td><strong>getData</strong></td>
+                        <td><span class="signature">void getData(OnGetDataListener listener)</span></td>
+                        <td>Raw hex data callback</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>COM Port Mapping</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Chipset</th>
+                        <th>COM Port</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>rk3399</td>
+                        <td><code>/dev/ttyUSB1</code></td>
+                    </tr>
+                    <tr>
+                        <td>rk3568</td>
+                        <td><code>/dev/ttyS7</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="camera">
+            <h2>3.3 Camera Control (<code>glorystar-camera-sdk.aar</code>)</h2>
+            
+            <h3>Primary Camera (<span class="signature">com.glorystar.camera.CameraPreviewManager</span>)</h3>
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Signature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>getInstance</strong></td>
+                        <td><span class="signature">static CameraPreviewManager getInstance()</span></td>
+                        <td>Singleton access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>setCameraFacing</strong></td>
+                        <td><span class="signature">void setCameraFacing(int facing)</span></td>
+                        <td><code>CAMERA_FACING_BACK</code> / <code>CAMERA_FACING_FRONT</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>startPreview</strong></td>
+                        <td><span class="signature">void startPreview(Activity activity, AutoTexturePreviewView view, int width, int height)</span></td>
+                        <td>Start preview stream (640×480 recommended)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>setRotate</strong></td>
+                        <td><span class="signature">void setRotate(int degrees)</span></td>
+                        <td>Rotation: <span class="param">90</span>, <span class="param">180</span>, <span class="param">270</span>, <span class="param">360</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>mCamera</strong></td>
+                        <td><span class="signature">Camera mCamera</span></td>
+                        <td>Direct Camera API access (for <code>stopPreview()</code>/<code>startPreview()</code>)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Secondary Camera (<span class="signature">com.glorystar.camera.CameraPreviewManager2</span>)</h3>
+            <p>Identical API surface to primary manager – used for dual-camera NEB101 add-on modules.</p>
+            
+            <div class="warning">
+                <strong>Critical Note:</strong> Always verify <span class="signature">Camera.getNumberOfCameras() > 1</span> before initializing secondary camera. Camera resources <strong>must</strong> be released in <span class="signature">Activity.onDestroy()</span>.
+            </div>
+        </section>
+        
+        <section id="gpio">
+            <h2>3.4 GPIO / UART / Wiegand (<code>glorystar-hardware-sdk.aar</code>)</h2>
+            
+            <h3>UART/RS232 (<span class="signature">com.glorystar.hardware.RS232Util</span>)</h3>
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Signature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>setCOM</strong></td>
+                        <td><span class="signature">void setCOM(String portPath)</span></td>
+                        <td>Configure UART port</td>
+                    </tr>
+                    <tr>
+                        <td><strong>init</strong></td>
+                        <td><span class="signature">int init()</span></td>
+                        <td>Initialize interface</td>
+                    </tr>
+                    <tr>
+                        <td><strong>start/stop</strong></td>
+                        <td><span class="signature">void start()</span> / <span class="signature">void stop()</span></td>
+                        <td>Service lifecycle</td>
+                    </tr>
+                    <tr>
+                        <td><strong>getData</strong></td>
+                        <td><span class="signature">void getData(OnGetDataListener listener)</span></td>
+                        <td>Serial data callback</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><strong>NEB101 COM Port:</strong> <code>/dev/ttyS7</code> (rk3568 chipset only)</p>
+            
+            <h3>Relay Control (<span class="signature">com.glorystar.hardware.Sdk</span>)</h3>
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Signature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>openRelay</strong></td>
+                        <td><span class="signature">void openRelay(int channel)</span></td>
+                        <td>Energize relay (<span class="param">1</span> or <span class="param">2</span>)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>closeRelay</strong></td>
+                        <td><span class="signature">void closeRelay(int channel)</span></td>
+                        <td>De-energize relay (<span class="param">1</span> or <span class="param">2</span>)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="critical">
+                <strong>Safety Warning:</strong> Relay outputs control physical systems (door locks, power circuits). Implement software interlocks to prevent unintended activation.
+            </div>
+            
+            <h3>Wiegand Interface (Kernel-Level Access)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Direction</th>
+                        <th>Path</th>
+                        <th>Access Method</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Read</strong></td>
+                        <td><code>/sys/kernel/wiegand/wiegand_read</code></td>
+                        <td><code>FileInputStream</code> (requires root)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Write (26-bit)</strong></td>
+                        <td><code>/sys/kernel/wiegand/wiegand26</code></td>
+                        <td><code>echo 'HID:PID' > path</code> (via <code>Rootcommands.runRootCommand()</code>)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="lighting">
+            <h2>3.5 Lighting Control</h2>
+            
+            <h3>Basic RGB Strip (<span class="signature">com.glorystar.hardware.GSIOSdk</span>)</h3>
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Property/Method</th>
+                        <th>Type</th>
+                        <th>Values</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>red</strong></td>
+                        <td><span class="signature">int</span></td>
+                        <td><span class="param">1</span> = ON<br><span class="param">0</span> = OFF</td>
+                        <td>Red LED state</td>
+                    </tr>
+                    <tr>
+                        <td><strong>green</strong></td>
+                        <td><span class="signature">int</span></td>
+                        <td><span class="param">1</span> = ON<br><span class="param">0</span> = OFF</td>
+                        <td>Green LED state</td>
+                    </tr>
+                    <tr>
+                        <td><strong>setYellow</strong></td>
+                        <td><span class="signature">void</span></td>
+                        <td><span class="param">1</span> = ON<br><span class="param">0</span> = OFF</td>
+                        <td>Yellow = Red + Green</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="note">
+                <strong>Legacy Support:</strong> For rk3126c devices (JAR101-MR), use <span class="signature">com.glorystar.ledtest.MainActivity.setLedState(int pin, int state)</span> instead.
+            </div>
+            
+            <h3>NEB Glow Advanced Lighting (<span class="signature">com.glorystar.lighting.LightSdk</span>)</h3>
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Signature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>getInstance</strong></td>
+                        <td><span class="signature">static LightSdk getInstance()</span></td>
+                        <td>Singleton access</td>
+                    </tr>
+                    <tr>
+                        <td><strong>openLight</strong></td>
+                        <td><span class="signature">void openLight()</span></td>
+                        <td>Activate LED rim</td>
+                    </tr>
+                    <tr>
+                        <td><strong>closeLight</strong></td>
+                        <td><span class="signature">void closeLight()</span></td>
+                        <td>Deactivate LED rim</td>
+                    </tr>
+                    <tr>
+                        <td><strong>setLightColor</strong></td>
+                        <td><span class="signature">void setLightColor(int argb)</span></td>
+                        <td>ARGB color (e.g., <span class="param">0xFFFF0000</span> = red)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>setLightColorHsv</strong></td>
+                        <td><span class="signature">void setLightColorHsv(int hue)</span></td>
+                        <td>HSV hue value (0–360)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="ota">
+            <h2>3.6 OTA Firmware Updates (<code>glorystar-ota-sdk.aar</code>)</h2>
+            
+            <h3>Class: <span class="signature">com.glorystar.ota.OtaSdk</span></h3>
+            <table class="method-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Signature</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Constructor</strong></td>
+                        <td><span class="signature">OtaSdk(Context context)</span></td>
+                        <td>Initialize with Activity context</td>
+                    </tr>
+                    <tr>
+                        <td><strong>setDownloadUrl</strong></td>
+                        <td><span class="signature">void setDownloadUrl(String url)</span></td>
+                        <td>Set firmware package URL</td>
+                    </tr>
+                    <tr>
+                        <td><strong>downloadFirmware</strong></td>
+                        <td><span class="signature">void downloadFirmware()</span></td>
+                        <td>Start background download</td>
+                    </tr>
+                    <tr>
+                        <td><strong>upgrade</strong></td>
+                        <td><span class="signature">void upgrade()</span></td>
+                        <td>Trigger installation after download</td>
+                    </tr>
+                    <tr>
+                        <td><strong>setDownloadListener</strong></td>
+                        <td><span class="signature">void setDownloadListener(DownloadProgress listener)</span></td>
+                        <td>Monitor progress/events</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Listener Interface</h3>
+            <div class="code-block">
+                public interface DownloadProgress {<br>
+                &nbsp;&nbsp;void onPrepare();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Download initializing</span><br>
+                &nbsp;&nbsp;void onProgress(int percent);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Download progress (0–100)</span><br>
+                &nbsp;&nbsp;void onDownloadSuccess(String localPath);&nbsp;&nbsp;<span class="code-comment">// Download completed</span><br>
+                &nbsp;&nbsp;void onPreUpgrade();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Pre-installation checks</span><br>
+                &nbsp;&nbsp;void onUpgrade();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Installation in progress</span><br>
+                &nbsp;&nbsp;void onError(int code, String message);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Error handler</span><br>
+                }
+            </div>
+            
+            <h3>Critical Error Codes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Meaning</th>
+                        <th>Resolution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="return-val">1000</span></td>
+                        <td>Network/storage failure</td>
+                        <td>Verify connectivity & SD card space</td>
+                    </tr>
+                    <tr>
+                        <td><span class="return-val">2001</span></td>
+                        <td>Invalid firmware signature</td>
+                        <td>Firmware must be Glory Star-signed</td>
+                    </tr>
+                    <tr>
+                        <td><span class="return-val">3005</span></td>
+                        <td>Bootloader version mismatch</td>
+                        <td>Contact Glory Star support for compatible firmware</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="security">
+                <strong>Security Requirement:</strong> Only firmware packages cryptographically signed by Glory Star Group's certificate authority will install. Unsigned/custom firmware will be rejected by the secure bootloader – <strong>this is non-negotiable for device integrity</strong>.
+            </div>
+        </section>
+        
+        <section id="device-mgmt">
+            <h2>3.7 Device Management Utilities</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Function</th>
+                        <th>Class/Method</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Reboot</strong></td>
+                        <td><span class="signature">SystemOperate.rebootSystem()</span></td>
+                        <td>Graceful system reboot</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Screenshot</strong></td>
+                        <td><span class="signature">SystemOperate.screenShot(String path)</span></td>
+                        <td>Capture screen to PNG</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Serial Number</strong></td>
+                        <td><span class="signature">Build.getSerial()</span> (API 26+) / <span class="signature">Build.SERIAL</span> (legacy)</td>
+                        <td>Device unique identifier</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ethernet MAC</strong></td>
+                        <td><span class="signature">NetworkUtil.getEthernetMac()</span></td>
+                        <td>Wired network address</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wi-Fi MAC</strong></td>
+                        <td><span class="signature">NetworkUtil.getMacAddress()</span></td>
+                        <td>Wireless network address</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Storage</strong></td>
+                        <td><span class="signature">MemoryUtil.getInternalTotalSpace(Context)</span></td>
+                        <td>Total internal storage (bytes)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RAM</strong></td>
+                        <td><span class="signature">MemoryUtil.getTotalMemory(Context)</span></td>
+                        <td>Total system memory (bytes)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="compatibility">
+            <h2>4. Device Compatibility Matrix</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>NEB101 (rk3568)</th>
+                        <th>NEB156/215</th>
+                        <th>VegaX (rk3399/rk3568)</th>
+                        <th>JAR101-MR (rk3126c)</th>
+                        <th>NEB Glow Series</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Barcode</strong></td>
+                        <td>✓ (via add-on)</td>
+                        <td>✓ (via add-on)</td>
+                        <td>✓ (via add-on)</td>
+                        <td>✗</td>
+                        <td>✓ (via add-on)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elatec RFID</strong></td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                        <td>✗</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VegaX Built-in RFID</strong></td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✓</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GPIO</strong></td>
+                        <td>✓</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UART (RS232)</strong></td>
+                        <td>✓ (<code>/dev/ttyS7</code>)</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wiegand</strong></td>
+                        <td>✓</td>
+                        <td>✗</td>
+                        <td>✓</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dual Camera</strong></td>
+                        <td>✓ (add-on module)</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Relay</strong></td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✓ (2 channels)</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Basic RGB Strip</strong></td>
+                        <td>✓</td>
+                        <td>✗</td>
+                        <td>✓ (single LED)</td>
+                        <td>✓</td>
+                        <td>✗</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Advanced RGB (HSV)</strong></td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sensors</strong></td>
+                        <td>✓ (proximity/light)</td>
+                        <td>✗</td>
+                        <td>✓ (proximity/light)</td>
+                        <td>✗</td>
+                        <td>✗</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Button Monitoring</strong></td>
+                        <td>Volume/Home</td>
+                        <td>Volume/Home/Power</td>
+                        <td>Volume/Home</td>
+                        <td>Volume/Home</td>
+                        <td>Volume/Home</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section id="best-practices">
+            <h2>5. Integration Best Practices</h2>
+            
+            <h3>5.1 Hardware Lifecycle Management</h3>
+            <div class="code-block">
+                class HardwareActivity : AppCompatActivity() {<br>
+                &nbsp;&nbsp;private var barcode: BarcodeUtil? = null<br><br>
+                
+                &nbsp;&nbsp;override fun onCreate(savedInstanceState: Bundle?) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;super.onCreate(savedInstanceState)<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;barcode = BarcodeUtil(applicationContext)<br><br>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Critical: Verify initialization success BEFORE using hardware</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;if (barcode!!.init() != 1) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;showErrorDialog("Barcode scanner not detected")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;barcode!!.start()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;barcode!!.getData { data -> handleScan(data) }<br>
+                &nbsp;&nbsp;}<br><br>
+                
+                &nbsp;&nbsp;override fun onDestroy() {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;super.onDestroy()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// CRITICAL: Always release hardware resources</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;barcode?.stop()<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;barcode = null<br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+            
+            <h3>5.2 Root Permission Verification</h3>
+            <div class="code-block">
+                fun hasRootAccess(): Boolean {<br>
+                &nbsp;&nbsp;return try {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;val process = Runtime.getRuntime().exec("su -c 'echo test'")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;val reader = BufferedReader(InputStreamReader(process.inputStream))<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;reader.readLine() != null<br>
+                &nbsp;&nbsp;} catch (e: Exception) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;false<br>
+                &nbsp;&nbsp;}<br>
+                }
+            </div>
+            
+            <h3>5.3 COM Port Detection Strategy</h3>
+            <div class="code-block">
+                fun getRfidPort(): String = when (Build.MODEL) {<br>
+                &nbsp;&nbsp;"rk3399" -> "/dev/ttyUSB1"&nbsp;&nbsp;&nbsp;<span class="code-comment">// VegaX (older)</span><br>
+                &nbsp;&nbsp;"rk3568" -> "/dev/ttyS7"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// VegaX (newer) / NEB101</span><br>
+                &nbsp;&nbsp;else -> "/dev/ttyUSB1"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Fallback</span><br>
+                }
+            </div>
+        </section>
+        
+        <section id="support">
+            <h2>6. Support & Compliance</h2>
+            
+            <h3>6.1 Official Support Channels</h3>
+            <ul>
+                <li><strong>Hardware Integration Support:</strong> <a href="mailto:integration-support@glorystargroup.com.hk">integration-support@glorystargroup.com.hk</a><br>
+                <span class="badge badge-info">Response time: 4 business hours during Shenzhen business hours</span></li>
+                <li><strong>Firmware Signing Requests:</strong> <a href="mailto:firmware-signing@glorystargroup.com.hk">firmware-signing@glorystargroup.com.hk</a><br>
+                <span class="badge badge-info">Required for OTA deployment – 3 business day turnaround</span></li>
+                <li><strong>Emergency Hardware Issues:</strong> +86 755 8288 XXXX (24/7 hotline for critical deployments)</li>
+            </ul>
+            
+            <h3>6.2 Compliance Requirements</h3>
+            <ol>
+                <li>All commercial deployments <strong>must</strong> use Glory Star-signed firmware</li>
+                <li>Root access must be restricted to authorized personnel only</li>
+                <li>Relay/Wiegand interfaces controlling physical security <strong>must</strong> implement dual authentication</li>
+                <li>Device serial numbers must be registered in Glory Star's Partner Portal prior to deployment</li>
+            </ol>
+            
+            <div class="critical">
+                <strong>Warranty Notice:</strong> Modifications to system partitions, bootloader unlocking, or flashing of unsigned firmware <strong>will permanently void hardware warranty</strong>. Glory Star Group is not liable for damages resulting from unauthorized firmware modifications.
+            </div>
+        </section>
+        
+        <section id="appendix">
+            <h2>Appendix A: Complete Method Index by Library</h2>
+            
+            <h3><code>glorystar-hardware-sdk.aar</code></h3>
+            <div class="code-block">
+                com.glorystar.hardware.BarcodeUtil<br>
+                &nbsp;&nbsp;• BarcodeUtil(Context)<br>
+                &nbsp;&nbsp;• int init()<br>
+                &nbsp;&nbsp;• void start()<br>
+                &nbsp;&nbsp;• void stop()<br>
+                &nbsp;&nbsp;• void setCOM(String)<br>
+                &nbsp;&nbsp;• void getData(OnGetDataListener)<br>
+                &nbsp;&nbsp;• void setScanningMode(boolean)<br>
+                &nbsp;&nbsp;• void setLightMode(int)<br>
+                &nbsp;&nbsp;• void setAutoEnter(boolean)<br>
+                &nbsp;&nbsp;• void setBeep(boolean)<br><br>
+                
+                com.glorystar.hardware.RS232Util<br>
+                &nbsp;&nbsp;• RS232Util(Context)<br>
+                &nbsp;&nbsp;• int init()<br>
+                &nbsp;&nbsp;• void start()<br>
+                &nbsp;&nbsp;• void stop()<br>
+                &nbsp;&nbsp;• void setCOM(String)<br>
+                &nbsp;&nbsp;• void getData(OnGetDataListener)<br><br>
+                
+                com.glorystar.hardware.Sdk<br>
+                &nbsp;&nbsp;• void openRelay(int channel)<br>
+                &nbsp;&nbsp;• void closeRelay(int channel)<br><br>
+                
+                com.glorystar.hardware.GSIOSdk<br>
+                &nbsp;&nbsp;• int getRed() / void setRed(int)<br>
+                &nbsp;&nbsp;• int getGreen() / void setGreen(int)<br>
+                &nbsp;&nbsp;• void setYellow(int)<br><br>
+                
+                com.glorystar.hardware.SystemOperate<br>
+                &nbsp;&nbsp;• void rebootSystem()<br>
+                &nbsp;&nbsp;• void screenShot(String path)
+            </div>
+            
+            <h3><code>glorystar-rfid-sdk.aar</code></h3>
+            <div class="code-block">
+                com.glorystar.rfid.RfidModuleUtil<br>
+                &nbsp;&nbsp;• RfidModuleUtil(Context)<br>
+                &nbsp;&nbsp;• int init()<br>
+                &nbsp;&nbsp;• void start()<br>
+                &nbsp;&nbsp;• void stop()<br>
+                &nbsp;&nbsp;• void searchTag()<br>
+                &nbsp;&nbsp;• void readTag()<br>
+                &nbsp;&nbsp;• void writeTag(String hexData)<br>
+                &nbsp;&nbsp;• void getData(OnGetDataListener)<br><br>
+                
+                com.glorystar.rfid.RS485Util<br>
+                &nbsp;&nbsp;• RS485Util(Context)<br>
+                &nbsp;&nbsp;• int init()<br>
+                &nbsp;&nbsp;• void start()<br>
+                &nbsp;&nbsp;• void stop()<br>
+                &nbsp;&nbsp;• void setCOM(String)<br>
+                &nbsp;&nbsp;• void getData(OnGetDataListener)
+            </div>
+            
+            <h3><code>glorystar-camera-sdk.aar</code></h3>
+            <div class="code-block">
+                com.glorystar.camera.CameraPreviewManager<br>
+                &nbsp;&nbsp;• static CameraPreviewManager getInstance()<br>
+                &nbsp;&nbsp;• void setCameraFacing(int)<br>
+                &nbsp;&nbsp;• void startPreview(Activity, AutoTexturePreviewView, int, int)<br>
+                &nbsp;&nbsp;• void setRotate(int)<br>
+                &nbsp;&nbsp;• Camera mCamera<br><br>
+                
+                com.glorystar.camera.CameraPreviewManager2&nbsp;&nbsp;<span class="code-comment">// Dual-camera variant</span><br>
+                &nbsp;&nbsp;• [Identical API surface to CameraPreviewManager]
+            </div>
+            
+            <h3><code>glorystar-ota-sdk.aar</code></h3>
+            <div class="code-block">
+                com.glorystar.ota.OtaSdk<br>
+                &nbsp;&nbsp;• OtaSdk(Context)<br>
+                &nbsp;&nbsp;• void setDownloadUrl(String)<br>
+                &nbsp;&nbsp;• void downloadFirmware()<br>
+                &nbsp;&nbsp;• void upgrade()<br>
+                &nbsp;&nbsp;• void setDownloadListener(DownloadProgress)<br><br>
+                
+                com.glorystar.ota.DownloadProgress<br>
+                &nbsp;&nbsp;• void onPrepare()<br>
+                &nbsp;&nbsp;• void onProgress(int)<br>
+                &nbsp;&nbsp;• void onDownloadSuccess(String)<br>
+                &nbsp;&nbsp;• void onPreUpgrade()<br>
+                &nbsp;&nbsp;• void onUpgrade()<br>
+                &nbsp;&nbsp;• void onError(int, String)
+            </div>
+            
+            <h3><code>glorystar-lighting-sdk.aar</code></h3>
+            <div class="code-block">
+                com.glorystar.lighting.LightSdk<br>
+                &nbsp;&nbsp;• static LightSdk getInstance()<br>
+                &nbsp;&nbsp;• void openLight()<br>
+                &nbsp;&nbsp;• void closeLight()<br>
+                &nbsp;&nbsp;• void setLightColor(int argb)<br>
+                &nbsp;&nbsp;• void setLightColorHsv(int hue)
+            </div>
+        </section>
+        
+        <div class="footer">
+            <p>© 2026 Glory Star Group Limited. All rights reserved.</p>
+            <p>This document contains proprietary information of Glory Star Group. Distribution prohibited without written authorization.</p>
+            <p>Prepared by Glory Star Group Engineering Documentation Team, Shenzhen HQ</p>
+            <p>Verification Hash: <code>sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code></p>
+        </div>
+    </div>
+</body>
+</html>

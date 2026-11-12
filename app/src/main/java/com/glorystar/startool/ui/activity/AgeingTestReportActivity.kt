@@ -146,7 +146,7 @@ class AgeingTestReportActivity : BaseActivity() {
                     stringbuilder?.append("\n")
 
                 }
-                Constantdtas.writeSDFile(stringbuilder.toString())
+                Constantdtas.writeSDFile(stringbuilder.toString(),"老化测试报告")
 
                 ado?.deleteAll()
             }

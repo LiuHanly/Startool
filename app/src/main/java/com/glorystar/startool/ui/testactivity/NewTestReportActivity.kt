@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.StatFs
 import android.os.storage.StorageManager
+import android.os.storage.StorageVolume
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
@@ -19,6 +20,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
+import com.glorystar.startool.config.base.MyApplication
 import com.glorystar.startool.config.bean.GridItem
 import com.glorystar.startool.config.constant.Constantdtas
 import com.glorystar.startool.config.constant.TeacherDataBase
@@ -33,9 +35,14 @@ import com.glorystar.startool.utils.tool.DateUtil
 import com.glorystar.startool.utils.tool.NetworkUtil
 import com.glorystar.startool.utils.tool.NetworkUtil.getMacAddressTextView
 import com.glorystar.startool.utils.tool.Rootcommands
+import com.glorystar.startool.utils.tool.ToastUtil
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.io.File
+import java.lang.reflect.Method
 import java.math.BigDecimal
+import kotlin.collections.forEach
+import kotlin.collections.isNotEmpty
 
 class NewTestReportActivity : BaseActivity() {
     lateinit var TerDao: TeacherDao
@@ -48,6 +55,8 @@ class NewTestReportActivity : BaseActivity() {
     // lateinit var textView2: TextView
     lateinit var finish_buton: Button
     lateinit var finish_buton1: Button
+    lateinit var finish_buton2: Button
+
     lateinit var recyclerView: RecyclerView
     lateinit var Serial_number6: TextView
     lateinit var Serial_number7: TextView
@@ -83,6 +92,7 @@ class NewTestReportActivity : BaseActivity() {
         finish_buton = findViewById(R.id.finish_buton)
         Inter_shared_storage = findViewById(R.id.Inter_shared_storage)
         finish_buton1 = findViewById(R.id.finish_buton1)
+        finish_buton2 = findViewById(R.id.finish_buton2)
 
         // textView2.text = MyApplication.Testname
         mstoragemanager = getSystemService(STORAGE_SERVICE) as StorageManager
@@ -178,6 +188,68 @@ class NewTestReportActivity : BaseActivity() {
         } catch (e: Exception) {
         }
 
+        val Serial = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Build.getSerial()
+        } else {
+            Build.SERIAL
+        }
+
+        val path = MyApplication.context?.getExternalFilesDir("log_${Serial}").toString()
+        finish_buton2.setOnClickListener{
+            try {
+                val directory = File(path)
+                val hasFiles = if (directory.exists() && directory.isDirectory) {
+                    // listFiles() 会返回目录下所有文件和文件夹的数组，如果数组不为空且长度大于 0，说明有文件
+                    val files = directory.listFiles()
+                    files != null && files.isNotEmpty()
+                } else {
+                    false // 文件夹不存在或者不是一个目录
+                }
+                val volumeList: List<StorageVolume> =
+                    mstoragemanager?.getStorageVolumes() as List<StorageVolume>
+                if (volumeList.isNotEmpty()) {
+                    var mPath = ""
+                    volumeList.forEach {
+                        val label: String = it.getDescription(this) //这个其实就是U盘的名称
+                        val status: String = it.getState()
+                        val isEmulated = it.isEmulated()            //是否是内部存储设备
+                        val isRemovable = it.isRemovable()          //是否是可移除的外部存储设备
+                        val myclass = Class.forName("android.os.storage.StorageVolume")
+                        val getPath: Method = myclass.getMethod("getPath")
+                        getPath.isAccessible = true
+                        if (!isEmulated && isRemovable) {
+                            mPath = getPath.invoke(it).toString()
+                            Log.e("USBInterfaceActivity", "--->${mPath} -->${label}")
+                        }
+
+                    }
+                    if (mPath.isNotEmpty()) {
+                        Log.e("USBInterfaceActivity", "--->${mPath}")
+                        if (hasFiles){
+                            val command = "cp -rf \"$path\" \"$mPath/\""
+                            val runRoot =  Rootcommands.runRootCommand(command)
+                            if (runRoot){
+                                ToastUtil.showMsg("Copy complete")
+                            }
+                            Log.d("FileCheck", "--->$runRoot")
+                        }else {
+                            ToastUtil.showMsg("USB device not found")
+                            // 路径下没有文件，或者文件夹根本不存在
+                            Log.d("FileCheck", "No files found in this path, or the folder does not exist")
+                        }
+
+
+                    } else {
+                        ToastUtil.showMsg("USB device not found")
+                    }
+
+                }
+            } catch (e: Exception) {
+                Log.e("USBInterfaceActivity", "--->${e.message}")
+            }
+
+        }
+
     }
 
     @SuppressLint("NewApi")
@@ -195,7 +267,7 @@ class NewTestReportActivity : BaseActivity() {
                 stringbuilder?.append("\n")
             }
             Log.e("setLinst", stringbuilder.toString())
-            Constantdtas.writeSDFile(stringbuilder.toString())
+            Constantdtas.writeSDFile(stringbuilder.toString(),"工厂测试")
             // val testname = MyApplication.Testname
             //+ DateUtil.stampToTime(DateUtil.timeStamp.toString())
 //            val name = "${testname+ Build.SERIAL }.txt"

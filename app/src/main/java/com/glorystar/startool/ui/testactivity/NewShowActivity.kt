@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.ContentResolver
 import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -24,8 +23,10 @@ import androidx.core.view.setPadding
 import androidx.viewpager.widget.PagerAdapter
 import com.glorystar.startool.R
 import com.glorystar.startool.config.base.BaseActivity
+import com.glorystar.startool.config.base.MyApplication.Companion.context
 import com.glorystar.startool.config.constant.IntenAcitivity
 import com.glorystar.startool.ui.view.NoScrollViewPager
+import com.glorystar.startool.utils.tool.Rootcommands
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -92,31 +93,31 @@ class NewShowActivity : BaseActivity() {
                             noscroll_Viewpager_ScreenShow?.currentItem = 1
                         } else {
                             isTher = false
-/*                          timeThread = 50L
-                            when (progressIntx) {
-                                MinBrightness -> {
-                                    isProgess = false
-                                    isInfox++
-                                }
+                            /*                          timeThread = 50L
+                                                        when (progressIntx) {
+                                                            MinBrightness -> {
+                                                                isProgess = false
+                                                                isInfox++
+                                                            }
 
-                                MaxBrightness -> {
-                                    isProgess = true
-                                    isInfox++
-                                }
-                            }
-                            if(isInfox != 3){
-                                Log.e("getResolver", "--progress-->${progressIntx}")
-                                seekBar?.progress = progressIntx
-                                setScreenLight(progressIntx)
-                            }
-                            if (isProgess) {
-                                progressIntx--
-                            } else {
-                                progressIntx++
-                            }
-                            if (isInfox == 3) {
-                                setIntenAcit()
-                            }*/
+                                                            MaxBrightness -> {
+                                                                isProgess = true
+                                                                isInfox++
+                                                            }
+                                                        }
+                                                        if(isInfox != 3){
+                                                            Log.e("getResolver", "--progress-->${progressIntx}")
+                                                            seekBar?.progress = progressIntx
+                                                            setScreenLight(progressIntx)
+                                                        }
+                                                        if (isProgess) {
+                                                            progressIntx--
+                                                        } else {
+                                                            progressIntx++
+                                                        }
+                                                        if (isInfox == 3) {
+                                                            setIntenAcit()
+                                                        }*/
 
                         }
 
@@ -152,7 +153,13 @@ class NewShowActivity : BaseActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun initView(savedInstanceState: Bundle?) {
-
+//        if (Settings.System.canWrite(context)) {
+//            // 有权限，直接设置亮度
+//        } else {
+//            // 跳转系统设置页面让用户授权
+//            val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+//            startActivity(intent)
+//        }
 
         val view1 = layoutInflater.inflate(R.layout.screen_view_noe, null)
         val view2 = layoutInflater.inflate(R.layout.screen_view_tow, null)
@@ -252,8 +259,10 @@ class NewShowActivity : BaseActivity() {
     @Synchronized
     fun setScreenLight(brightness: Int) {
         val resolver: ContentResolver = getContentResolver()
-        Settings.System.putInt(resolver, Settings.System.SCREEN_BRIGHTNESS, brightness)
-
+        val safeBrightness = brightness.coerceIn(0, 255)
+        //   Settings.System.putInt(resolver, Settings.System.SCREEN_BRIGHTNESS, brightness)
+        val cmd = "settings put system screen_brightness_mode 0 && settings put system screen_brightness $safeBrightness"
+        Rootcommands.runRootCommand(cmd)
 //        val uri: Uri = Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS)
 //        val contentResolver = contentResolver
 //        Settings.System.putInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS, brightness)
@@ -292,9 +301,10 @@ class NewShowActivity : BaseActivity() {
             "-Maximum-${brightnessSettingMaximum} -Minimum- ${brightnessSettingMinimum}"
         )
     }
+
     @Synchronized
-    fun setIntenAcit(){
-        Log.e("getResolver","--->${isInfox}")
+    fun setIntenAcit() {
+        Log.e("getResolver", "--->${isInfox}")
         isTher = false
 
     }

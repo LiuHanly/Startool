@@ -310,6 +310,41 @@
             </RelativeLayout>
             <RelativeLayout
                 android:layout_marginTop="24mm"
+                android:id="@+id/relative_ALU100_150_210_A733"
+                android:layout_width="match_parent"
+                android:layout_height="103mm"
+                android:background="@drawable/selector_mode_bg"
+                android:paddingLeft="25mm"
+                android:paddingRight="24mm">
+
+                <ImageView
+                    android:id="@+id/iv_25"
+                    android:layout_width="31mm"
+                    android:layout_height="31mm"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_device" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="24mm"
+                    android:layout_toRightOf="@+id/iv_25"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="A733"
+                    android:textColor="@color/white"
+                    android:textSize="25mm" />
+
+                <ImageView
+                    android:layout_width="51mm"
+                    android:layout_height="51mm"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="24mm"
                 android:id="@+id/relative_ALU100_150_210_A133"
                 android:layout_width="match_parent"
                 android:layout_height="103mm"

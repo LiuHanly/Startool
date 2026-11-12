@@ -6,16 +6,30 @@ import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
+import android.os.Build
+import android.text.TextUtils
+import android.webkit.WebView
 import cn.wandersnail.commons.poster.ThreadMode
 import com.glorystar.startool.config.bluetooth.BTManager
 import com.glorystar.startool.config.constant.Constantdtas
 import me.jessyan.autosize.AutoSizeConfig
 import me.jessyan.autosize.onAdaptListener
 import me.jessyan.autosize.unit.Subunits
+import java.io.BufferedReader
+import java.io.FileReader
 
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        // Android 9 (API 28) 及以上系统，必须为多进程 WebView 设置独立的数据目录后缀
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            val processName = getCurrentProcessNameLegacy()
+            if (!TextUtils.isEmpty(processName) && packageName != processName) {
+                // 将 :webview 进程的目录后缀设为独立的名字（如 webview_sub）
+                // 这样系统就会创建一个独立安全的沙箱目录，彻底避开 System UID 的主进程禁用限制
+                WebView.setDataDirectorySuffix("webview_sub")
+            }
+        }
         context = applicationContext
         mConfiguration =  this.resources.configuration;
         AutoSizeConfig.getInstance().setLog(true)
@@ -36,7 +50,22 @@ class MyApplication : Application() {
             .build()
         manager.initialize(this)
     }
-
+    /**
+     * 兼容性更好的获取当前进程名的方法
+     */
+    private fun getCurrentProcessNameLegacy(): String? {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            return getProcessName()
+        }
+        try {
+            val reader = BufferedReader(FileReader("/proc/self/cmdline"))
+            val processName = reader.readLine().trim()
+            reader.close()
+            return processName
+        } catch (e: Exception) {
+            return null
+        }
+    }
     companion object {
         @SuppressLint("StaticFieldLeak")
         var context: Context? = null

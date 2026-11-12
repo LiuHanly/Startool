@@ -2,7 +2,9 @@ package com.glorystar.startool.ui.testactivity
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Application.getProcessName
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -65,11 +67,10 @@ class NewRJ45Activity : BaseActivity() {
     override fun getLayoutId(): Int = R.layout.activity_new_rj45
     override fun initView(savedInstanceState: Bundle?) {
         StatusNaviBarUitl.hide(this@NewRJ45Activity)
-
         through_bu = findViewById(R.id.through_bu)
         full_webView = findViewById(R.id.full_webView)
 
-        mHandler.sendEmptyMessage(0)
+
         full_webView.webChromeClient = WebChromeClient()
         full_webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -95,7 +96,7 @@ class NewRJ45Activity : BaseActivity() {
             IntenAcitivity.getIntenAcitivity(this@NewRJ45Activity, 6, 2, 1)
 
         }
-
+        mHandler.sendEmptyMessage(0)
     }
 
     override fun onStop() {
